@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Zbot — 智能AI外贸员，智能出海，渤达全球。自动帮您查找全球买家官网、邮箱和LinkedIn联系方式，一键导出可用数据，让客户开发更高效。" name="description"/>
+<meta content="AI外贸员, 外贸客户开发, 批量查找Leads, AI客户管理, 出口营销自动化, 外贸AI助手, Zbot, 海关数据, Apollo数据" name="keywords"/>
+<title>Zbot | 智能AI外贸员 - 智能出海，渤达全球</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght=400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A1A1A;
+            line-height: 1.6;
+            background: #FFFFFF;
+        }
+        
+        /* Zbot Logo Image Styling (Updated) */
+        .zbot-logo-img {
+            /* 使用 Zbot logo 2.png */
+            background-image: url('Zbot logo 2.png-cece0f79-7045-46c7-a6d6-53737cc7b3a8'); /* 替换为您的实际 Content Fetch ID 或路径 */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        /* Top Navigation Bar */
+        .top-nav {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .top-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #2E5CCB; /* 品牌蓝色 */
+        }
+
+        /* 导航 Logo 样式 */
+        .nav-brand .zbot-logo-img {
+            width: 30px; 
+            height: 30px; 
+            color: #2E5CCB; 
+        }
+        
+        .nav-type-badge {
+            background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(0, 198, 255, 0.3);
+        }
+        
+        .nav-switch {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .nav-switch-label {
+            font-size: 14px;
+            color: #5A6B8C;
+            font-weight: 600;
+        }
+        
+        .nav-b2b-active {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 249, 161, 0.1) 100%);
+            color: #2E5CCB;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            border: 2px solid #00C6FF;
+            font-size: 15px;
+        }
+        
+        .nav-b2c-link {
+            background: transparent;
+            color: #5A6B8C;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            border: 2px solid #E5E9F2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            display: inline-block;
+        }
+        
+        .nav-b2c-link:hover {
+            border-color: #00C6FF;
+            color: #2E5CCB;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.05) 0%, rgba(0, 249, 161, 0.05) 100%);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section - 科技风/对比鲜明渐变背景 */
+        .hero {
+            /* 深蓝-太空紫渐变，与蓝绿Logo形成对比 */
+            background: linear-gradient(135deg, #0A1931 0%, #152A50 100%); 
+            color: white;
+            padding: 100px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* 保留蓝绿 Logo 配色的微光效果 */
+            background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%);
+            opacity: 0.1; /* 降低不透明度，使深色背景更突出 */
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.15; }
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            right: -10%;
+            height: 150px;
+            /* 保持波浪分隔线 */
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="%23FFFFFF"></path></svg>') repeat-x;
+            background-size: 1200px 120px;
+        }
+        
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Hero Logo 样式 */
+        .logo {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+            text-shadow: 0 0 30px rgba(0, 198, 255, 0.6);
+            letter-spacing: 3px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-container .zbot-logo-img {
+            width: 80px; 
+            height: 80px; 
+            margin-right: 20px;
+            filter: drop-shadow(0 0 20px rgba(0, 198, 255, 0.5));
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Updated Tagline */
+        .tagline {
+            font-size: 22px; /* 提升字号 */
+            margin-bottom: 40px;
+            color: #56E6FF; /* 亮蓝色 */
+            font-weight: 700; /* 加粗 */
+            line-height: 1.4;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 22px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+        
+        /* NEW: Data Source Disclaimer Style */
+        .data-disclaimer {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 900px;
+            margin: 30px auto 0;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .data-disclaimer strong {
+            color: #00F9A1;
+        }
+
+        .data-disclaimer .note-en {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        
+        /* CTA 颜色保持不变，与 Logo 颜色一致 */
+        .cta-primary {
+            padding: 18px 45px;
+            background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 249, 161, 0.6);
+            filter: brightness(1.15);
+        }
+        
+        .cta-secondary {
+            padding: 18px 45px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-secondary:hover {
+            background: white;
+            color: #1A1A1A; /* 改为深色，与新背景对比 */
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: #FFFFFF;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #5A6B8C;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FBFF 100%);
+            padding: 45px 35px;
+            border-radius: 20px;
+            border: 2px solid #E5E9F2;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 198, 255, 0.2);
+            border-color: #00C6FF;
+        }
+        
+        .feature-icon {
+            font-size: 72px;
+            margin-bottom: 25px;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0, 198, 255, 0.3));
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h4 {
+            font-size: 16px;
+            color: #00C6FF;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #5A6B8C;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Comparison Section */
+        .comparison {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%);
+        }
+        
+        .comparison-table {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(46, 92, 203, 0.1);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            /* 保持蓝色的标题，与 Logo 蓝色呼应 */
+            background: linear-gradient(90deg, #2E5CCB 0%, #1a3d8f 100%);
+            color: white;
+            padding: 25px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 1px solid #E5E9F2;
+            font-size: 16px;
+        }
+        
+        .comparison-table tr:hover {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.05) 0%, rgba(0, 249, 161, 0.05) 100%);
+        }
+        
+        .comparison-table .feature-name {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 20px;
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #E5E9F2;
+            border-left: 5px solid #00C6FF;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 198, 255, 0.2);
+            border-left-color: #00F9A1;
+        }
+        
+        .testimonial-quote {
+            font-size: 18px;
+            color: #1A1A1A;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .testimonial-author {
+            font-size: 16px;
+            color: #5A6B8C;
+            font-style: italic;
+        }
+        
+        /* Form Section */
+        .form-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%);
+        }
+        
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(46, 92, 203, 0.1);
+            border: 2px solid #E5E9F2;
+        }
+
+        /* NEW: Toggle between Chatbot and Form */
+        .submission-options {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .submission-option input[type="radio"] {
+            display: none;
+        }
+
+        .submission-label {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            border: 2px solid #E5E9F2;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #5A6B8C;
+            transition: all 0.3s ease;
+        }
+
+        .submission-label i {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #5A6B8C;
+        }
+
+        .submission-option input[type="radio"]:checked + .submission-label {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 249, 161, 0.1) 100%);
+            border-color: #00C6FF;
+            color: #2E5CCB;
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.2);
+        }
+
+        .submission-option input[type="radio"]:checked + .submission-label i {
+            color: #00C6FF;
+        }
+        /* END NEW: Toggle between Chatbot and Form */
+
+        /* UPDATED: Chatbot Panel for showcasing results */
+        #chatbotPanel {
+            display: none;
+            padding: 30px;
+            background: #F8FBFF;
+            border: 1px solid #E5E9F2;
+            border-radius: 15px;
+            min-height: 400px;
+            animation: fadeIn 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .chat-area {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .chat-message {
+            margin-bottom: 20px;
+            font-size: 16px;
+            clear: both;
+        }
+
+        .chat-avatar {
+            float: left;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: #00C6FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 2px 10px rgba(0, 198, 255, 0.5);
+        }
+
+        .chat-bubble {
+            display: inline-block;
+            padding: 15px 20px;
+            border-radius: 20px;
+            max-width: 75%;
+            position: relative;
+        }
+
+        /* Bot Message (Bobo) */
+        .chat-bot .chat-bubble {
+            background: linear-gradient(135deg, #00C6FF 0%, #00F9A1 100%);
+            color: white;
+            border-bottom-left-radius: 5px;
+            float: left;
+        }
+
+        /* User Message (Hidden in this demo, but for completeness) */
+        .chat-user {
+            text-align: right;
+        }
+
+        .chat-user .chat-bubble {
+            background: #E5E9F2;
+            color: #1A1A1A;
+            border-bottom-right-radius: 5px;
+            float: right;
+        }
+
+        .chat-user .chat-avatar {
+            float: right;
+            margin-left: 15px;
+            margin-right: 0;
+            background-color: #2E5CCB;
+        }
+
+        /* Result Image & Download Button */
+        .chat-result {
+            clear: both;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .chat-result img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .chat-download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #2E5CCB;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .chat-download-btn:hover {
+            background: #1a3d8f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46, 92, 203, 0.3);
+        }
+        /* END UPDATED: Chatbot Panel */
+        
+        .form-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 15px;
+        }
+        
+        .form-subtitle {
+            text-align: center;
+            color: #5A6B8C;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        /* Form panels for different query types (inside the main form area) */
+        .toggle-section {
+            margin-bottom: 40px;
+        }
+        
+        .toggle-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 25px;
+        }
+        
+        .toggle-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .toggle-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .toggle-label {
+            display: block;
+            padding: 20px;
+            background: #FFFFFF;
+            border: 2px solid #E5E9F2;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            color: #5A6B8C;
+        }
+        
+        .toggle-label:hover {
+            border-color: #56E6FF;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.05) 0%, rgba(0, 249, 161, 0.05) 100%);
+        }
+        
+        .toggle-option input[type="radio"]:checked + .toggle-label {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 249, 161, 0.1) 100%);
+            border-color: #00C6FF;
+            color: #2E5CCB;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.2);
+        }
+        
+        .toggle-label .option-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #E5E9F2;
+            color: #5A6B8C;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 28px;
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-option input[type="radio"]:checked + .toggle-label .option-number {
+            background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%);
+            color: white;
+        }
+        
+        .option-description {
+            display: block;
+            font-size: 13px;
+            color: #5A6B8C;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+        
+        .form-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Form panel for query type 1, 2, 3 */
+        .query-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .query-panel.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+        }
+        
+        .required {
+            color: #00C6FF;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #E5E9F2;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #FFFFFF;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #00C6FF;
+            box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .upload-area {
+            border: 2px dashed #E5E9F2;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #F8FBFF;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .upload-area:hover {
+            border-color: #00C6FF;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.05) 0%, rgba(0, 249, 161, 0.05) 100%);
+        }
+        
+        .upload-area input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.5);
+            margin-top: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 249, 161, 0.6);
+            filter: brightness(1.15);
+        }
+        
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 249, 161, 0.1) 100%);
+            border: 2px solid #00C6FF;
+            color: #1A1A1A;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .privacy-note {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.05) 0%, rgba(0, 249, 161, 0.05) 100%);
+            border-radius: 10px;
+            font-size: 13px;
+            color: #5A6B8C;
+            border-left: 4px solid #00C6FF;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 100px 20px;
+            background: white;
+        }
+        
+        .faq-list {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            background: #FFFFFF;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #E5E9F2;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #56E6FF;
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #1A1A1A;
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.05) 0%, rgba(0, 249, 161, 0.05) 100%);
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #5A6B8C;
+            line-height: 1.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 25px 20px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            font-size: 24px;
+            color: #00C6FF;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+            color: #00F9A1;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1A1A1A;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.6);
+        }
+        
+        .footer-tagline {
+            font-size: 16px;
+            color: #56E6FF;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #00C6FF;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            
+            .logo {
+                font-size: 42px;
+            }
+
+            .logo-container .zbot-logo-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .comparison-table {
+                overflow-x: auto;
+            }
+            
+            .top-nav-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-switch {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-b2b-active,
+            .nav-b2c-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .submission-options {
+                flex-direction: column;
+            }
+
+            .chat-bubble {
+                max-width: 85%;
+            }
+        }
+    </style>
+<style id="zbulk-overrides">
+/* === ZBULK Overrides (updated v3) === */
+#formPanel { display: block; }      /* visible by default; JS will toggle */
+#chatbotPanel { display: none; }    /* hidden by default; JS will toggle */
+#formPanel .form-panel { display: block; }
+#formPanel .form-panel:not(.active) { display: none; }
+</style></head>
+<body onload="switchSubmissionPanel('form')">
+<nav class="top-nav">
+<div class="top-nav-content">
+<div class="nav-brand">
+<span class="zbot-logo-img"></span>
+<span class="nav-logo">Zbot</span>
+<span class="nav-type-badge">智能AI外贸员</span>
+</div>
+<div class="nav-switch">
+<span class="nav-switch-label">选择您的业务类型：</span>
+<span class="nav-b2b-active">🏭 B2B 企业买家</span>
+<a class="nav-b2c-link" href="#">🛒 B2C 跨境电商 →</a>
+</div>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<div class="logo-container">
+<span class="zbot-logo-img"></span>
+<div class="logo">Zbot</div>
+</div>
+<p class="tagline">智能AI外贸员 · 智能出海，渤达全球<br/>AI Leads Global Trade</p>
+<h1>让AI帮你开发全球客户</h1>
+<p class="subtitle">
+                Zbot 智能AI助理，自动收集买家官网、邮箱、社交媒体、LinkedIn，一键导出CRM。<br/>
+                告别手工查找，让AI成为您的24小时外贸助手。
+            </p>
+<div class="hero-ctas">
+<a class="cta-primary" href="#form">🚀 免费体验</a>
+<a class="cta-secondary" href="#features">📊 查看演示</a>
+</div>
+<div class="data-disclaimer">
+<strong>数据来源：</strong> Zbot 整合了**全球海关数据**、**网络爬取数据**、**社交媒体**、**Apollo等多个数据库API**，确保数据全面性。<br/>
+<span class="note-en">The data is formatted like a standard Apollo export, including name, email, phone, job title, industry, website, location, and more. Custom formatting or enrichment is not offered.</span>
+</div>
+</div>
+</section>
+<section class="features" id="features">
+<div class="container">
+<h2 class="section-title">Zbot AI助理的五大能力</h2>
+<p class="section-subtitle">Five Core AI Capabilities</p>
+<div class="features-grid">
+<div class="feature-card">
+<span class="feature-icon">🤖</span>
+<h3>AI客户开发</h3>
+<h4>AI Buyer Discovery</h4>
+<p>自动识别并推荐全球潜在买家，基于行业、产品、地区等多维度智能匹配，让您的客户开发更精准。</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">🌍</span>
+<h3>批量抓取官网</h3>
+<h4>Bulk Website Finder</h4>
+<p>上传公司名单，AI自动匹配官网，支持全球多语言识别，准确率高达95%，节省大量人工查找时间。</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">✉️</span>
+<h3>邮箱与社交信息提取</h3>
+<h4>Email &amp; Social Contact Extraction</h4>
+<p>抓取决策人邮箱、LinkedIn、Facebook、Twitter等社交媒体联系方式，建立多渠道触达能力。</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">📊</span>
+<h3>数据清洗与导出</h3>
+<h4>Clean &amp; Export Data</h4>
+<p>自动去重、验证邮箱有效性，导出CRM-ready CSV格式，可直接导入Salesforce、HubSpot等系统。</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">🚀</span>
+<h3>智能外联建议</h3>
+<h4>Smart Outreach Recommendations</h4>
+<p>自动生成个性化开发信模板，提供最佳联系时机建议，提升外联响应率和转化率。</p>
+</div>
+<div class="feature-card">
+<span class="feature-icon">🔗</span>
+<h3>多源数据集成</h3>
+<h4>Multi-Source Data Integration</h4>
+<p>深度整合**海关数据**、网络数据及**Apollo等**API，提供最全面的公司和决策人信息，助您掌握市场先机。</p>
+</div>
+</div>
+</div>
+</section>
+<section class="comparison">
+<div class="container">
+<h2 class="section-title">为什么选择 Zbot？</h2>
+<p class="section-subtitle">Why Choose Zbot?</p>
+<div class="comparison-table">
+<table>
+<thead>
+<tr>
+<th>功能对比</th>
+<th>Zbot</th>
+<th>传统人工</th>
+<th>Apollo等平台</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="feature-name">自动化程度</td>
+<td>✅ 全自动AI</td>
+<td>❌ 手动搜索</td>
+<td>⚠️ 部分自动</td>
+</tr>
+<tr>
+<td class="feature-name">价格</td>
+<td>💰 亲民</td>
+<td>💸 高人工成本</td>
+<td>💸 昂贵订阅</td>
+</tr>
+<tr>
+<td class="feature-name">数据范围</td>
+<td>🌎 全球买家 + **海关数据**</td>
+<td>🌍 有限</td>
+<td>🌎 偏欧美/API数据</td>
+</tr>
+<tr>
+<td class="feature-name">数据格式</td>
+<td>✅ 标准CRM-ready</td>
+<td>❌ 格式不统一</td>
+<td>✅ 标准API格式</td>
+</tr>
+<tr>
+<td class="feature-name">查找速度</td>
+<td>⚡️ 秒级批量响应</td>
+<td>🐢 天/周级人工搜索</td>
+<td>💨 实时API调用</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="form-section" id="form">
+<div class="container">
+<div class="form-container">
+<h2 class="form-title">即刻开启智能客户开发</h2>
+<p class="form-subtitle">选择您的AI外贸助理模式：聊天互动/表格提交</p>
+<div class="submission-options">
+<div class="submission-option">
+<input checked="" id="toggleChatbot" name="submissionMode" onchange="switchSubmissionPanel('chatbot')" type="radio" value="chatbot"/>
+<label class="submission-label" for="toggleChatbot"><i class="fas fa-comment-dots"></i> AI外贸员成果展示</label>
+</div>
+<div class="submission-option">
+<input id="toggleForm" name="submissionMode" onchange="switchSubmissionPanel('form')" type="radio" value="form"/>
+<label class="submission-label" for="toggleForm"><i class="fas fa-file-upload"></i> 提交您的公司名单</label>
+</div>
+</div>
+<div class="form-panel" id="chatbotPanel">
+<div class="chat-area">
+<h3 style="text-align: center; margin-bottom: 25px;">AI外贸员 Bobo 成果演示</h3>
+<div class="chat-message chat-user">
+<span class="chat-avatar">U</span>
+<div class="chat-bubble">Bobo，帮我调研一下我提供的20个公司，找出所有关键决策人的联系方式。</div>
+</div>
+<div class="chat-message chat-bot">
+<span class="chat-avatar">B</span>
+<div class="chat-bubble">你好，我是你的AI外贸助理Bobo。这是您让我完成的20个公司调研，已从海关、社交媒体、Apollo等数据库聚合信息，并清洗完毕。</div>
+</div>
+<div class="chat-message chat-bot">
+<span class="chat-avatar">B</span>
+<div class="chat-bubble">这里是关键决策人的联系方式和公司的详细数据，已产出一个CRM-ready的CSV文件。</div>
+</div>
+<div class="chat-result">
+<img alt="AI外贸员成果展示：CSV数据预览" src="成果展示.jpg-8191e95b-2375-420f-899d-2fd90cefdc6c" title="AI外贸员成果展示：CSV数据预览"/>
+<a class="chat-download-btn" href="#"><i class="fas fa-download"></i> 下载成果CSV (20 Leads)</a>
+</div>
+</div>
+</div>
+<div class="form-panel" id="formPanel"><div class="zbulk-wrapper">
+<h2 class="form-title">提交您的查询订单</h2>
+<p class="form-subtitle">选择您的查询方式，填写表单，我们将在 24-48 小时内处理并发送结果</p>
+ Toggle Section 
+<div class="toggle-section">
+<h3 class="toggle-title">选择您的 Lead 查找方式 / Select Your Lead Finding Option</h3>
+<div class="toggle-options">
+<div class="toggle-option">
+<input checked="" id="option1" name="leadOption" onchange="switchFormPanel('panel1')" type="radio" value="company-name"/>
+<label class="toggle-label" for="option1">
+<span class="option-number">1</span>
+<span>根据公司名称查找</span>
+<span class="option-description">Find Company Websites &amp; Extract Leads</span>
+</label>
+</div>
+<div class="toggle-option">
+<input id="option2" name="leadOption" onchange="switchFormPanel('panel2')" type="radio" value="custom-filters"/>
+<label class="toggle-label" for="option2">
+<span class="option-number">2</span>
+<span>自定义筛选条件</span>
+<span class="option-description">Build Your Own Lead Filters</span>
+</label>
+</div>
+<div class="toggle-option">
+<input id="option3" name="leadOption" onchange="switchFormPanel('panel3')" type="radio" value="create-filters"/>
+<label class="toggle-label" for="option3">
+<span class="option-number">3</span>
+<span>帮我创建筛选条件</span>
+<span class="option-description">Create Filters for Me</span>
+</label>
+</div>
+</div>
+</div>
+ Form Panel 1: Company Name Search 
+<form class="form-panel active" id="searchForm1">
+<div class="form-group">
+<label>姓名 / Full Name <span class="required">*</span></label>
+<input name="fullName" placeholder="请输入您的姓名" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>邮箱 / Email <span class="required">*</span></label>
+<input name="email" placeholder="请输入您的邮箱地址" required="" type="email"/>
+</div>
+<div class="form-group">
+<label>电话 / Phone <span class="required">*</span></label>
+<input name="phone" placeholder="+86 138-0000-0000" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>需要查询的公司数量 / How Many Companies to Process <span class="required">*</span></label>
+<input min="1" name="quantity" placeholder="例如：10000" required="" type="number"/>
+</div>
+<div class="form-group">
+<label>上传公司名单或手动输入 / Upload Company List or Paste Manually</label>
+<div class="upload-area" onclick="document.getElementById('fileInput1').click()">
+<input accept=".csv,.txt,.xlsx" id="fileInput1" onchange="handleFileUpload(this, 'fileInput1')" type="file"/>
+<div class="upload-icon">📁</div>
+<div class="upload-text">点击上传 CSV/Excel 文件或拖放到此处<br/>Click to upload CSV/Excel file or drag it here</div>
+<div style="font-size: 12px; color: #5A6B8C; margin-top: 10px;">支持格式 / Support: CSV, TXT, XLSX</div>
+</div>
+<p style="text-align: center; margin: 20px 0; color: #5A6B8C; font-weight: 600; font-size: 16px;">或 / OR</p>
+<textarea name="companyList" placeholder="公司名称 1
+公司名称 2
+公司名称 3
+
+每行一个公司名称 / One company name per line"></textarea>
+</div>
+<button class="submit-btn" type="submit">🚀 提交 / Submit</button>
+<div class="success-message" id="successMessage1">
+<strong>✓ 感谢您的提交！</strong><br/>
+                    Thank you! We'll process your request within 24–48 hours and send your file via email.<br/>
+                    我们将在 24-48 小时内处理您的请求并通过邮箱发送结果文件。
+                </div>
+<div class="privacy-note">
+                    🔒 您的数据将被安全处理，不会被分享给第三方。我们严格遵守数据保护法规。
+                </div>
+</form>
+ Form Panel 2: Custom Filters 
+<form class="form-panel" id="searchForm2">
+<div class="form-group">
+<label>姓名 / Full Name <span class="required">*</span></label>
+<input name="fullName" placeholder="请输入您的姓名" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>邮箱 / Email <span class="required">*</span></label>
+<input name="email" placeholder="请输入您的邮箱地址" required="" type="email"/>
+</div>
+<div class="form-group">
+<label>电话 / Phone <span class="required">*</span></label>
+<input name="phone" placeholder="+86 138-0000-0000" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>海关编码 / HS Code</label>
+<input name="hsCode" placeholder="例如：721720" type="text"/>
+</div>
+<div class="form-group">
+<label>产品关键词 / Product Keywords</label>
+<input name="productKeywords" placeholder="例如：galvanized steel wire, fence" type="text"/>
+</div>
+<div class="form-group">
+<label>行业 / Industry <span class="required">*</span></label>
+<input name="industry" placeholder="例如：机械制造、电子产品" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>目标销售地区 / Target Region <span class="required">*</span></label>
+<input name="targetRegion" placeholder="例如：美国、欧盟、东南亚" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>职位 / Job Title</label>
+<input name="jobTitle" placeholder="例如：Purchasing Manager, CEO" type="text"/>
+</div>
+<div class="form-group">
+<label>公司规模（可选）/ Company Size (Optional)</label>
+<input name="companySize" placeholder="例如：10-100 employees" type="text"/>
+</div>
+<div class="form-group">
+<label>公司关键词（可选）/ Company Keywords (Optional)</label>
+<input name="companyKeywords" placeholder="例如：importer, distributor" type="text"/>
+</div>
+<div class="form-group">
+<label>避免目标（可选）/ Avoid Targeting (Optional)</label>
+<textarea name="avoidTargets" placeholder="请列出您不希望定向的公司类型或行业
+List company types or industries you want to avoid" style="min-height: 80px;"></textarea>
+</div>
+<div class="form-group">
+<label>选择 Leads 数量（最低5000）/ Select Number of Leads (Minimum 5000) <span class="required">*</span></label>
+<input min="5000" name="leadsQuantity" placeholder="例如：10000" required="" type="number"/>
+</div>
+<button class="submit-btn" type="submit">🚀 开始查找 / Build My Filters</button>
+<div class="success-message" id="successMessage2">
+<strong>✓ 感谢您的提交！</strong><br/>
+                    Thank you! We'll process your request within 24–48 hours and send your file via email.<br/>
+                    我们将在 24-48 小时内处理您的请求并通过邮箱发送结果文件。
+                </div>
+<div class="privacy-note">
+                    🔒 您的数据将被安全处理，不会被分享给第三方。我们严格遵守数据保护法规。
+                </div>
+</form>
+ Form Panel 3: Create Filters for Me 
+<form class="form-panel" id="searchForm3">
+<div class="form-group">
+<label>姓名 / Full Name <span class="required">*</span></label>
+<input name="fullName" placeholder="请输入您的姓名" required="" type="text"/>
+</div>
+<div class="form-group">
+<label>邮箱 / Email <span class="required">*</span></label>
+<input name="email" placeholder="请输入您的邮箱地址" required="" type="email"/>
+</div>
+<div class="form-group">
+<label>电话 / Phone <span class="required">*</span></label>
+<input name="phone" placeholder="+86 138-0000-0000" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label>描述您的理想客户 / Describe Your Ideal Customer <span class="required">*</span></label>
+<textarea name="idealCustomer" placeholder="示例 / Example:
+
+My ideal prospect is a [JOB TITLE] at a [INDUSTRY] company in [COUNTRY].
+Most of my clients are between [10–100 employees].
+
+我的理想客户是 [国家] 的 [行业] 公司中的 [职位]。
+我的大多数客户公司规模在 [10-100] 人之间。" required="" style="min-height: 150px;"></textarea>
+</div>
+<div class="form-group">
+<label>选择 Leads 数量（最低5000）/ Select Number of Leads (Minimum 5000) <span class="required">*</span></label>
+<input min="5000" name="leadsQuantity" placeholder="例如：10000" required="" type="number"/>
+</div>
+<button class="submit-btn" type="submit">🚀 创建我的筛选条件 / Create Filters</button>
+<div class="success-message" id="successMessage3">
+<strong>✓ 感谢您的提交！</strong><br/>
+                    Thank you! We'll process your request within 24–48 hours and send your file via email.<br/>
+                    我们将在 24-48 小时内处理您的请求并通过邮箱发送结果文件。
+                </div>
+<div class="privacy-note">
+                    🔒 您的数据将被安全处理，不会被分享给第三方。我们严格遵守数据保护法规。
+                </div>
+</form>
+</div></div>
+</div>
+</div>
+</section>
+<section class="testimonials">
+<div class="container">
+</div>
+</section>
+<section class="faq">
+<div class="container">
+<h2 class="section-title">常见问题</h2>
+<p class="section-subtitle">Frequently Asked Questions</p>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>Zbot 提供哪些服务？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        我们提供AI驱动的外贸客户开发服务，包括：批量查找公司官网、提取决策人邮箱和社交媒体链接、自定义筛选条件查找潜在买家、智能外联建议等。帮助外贸企业自动化客户开发流程。
+                    </div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>我可以上传多少公司名单？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        没有上限！我们支持从几百到数万家公司的批量处理。对于大批量订单（10,000+），我们建议分批提交以获得最佳处理速度。
+                    </div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>数据来源可靠吗？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        我们的AI系统从公开网站、LinkedIn、行业数据库等多个可靠来源抓取数据，并通过多重验证确保准确性。所有邮箱都经过有效性验证，官网匹配准确率达95%以上。
+                    </div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>交付时间是多久？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        标准订单在24-48小时内交付。对于超过10,000条记录的大订单，可能需要2-3个工作日。我们会在处理过程中及时向您更新进度。
+                    </div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>数据格式是什么？可以导入CRM吗？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        我们提供标准的CSV/Excel格式，包含公司名称、官网、邮箱、LinkedIn、职位等字段。数据格式完全兼容Salesforce、HubSpot等主流CRM系统，可以直接导入使用。
+                    </div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>Zbot 是做什么的？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+<strong>Zbot 是专注于 B2B（企业对企业）的智能AI客户开发助理。</strong><br/><br/>
+                        
+                        我们帮助制造商、供应商和出口商找到全球的企业买家（批发商、进口商、分销商等），自动收集他们的官网、决策人邮箱和LinkedIn联系方式。<br/><br/>
+<strong>📌 适合人群：</strong>做工厂、贸易公司、B2B出口的企业<br/>
+<strong>🎯 目标客户：</strong>企业买家、采购经理、进口商<br/><br/>
+<div style="background: linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 249, 161, 0.1) 100%); padding: 20px; border-radius: 10px; margin-top: 15px; border-left: 4px solid #00C6FF;">
+<strong style="color: #2E5CCB;">💡 如果您是做跨境电商（B2C）的？</strong><br/>
+                            我们推荐使用我们的姊妹产品 <strong>ZB2C</strong> —— 专门帮助跨境电商卖家找到终端消费者和网红KOL！<br/><br/>
+<a href="#" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(0, 198, 255, 0.4)';" style="display: inline-block; margin-top: 10px; padding: 12px 30px; background: linear-gradient(90deg, #00C6FF 0%, #00F9A1 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease;">
+                                🛒 访问 ZB2C（跨境电商AI助手）→
+                            </a>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>费用如何计算？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        我们根据项目需求提供定制化报价。提交订单后，我们会根据您的查询数量、数据复杂度和服务内容提供详细报价。批量订单享有优惠折扣。<br/><br/>
+<strong>联系我们获取报价：</strong><br/>
+                        📧 Email: contact@zbot.com<br/>
+                        💬 或直接提交表单/使用 Chatbot，我们24小时内回复
+                    </div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">
+<span>你们会保存我的数据吗？</span>
+<span class="faq-toggle">▼</span>
+</div>
+<div class="faq-answer">
+                        处理完成后，我们会在30天内删除您上传的原始数据。我们严格遵守GDPR等数据保护法规，不会将您的数据用于其他用途或分享给第三方。
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="footer-logo">Zbot</div>
+<p class="footer-tagline">智能AI客户开发助理 · 助力中国制造出海<br/>Empowering Chinese Manufacturing to Go Global with AI</p>
+<div class="footer-links">
+<a href="mailto:contact@zbot.com">📧 contact@zbot.com</a>
+<a href="#">LinkedIn</a>
+<a href="#">Twitter</a>
+<a href="#">YouTube</a>
+</div>
+<p style="opacity: 0.6; font-size: 14px; margin-top: 20px;">© 2025 Zbot. All rights reserved. | 智腾中渤科技</p>
+</div>
+</footer>
+<script>
+        // Existing JavaScript functions: handleFileUpload, switchQueryPanel, toggleFAQ, and form submission logic.
+        
+        function switchSubmissionPanel(mode) {
+            const chatbotPanel = document.getElementById('chatbotPanel');
+            const formPanel = document.getElementById('formPanel');
+            
+            if (mode === 'chatbot') {
+                chatbotPanel.style.display = 'block';
+                formPanel.style.display = 'none';
+                document.getElementById('toggleChatbot').checked = true;
+            } else if (mode === 'form') {
+                chatbotPanel.style.display = 'none';
+                formPanel.style.display = 'block';
+                document.getElementById('toggleForm').checked = true;
+            }
+        }
+
+        // Initialize submission panel to chatbot on load (added to body tag, but kept here for clarity)
+        document.addEventListener('DOMContentLoaded', () => {
+            switchSubmissionPanel('form');
+        });
+
+        // The remaining existing JS functions (handleFileUpload, switchQueryPanel, toggleFAQ, form submission)
+        // should be placed here to complete the interactivity.
+        // For brevity, I'm only including the `switchSubmissionPanel` and the `DOMContentLoaded` call.
+        
+        // ... (Include other necessary JS functions here) ...
+    </script>
+<script>
+/* === ZBULK Form JS (namespaced) === */
+(function() {
+
+        function switchFormPanel(panelId) {
+            document.querySelectorAll('.form-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            const selectedPanel = document.getElementById('searchForm' + panelId.replace('panel', ''));
+            if (selectedPanel) {
+                selectedPanel.classList.add('active');
+            }
+        }
+        
+        function handleFileUpload(input, inputId) {
+            if (input.files && input.files[0]) {
+                const fileName = input.files[0].name;
+                const uploadArea = input.parentElement;
+                const uploadText = uploadArea.querySelector('.upload-text');
+                uploadText.innerHTML = `<strong style="color: #00F9A1;">✓ ${fileName}</strong>`;
+            }
+        }
+        
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+        
+        ['searchForm1', 'searchForm2', 'searchForm3'].forEach((formId, index) => {
+            const form = document.getElementById(formId);
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const successMsg = document.getElementById('successMessage' + (index + 1));
+                    successMsg.classList.add('show');
+                    
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    setTimeout(() => {
+                        this.reset();
+                        successMsg.classList.remove('show');
+                        
+                        const uploadText = this.querySelector('.upload-text');
+                        if (uploadText && !uploadText.innerHTML.includes('✓')) {
+                            uploadText.innerHTML = '点击上传 CSV/Excel 文件或拖放到此处<br>Click to upload CSV/Excel file or drag it here';
+                        }
+                    }, 5000);
+                });
+            }
+        });
+        
+        document.querySelectorAll('.upload-area').forEach((uploadArea) => {
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#00C6FF';
+                uploadArea.style.background = 'linear-gradient(135deg, rgba(0, 198, 255, 0.1) 0%, rgba(0, 249, 161, 0.1) 100%)';
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.style.borderColor = '#E5E9F2';
+                uploadArea.style.background = '#F8FBFF';
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#E5E9F2';
+                uploadArea.style.background = '#F8FBFF';
+                
+                const files = e.dataTransfer.files;
+                const fileInput = uploadArea.querySelector('input[type="file"]');
+                if (files.length > 0 && fileInput) {
+                    fileInput.files = files;
+                    handleFileUpload(fileInput, fileInput.id);
+                }
+            });
+        });
+    
+    // Expose required functions globally for inline handlers:
+    window.switchFormPanel = window.switchFormPanel || switchFormPanel;
+    window.handleFileUpload = window.handleFileUpload || handleFileUpload;
+    window.toggleFaq = window.toggleFaq || toggleFaq;
+})();
+</script><script>
+/* === Toggle init fix (v3) === */
+function switchSubmissionPanel(mode){
+  var chatbotPanel = document.getElementById('chatbotPanel');
+  var formPanel = document.getElementById('formPanel');
+  if(!chatbotPanel || !formPanel) return;
+  if(mode === 'chatbot'){
+    chatbotPanel.style.display = 'block';
+    formPanel.style.display = 'none';
+    var cb = document.getElementById('toggleChatbot'); if(cb) cb.checked = true;
+  }else{
+    chatbotPanel.style.display = 'none';
+    formPanel.style.display = 'block';
+    var fm = document.getElementById('toggleForm'); if(fm) fm.checked = true;
+  }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var checked = document.querySelector('input[name="submissionMode"]:checked');
+  var mode = checked ? checked.value : 'chatbot';
+  switchSubmissionPanel(mode);
+});
+</script></body>
+</html>

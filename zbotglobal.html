@@ -1,0 +1,3344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Zbot — 智能AI外贸员，覆盖全球买家数据、AI客户开发自动化与团队协同，让出海营销更高效"/>
+    <meta name="keywords" content="Zbot, AI外贸员, 外贸客户开发, Leads挖掘, AI外贸, 客户管理自动化"/>
+    <meta name="theme-color" content="#0f172a"/>
+    <title>Zbot | 智能AI外贸员 · 智能出海 渤达全球</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+    </script>
+
+    <style>
+        :root {
+            --brand-blue: #2e5ccb;
+            --brand-cyan: #00c6ff;
+            --brand-green: #00f9a1;
+            --brand-dark: #0b173a;
+            --brand-mid: #142451;
+            --brand-light: #eff5ff;
+            --gradient-1: linear-gradient(135deg, #0b1d57 0%, #1a3a89 40%, #00b3ff 100%);
+            --gradient-2: linear-gradient(135deg, #0a1f3f 0%, #1c3d7d 50%, #18d1ba 100%);
+            --gradient-3: linear-gradient(135deg, #0c1438 0%, #262164 50%, #6c2cff 100%);
+            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
+            --card-radius: 22px;
+            --container-width: min(1180px, 92vw);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: var(--brand-mid);
+            background: #f3f6ff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        section {
+            position: relative;
+            padding: 110px 0;
+        }
+
+        .container {
+            width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(46, 92, 203, 0.18), rgba(8, 16, 45, 0.92));
+            display: grid;
+            place-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-top-color: rgba(0, 198, 255, 0.9);
+            border-right-color: rgba(0, 249, 161, 0.9);
+            animation: spin 1.2s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .top-bar {
+            background: rgba(8, 19, 53, 0.95);
+            color: #d7ecff;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            gap: 24px;
+        }
+
+        .top-highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-highlight i {
+            color: var(--brand-green);
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .top-links a {
+            color: rgba(215, 236, 255, 0.9);
+            transition: color 0.3s ease;
+        }
+
+        .top-links a:hover {
+            color: #ffffff;
+        }
+
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 980;
+            background: rgba(243, 246, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(23, 52, 122, 0.08);
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            position: relative;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 21px;
+            color: var(--brand-blue);
+        }
+
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            background: linear-gradient(140deg, rgba(0, 198, 255, 0.95), rgba(0, 249, 161, 0.95));
+            display: grid;
+            place-items: center;
+            color: #061536;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 14px 28px rgba(0, 198, 255, 0.35);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-bottom: 6px;
+            color: #1b2c54;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--brand-cyan), var(--brand-green));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.is-active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.is-active {
+            color: var(--brand-blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-outline,
+        .btn-primary {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--brand-blue);
+            border: 1px solid rgba(46, 92, 203, 0.4);
+        }
+
+        .btn-outline:hover {
+            border-color: transparent;
+            color: #ffffff;
+            background: linear-gradient(120deg, rgba(0, 198, 255, 0.35), rgba(0, 249, 161, 0.35));
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
+            color: #04112f;
+            box-shadow: 0 16px 28px rgba(0, 198, 255, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 36px rgba(0, 198, 255, 0.4);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            border: 1px solid rgba(46, 92, 203, 0.25);
+            background: #ffffff;
+            color: var(--brand-blue);
+            font-size: 20px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: 0;
+            color: #f1f5ff;
+            background: linear-gradient(135deg, rgba(6, 19, 46, 0.86) 0%, rgba(9, 38, 82, 0.8) 40%, rgba(9, 64, 115, 0.75) 100%),
+                        url('./img/hero-ocean.jpg') center / cover no-repeat;
+            overflow: hidden;
+        }
+
+       
+
+        .hero .container {
+            position: relative;
+            padding: 90px 0 110px;
+            width: min(1260px, 94vw);
+        }
+
+        .hero-slider {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .slider-track {
+            position: relative;
+        }
+
+        .hero-slide {
+            display: none;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 36px;
+            align-items: center;
+            min-height: 520px;
+        }
+
+        .hero-slide.is-active {
+            display: grid;
+            animation: heroFade 0.6s ease forwards;
+        }
+
+        @keyframes heroFade {
+            0% {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-intro {
+            grid-column: span 6;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #061536;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 28px rgba(0, 198, 255, 0.35);
+        }
+
+        .slide-kicker i {
+            color: var(--brand-blue);
+        }
+
+        .slide-title {
+            font-size: clamp(2.75rem, 4vw, 3.75rem);
+            line-height: 1.12;
+            margin: 24px 0 16px;
+            font-weight: 800;
+            text-shadow: 0 18px 40px rgba(4, 12, 42, 0.55);
+        }
+
+        .slide-title span {
+            color: var(--brand-cyan);
+        }
+
+        .slide-description {
+            font-size: 18px;
+            color: rgba(226, 238, 255, 0.88);
+            margin-bottom: 38px;
+            max-width: 560px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f1f6ff;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .hero-meta {
+            margin-top: 38px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            color: rgba(224, 236, 255, 0.76);
+            font-size: 15px;
+        }
+
+        .hero-meta strong {
+            display: block;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        .slide-showcase {
+            grid-column: span 6;
+            position: relative;
+        }
+
+        .showcase-card {
+            position: relative;
+            padding: 28px;
+            border-radius: 28px;
+            background: linear-gradient(155deg, rgba(16, 37, 96, 0.9), rgba(54, 89, 191, 0.65));
+            border: 1px solid rgba(121, 170, 255, 0.18);
+            box-shadow: 0 40px 80px rgba(3, 8, 28, 0.6);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .showcase-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(130deg, rgba(0, 198, 255, 0.18), transparent 55%);
+            pointer-events: none;
+        }
+
+        .showcase-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .showcase-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(0, 198, 255, 0.18);
+            color: #dff6ff;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .conversation-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            align-self: flex-start;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(0, 198, 255, 0.22);
+            color: #e6f8ff;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #21f7a4;
+            box-shadow: 0 0 0 6px rgba(33, 247, 164, 0.25);
+        }
+
+        .chat-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            transform: scale(0.9);
+            transform-origin: top center;
+        }
+
+        .chat-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .chat-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            font-size: 15px;
+            color: #04102d;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .chat-row.bot .chat-avatar {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.35), rgba(0, 249, 161, 0.35));
+            color: #041335;
+        }
+
+        .chat-bubble {
+            flex: 1;
+            padding: 16px 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f2f6ff;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .chat-bubble p {
+            margin: 0 0 8px;
+        }
+
+        .chat-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        .chat-row.bot .chat-bubble {
+            background: linear-gradient(135deg, rgba(5, 23, 68, 0.9), rgba(19, 54, 133, 0.85));
+            border-color: rgba(121, 170, 255, 0.2);
+        }
+
+        .chat-bubble strong {
+            color: #6ce5ff;
+        }
+
+        .chat-list {
+            margin: 12px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 6px;
+        }
+
+        .chat-list li {
+            display: flex;
+            gap: 6px;
+            align-items: flex-start;
+        }
+
+        .chat-list li::before {
+            content: '•';
+            color: rgba(0, 249, 161, 0.85);
+        }
+
+        .action-list {
+            margin: 14px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .action-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(0, 198, 255, 0.12);
+            border: 1px solid rgba(0, 198, 255, 0.15);
+            color: #cceeff;
+            font-size: 14px;
+        }
+
+        .action-list i {
+            color: #00f9a1;
+        }
+
+        .insight-summary {
+            margin-top: 3px;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: grid;
+            gap: 6px;
+            color: #eaf5ff;
+        }
+
+        .chat-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .chat-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #04112f;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            text-decoration: none;
+            box-shadow: 0 16px 28px rgba(10, 36, 81, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chat-cta.secondary {
+            background: transparent;
+            color: #e8f2ff;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: none;
+        }
+
+        .chat-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 34px rgba(10, 36, 81, 0.45);
+        }
+
+        .pulse {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--brand-green);
+            box-shadow: 0 0 0 0 rgba(0, 249, 161, 0.6);
+            animation: pulse 2.4s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 249, 161, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 16px rgba(0, 249, 161, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 249, 161, 0);
+            }
+        }
+
+        .projection-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .projection-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f2f6ff;
+            font-size: 15px;
+        }
+
+        .projection-row strong {
+            font-size: 18px;
+            color: var(--brand-green);
+        }
+
+        .showcase-floating {
+            position: absolute;
+            right: 18px;
+            bottom: 18px;
+            width: 160px;
+            height: 160px;
+            border-radius: 28px;
+            background: linear-gradient(160deg, rgba(0, 249, 161, 0.35), rgba(0, 198, 255, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: grid;
+            place-items: center;
+            transform: rotate(-4deg);
+            box-shadow: 0 24px 45px rgba(6, 16, 46, 0.45);
+        }
+
+        .showcase-floating strong {
+            font-size: 42px;
+            color: #04102d;
+        }
+
+        .slider-dots {
+            margin-top: 48px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .slider-dots button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .slider-dots button.is-active {
+            transform: scale(1.4);
+            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: clamp(280px, calc(100vw - 64px), 1480px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+
+        .slider-btn {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(4, 21, 57, 0.35);
+            backdrop-filter: blur(6px);
+            color: #f5fcff;
+            font-size: 18px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            box-shadow: 0 16px 32px rgba(3, 10, 28, 0.45);
+            transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease;
+            pointer-events: all;
+        }
+
+        .slider-btn:hover {
+            transform: translateY(-3px);
+            background: rgba(6, 29, 74, 0.55);
+            border-color: rgba(0, 198, 255, 0.6);
+        }
+
+        /* Metrics */
+        .metrics {
+            margin-top: -70px;
+        }
+
+        .metrics .container {
+            display: grid;
+            gap: 26px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .metric-card {
+            padding: 28px;
+            border-radius: var(--card-radius);
+            background: #ffffff;
+            box-shadow: var(--soft-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(0, 198, 255, 0.12), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .metric-card:hover::after {
+            opacity: 1;
+        }
+
+        .metric-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            color: #04112f;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .metric-card h3 {
+            font-size: 32px;
+            margin: 0 0 6px;
+            color: var(--brand-blue);
+            font-weight: 800;
+        }
+
+        .metric-card p {
+            margin: 0;
+            color: rgba(23, 48, 115, 0.74);
+        }
+
+        .metric-card span {
+            font-size: 14px;
+            color: rgba(23, 48, 115, 0.6);
+        }
+
+        /* Section titles */
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(0, 198, 255, 0.15);
+            color: var(--brand-blue);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.1rem, 3.1vw, 2.9rem);
+            margin: 20px 0 16px;
+            color: var(--brand-dark);
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .section-heading p {
+            margin: 0 auto;
+            color: rgba(23, 48, 115, 0.7);
+            font-size: 17px;
+        }
+
+        /* Capabilities */
+        .capabilities {
+            background: #ffffff;
+        }
+
+        .tab-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .tab-button {
+            padding: 14px 26px;
+            border-radius: 18px;
+            border: 1px solid rgba(46, 92, 203, 0.25);
+            background: #fff;
+            font-weight: 600;
+            color: var(--brand-mid);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.is-active {
+            border-color: transparent;
+            color: #04112f;
+            background: linear-gradient(120deg, rgba(0, 198, 255, 0.25), rgba(0, 249, 161, 0.25));
+            box-shadow: 0 18px 36px rgba(0, 198, 255, 0.22);
+        }
+
+        .tab-panel {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .tab-panel.is-active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+            font-weight: 600;
+            color: #04112f;
+            margin-bottom: 18px;
+            box-shadow: 0 18px 32px rgba(8, 28, 72, 0.25);
+        }
+
+        .gradient-blue {
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.85), rgba(0, 123, 255, 0.85));
+        }
+
+        .gradient-green {
+            background: linear-gradient(135deg, rgba(0, 249, 161, 0.85), rgba(0, 198, 255, 0.75));
+        }
+
+        .gradient-violet {
+            background: linear-gradient(135deg, rgba(108, 44, 255, 0.9), rgba(0, 198, 255, 0.7));
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, rgba(255, 189, 76, 0.9), rgba(255, 115, 80, 0.7));
+        }
+
+        .gradient-slate {
+            background: linear-gradient(135deg, rgba(11, 23, 58, 0.9), rgba(46, 92, 203, 0.8));
+            color: #e8f2ff;
+            box-shadow: 0 18px 32px rgba(4, 10, 28, 0.35);
+        }
+
+        .capability-card {
+            padding: 28px;
+            border-radius: var(--card-radius);
+            border: 1px solid rgba(23, 48, 115, 0.08);
+            background: #f8faff;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--soft-shadow);
+        }
+
+        .capability-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(130deg, rgba(0, 198, 255, 0.12), transparent);
+            pointer-events: none;
+        }
+
+        .capability-card h3 {
+            margin: 0 0 12px;
+            font-size: 20px;
+            color: var(--brand-blue);
+        }
+
+        .capability-card p {
+            margin: 0 0 16px;
+            color: rgba(23, 48, 115, 0.68);
+            font-size: 15px;
+        }
+
+        .capability-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill {
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: rgba(0, 198, 255, 0.18);
+            color: #052460;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Workflow */
+        .workflow {
+            background: radial-gradient(circle at 80% 10%, rgba(0, 198, 255, 0.35), transparent 45%), #0b173a;
+            color: #f2f6ff;
+        }
+
+        .workflow .section-heading h2,
+        .workflow .section-heading p {
+            color: #e8f2ff;
+        }
+
+        .workflow-steps {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .workflow-card {
+            display: flex;
+            gap: 22px;
+            align-items: flex-start;
+            padding: 24px 28px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(6, 18, 52, 0.65);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 28px 60px rgba(3, 8, 25, 0.6);
+        }
+
+        .workflow-index {
+            width: 48px;
+            height: 48px;
+            border-radius: 20px;
+            background: linear-gradient(160deg, rgba(0, 198, 255, 0.35), rgba(0, 116, 255, 0.45));
+            box-shadow: 0 16px 30px rgba(0, 198, 255, 0.25);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            color: #041335;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.04em;
+        }
+
+        .workflow-card h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .workflow-card p {
+            margin: 0;
+            color: rgba(219, 234, 255, 0.78);
+        }
+
+        .workflow-meta {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .workflow-card .card-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 0 14px;
+            box-shadow: none;
+        }
+
+        .workflow-meta span {
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 198, 255, 0.32);
+            color: rgba(223, 242, 255, 0.85);
+        }
+
+        /* Solutions */
+        .solutions {
+            background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+        }
+
+        .compare-shell {
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid rgba(23, 48, 115, 0.08);
+            box-shadow: 0 26px 60px rgba(9, 35, 94, 0.08);
+            overflow: hidden;
+        }
+
+        .compare-head-row {
+            display: grid;
+            grid-template-columns: 1.4fr repeat(3, 1fr);
+        }
+
+        .compare-head {
+            padding: 28px 24px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #f5f8ff;
+            background: linear-gradient(120deg, #2144c9 0%, #2f6bff 50%, #2e5ccb 100%);
+        }
+
+        .compare-head:first-child {
+            border-top-left-radius: 28px;
+        }
+
+        .compare-head:last-child {
+            border-top-right-radius: 28px;
+        }
+
+        .compare-head.secondary {
+            background: linear-gradient(120deg, rgba(33, 68, 201, 0.85), rgba(21, 35, 89, 0.92));
+        }
+
+        .compare-head.neutral {
+            background: linear-gradient(120deg, rgba(15, 27, 76, 0.95), rgba(12, 22, 58, 0.92));
+        }
+
+        .compare-body {
+            display: grid;
+            grid-template-columns: 1.4fr repeat(3, 1fr);
+        }
+
+        .compare-row {
+            display: contents;
+        }
+
+        .compare-cell {
+            padding: 22px 24px;
+            border-bottom: 1px solid rgba(15, 35, 72, 0.08);
+            font-size: 15px;
+            color: rgba(15, 35, 72, 0.78);
+            background: #ffffff;
+        }
+
+        .compare-cell:first-child {
+            font-weight: 700;
+            color: #122657;
+        }
+
+        .compare-row:nth-child(2n) .compare-cell {
+            background: #f6f9ff;
+        }
+
+        .compare-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            background: rgba(46, 92, 203, 0.12);
+            color: #2144c9;
+        }
+
+        .compare-chip.positive {
+            background: rgba(0, 204, 153, 0.15);
+            color: #019b75;
+        }
+
+        .compare-chip.warning {
+            background: rgba(255, 178, 36, 0.18);
+            color: #c87604;
+        }
+
+        .compare-chip.negative {
+            background: rgba(255, 69, 88, 0.12);
+            color: #c03030;
+        }
+
+        .compare-note {
+            margin-top: 22px;
+            font-size: 13px;
+            color: rgba(23, 48, 115, 0.55);
+            text-align: right;
+        }
+
+        @media (max-width: 920px) {
+            .compare-head-row,
+            .compare-body {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .compare-head-row .compare-head:nth-child(n+3),
+            .compare-body .compare-cell:nth-child(n+3) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .compare-head-row,
+            .compare-body {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .compare-head-row .compare-head:nth-child(n+2),
+            .compare-body .compare-cell:nth-child(n+2) {
+                display: none;
+            }
+
+            .compare-cell:first-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Data proof */
+        .data-proof {
+            background: #0e1b3f;
+            color: #e8f2ff;
+            overflow: hidden;
+        }
+
+        .data-proof::after {
+            content: '';
+            position: absolute;
+            inset: 20% -20% -35% -10%;
+            background: radial-gradient(circle, rgba(0, 249, 161, 0.28), transparent 65%);
+            opacity: 0.75;
+        }
+
+        .data-proof .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .data-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .data-card {
+            padding: 22px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(7, 24, 62, 0.75);
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .data-card span {
+            display: block;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--brand-green);
+            margin-bottom: 6px;
+        }
+
+        
+        /* Lead request form */
+        .testimonials {
+            background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+            padding-bottom: 110px;
+        }
+
+        .lead-switch {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .lead-switch-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 240px;
+            padding: 18px 26px;
+            border-radius: 22px;
+            border: 1px solid rgba(46, 92, 203, 0.18);
+            background: rgba(255, 255, 255, 0.9);
+            color: #132a5c;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+        }
+
+        .lead-switch-card .badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(46, 92, 203, 0.12);
+            color: var(--brand-blue);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .lead-switch-card strong {
+            font-size: 15px;
+            display: block;
+        }
+
+        .lead-switch-card span {
+            display: block;
+            font-size: 13px;
+            color: rgba(16, 40, 92, 0.65);
+        }
+
+        .lead-switch-card.is-active {
+            border-color: transparent;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.18), rgba(0, 249, 161, 0.18));
+            box-shadow: 0 18px 40px rgba(0, 198, 255, 0.22);
+            transform: translateY(-4px);
+        }
+
+        .lead-switch-card.is-active .badge {
+            background: linear-gradient(135deg, var(--brand-cyan), var(--brand-green));
+            color: #06203f;
+        }
+
+        .lead-panels {
+            position: relative;
+        }
+
+        .lead-panel {
+            display: none;
+            background: #ffffff;
+            border-radius: 26px;
+            border: 1px solid rgba(23, 48, 115, 0.06);
+            box-shadow: 0 28px 64px rgba(9, 32, 84, 0.12);
+            padding: 36px;
+            gap: 26px;
+        }
+
+        .lead-panel.is-active {
+            display: grid;
+        }
+
+        .panel-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            margin: 0 0 20px;
+        }
+
+        .form-block {
+            background: rgba(248, 251, 255, 0.9);
+            border: 1px solid rgba(23, 48, 115, 0.06);
+            border-radius: 22px;
+            padding: 22px 24px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-block-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #163266;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 16px 22px;
+        }
+
+        .form-grid.grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .form-grid.grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .form-grid.grid-1 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #142451;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-field label span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            background: rgba(46, 92, 203, 0.12);
+            color: var(--brand-blue);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(23, 48, 115, 0.12);
+            background: #ffffff;
+            font-size: 15px;
+            color: #0f2357;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: rgba(0, 198, 255, 0.45);
+            box-shadow: 0 0 0 4px rgba(0, 198, 255, 0.15);
+            outline: none;
+        }
+
+        .form-textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .select-multi {
+            min-height: 130px;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: rgba(23, 48, 115, 0.55);
+        }
+
+        .file-drop {
+            border: 1px dashed rgba(46, 92, 203, 0.35);
+            border-radius: 16px;
+            background: rgba(46, 92, 203, 0.06);
+            padding: 18px;
+            text-align: center;
+            display: grid;
+            gap: 10px;
+        }
+
+        .file-drop-trigger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 14px;
+            background: #ffffff;
+            border: 1px solid rgba(46, 92, 203, 0.2);
+            color: var(--brand-blue);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .file-drop-trigger input {
+            display: none;
+        }
+
+        .form-actions {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .form-actions button {
+            padding: 16px 34px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            color: #03102f;
+            cursor: pointer;
+            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
+            box-shadow: 0 18px 38px rgba(0, 198, 255, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-actions button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 40px rgba(0, 198, 255, 0.35);
+        }
+
+        .form-actions .note {
+            font-size: 13px;
+            color: rgba(23, 48, 115, 0.7);
+        }
+
+        @media (max-width: 960px) {
+            .lead-panel {
+                padding: 30px;
+            }
+
+            .form-grid.grid-3,
+            .form-grid.grid-2,
+            .form-grid.grid-1 {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .lead-panel {
+                padding: 24px 18px;
+            }
+
+            .form-block {
+                padding: 18px;
+            }
+
+            .form-grid.grid-3,
+            .form-grid.grid-2,
+            .form-grid.grid-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .form-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        /* Pricing */
+        .pricing {
+            background: radial-gradient(circle at top, rgba(236, 243, 255, 0.75), #ffffff 60%);
+        }
+
+        .pricing-slider {
+            position: relative;
+            margin-top: 46px;
+        }
+
+        .pricing-slider::before,
+        .pricing-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .pricing-slider::before {
+            left: 0;
+            background: linear-gradient(90deg, #f6f9ff 0%, rgba(246, 249, 255, 0));
+        }
+
+        .pricing-slider::after {
+            right: 0;
+            background: linear-gradient(270deg, #f6f9ff 0%, rgba(246, 249, 255, 0));
+        }
+
+        .pricing-track {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 6px 4px 12px;
+        }
+
+        .pricing-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pricing-card {
+            flex: 0 0 min(340px, 82vw);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 28px;
+            border-radius: 24px;
+            border: 1px solid rgba(23, 48, 115, 0.08);
+            background: linear-gradient(160deg, #ffffff 0%, rgba(236, 245, 255, 0.85) 100%);
+            box-shadow: 0 26px 55px rgba(15, 36, 82, 0.12);
+            scroll-snap-align: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 32px 70px rgba(15, 36, 82, 0.16);
+        }
+
+        .pricing-card.featured {
+            border-color: transparent;
+            background: linear-gradient(155deg, rgba(0, 198, 255, 0.16), rgba(0, 249, 161, 0.16));
+            box-shadow: 0 32px 80px rgba(0, 198, 255, 0.22);
+        }
+
+        .plan-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .plan-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 14px;
+            background: rgba(46, 92, 203, 0.12);
+            color: var(--brand-blue);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .plan-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            color: #051747;
+            font-size: 20px;
+            box-shadow: 0 18px 32px rgba(8, 28, 72, 0.25);
+        }
+
+        .plan-title {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            color: #0f2357;
+        }
+
+        .plan-subtitle {
+            margin: -6px 0 0;
+            font-size: 14px;
+            color: rgba(16, 36, 84, 0.64);
+        }
+
+        .plan-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #132a5c;
+        }
+
+        .plan-price span {
+            display: block;
+            font-size: 13px;
+            color: rgba(16, 36, 84, 0.6);
+            font-weight: 600;
+        }
+
+        .plan-section h4 {
+            margin: 0 0 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #163266;
+            letter-spacing: 0.04em;
+        }
+
+        .pricing-list {
+            margin: 0;
+            padding-left: 18px;
+            display: grid;
+            gap: 6px;
+            font-size: 14px;
+            color: rgba(16, 36, 84, 0.82);
+        }
+
+        .plan-section p {
+            margin: 0;
+            font-size: 14px;
+            color: rgba(16, 36, 84, 0.78);
+        }
+
+        .plan-ideal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 12px;
+            background: rgba(0, 198, 255, 0.12);
+            color: #0d3568;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .plan-action {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(46, 92, 203, 0.28);
+            color: var(--brand-blue);
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .plan-action:hover {
+            background: linear-gradient(120deg, rgba(0, 198, 255, 0.18), rgba(0, 249, 161, 0.18));
+            color: #04112f;
+        }
+
+        .pricing-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(-50%);
+            padding: 0 8px;
+            pointer-events: none;
+        }
+
+        .pricing-arrow {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(46, 92, 203, 0.25);
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--brand-blue);
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            cursor: pointer;
+            pointer-events: all;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .pricing-arrow:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(120deg, rgba(0, 198, 255, 0.18), rgba(0, 249, 161, 0.18));
+        }
+
+        .pricing-arrow:disabled {
+            opacity: 0.35;
+            cursor: default;
+            transform: none;
+        }
+
+        .pricing-note {
+            margin-top: 32px;
+            font-size: 13px;
+            color: rgba(16, 36, 84, 0.58);
+            text-align: center;
+        }
+
+        .pricing-note a {
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+
+        @media (max-width: 760px) {
+            .pricing-slider::before,
+            .pricing-slider::after {
+                width: 40px;
+            }
+
+            .pricing-arrow {
+                display: none;
+            }
+        }
+
+        /* FAQ */
+ */
+ */
+ */
+        .faq-section {
+            background: #ffffff;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        details.faq-item {
+            border-radius: 18px;
+            border: 1px solid rgba(23, 48, 115, 0.08);
+            background: #f9fbff;
+            padding: 20px 24px;
+            transition: border 0.3s ease, background 0.3s ease;
+        }
+
+        details.faq-item[open] {
+            border-color: rgba(0, 198, 255, 0.35);
+            background: rgba(239, 245, 255, 0.92);
+        }
+
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            padding-right: 30px;
+        }
+
+        summary::marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--brand-blue);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(90deg);
+        }
+
+        details p {
+            margin: 18px 0 0;
+            color: rgba(23, 48, 115, 0.7);
+            font-size: 15px;
+        }
+
+        /* Stories */
+        .stories {
+            background: #ffffff;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .story-card {
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--soft-shadow);
+            display: grid;
+        }
+
+        .story-content {
+            padding: 24px 26px 30px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .story-tag {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .story-content h3 {
+            margin: 0;
+            color: var(--brand-dark);
+        }
+
+        .story-content p {
+            margin: 0;
+            color: rgba(23, 48, 115, 0.68);
+        }
+
+        .story-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+
+        .cta-band {
+            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
+            color: #04112f;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band::after,
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 255, 255, 0.22);
+            border-radius: 40% 60% 55% 45%;
+            filter: blur(0px);
+            opacity: 0.6;
+        }
+
+        .cta-band::after {
+            right: -80px;
+            top: -40px;
+        }
+
+        .cta-band::before {
+            left: -90px;
+            bottom: -60px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            gap: 20px;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            margin: 0;
+            font-size: clamp(2.2rem, 3.2vw, 3rem);
+            font-weight: 800;
+        }
+
+        .cta-content p {
+            margin: 0;
+            font-size: 17px;
+            color: rgba(4, 17, 47, 0.75);
+        }
+
+        footer {
+            background: #040b1d;
+            color: rgba(226, 236, 255, 0.8);
+            padding: 90px 0 40px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            margin: 12px 0 16px;
+            color: #ffffff;
+        }
+
+        .footer-brand p {
+            margin: 0;
+            color: rgba(226, 236, 255, 0.68);
+            font-size: 15px;
+        }
+
+        .footer-links h4 {
+            margin: 0 0 16px;
+            color: #ffffff;
+        }
+
+        .footer-links ul {
+            display: grid;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(226, 236, 255, 0.68);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            padding-top: 26px;
+            border-top: 1px solid rgba(226, 236, 255, 0.12);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: rgba(226, 236, 255, 0.68);
+        }
+
+        .socials {
+            display: flex;
+            gap: 14px;
+        }
+
+        .socials a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(226, 236, 255, 0.3);
+            display: grid;
+            place-items: center;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .socials a:hover {
+            background: rgba(226, 236, 255, 0.18);
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero-slide {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .slide-intro,
+            .slide-showcase {
+                grid-column: span 12;
+            }
+
+            .showcase-floating {
+                position: static;
+                margin-top: 22px;
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 20px;
+                transform: none;
+            }
+
+            .showcase-floating strong {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 920px) {
+            header.site-header {
+                top: 0;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: rgba(243, 246, 255, 0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px;
+                gap: 18px;
+                border-bottom: 1px solid rgba(23, 52, 122, 0.1);
+                transform: translateY(-30px);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .nav-links.is-open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .hero .container {
+                padding: 120px 0 100px;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            .slider-controls {
+                top: auto;
+                bottom: 24px;
+                left: 50%;
+                width: calc(100% - 48px);
+                max-width: 460px;
+                transform: translateX(-50%);
+                justify-content: center;
+                gap: 16px;
+            }
+        }
+
+        
+        @media (max-width: 900px) {
+            .testimonial-card {
+                flex: 1 0 calc(50% - 16px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .top-bar .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .slide-kicker {
+                font-size: 13px;
+            }
+
+            .slide-description {
+                font-size: 16px;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .metrics {
+                margin-top: -40px;
+            }
+
+            .workflow-card {
+                flex-direction: column;
+            }
+
+            .testimonial-card {
+                flex: 1 0 100%;
+            }
+
+            .footer-top {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-highlight">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
+            </div>
+            <div class="top-links">
+                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
+                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
+                <a href="#contact"><i class="fa-solid fa-comment-dots"></i> 预约演示</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-bar">
+                <a class="brand" href="#home">
+                    <span class="brand-mark">Z</span>
+                    <span>Zbot 智能AI外贸员</span>
+                </a>
+                <nav class="nav-links" id="primaryNav">
+                    <a href="#home" class="is-active">首页</a>
+                    <a href="#capabilities">核心能力</a>
+                    <a href="#workflow">工作流</a>
+                    <a href="#pricing">方案定价</a>
+                    <a href="#stories">客户需求表</a>
+                    <a href="#faq">常见问题</a>
+                    <a href="#contact">联系我们</a>
+                </nav>
+                <div class="nav-actions">
+                    <a class="btn-outline" href="#stories">观看案例</a>
+                    <a class="btn-primary" href="#contact">预约 1v1 Demo</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-slider" data-slider>
+                    <div class="slider-track">
+                        <article class="hero-slide is-active" data-slide>
+                            <div class="slide-intro">
+                                <span class="slide-kicker"><i class="fa-solid fa-robot"></i>智能出海，渤达全球</span>
+                                <h1 class="slide-title">让 <span>Zbot</span> 成为您的全天候智能外贸员</h1>
+                                <p class="slide-description">接入全球 2.4 亿企业买家数据库，结合 AI 智能筛选、自动跟进与多语言模板，让您的外贸团队 7×24 小时在线开发高意向客户。</p>
+                                <div class="hero-ctas">
+                                    <a class="btn-primary" href="#contact">立即体验 Zbot</a>
+                                    <a class="hero-secondary" href="#workflow"><i class="fa-solid fa-circle-play"></i> 查看工作流</a>
+                                </div>
+                                <div class="hero-meta">
+                                    <div>
+                                        <strong data-counter="8500" data-suffix="+">0</strong>
+                                        <span>万级别精准买家线索 | 覆盖 120+ 国家</span>
+                                    </div>
+                                    <div>
+                                        <strong data-counter="92" data-suffix="%">0</strong>
+                                        <span>自动化邮件送达率 · 多轮 AI 优化續写话术</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-showcase">
+                                <div class="showcase-card">
+                                    <div class="conversation-header">
+                                        <span class="status-dot"></span>
+                                        <span>对话演示 · Zbot 智能理解</span>
+                                    </div>
+                                    <div class="chat-pane">
+                                        <div class="chat-row user">
+                                            <div class="chat-avatar">U</div>
+                                            <div class="chat-bubble">
+                                                <p>我想在印尼找到电缆制造厂，并接触负责采购金属线材的经理。</p>
+                                            </div>
+                                        </div>
+                                        <div class="chat-row bot">
+                                            <div class="chat-avatar">Z</div>
+                                            <div class="chat-bubble">
+                                                <p>我已分析您的目标画像：</p>
+                                                <ul class="chat-list">
+                                                    <li><strong>行业：</strong>电缆制造（NAICS 3359）</li>
+                                                    <li><strong>地区：</strong>印尼雅加达、万隆、泗水</li>
+                                                    <li><strong>关键角色：</strong>采购经理、生产主管、运营总监</li>
+                                                </ul>
+                                                <p>建议行动：</p>
+                                                <ul class="action-list">
+                                                    <li><i class="fa-solid fa-circle-check"></i>使用 LinkedIn 数据库筛选并验证目标联系人</li>
+                                                    <li><i class="fa-solid fa-circle-check"></i>从海关与行业目录提取企业基本信息</li>
+                                                    <li><i class="fa-solid fa-circle-check"></i>预计生成客户画像 2000+，决策人联系方式 6000+</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="insight-summary">
+                                        <span>👇 想进一步落地？</span>
+                                        <div class="chat-cta-group">
+                                            <a class="chat-cta" href="#contact">生成完整客户定位计划</a>
+                                            <a class="chat-cta secondary" href="#contact">下载样例 CSV</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="hero-slide" data-slide>
+                            <div class="slide-intro">
+                                <span class="slide-kicker"><i class="fa-solid fa-globe"></i> 多语言·多文化沟通</span>
+                                <h1 class="slide-title">一键生成客户画像与母语沟通话术</h1>
+                                <p class="slide-description">AI 自动解读官网、社媒与财报信息，瞬间生成买家画像与策略建议；支持 12 种语言的个性化沟通内容，真正做到“因人而异”。</p>
+                                <div class="hero-ctas">
+                                    <a class="btn-primary" href="#capabilities">查看能力矩阵</a>
+                                    <a class="hero-secondary" href="#stories"><i class="fa-solid fa-film"></i> 客户成功故事</a>
+                                </div>
+                                <div class="hero-meta">
+                                    <div>
+                                        <strong data-counter="12">0</strong>
+                                        <span>官方支持语言 · 自动切换语气风格</span>
+                                    </div>
+                                    <div>
+                                        <strong data-counter="48" data-suffix="h">0</strong>
+                                        <span>AI 复盘与商机预警，随时掌握进展</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-showcase">
+                                <div class="showcase-card">
+                                    <div class="showcase-header">
+                                        <div class="showcase-badge">买家旅程 360°</div>
+                                        <i class="fa-solid fa-language"></i>
+                                    </div>
+                                    <div class="projection-grid">
+                                        <div class="projection-row">
+                                            <span>自动提炼公司亮点</span>
+                                            <strong>8 秒</strong>
+                                        </div>
+                                        <div class="projection-row">
+                                            <span>AI 推荐对接人群</span>
+                                            <strong>精准度 93%</strong>
+                                        </div>
+                                        <div class="projection-row">
+                                            <span>沟通模板</span>
+                                            <strong>1000+ 场景</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="hero-slide" data-slide>
+                            <div class="slide-intro">
+                                <span class="slide-kicker"><i class="fa-solid fa-database"></i> 全球数据合规</span>
+                                <h1 class="slide-title">实时链接 48+ 权威数据源，精准锁定买家</h1>
+                                <p class="slide-description">覆盖海关数据、行业黄页、IPO 招股书与 LinkedIn 信号，AI 智能评分并过滤不可达邮箱，确保每一次触达都更有价值。</p>
+                                <div class="hero-ctas">
+                                    <a class="btn-primary" href="#solutions">探索行业解决方案</a>
+                                    <a class="hero-secondary" href="#data-proof"><i class="fa-solid fa-shield-halved"></i> 数据合规白皮书</a>
+                                </div>
+                                <div class="hero-meta">
+                                    <div>
+                                        <strong data-counter="48" data-suffix="+">0</strong>
+                                        <span>实时同步第三方权威数据源</span>
+                                    </div>
+                                    <div>
+                                        <strong data-counter="180" data-suffix="ms">0</strong>
+                                        <span>邮箱可达与风险评分，快速筛选有效联系人</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-showcase">
+                                <div class="showcase-card">
+                                    <div class="showcase-header">
+                                        <div class="showcase-badge">数据即服务</div>
+                                        <i class="fa-solid fa-chart-line"></i>
+                                    </div>
+                                    <div class="projection-grid">
+                                        <div class="projection-row">
+                                            <span>数据刷新频率</span>
+                                            <strong>5 分钟</strong>
+                                        </div>
+                                        <div class="projection-row">
+                                            <span>合规审计通过率</span>
+                                            <strong>100%</strong>
+                                        </div>
+                                        <div class="projection-row">
+                                            <span>活跃买家 ICP 匹配</span>
+                                            <strong>Top 3%</strong>
+                                        </div>
+                                    </div>
+                    
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slider-dots" data-slider-dots>
+                        <button class="is-active" aria-label="Slide 1"></button>
+                        <button aria-label="Slide 2"></button>
+                        <button aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="capabilities" id="capabilities">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-layer-group"></i> 三层能力矩阵</span>
+                    <h2>Zbot 成为团队的外贸情报引擎</h2>
+                    <p>围绕「找对市场・锁定客户・理解机会」三大核心阶段构建智能增长能力。Zbot 以AI分析为核心，结合自有数据资产与模型算法，为团队提供从客户识别、数据验证到市场决策的全链路支持。</p>
+                </div>
+
+                <div class="tab-controls" role="tablist">
+                    <button class="tab-button is-active" data-tab="find" role="tab" aria-selected="true">AI 智能找客</button>
+                    <button class="tab-button" data-tab="talk" role="tab" aria-selected="false">AI 数据聚合、分析与交付</button>
+                    <button class="tab-button" data-tab="insight" role="tab" aria-selected="false">AI 智能复盘</button>
+                </div>
+
+                <div class="tab-panel is-active" data-tab-panel="find" role="tabpanel">
+                    <div class="tab-grid">
+                        <article class="capability-card">
+                            <div class="card-icon gradient-blue"><i class="fa-solid fa-bullseye"></i></div>
+                            <h3>AI 客户画像建模</h3>
+                            <p>Zbot AI 理解你的业务，构建可执行客户蓝图。基于行业语义模型与历史交易样本，Zbot 识别目标买家特征，自动生成 ICP（理想客户画像）模型。支持按行业、规模、地区与行为信号多维分类，为团队提供精准开发方向。</p>
+                            <div class="capability-tags">
+                                <span class="pill">多维聚类</span>
+                                <span class="pill">AI画像建模</span>
+                                <span class="pill">目标客户蓝图</span>
+                            </div>
+                        </article>
+                        <article class="capability-card">
+                            <div class="card-icon gradient-green"><i class="fa-solid fa-globe"></i></div>
+                            <h3>市场与行业洞察引擎</h3>
+                            <p>不仅是客户名单，而是市场情报体系。融合企业信息、行业动态与区域经济数据，生成市场分布图谱、竞争格局与增长潜力分析。帮助销售在决策前就了解“哪里有机会、哪些客户最值得投入”。</p>
+                            <div class="capability-tags">
+                                <span class="pill">48+ 数据源</span>
+                                <span class="pill">行业洞察</span>
+                                <span class="pill">区域市场分析</span>
+                            </div>
+                        </article>
+                        <article class="capability-card">
+                            <div class="card-icon gradient-violet"><i class="fa-solid fa-at"></i></div>
+                            <h3>关键决策人推荐</h3>
+                            <p>AI 自动识别组织架构与角色语义，匹配采购、运营、技术等关键决策人，提供高置信度公司级联系方式（公司官网、Linkedin，地区、规模），帮助团队直达真实买方。</p>
+                            <div class="capability-tags">
+                                <span class="pill">决策层匹配</span>
+                                <span class="pill">触达优化</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tab-panel" data-tab-panel="talk" role="tabpanel">
+                    <div class="tab-grid">
+                        <article class="capability-card">
+                            <div class="card-icon gradient-green"><i class="fa-solid fa-earth-americas"></i></div>
+                            <h3>多维数据聚合引擎</h3>
+                            <p>整合企业档案、行业信号与地理数据，生成结构化客户决策人情报包括职位、地区，emails，电话，LinkedIn、Facebook、Twitter等数据。一键导出 CRM-ready 数据。</p>
+                            <div class="capability-tags">
+                                <span class="pill">结构化数据</span>
+                                <span class="pill">客户CRM档案</span>
+                            </div>
+                        </article>
+                        <article class="capability-card">
+                            <div class="card-icon gradient-violet"><i class="fa-solid fa-comments"></i></div>
+                            <h3>AI 市场洞察报告</h3>
+                            <p>自动生成行业规模、采购周期与竞争格局分析报告，帮助销售确定优先市场与潜力客户。</p>
+                            <div class="capability-tags">
+                                <span class="pill">市场规模</span>
+                                <span class="pill">采购周期</span>
+                                <span class="pill">竞争分析</span>
+                            </div>
+                        </article>
+                        <article class="capability-card">
+                            <div class="card-icon gradient-blue"><i class="fa-solid fa-sitemap"></i></div>
+                            <h3>数据验证与合规交付</h3>
+                            <p>算法与人工双重校验机制验证邮箱、职位、公司等信息真实性，确保数据合法、安全、可用。</p>
+                            <div class="capability-tags">
+                                <span class="pill">双重校验</span>
+                                <span class="pill">合规交付</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="tab-panel" data-tab-panel="insight" role="tabpanel">
+                    <div class="tab-grid">
+                        <article class="capability-card">
+                            <div class="card-icon gradient-blue"><i class="fa-solid fa-chart-line"></i></div>
+                            <h3>商机复盘与模型优化</h3>
+                            <p>AI 自动分析跟进记录与转化表现，更新 ICP 筛选逻辑，实现持续优化与学习。</p>
+                            <div class="capability-tags">
+                                <span class="pill">模型优化</span>
+                                <span class="pill">转化追踪</span>
+                            </div>
+                        </article>
+                        <article class="capability-card">
+                            <div class="card-icon gradient-green"><i class="fa-solid fa-users"></i></div>
+                            <h3>市场趋势学习与数据回流</h3>
+                            <p>识别不同地区与行业的需求变化，分析趋势信号，为下一阶段市场布局与产品推广提供依据。销售反馈与 CRM 数据自动回流 AI 引擎，形成智能闭环，让每一轮开发都更高效。</p>
+                            <div class="capability-tags">
+                                <span class="pill">趋势洞察</span>
+                                <span class="pill">CRM回流 </span>
+                            </div>
+                        </article>
+                        <article class="capability-card">
+                            <div class="card-icon gradient-slate"><i class="fa-solid fa-shield-halved"></i></div>
+                            <h3>智能外联建议</h3>
+                            <p>自动生成个性化开发信模板，提供最佳联系时机建议，提升外联响应率和转化率。</p>
+                            <div class="capability-tags">
+                                <span class="pill">CRM建议</span>
+                                <span class="pill">提升转化率</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <section class="workflow" id="workflow">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-timeline"></i> Workflow · 从线索到成交</span>
+                    <h2>四步打造高转化的外贸客户智能系统</h2>
+                    <p>Zbot 将AI分析、数据聚合与人工验证整合为一体，从目标识别到数据交付全流程自动化。让团队更聚焦于客户沟通，而不是仅仅数据收集。流程灵活可配置，支持分支与自定义触发。</p>
+                </div>
+                <div class="workflow-steps">
+                    <article class="workflow-card">
+                        <div class="workflow-index">01</div>
+                        <div>
+                            <div class="card-icon gradient-blue"><i data-lucide="target"></i></div>
+                            <h3>智能客户画像与市场洞察</h3>
+                            <p>让AI理解你的外贸目标。输入目标市场与产品信息，Zbot 结合行业数据库与语义模型，生成高潜客户分布与关键角色建议。自动构建客户分层模型（ICP），识别应优先接触的买家群体与岗位。</p>
+                            <div class="workflow-meta">
+                                <span>自定义 ICP 模型</span>
+                                <span>一键生成客户蓝图</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="workflow-card">
+                        <div class="workflow-index">02</div>
+                        <div>
+                            <div class="card-icon gradient-green"><i class="fa-solid fa-pen-to-square" data-lucide="layers"></i></div>
+                            <h3>多源数据智能聚合</h3>
+                            <p>从企业字段到市场画像，让 Sales 更懂客户。Zbot 的智能分析引擎整合企业注册、行业动态与区域经济数据，为每个目标市场构建公司级行业分布洞察。系统输出不仅包含公司、职位、邮箱、地区等数据，还包括企业规模、所属行业与市场层级，帮助销售团队快速判断潜在客户的真实价值与优先级。</p>
+                            <div class="workflow-meta">
+                                <span>行业级数据源接入</span>
+                                <span>决策层特征与规模洞察</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="workflow-card">
+                        <div class="workflow-index">03</div>
+                        <div>
+                            <div class="card-icon gradient-violet"><i class="fa-solid fa-share-alt" data-lucide="shield-check"></i></div>
+                            <h3>数据科学验证与人工复核</h3>
+                            <p>确保每一条线索都真实可用。Data Scientist 执行算法去重、置信度检测；CS 团队人工抽检企业与决策人信息。所有数据字段（公司、职位、邮箱、地区）均经双层验证与自动清洗。</p>
+                            <div class="workflow-meta">
+                                <span>模型置信度校验</span>
+                                <span>人工精准复核</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="workflow-card">
+                        <div class="workflow-index">04</div>
+                        <div>
+                            <div class="card-icon gradient-slate"><i class="fa-solid fa-clipboard-check" data-lucide="file-spreadsheet"></i></div>
+                            <h3>CRM-Ready 数据交付与策略建议</h3>
+                            <p>拿到的不只是数据，而是可行动方案。输出经过验证的客户清单与决策人信息，可直接导入 CRM 或外联系统。附带 AI 生成的跟进策略标签与市场拓展建议，实现从数据到行动的闭环。</p>
+                            <div class="workflow-meta">
+                                <span>自动生成行动项</span>
+                                <span>自动策略推荐</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+         <section class="metrics">
+            <div class="container">
+                <div class="metric-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: rgba(0,198,255,0.15);"><i class="fa-solid fa-users"></i></div>
+                        <h3 data-counter="7" data-decimals="1" data-suffix=" 亿">0</h3>
+                        <p>全球企业买家数据</p>
+                        <span>实时同步并去重，支持智能 ICP 画像匹配</span>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: rgba(0,249,161,0.15);"><i class="fa-solid fa-square-poll-vertical"></i></div>
+                        <h3 data-counter="68" data-suffix="%">0</h3>
+                        <p>商机 AI 评分更高转化率</p>
+                        <span>AI 排序优先级，提醒最佳跟进窗口</span>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: rgba(108,44,255,0.15);"><i class="fa-solid fa-wave-square"></i></div>
+                        <h3 data-counter="15" data-suffix="x">0</h3>
+                        <p>自动化工作流节省脚本操作</p>
+                        <span>从线索抓取到沟通复盘全链路接入</span>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: rgba(255,189,76,0.15);"><i class="fa-solid fa-shield-check"></i></div>
+                        <h3 data-counter="99.1" data-decimals="1" data-suffix="%">0</h3>
+                        <p>邮箱可达验证准确率</p>
+                        <span>结合多源验证与历史互动数据，保障投递成功</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="solutions" id="solutions">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-scale-balanced"></i> 为什么选择 Zbot</span>
+                    <h2>效率、成本、数据覆盖率全面领先</h2>
+                    <p>对比传统人工寻找客户或第三方数据库，Zbot 将 AI 自动化与数据科学结合，提供更快速、更全面、更安全的出海解决方案。</p>
+                </div>
+                <div class="compare-shell">
+                    <div class="compare-head-row">
+                        <div class="compare-head">功能对比</div>
+                        <div class="compare-head">Zbot</div>
+                        <div class="compare-head secondary">传统人工</div>
+                        <div class="compare-head neutral">Apollo 等平台</div>
+                    </div>
+                    <div class="compare-body">
+                        <div class="compare-row">
+                            <div class="compare-cell">自动化程度</div>
+                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-robot"></i> 全自动 AI</span></div>
+                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-xmark"></i> 手动搜集</span></div>
+                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-triangle-exclamation"></i> 部分自动</span></div>
+                        </div>
+                        <div class="compare-row">
+                            <div class="compare-cell">使用成本</div>
+                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-coins"></i> 更亲民</span></div>
+                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-person-digging"></i> 高人工成本</span></div>
+                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-rocket"></i> 订阅费用较高</span></div>
+                        </div>
+                        <div class="compare-row">
+                            <div class="compare-cell">数据覆盖</div>
+                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-globe"></i> 2.4 亿买家 + 海关/行业数据</span></div>
+                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-face-frown"></i> 有限</span></div>
+                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-earth-americas"></i> 偏欧美数据</span></div>
+                        </div>
+                        <div class="compare-row">
+                            <div class="compare-cell">数据输出格式</div>
+                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-file-circle-check"></i> CRM Ready</span></div>
+                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-file-circle-xmark"></i> 格式不统一</span></div>
+                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-code"></i> API 为主</span></div>
+                        </div>
+                        <div class="compare-row">
+                            <div class="compare-cell">查找速度</div>
+                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-bolt"></i> 秒级批量响应</span></div>
+                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-hourglass-half"></i> 天/周级人工检索</span></div>
+                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-cloud"></i> 依赖实时 API</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="compare-note">* 数据覆盖包含 120+ 国家买家情报、LinkedIn/海关等权威数据源，持续自动更新。</div>
+            </div>
+        </section>
+
+        <section class="data-proof" id="data-proof">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker" style="background: rgba(255,255,255,0.08);color:#fff;"><i class="fa-solid fa-database"></i> 数据实力</span>
+                    <h2 style="color:#ffffff;">48+ 权威数据源实时更新，合规安全一站到位</h2>
+                    <p style="color:rgba(226,236,255,0.76);">海关数据、企查查、Apollo、LinkedIn、Google News、Crunchbase 等数据每日刷新；所有数据均经过合规审计并支持企业私有化部署。</p>
+                </div>
+                <div class="data-logos">
+                    <div class="data-card"><span>海关数据</span>全球 78 国舱单</div>
+                    <div class="data-card"><span>Apollo</span> B2B Leads</div>
+                    <div class="data-card"><span>LinkedIn</span> 趋势信号</div>
+                    <div class="data-card"><span>Crunchbase</span> 融资情报</div>
+                    <div class="data-card"><span>企查查</span> 工商信誉</div>
+                    <div class="data-card"><span>Google</span> 新闻动态</div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="testimonials" id="stories">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-file-circle-check"></i> Lead Research Request</span>
+                    <h2>ZBot 客户需求收集表 / Lead Research Request Form</h2>
+                    <p>选择最符合您需求的方式，我们将基于公司名称、筛选条件或理想客户画像，为您定制高质量潜在客户列表。</p>
+                </div>
+
+                <div class="lead-switch" role="tablist">
+                    <button type="button" class="lead-switch-card is-active" data-panel-trigger="panel-company">
+                        <div class="badge">1</div>
+                        <div>
+                            <strong>根据公司名称查找</strong>
+                            <span>Find company websites &amp; extract leads</span>
+                        </div>
+                    </button>
+                    <button type="button" class="lead-switch-card" data-panel-trigger="panel-custom">
+                        <div class="badge">2</div>
+                        <div>
+                            <strong>自定义筛选条件</strong>
+                            <span>Build your own lead filters</span>
+                        </div>
+                    </button>
+                    <button type="button" class="lead-switch-card" data-panel-trigger="panel-create">
+                        <div class="badge">3</div>
+                        <div>
+                            <strong>帮我创建筛选条件</strong>
+                            <span>Create filters for me</span>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="lead-panels">
+                    <form class="lead-panel is-active" data-panel="panel-company" action="https://formspree.io/f/mkgqalwe" method="POST" enctype="multipart/form-data">
+                        <h3 class="panel-title">Form Panel 1 · 根据公司名称查找</h3>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧍♀️ 基本信息 / Basic Info</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p1-fullName"><span>01</span> 姓名 / Full Name *</label>
+                                    <input class="form-input" id="p1-fullName" name="fullName" type="text" placeholder="请填写负责人姓名" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-email"><span>02</span> 邮箱 / Email *</label>
+                                    <input class="form-input" id="p1-email" name="email" type="email" placeholder="用于接收结果文件" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-phone"><span>03</span> 电话 / Phone *</label>
+                                    <input class="form-input" id="p1-phone" name="phone" type="tel" placeholder="+86 138-0000-0000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🏢 公司与需求范围 / Company &amp; Scope</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p1-companyCount"><span>04</span> 需要查询的公司数量 *</label>
+                                    <input class="form-input" id="p1-companyCount" name="companyCount" type="number" min="1" placeholder="例：50 / 100 / 200" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-productKeywords"><span>05</span> 产品关键词 *</label>
+                                    <input class="form-input" id="p1-productKeywords" name="productKeywords" type="text" placeholder="例：galvanized steel wire, cable armor tape" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-industry"><span>06</span> 行业 *</label>
+                                    <input class="form-input" id="p1-industry" name="industry" type="text" placeholder="例：Cable, Electrical, Construction" required>
+                                </div>
+                            </div>
+                            <div class="form-grid grid-1">
+                                <div class="form-field full">
+                                    <label for="p1-companyFile"><span>07</span> 上传公司名单 *</label>
+                                    <div class="file-drop">
+                                        <label class="file-drop-trigger" for="p1-companyFile">📎 点击上传 CSV / Excel 文件或拖动到此处</label>
+                                        <input id="p1-companyFile" name="upload" type="file" accept=".csv,.xlsx,.xls,.txt">
+                                        <p class="form-hint">支持格式：CSV、TXT、XLSX</p>
+                                    </div>
+                                </div>
+                                <div class="form-field full">
+                                    <label for="p1-companyList"><span>08</span> 粘贴公司名称（每行一个）</label>
+                                    <textarea class="form-textarea" id="p1-companyList" name="companyList" placeholder="公司名称 1&#10;公司名称 2&#10;公司名称 3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🎯 目标筛选条件 / Targeting Criteria</h4>
+                            <div class="form-grid grid-2">
+                                <div class="form-field">
+                                    <label for="p1-companyKeywords"><span>09</span> 目标企业关键词</label>
+                                    <input class="form-input" id="p1-companyKeywords" name="companyKeywords" type="text" placeholder="例：manufacturer, supplier, wholesaler">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-jobTitles"><span>10</span> 职位 / Job Titles *</label>
+                                    <select class="form-select select-multi" id="p1-jobTitles" name="jobTitles" multiple required>
+                                        <option>procurement</option>
+                                        <option>purchasing</option>
+                                        <option>purchaser</option>
+                                        <option>buyer</option>
+                                        <option>supply chain</option>
+                                        <option>warehouse</option>
+                                        <option>import</option>
+                                        <option>export</option>
+                                        <option>material</option>
+                                        <option>sourcing</option>
+                                        <option>production</option>
+                                        <option>purchase</option>
+                                        <option>buy</option>
+                                        <option>plan</option>
+                                        <option>logistics</option>
+                                    </select>
+                                    <span class="form-hint">🏭 初创建议全部勾选 · 🏢 大型企业建议仅保留采购相关职位</span>
+                                </div>
+                            </div>
+                            <div class="form-field full">
+                                <label for="p1-regions"><span>11</span> 目标销售地区 *</label>
+                                <select class="form-select select-multi" id="p1-regions" name="regions" multiple required>
+                                    <option>Vietnam</option>
+                                    <option>Indonesia</option>
+                                    <option>Philippines</option>
+                                    <option>Malaysia</option>
+                                    <option>Thailand</option>
+                                    <option>India</option>
+                                    <option>Middle East</option>
+                                    <option>Africa</option>
+                                    <option>Europe</option>
+                                    <option>North America</option>
+                                    <option>South America</option>
+                                </select>
+                                <span class="form-hint">按住 Ctrl / Command 可多选多个地区</span>
+                            </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧩 高级筛选 / Advanced Filters</h4>
+                            <div class="form-grid grid-2">
+                                <div class="form-field">
+                                    <label for="p1-advancedKeywords"><span>12</span> 公司关键词 (可选)</label>
+                                    <input class="form-input" id="p1-advancedKeywords" name="advancedKeywords" type="text" placeholder="例：cable, wire, metal, power">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-companySize"><span>13</span> 公司规模 (可选)</label>
+                                    <select class="form-select" id="p1-companySize" name="companySize">
+                                        <option value="">不限</option>
+                                        <option>1–50 employees</option>
+                                        <option>51–200</option>
+                                        <option>201–500</option>
+                                        <option>501–1000</option>
+                                        <option>1001–5000</option>
+                                        <option>5000+</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-avoidTarget"><span>14</span> 避免目标 (可选)</label>
+                                    <textarea class="form-textarea" id="p1-avoidTarget" name="avoidTarget" placeholder="列出你不希望定向的公司类型、行业或现有客户"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-existingDomains"><span>15</span> 已存在客户域名 (避免重复)</label>
+                                    <div class="file-drop">
+                                        <textarea class="form-textarea" id="p1-existingDomains" name="existingDomains" placeholder="example.com&#10;yourclient.co"></textarea>
+                                        <label class="file-drop-trigger" for="p1-existingDomainsFile">📁 上传参考文件</label>
+                                        <input id="p1-existingDomainsFile" name="existingDomainsFile" type="file" accept=".csv,.xlsx,.txt">
+                                        <p class="form-hint">每行一个域名，或上传 CSV / Excel 文件</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <span class="note">提交后 24 小时内我们将与您联系，确认需求并提供样例数据。</span>
+                            <button type="submit">🚀 提交需求 / Submit Request</button>
+                        </div>
+                    </form>
+
+                    <form class="lead-panel" data-panel="panel-custom">
+                        <h3 class="panel-title">Form Panel 2 · 自定义筛选条件</h3>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧍 基础信息</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p2-fullName"><span>01</span> 姓名 / Full Name *</label>
+                                    <input class="form-input" id="p2-fullName" name="fullName" type="text" placeholder="请填写负责人姓名" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-email"><span>02</span> 邮箱 / Email *</label>
+                                    <input class="form-input" id="p2-email" name="email" type="email" placeholder="用于接收结果文件" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-phone"><span>03</span> 电话 / Phone *</label>
+                                    <input class="form-input" id="p2-phone" name="phone" type="tel" placeholder="+86 138-0000-0000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧾 你的目标与筛选条件</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p2-hsCode"><span>04</span> 海关编码 / HS Code</label>
+                                    <input class="form-input" id="p2-hsCode" name="hsCode" type="text" placeholder="例：721720">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-productKeywords"><span>05</span> 产品关键词 *</label>
+                                    <input class="form-input" id="p2-productKeywords" name="productKeywords" type="text" placeholder="例：galvanized steel wire, fence" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-industry"><span>06</span> 行业 / Industry *</label>
+                                    <input class="form-input" id="p2-industry" name="industry" type="text" placeholder="例：机械制造、电子产品" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-region"><span>07</span> 目标销售地区 *</label>
+                                    <input class="form-input" id="p2-region" name="targetRegion" type="text" placeholder="例：美国、欧盟、东南亚" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-jobTitle"><span>08</span> 职位 / Job Title *</label>
+                                    <input class="form-input" id="p2-jobTitle" name="jobTitle" type="text" placeholder="例：Purchasing Manager, CEO" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-companySize"><span>09</span> 公司规模 (可选)</label>
+                                    <input class="form-input" id="p2-companySize" name="companySize" type="text" placeholder="例：10-100 employees">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-companyKeywords"><span>10</span> 公司关键词 (可选)</label>
+                                    <input class="form-input" id="p2-companyKeywords" name="companyKeywords" type="text" placeholder="例：importer, distributor">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-avoidTarget"><span>11</span> 避免目标 (可选)</label>
+                                    <textarea class="form-textarea" id="p2-avoidTarget" name="avoidTarget" placeholder="列出不希望定向的公司类型或行业"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-leadCount"><span>12</span> 选择 Leads 数量 (最低 5000) *</label>
+                                    <input class="form-input" id="p2-leadCount" name="leadCount" type="number" min="5000" placeholder="例：10000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <span class="note">我们会结合 HS Code、行业及职位条件，为您搭建高精度的数据筛选模型。</span>
+                            <button type="submit">🚀 开始查找 / Build My Filters</button>
+                        </div>
+                    </form>
+
+                    <form class="lead-panel" data-panel="panel-create">
+                        <h3 class="panel-title">Form Panel 3 · 帮我创建筛选条件</h3>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧍 联系方式</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p3-fullName"><span>01</span> 姓名 / Full Name *</label>
+                                    <input class="form-input" id="p3-fullName" name="fullName" type="text" placeholder="请填写负责人姓名" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-email"><span>02</span> 邮箱 / Email *</label>
+                                    <input class="form-input" id="p3-email" name="email" type="email" placeholder="用于接收结果文件" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-phone"><span>03</span> 电话 / Phone *</label>
+                                    <input class="form-input" id="p3-phone" name="phone" type="tel" placeholder="+86 138-0000-0000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🎯 描述您的理想客户</h4>
+                            <div class="form-grid grid-1">
+                                <div class="form-field full">
+                                    <label for="p3-ideal"><span>04</span> 描述您的理想客户 *</label>
+                                    <textarea class="form-textarea" id="p3-ideal" name="idealCustomer" placeholder="示例：My ideal prospect is a [JOB TITLE] at a [INDUSTRY] company in [COUNTRY]. Most of my clients are between [10–100 employees]." required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p3-budget"><span>05</span> 预算或采购范围</label>
+                                    <input class="form-input" id="p3-budget" name="budget" type="text" placeholder="例：重点关注 5-20 万美元采购项目">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-challenges"><span>06</span> 当前挑战 (可选)</label>
+                                    <textarea class="form-textarea" id="p3-challenges" name="challenges" placeholder="例：缺少目标市场联系人、需要快速验证邮箱等"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-leadCount"><span>07</span> 期望 Leads 数量 (最低 5000) *</label>
+                                    <input class="form-input" id="p3-leadCount" name="leadCount" type="number" min="5000" placeholder="例：10000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <span class="note">提交后我们将与您进行一对一沟通，协助定义筛选条件并提供样例名单。</span>
+                            <button type="submit">🚀 创建我的筛选条件 / Create Filters for Me</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-gem"></i> ZBot 数据抓取与定价机制说明</span>
+                    <h2>按需求选择最适合的订阅计划</h2>
+                    <p>覆盖从免费试用到企业级定制的所有场景，数据抓取量、功能组件与专家支持均可灵活搭配。</p>
+                </div>
+                <div class="pricing-slider" data-pricing-slider>
+                    <div class="pricing-controls">
+                        <button type="button" class="pricing-arrow" aria-label="上一方案" data-pricing-prev><i class="fa-solid fa-arrow-left"></i></button>
+                        <button type="button" class="pricing-arrow" aria-label="下一方案" data-pricing-next><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="pricing-track" data-pricing-track>
+                        <article class="pricing-card">
+                            <div class="plan-head">
+                                <span class="plan-badge">Free Trial</span>
+                                <div class="plan-icon gradient-blue"><i class="fa-solid fa-gift"></i></div>
+                            </div>
+                            <h3 class="plan-title">体验版</h3>
+                            <p class="plan-subtitle">7 天免费体验 ZBot 智能对话</p>
+                            <div class="plan-price">¥0 / 7 天<span>Free for 7 days</span></div>
+                            <div class="plan-section">
+                                <h4>数据量与功能</h4>
+                                <ul class="pricing-list">
+                                    <li>包含 20 条精准数据抓取样本</li>
+                                    <li>访问 ZBot 智能对话核心流程</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h4>附加功能</h4>
+                                <p>免费体验所有基础功能 / Try core features</p>
+                            </div>
+                            <span class="plan-ideal"><i class="fa-solid fa-user"></i> 个人用户 / Individuals</span>
+                            <a class="plan-action" href="#contact">立即体验</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <div class="plan-head">
+                                <span class="plan-badge">Starter</span>
+                                <div class="plan-icon gradient-green"><i class="fa-solid fa-seedling"></i></div>
+                            </div>
+                            <h3 class="plan-title">Starter 计划</h3>
+                            <p class="plan-subtitle">适合个人或初创团队的轻量方案</p>
+                            <div class="plan-price">¥1,680 / 年<span>约 ¥140 / 月</span></div>
+                            <div class="plan-section">
+                                <h4>数据量与功能</h4>
+                                <ul class="pricing-list">
+                                    <li>每年抓取 300 条关键决策人联系方式</li>
+                                    <li>每年抓取 50 条公司数据</li>
+                                    <li>访问 ZBot 智能对话有限次数</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h4>附加功能</h4>
+                                <ul class="pricing-list">
+                                    <li>专属数据抓取方案</li>
+                                    <li>数据科学家验证与清洗</li>
+                                </ul>
+                            </div>
+                            <span class="plan-ideal"><i class="fa-solid fa-users"></i> 个人或初创团队</span>
+                            <a class="plan-action" href="#contact">申请购买</a>
+                        </article>
+
+                        <article class="pricing-card featured">
+                            <div class="plan-head">
+                                <span class="plan-badge">Business</span>
+                                <div class="plan-icon gradient-blue"><i class="fa-solid fa-briefcase"></i></div>
+                            </div>
+                            <h3 class="plan-title">Business 计划</h3>
+                            <p class="plan-subtitle">满足多市场销售团队的扩张需求</p>
+                            <div class="plan-price">¥6,800 / 年<span>约 ¥567 / 月</span></div>
+                            <div class="plan-section">
+                                <h4>数据量与功能</h4>
+                                <ul class="pricing-list">
+                                    <li>每年抓取 1,500 条关键决策人联系方式</li>
+                                    <li>每年抓取 200 条公司数据</li>
+                                    <li>无限次访问 ZBot 智能对话</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h4>附加功能</h4>
+                                <ul class="pricing-list">
+                                    <li>Starter 全部功能</li>
+                                    <li>1 个 LinkedIn Sales Navigator（4 个月）</li>
+                                    <li>行业关键词分析 + 人工验证</li>
+                                </ul>
+                            </div>
+                            <span class="plan-ideal"><i class="fa-solid fa-building"></i> 中小企业、多市场销售团队</span>
+                            <a class="plan-action" href="#contact">预约顾问</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <div class="plan-head">
+                                <span class="plan-badge">Pro</span>
+                                <div class="plan-icon gradient-violet"><i class="fa-solid fa-chart-column"></i></div>
+                            </div>
+                            <h3 class="plan-title">Pro 计划</h3>
+                            <p class="plan-subtitle">为大型销售团队提供全方位支持</p>
+                            <div class="plan-price">¥13,800 / 年<span>约 ¥1,150 / 月</span></div>
+                            <div class="plan-section">
+                                <h4>数据量与功能</h4>
+                                <ul class="pricing-list">
+                                    <li>每年抓取 5,000 条关键决策人联系方式</li>
+                                    <li>每年抓取 1,000 条公司数据</li>
+                                    <li>无限次访问 ZBot 智能对话</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h4>附加功能</h4>
+                                <ul class="pricing-list">
+                                    <li>Business 全部功能</li>
+                                    <li>2 个 LinkedIn Sales Navigator（各 4 个月）</li>
+                                    <li>专属客户成功经理 + 优先交付</li>
+                                </ul>
+                            </div>
+                            <span class="plan-ideal"><i class="fa-solid fa-city"></i> 外贸公司、大型销售团队</span>
+                            <a class="plan-action" href="#contact">联系销售</a>
+                        </article>
+
+                        <article class="pricing-card">
+                            <div class="plan-head">
+                                <span class="plan-badge">Custom</span>
+                                <div class="plan-icon gradient-slate"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            </div>
+                            <h3 class="plan-title">定制方案</h3>
+                            <p class="plan-subtitle">≥ 6,000 leads，完全定制的企业级方案</p>
+                            <div class="plan-price">按需定价<span>Custom pricing (≥6,000 leads)</span></div>
+                            <div class="plan-section">
+                                <h4>数据量与功能</h4>
+                                <ul class="pricing-list">
+                                    <li>≥6,000 条关键决策人联系方式</li>
+                                    <li>多数据源融合（LinkedIn + 海关 + Apollo + 其它）</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h4>附加功能</h4>
+                                <ul class="pricing-list">
+                                    <li>完全定制行业、职位、国家、公司规模模型</li>
+                                    <li>数据科学家与算法团队陪跑</li>
+                                    <li>企业级交付 SLA</li>
+                                </ul>
+                            </div>
+                            <span class="plan-ideal"><i class="fa-solid fa-earth-asia"></i> 大型企业、长期拓客项目</span>
+                            <a class="plan-action" href="mailto:hello@zbot.ai">获取定制报价</a>
+                        </article>
+                    </div>
+                </div>
+                <p class="pricing-note">需要更多行业定制与 API 对接？请联系 <a href="mailto:hello@zbot.ai">hello@zbot.ai</a> 获取专属方案。</p>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-circle-question"></i> 常见问题</span>
+                    <h2>关于 Zbot，你可能想了解的答案</h2>
+                    <p>如果以下内容未覆盖您的疑问，欢迎与我们团队联系，我们将提供专属顾问解答。</p>
+                </div>
+                <div class="faq-grid">
+                    <details class="faq-item" open>
+                        <summary>Zbot 的数据是否合规？</summary>
+                        <p>我们与多家权威数据供应商合作，所有数据均经过 GDPR、CCPA 等隐私合规审计，并提供企业级权限与脱敏策略。企业客户可选择在本地或私有云部署。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>如何与现有 CRM/ERP 系统集成？</summary>
+                        <p>Zbot 提供开放 API 与无代码连接器，已原生集成 Salesforce、HubSpot、Zoho、微软 Dynamics 等主流系统，也支持自定义 Webhook。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>AI 生成的邮件是否支持人工调整？</summary>
+                        <p>当然。每封邮件都可进行人工润色，系统会学习修改偏好并持续优化生成效果，同时保留最终发送前的确认机制。</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Zbot 的部署方式有哪些？</summary>
+                        <p>我们提供 SaaS、公有云独立实例以及企业私有化部署三种模式，可根据安全要求灵活选择。大客户可获得专属数据隔离与 SLA。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="stories" id="stories-more">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-newspaper"></i> 最新洞察</span>
+                    <h2>洞察全球市场，提前锁定增长机会</h2>
+                    <p>Zbot 每周为客户提供热门行业洞察、最新营销玩法与案例拆解，帮助团队持续优化出海策略。</p>
+                </div>
+                <div class="story-grid">
+                    <article class="story-card">
+                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="新能源" loading="lazy"/>
+                        <div class="story-content">
+                            <span class="story-tag">新能源</span>
+                            <h3>东欧储能市场买家画像：2025 年增长 3.8 倍的背后</h3>
+                            <p>解读当地政策、竞争对手动态与渠道策略，附赠 120 家重点买家名单。</p>
+                            <a class="story-action" href="#contact">下载报告 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=900&q=80" alt="制造" loading="lazy"/>
+                        <div class="story-content">
+                            <span class="story-tag">制造业</span>
+                            <h3>德国工业 4.0 项目如何挖掘关键决策人</h3>
+                            <p>通过 Zbot 的 AI 线索评分识别高潜力买家，邮件模板打开率提升 160%。</p>
+                            <a class="story-action" href="#contact">申请案例 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80" alt="跨境电商" loading="lazy"/>
+                        <div class="story-content">
+                            <span class="story-tag">跨境电商</span>
+                            <h3>从 TikTok 到店铺：AI 驱动的网红合作开发手册</h3>
+                            <p>自动匹配网红与类目，智能生成合作邀约与佣金方案，2 周完成 46 场合作。</p>
+                            <a class="story-action" href="#contact">获取手册 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band" id="contact">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>立即预约专属顾问，让 Zbot 为您带来下一程海外增长</h2>
+                    <p>提交需求后，我们将在 24 小时内与您联系，提供定制演示、行业线索样本与试用方案。</p>
+                    <div class="hero-ctas" style="justify-content:center;">
+                        <a class="btn-primary" href="mailto:hello@zbot.ai">发送邮件 contact@zbotglobal.com</a>
+                        <a class="hero-secondary" href="https://wa.me/16478645968"><i class="fa-brands fa-whatsapp"></i> WhatsApp 咨询</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand" style="color:#fff;">
+                        <span class="brand-mark">Z</span>
+                        <span>Zbot 智能AI外贸员</span>
+                    </div>
+                    <h3>智能出海 · 渤达全球</h3>
+                    <p>我们帮助中国外贸团队高效触达全球买家，从数据、策略到执行全面自动化。</p>
+                    <div class="socials" style="margin-top:18px;">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+
+                </div>
+                <div class="footer-links">
+                    <h4>产品功能</h4>
+                    <ul>
+                        <li><a href="#capabilities">AI 智能找客</a></li>
+                        <li><a href="#capabilities">自动化触达</a></li>
+                        <li><a href="#workflow">AI 工作流</a></li>
+                        <li><a href="#pricing">定价方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>资源中心</h4>
+                    <ul>
+                        <li><a href="#stories-more">行业洞察</a></li>
+                        <li><a href="#stories">客户案例</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="mailto:partner@zbot.ai">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="mailto:hello@zbot.ai">contact@zbotglobal.com</a></li>
+                        <li><a href="tel:+8613800000000">+1 6478645968</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Zbot. All rights reserved. | 智腾中渤科技</span>
+                <span>
+                    <a href="#">隐私政策</a> · <a href="#">服务条款</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const qs = (sel, ctx = document) => ctx.querySelector(sel);
+        const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+        const preloader = qs('#preloader');
+        window.addEventListener('load', () => {
+            setTimeout(() => preloader.classList.add('is-hidden'), 400);
+        });
+
+        const navToggle = qs('#navToggle');
+        const primaryNav = qs('#primaryNav');
+        navToggle.addEventListener('click', () => {
+            const open = primaryNav.classList.toggle('is-open');
+            navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        qsa('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                primaryNav.classList.remove('is-open');
+                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+
+        const slides = qsa('[data-slide]');
+        const dots = qsa('[data-slider-dots] button');
+        let slideIndex = 0;
+        let slideTimer;
+
+        const activateSlide = (index) => {
+            slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+            slideIndex = index;
+        };
+
+        const autoSlide = () => {
+            slideTimer = setInterval(() => {
+                const next = (slideIndex + 1) % slides.length;
+                activateSlide(next);
+            }, 7200);
+        };
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideTimer);
+                activateSlide(index);
+                autoSlide();
+            }, { passive: true });
+        });
+
+        autoSlide();
+
+        const counters = qsa('[data-counter]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.dataset.counter);
+                    const duration = 1800;
+                    const start = performance.now();
+                    const decimals = parseInt(el.dataset.decimals || '0', 10);
+                    const suffix = el.dataset.suffix || '';
+
+                    const step = (now) => {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const value = (target * progress).toFixed(decimals);
+                        el.textContent = value + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        }
+                    };
+
+                    requestAnimationFrame(step);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        const tabButtons = qsa('.tab-button');
+        const tabPanels = qsa('.tab-panel');
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+                tabButtons.forEach(b => b.classList.toggle('is-active', b === btn));
+                tabPanels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.tabPanel === target));
+            });
+        });
+
+        const leadSwitchCards = qsa('[data-panel-trigger]');
+        const leadPanels = qsa('.lead-panel');
+
+        if (leadSwitchCards.length && leadPanels.length) {
+            leadSwitchCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const target = card.dataset.panelTrigger;
+                    leadSwitchCards.forEach(btn => btn.classList.toggle('is-active', btn === card));
+                    leadPanels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.panel === target));
+                });
+            });
+        }
+        const pricingTrack = qs('[data-pricing-track]');
+        const pricingPrev = qs('[data-pricing-prev]');
+        const pricingNext = qs('[data-pricing-next]');
+
+        if (pricingTrack && pricingPrev && pricingNext) {
+            const pricingCards = qsa('.pricing-card', pricingTrack);
+            let pricingIndex = 0;
+
+            const updatePricingButtons = () => {
+                pricingPrev.disabled = pricingIndex === 0;
+                pricingNext.disabled = pricingIndex === pricingCards.length - 1;
+            };
+
+            const scrollToPricingCard = () => {
+                const target = pricingCards[pricingIndex];
+                pricingTrack.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+                updatePricingButtons();
+            };
+
+            const shiftPricing = (direction) => {
+                pricingIndex = Math.min(pricingCards.length - 1, Math.max(0, pricingIndex + direction));
+                scrollToPricingCard();
+            };
+
+            pricingPrev.addEventListener('click', () => shiftPricing(-1));
+            pricingNext.addEventListener('click', () => shiftPricing(1));
+
+            pricingTrack.addEventListener('scroll', () => {
+                let closestIndex = 0;
+                let minDiff = Infinity;
+                pricingCards.forEach((card, idx) => {
+                    const diff = Math.abs(card.offsetLeft - pricingTrack.scrollLeft);
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        closestIndex = idx;
+                    }
+                });
+                pricingIndex = closestIndex;
+                updatePricingButtons();
+            }, { passive: true });
+
+            updatePricingButtons();
+        }
+
+    </script>
+</body>
+</html>
