@@ -354,7 +354,7 @@
         /* Hero Section */
         .hero {
         position: relative;
-        height: 100vh;
+        height: 90vh;
         color: #f1f5ff;
         overflow: hidden;
         }
@@ -403,50 +403,7 @@
             position: relative;
         }
 
-        .about-brief {
-            background: #101827;
-            color: rgba(226, 236, 255, 0.88);
-            padding: 120px 0;
-        }
-
-        .about-brief-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .about-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.82);
-            margin-bottom: 22px;
-        }
-
-        .about-label i {
-            color: var(--brand-green);
-        }
-
-        .about-brief-content h2 {
-            font-size: clamp(2.2rem, 3.4vw, 3rem);
-            line-height: 1.28;
-            margin: 0 0 22px;
-            color: #ffffff;
-        }
-
-        .about-brief-content p {
-            font-size: 17px;
-            line-height: 1.9;
-            margin: 0 0 16px;
-        }
-
-        .about-brief-content .about-emphasis {
-            font-weight: 600;
-            color: var(--brand-green);
-            margin-top: 24px;
-        }
+       
 
 
         .services {
@@ -1772,252 +1729,9 @@
                 align-items: stretch;
             }
         }
-        /* Pricing */
-        .pricing {
-            background: radial-gradient(circle at top, rgba(236, 243, 255, 0.75), #ffffff 60%);
-        }
-
-        .pricing-slider {
-            position: relative;
-            margin-top: 46px;
-        }
-
-        .pricing-slider::before,
-        .pricing-slider::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .pricing-slider::before {
-            left: 0;
-            background: linear-gradient(90deg, #f6f9ff 0%, rgba(246, 249, 255, 0));
-        }
-
-        .pricing-slider::after {
-            right: 0;
-            background: linear-gradient(270deg, #f6f9ff 0%, rgba(246, 249, 255, 0));
-        }
-
-        .pricing-track {
-            display: flex;
-            gap: 24px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 6px 4px 12px;
-        }
-
-        .pricing-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .pricing-card {
-            flex: 0 0 min(340px, 82vw);
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            padding: 28px;
-            border-radius: 24px;
-            border: 1px solid rgba(23, 48, 115, 0.08);
-            background: linear-gradient(160deg, #ffffff 0%, rgba(236, 245, 255, 0.85) 100%);
-            box-shadow: 0 26px 55px rgba(15, 36, 82, 0.12);
-            scroll-snap-align: start;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 32px 70px rgba(15, 36, 82, 0.16);
-        }
-
-        .pricing-card.featured {
-            border-color: transparent;
-            background: linear-gradient(155deg, rgba(0, 198, 255, 0.16), rgba(0, 249, 161, 0.16));
-            box-shadow: 0 32px 80px rgba(0, 198, 255, 0.22);
-        }
-
-        .plan-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .plan-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border-radius: 14px;
-            background: rgba(46, 92, 203, 0.12);
-            color: var(--brand-blue);
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .plan-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 16px;
-            display: grid;
-            place-items: center;
-            color: #051747;
-            font-size: 20px;
-            box-shadow: 0 18px 32px rgba(8, 28, 72, 0.25);
-        }
-
-        .plan-title {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 800;
-            color: #0f2357;
-        }
-
-        .plan-subtitle {
-            margin: -6px 0 0;
-            font-size: 14px;
-            color: rgba(16, 36, 84, 0.64);
-        }
-
-        .plan-price {
-            font-size: 20px;
-            font-weight: 800;
-            color: #132a5c;
-        }
-
-        .plan-price span {
-            display: block;
-            font-size: 13px;
-            color: rgba(16, 36, 84, 0.6);
-            font-weight: 600;
-        }
-
-        .plan-section h4 {
-            margin: 0 0 8px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #163266;
-            letter-spacing: 0.04em;
-        }
-
-        .pricing-list {
-            margin: 0;
-            padding-left: 18px;
-            display: grid;
-            gap: 6px;
-            font-size: 14px;
-            color: rgba(16, 36, 84, 0.82);
-        }
-
-        .plan-section p {
-            margin: 0;
-            font-size: 14px;
-            color: rgba(16, 36, 84, 0.78);
-        }
-
-        .plan-ideal {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border-radius: 12px;
-            background: rgba(0, 198, 255, 0.12);
-            color: #0d3568;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .plan-action {
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 18px;
-            border-radius: 14px;
-            border: 1px solid rgba(46, 92, 203, 0.28);
-            color: var(--brand-blue);
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .plan-action:hover {
-            background: linear-gradient(120deg, rgba(0, 198, 255, 0.18), rgba(0, 249, 161, 0.18));
-            color: #04112f;
-        }
-
-        .pricing-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transform: translateY(-50%);
-            padding: 0 8px;
-            pointer-events: none;
-        }
-
-        .pricing-arrow {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid rgba(46, 92, 203, 0.25);
-            background: rgba(255, 255, 255, 0.92);
-            color: var(--brand-blue);
-            display: grid;
-            place-items: center;
-            font-size: 18px;
-            cursor: pointer;
-            pointer-events: all;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .pricing-arrow:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(120deg, rgba(0, 198, 255, 0.18), rgba(0, 249, 161, 0.18));
-        }
-
-        .pricing-arrow:disabled {
-            opacity: 0.35;
-            cursor: default;
-            transform: none;
-        }
-
-        .pricing-note {
-            margin-top: 32px;
-            font-size: 13px;
-            color: rgba(16, 36, 84, 0.58);
-            text-align: center;
-        }
-
-        .pricing-note a {
-            color: var(--brand-blue);
-            font-weight: 600;
-        }
-
-        @media (max-width: 760px) {
-            .pricing-slider::before,
-            .pricing-slider::after {
-                width: 40px;
-            }
-
-            .pricing-arrow {
-                display: none;
-            }
-        }
-
+       
+        
         /* FAQ */
- */
- */
- */
         .faq-section {
             background: #ffffff;
         }
@@ -2500,17 +2214,7 @@
             </div>
         </section>
 
-        <section class="about-brief" id="about">
-            <div class="container">
-                <div class="about-brief-content">
-                    <span class="about-label"><i class="fa-solid fa-lightbulb"></i> Zbot 智能体系概括</span>
-                    <h2>Zbot 提供AI外贸智能出海资讯服务，能够自主管理外贸流程。</h2>
-                    <p>它不仅执行任务，更能理解目标与策略。</p>
-                    <p>在一个统一的智能架构中，Zbot 通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
-                    <p class="about-emphasis">Zbot，不是外贸工具，而是一个能思考的 AI 助手。</p>
-                </div>
-            </div>
-        </section>
+        
 
         <section class="services" id="services">
             <div class="container">

@@ -8,15 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <!-- Template Stylesheet -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <style>
         :root {
             --brand-blue: #2e5ccb;
-            --brand-cyan: #00b9ff;
-            --brand-deep: #081a3a;
-            --brand-light: #f2f6ff;
-            --card-shadow: 0 20px 40px rgba(18, 71, 158, 0.18);
+            --brand-cyan: #00c6ff;
+            --brand-green: #00f9a1;
+            --brand-dark: #0b173a;
+            --brand-mid: #142451;
+            --brand-light: #eff5ff;
+            --gradient-1: linear-gradient(135deg, #0b1d57 0%, #1a3a89 40%, #00b3ff 100%);
+            --gradient-2: linear-gradient(135deg, #0a1f3f 0%, #1c3d7d 50%, #18d1ba 100%);
+            --gradient-3: linear-gradient(135deg, #0c1438 0%, #262164 50%, #6c2cff 100%);
+            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
+            --card-radius: 22px;
+            --container-width: min(1180px, 92vw);
         }
+
 
         body {
             font-family: "Inter", "Noto Sans SC", sans-serif;
@@ -89,9 +97,29 @@
         .nav-toggle { display: none; width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(46, 92, 203, 0.25); background: #ffffff; color: var(--brand-blue); font-size: 20px; align-items: center; justify-content: center; cursor: pointer; }
 
         .about-hero {
-            padding: 38px 24px 60px;
-            background: radial-gradient(circle at top left, rgba(46, 124, 255, 0.28), transparent 45%), radial-gradient(circle at 80% 20%, rgba(0, 200, 255, 0.18), transparent 50%), var(--brand-deep);
-            color: #ffffff;
+            position: relative;
+            height: 90vh;
+            padding: 140px 24px 120px;
+            color: #f1f5ff;
+            overflow: hidden;
+        }
+
+        .about-hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .about-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6, 19, 46, 0.78) 0%, rgba(9, 38, 82, 0.6) 60%);
+            z-index: 1;
         }
 
         .about-hero .hero {
@@ -99,6 +127,8 @@
             margin: 0 auto;
             display: grid;
             gap: 18px;
+            position: relative;
+            z-index: 2;
         }
 
         .about-hero h1 { margin: 0; font-size: clamp(32px, 5vw, 52px); font-weight: 800; }
@@ -125,9 +155,50 @@
             gap: 60px;
         }
 
-        .intro-text { display: grid; gap: 16px; }
-        .intro-text h2 { margin: 0; font-size: clamp(26px, 3.5vw, 36px); color: var(--brand-deep); }
-        .intro-highlight { background: linear-gradient(135deg, rgba(46, 92, 203, 0.12), rgba(0, 198, 255, 0.1)); border-radius: 18px; padding: 24px 28px; box-shadow: 0 18px 38px rgba(8, 24, 66, 0.12); }
+         .about-brief {
+            background: #101827;
+            color: rgba(226, 236, 255, 0.88);
+            padding: 120px 0;
+        }
+
+        .about-brief-content {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .about-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 22px;
+        }
+
+        .about-label i {
+            color: var(--brand-green);
+        }
+
+        .about-brief-content h2 {
+            font-size: clamp(2.2rem, 3.4vw, 3rem);
+            line-height: 1.28;
+            margin: 0 0 22px;
+            color: #ffffff;
+        }
+
+        .about-brief-content p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin: 0 0 16px;
+        }
+
+        .about-brief-content .about-emphasis {
+            font-weight: 600;
+            color: var(--brand-green);
+            margin-top: 24px;
+        }
 
         .process h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
         .process-subtitle { color: rgba(8, 26, 58, 0.62); margin-bottom: 36px; }
@@ -242,20 +313,29 @@
     </header>
 
     <section class="about-hero">
+        <video autoplay muted loop playsinline>
+            <source src="media/about-us.mp4" type="video/mp4">
+        </video>
         <div class="hero">
             <span class="eyebrow">About Zbot</span>
-            <h1>更懂中国企业的全球获客智能体团队</h1>
+            <h1>Zbot 更懂中国企业的全球外贸出海团队</h1>
             <p>Zbot 以多智能体协作体系与全球数据资产，帮助出海企业快速识别高潜买家、构建可执行的海外营销策略，并通过精细化服务流程交付可衡量的增长成果。</p>
         </div>
     </section>
 
-    <div class="page">
-        <section class="intro-text">
-            <h2>我们与客户一起，让全球拓展「可预测、可复制、可放大」。</h2>
-            <div class="intro-highlight">
-                <p>Zbot 团队将 AI 能力与真实贸易经验相结合，整合 48+ 权威数据库、企业官网与社交信号，生成企业级“买家画像”。我们提供策略诊断、数据采集、外联执行与项目复盘的一站式服务，确保每一个出海项目都有明确的阶段目标与可衡量的 ROI。</p>
+    <section class="about-brief" id="about">
+            <div class="container">
+                <div class="about-brief-content">
+                    <span class="about-label"><i class="fa-solid fa-lightbulb"></i> Zbot 智能体系概括</span>
+                    <h2>Zbot 提供AI外贸智能出海资讯服务，能够自主管理外贸流程。</h2>
+                    <p>它不仅执行任务，更能理解目标与策略。</p>
+                    <p>在一个统一的智能架构中，Zbot 通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
+                    <p class="about-emphasis">Zbot，不是外贸工具，而是一个能思考的 AI 助手。</p>
+                </div>
             </div>
         </section>
+
+    <div class="page">
 
         <section class="process">
             <h3>精细化服务流程管理 | <span style="font-weight:600;color:rgba(8,26,58,0.7)">Service Process</span></h3>
