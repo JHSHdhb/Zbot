@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About Zbot | 精细化服务流程管理</title>
+    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <!-- Template Stylesheet -->
+    <link href="css/main.css" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #2e5ccb;
+            --brand-cyan: #00b9ff;
+            --brand-deep: #081a3a;
+            --brand-light: #f2f6ff;
+            --card-shadow: 0 20px 40px rgba(18, 71, 158, 0.18);
+        }
+
+        body {
+            font-family: "Inter", "Noto Sans SC", sans-serif;
+            background: linear-gradient(180deg, #f8fbff 0%, #eef3ff 60%, #ffffff 100%);
+            color: var(--brand-deep);
+            line-height: 1.7;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .top-bar {
+            background: rgba(8, 19, 53, 0.95);
+            color: #d7ecff;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 24px;
+            gap: 24px;
+        }
+
+        .top-links { display: flex; gap: 18px; }
+        .top-links a { display: inline-flex; align-items: center; gap: 6px; }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 980;
+            background: rgba(244, 247, 255, 0.96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(23, 52, 122, 0.08);
+        }
+
+        .nav-bar {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand { display: inline-flex; align-items: center; gap: 16px; }
+        .brand-logo { width: 136px; }
+
+        .nav-links { display: flex; align-items: center; gap: 26px; font-weight: 600; font-size: 15px; }
+        .nav-links a { position: relative; padding-bottom: 6px; color: #1b2c54; transition: color 0.3s ease; }
+        .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; border-radius: 999px; background: linear-gradient(90deg, var(--brand-cyan), #00f9a1); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+        .nav-links a:hover::after, .nav-links a.is-active::after { transform: scaleX(1); }
+        .nav-links a:hover, .nav-links a.is-active { color: var(--brand-blue); }
+
+        .nav-dropdown { position: relative; }
+        .dropdown-toggle { display: inline-flex; align-items: center; gap: 6px; padding-bottom: 6px; background: none; border: none; font: inherit; color: #1b2c54; cursor: pointer; transition: color 0.3s ease; }
+        .dropdown-toggle i { font-size: 12px; transition: transform 0.3s ease; }
+        .nav-dropdown:hover .dropdown-toggle, .nav-dropdown.is-open .dropdown-toggle { color: var(--brand-blue); }
+        .nav-dropdown.is-open .dropdown-toggle i { transform: rotate(180deg); }
+        .dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); background: #ffffff; border-radius: 18px; box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18); padding: 16px 18px; display: grid; gap: 12px; min-width: 220px; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 20; }
+        .dropdown-menu a { color: #223b6d; font-size: 14px; font-weight: 500; }
+        .nav-dropdown:hover .dropdown-menu, .nav-dropdown.is-open .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+
+        .nav-actions { display: flex; align-items: center; gap: 18px; }
+        .btn-outline { color: var(--brand-blue); border: 1px solid rgba(46, 92, 203, 0.35); border-radius: 16px; padding: 10px 18px; }
+        .btn-primary { background: linear-gradient(120deg, var(--brand-cyan), #00f9a1); color: #04112f; padding: 10px 20px; border-radius: 16px; }
+        .nav-toggle { display: none; width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(46, 92, 203, 0.25); background: #ffffff; color: var(--brand-blue); font-size: 20px; align-items: center; justify-content: center; cursor: pointer; }
+
+        .about-hero {
+            padding: 38px 24px 60px;
+            background: radial-gradient(circle at top left, rgba(46, 124, 255, 0.28), transparent 45%), radial-gradient(circle at 80% 20%, rgba(0, 200, 255, 0.18), transparent 50%), var(--brand-deep);
+            color: #ffffff;
+        }
+
+        .about-hero .hero {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
+        }
+
+        .about-hero h1 { margin: 0; font-size: clamp(32px, 5vw, 52px); font-weight: 800; }
+        .about-hero p { margin: 0; max-width: 720px; font-size: 18px; color: rgba(255, 255, 255, 0.78); }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.18);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 72px 24px 120px;
+            display: grid;
+            gap: 60px;
+        }
+
+        .intro-text { display: grid; gap: 16px; }
+        .intro-text h2 { margin: 0; font-size: clamp(26px, 3.5vw, 36px); color: var(--brand-deep); }
+        .intro-highlight { background: linear-gradient(135deg, rgba(46, 92, 203, 0.12), rgba(0, 198, 255, 0.1)); border-radius: 18px; padding: 24px 28px; box-shadow: 0 18px 38px rgba(8, 24, 66, 0.12); }
+
+        .process h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
+        .process-subtitle { color: rgba(8, 26, 58, 0.62); margin-bottom: 36px; }
+
+        .process-nav { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+        .process-arrow { font-size: 20px; color: rgba(8, 26, 58, 0.25); }
+
+        .process-step {
+            flex: 1 1 180px;
+            min-width: 170px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            padding: 26px 20px 22px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(235, 244, 255, 0.85));
+            box-shadow: 0 12px 28px rgba(23, 72, 170, 0.12);
+            display: grid;
+            place-items: center;
+            gap: 6px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .process-step::after {
+            content: attr(data-number);
+            position: absolute;
+            top: -38px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 54px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(180deg, rgba(113, 171, 255, 0.85), rgba(240, 245, 255, 0.7));
+            -webkit-background-clip: text;
+            color: transparent;
+            opacity: 0.85;
+        }
+        .process-step span { font-size: 16px; font-weight: 600; color: var(--brand-blue); }
+        .process-step small { font-size: 13px; color: rgba(8, 26, 58, 0.55); font-weight: 600; letter-spacing: 0.04em; }
+        .process-step.is-active { background: linear-gradient(135deg, #0ab6ff, #297bff); box-shadow: 0 20px 46px rgba(15, 96, 255, 0.35); transform: translateY(-6px); }
+        .process-step.is-active span, .process-step.is-active small { color: #ffffff; }
+
+        .process-panels { margin-top: 32px; }
+        .process-panel { display: none; background: #ffffff; border-radius: 26px; box-shadow: 0 22px 48px rgba(18, 71, 158, 0.18); padding: 32px 34px; }
+        .process-panel.is-active { display: block; animation: panel-fade 0.3s ease; }
+        .process-panel h4 { margin: 0 0 18px; font-size: 20px; color: var(--brand-blue); }
+        .process-panel ul { margin: 0; padding-left: 18px; color: rgba(8, 26, 58, 0.8); display: grid; gap: 10px; font-size: 15px; }
+
+        @keyframes panel-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 920px) {
+            .top-bar .container { flex-direction: column; gap: 12px; }
+            .top-links { flex-wrap: wrap; justify-content: center; }
+            .nav-links { position: absolute; top: 68px; left: 0; right: 0; background: rgba(244, 247, 255, 0.98); flex-direction: column; align-items: flex-start; padding: 22px; gap: 18px; border-bottom: 1px solid rgba(23, 52, 122, 0.1); transform: translateY(-30px); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease; }
+            .nav-links.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
+            .nav-dropdown { width: 100%; }
+            .dropdown-toggle { width: 100%; justify-content: space-between; padding: 8px 0; }
+            .dropdown-menu { position: static; transform: none; margin-top: -6px; background: rgba(255, 255, 255, 0.92); box-shadow: none; border-radius: 12px; display: none; padding: 12px 16px; }
+            .nav-dropdown.is-open .dropdown-menu { display: grid; }
+            .nav-actions { display: none; }
+            .nav-toggle { display: inline-flex; }
+            .process-step { min-width: 140px; }
+        }
+    </style>
+</head>
+<body class="page-about">
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-highlight">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
+            </div>
+            <div class="top-links">
+                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
+                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
+                <a href="contact.html"><i class="fa-solid fa-comment-dots"></i> 预约演示</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="nav-bar">
+            <a class="brand" href="index.html">
+                <img src="media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo"/>
+            </a>
+            <nav class="nav-links" id="primaryNav">
+                <a href="index.html">首页</a>
+                <a href="about-us.html" class="is-active">关于我们</a>
+                <div class="nav-dropdown" data-dropdown>
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        核心服务 <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="service-ai-strategy.html">AI Strategy Consulting</a>
+                        <a href="service-data-intelligence.html">Data Intelligence & Lead Generation</a>
+                        <a href="service-outreach-automation.html">Outreach Automation</a>
+                        <a href="service-ai-optimization.html">AI Optimization & Dashboard</a>
+                    </div>
+                </div>
+                <a href="client-request.html">客户需求表</a>
+                <a href="faq.html">常见问题</a>
+                <a href="blog.html">博客动态</a>
+                <a href="contact.html">联系我们</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn-outline" href="client-request.html">客户需求表</a>
+                <a class="btn-primary" href="contact.html">预约 1v1 Demo</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="hero">
+            <span class="eyebrow">About Zbot</span>
+            <h1>更懂中国企业的全球获客智能体团队</h1>
+            <p>Zbot 以多智能体协作体系与全球数据资产，帮助出海企业快速识别高潜买家、构建可执行的海外营销策略，并通过精细化服务流程交付可衡量的增长成果。</p>
+        </div>
+    </section>
+
+    <div class="page">
+        <section class="intro-text">
+            <h2>我们与客户一起，让全球拓展「可预测、可复制、可放大」。</h2>
+            <div class="intro-highlight">
+                <p>Zbot 团队将 AI 能力与真实贸易经验相结合，整合 48+ 权威数据库、企业官网与社交信号，生成企业级“买家画像”。我们提供策略诊断、数据采集、外联执行与项目复盘的一站式服务，确保每一个出海项目都有明确的阶段目标与可衡量的 ROI。</p>
+            </div>
+        </section>
+
+        <section class="process">
+            <h3>精细化服务流程管理 | <span style="font-weight:600;color:rgba(8,26,58,0.7)">Service Process</span></h3>
+            <p class="process-subtitle">五大阶段、十二项关键动作，保障项目高质量交付与持续优化。</p>
+
+            <div class="process-nav" data-process-nav>
+                <button class="process-step is-active" data-number="1" data-process-target="step-1">
+                    <span>签订协议</span>
+                    <small>Kick-off</small>
+                </button>
+                <span class="process-arrow">›</span>
+                <button class="process-step" data-number="2" data-process-target="step-2">
+                    <span>市场分析</span>
+                    <small>Market Insight</small>
+                </button>
+                <span class="process-arrow">›</span>
+                <button class="process-step" data-number="3" data-process-target="step-3">
+                    <span>方案定制</span>
+                    <small>Strategy Design</small>
+                </button>
+                <span class="process-arrow">›</span>
+                <button class="process-step" data-number="4" data-process-target="step-4">
+                    <span>运营优化</span>
+                    <small>Execution</small>
+                </button>
+                <span class="process-arrow">›</span>
+                <button class="process-step" data-number="5" data-process-target="step-5">
+                    <span>项目交付</span>
+                    <small>Delivery</small>
+                </button>
+            </div>
+
+            <div class="process-panels">
+                <article class="process-panel is-active" id="step-1">
+                    <h4>签订协议 · Kick-off</h4>
+                    <ul>
+                        <li>前期策略咨询与目标确认</li>
+                        <li>提供服务方案与报价明细</li>
+                        <li>签约合同，明确交付节奏</li>
+                    </ul>
+                </article>
+
+                <article class="process-panel" id="step-2">
+                    <h4>市场分析 · Market Insight</h4>
+                    <ul>
+                        <li>行业趋势与需求评估</li>
+                        <li>竞争对手全景分析</li>
+                        <li>品牌定位与差异化梳理</li>
+                        <li>官网/内容资产诊断</li>
+                    </ul>
+                </article>
+
+                <article class="process-panel" id="step-3">
+                    <h4>方案定制 · Strategy Design</h4>
+                    <ul>
+                        <li>海外广告与推广组合设计</li>
+                        <li>品牌站与内容资产规划</li>
+                        <li>多渠道外联与社媒触达策略</li>
+                        <li>小语种与泛俄语区定制营销</li>
+                    </ul>
+                </article>
+
+                <article class="process-panel" id="step-4">
+                    <h4>运营优化 · Execution &amp; Optimization</h4>
+                    <ul>
+                        <li>项目细化与资源协同编排</li>
+                        <li>月报 / 阶段性数据回顾</li>
+                        <li>定期复盘会议与行动清单</li>
+                        <li>持续优化与实验机制</li>
+                    </ul>
+                </article>
+
+                <article class="process-panel" id="step-5">
+                    <h4>项目交付 · Delivery</h4>
+                    <ul>
+                        <li>阶段性成果汇总与复盘报告</li>
+                        <li>KPI 完成情况与 ROI 评估</li>
+                        <li>下一阶段增长规划与资源建议</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const primaryNav = document.getElementById('primaryNav');
+        const dropdown = document.querySelector('[data-dropdown]');
+
+        navToggle.addEventListener('click', () => {
+            const open = primaryNav.classList.toggle('is-open');
+            navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!primaryNav.contains(event.target) && !navToggle.contains(event.target)) {
+                primaryNav.classList.remove('is-open');
+                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+        }, true);
+
+        document.querySelectorAll('.nav-links a, .dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                primaryNav.classList.remove('is-open');
+                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+
+        if (dropdown) {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            const closeDropdown = () => {
+                dropdown.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            };
+
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const willOpen = !dropdown.classList.contains('is-open');
+                dropdown.classList.toggle('is-open', willOpen);
+                toggle.setAttribute('aria-expanded', willOpen.toString());
+            });
+
+            menu.addEventListener('click', closeDropdown);
+            document.addEventListener('click', (event) => {
+                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
+                    closeDropdown();
+                }
+            });
+        }
+
+        (function() {
+            const steps = document.querySelectorAll('[data-process-target]');
+            const panels = document.querySelectorAll('.process-panel');
+
+            steps.forEach(step => {
+                step.addEventListener('click', () => {
+                    const targetId = step.getAttribute('data-process-target');
+                    steps.forEach(btn => btn.classList.toggle('is-active', btn === step));
+                    panels.forEach(panel => panel.classList.toggle('is-active', panel.id === targetId));
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

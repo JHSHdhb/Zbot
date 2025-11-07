@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Template Stylesheet -->
+    <link href="css/main.css" rel="stylesheet">
     <!-- Lucide -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script>
@@ -161,25 +163,31 @@
         }
 
         .brand {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            font-size: 21px;
-            color: var(--brand-blue);
+            gap: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            color: #142451;
+            letter-spacing: 0.02em;
         }
 
-        .brand-mark {
-            width: 40px;
-            height: 40px;
-            border-radius: 14px;
-            background: linear-gradient(140deg, rgba(0, 198, 255, 0.95), rgba(0, 249, 161, 0.95));
-            display: grid;
-            place-items: center;
-            color: #061536;
-            font-weight: 800;
-            font-size: 18px;
-            box-shadow: 0 14px 28px rgba(0, 198, 255, 0.35);
+        .brand-logo {
+            display: block;
+            width: 150px;
+            height: auto;
+        }
+
+        .brand-logo--footer {
+            width: 138px;
+        }
+
+        .brand-text {
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+            color: inherit;
         }
 
         .nav-links {
@@ -195,6 +203,74 @@
             padding-bottom: 6px;
             color: #1b2c54;
             transition: color 0.3s ease;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 0 6px;
+            background: none;
+            border: none;
+            font: inherit;
+            color: #1b2c54;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-toggle i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown.is-open .dropdown-toggle,
+        .nav-dropdown:hover .dropdown-toggle {
+            color: var(--brand-blue);
+        }
+
+        .nav-dropdown.is-open .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 14px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18);
+            padding: 16px 18px;
+            display: grid;
+            gap: 12px;
+            min-width: 230px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 20;
+        }
+
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown.is-open .dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            padding: 0;
+            color: #233a6d;
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            color: var(--brand-blue);
         }
 
         .nav-links a::after {
@@ -275,23 +351,48 @@
             cursor: pointer;
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
-            position: relative;
-            padding: 0;
-            color: #f1f5ff;
-            background: linear-gradient(135deg, rgba(6, 19, 46, 0.86) 0%, rgba(9, 38, 82, 0.8) 40%, rgba(9, 64, 115, 0.75) 100%),
-                        url('./img/hero-ocean.jpg') center / cover no-repeat;
-            overflow: hidden;
+        position: relative;
+        height: 100vh;
+        color: #f1f5ff;
+        overflow: hidden;
         }
 
-       
+        /* Video background */
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
 
+        }
+
+        /* 蓝黑渐变叠层 (可选，增加对比度) */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(6, 19, 46, 0.7) 0%, rgba(9, 38, 82, 0.6) 40%);
+            z-index: 1;
+        }
+
+        /* 内容区 */
         .hero .container {
             position: relative;
+            z-index: 2;
             padding: 90px 0 110px;
             width: min(1260px, 94vw);
+            margin: 0 auto;
+            text-align: center;
         }
+
 
         .hero-slider {
             position: relative;
@@ -300,6 +401,167 @@
 
         .slider-track {
             position: relative;
+        }
+
+        .about-brief {
+            background: #101827;
+            color: rgba(226, 236, 255, 0.88);
+            padding: 120px 0;
+        }
+
+        .about-brief-content {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .about-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 22px;
+        }
+
+        .about-label i {
+            color: var(--brand-green);
+        }
+
+        .about-brief-content h2 {
+            font-size: clamp(2.2rem, 3.4vw, 3rem);
+            line-height: 1.28;
+            margin: 0 0 22px;
+            color: #ffffff;
+        }
+
+        .about-brief-content p {
+            font-size: 17px;
+            line-height: 1.9;
+            margin: 0 0 16px;
+        }
+
+        .about-brief-content .about-emphasis {
+            font-weight: 600;
+            color: var(--brand-green);
+            margin-top: 24px;
+        }
+
+
+        .services {
+            background: #f3f7ff;
+            color: var(--brand-dark);
+            padding: 120px 0;
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 60px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .services-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(0, 198, 255, 0.15);
+            color: var(--brand-blue);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin: 0 auto;
+        }
+
+        .services-header h2 {
+            margin: 0;
+            font-size: clamp(2.4rem, 4vw, 3.1rem);
+        }
+
+        .services-header p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(11, 23, 58, 0.7);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 26px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 430px;
+            border-radius: 28px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 22px 48px rgba(9, 24, 62, 0.28);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 64px rgba(7, 18, 45, 0.35);
+        }
+
+        .service-card__media {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.35s ease;
+        }
+
+        .service-card:hover .service-card__media {
+            transform: scale(1.05);
+        }
+
+        .service-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+        }
+
+        .service-card__layer {
+            position: absolute;
+            inset: 0;
+            backdrop-filter: blur(0px);
+            transition: backdrop-filter 0.35s ease, background 0.35s ease;
+        }
+
+        .service-card:hover .service-card__layer {
+            backdrop-filter: blur(2px);
+            background: linear-gradient(180deg, rgba(6, 18, 40, 0.05) 0%, rgba(6, 18, 40, 0.4) 100%);
+        }
+
+        .service-card__body {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 28px 26px 30px;
+            display: grid;
+            gap: 8px;
+            color: #ffffff;
+        }
+
+        .service-label-en {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .service-label-zh {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.82);
         }
 
         .hero-slide {
@@ -2017,6 +2279,10 @@
             .showcase-floating strong {
                 font-size: 36px;
             }
+
+            .services {
+                padding: 100px 0;
+            }
         }
 
         @media (max-width: 920px) {
@@ -2039,6 +2305,33 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+                padding: 8px 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                margin-top: 12px;
+                box-shadow: none;
+                border-radius: 12px;
+                background: rgba(255, 255, 255, 0.92);
+                opacity: 1;
+                pointer-events: auto;
+                padding: 10px 14px;
+                gap: 10px;
+            }
+
+            .nav-dropdown:not(.is-open) .dropdown-menu {
+                display: none;
             }
 
             .nav-links.is-open {
@@ -2072,6 +2365,10 @@
                 transform: translateX(-50%);
                 justify-content: center;
                 gap: 16px;
+            }
+
+            .about-brief {
+                padding: 100px 0;
             }
         }
 
@@ -2116,6 +2413,22 @@
             .footer-top {
                 grid-template-columns: repeat(1, minmax(0, 1fr));
             }
+
+            .about-brief {
+                padding: 80px 0;
+            }
+
+            .about-brief-content p {
+                font-size: 16px;
+            }
+
+            .services {
+                padding: 70px 0;
+            }
+
+            .service-card {
+                min-height: 280px;
+            }
         }
     </style>
 </head>
@@ -2142,21 +2455,30 @@
         <div class="container">
             <div class="nav-bar">
                 <a class="brand" href="#home">
-                    <span class="brand-mark">Z</span>
-                    <span>Zbot 智能AI外贸员</span>
+                    <img src="media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo"/>
                 </a>
                 <nav class="nav-links" id="primaryNav">
-                    <a href="#home" class="is-active">首页</a>
-                    <a href="#capabilities">核心能力</a>
-                    <a href="#workflow">工作流</a>
-                    <a href="#pricing">方案定价</a>
-                    <a href="#stories">客户需求表</a>
-                    <a href="#faq">常见问题</a>
-                    <a href="#contact">联系我们</a>
+                    <a href="index.html" class="is-active">首页</a>
+                    <a href="about-us.html">关于我们</a>
+                    <div class="nav-dropdown" data-dropdown>
+                        <button class="dropdown-toggle" type="button" aria-expanded="false">
+                            核心服务 <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="service-ai-strategy.html">AI Strategy Consulting</a>
+                            <a href="service-data-intelligence.html">Data Intelligence & Lead Generation</a>
+                            <a href="service-outreach-automation.html">Outreach Automation</a>
+                            <a href="service-ai-optimization.html">AI Optimization & Dashboard</a>
+                        </div>
+                    </div>
+                    <a href="client-request.html">客户需求表</a>
+                    <a href="faq.html">常见问题</a>
+                    <a href="blog.html">博客动态</a>
+                    <a href="contact.html">联系我们</a>
                 </nav>
                 <div class="nav-actions">
-                    <a class="btn-outline" href="#stories">观看案例</a>
-                    <a class="btn-primary" href="#contact">预约 1v1 Demo</a>
+                    <a class="btn-outline" href="client-request.html">客户需求表</a>
+                    <a class="btn-primary" href="contact.html">预约 1v1 Demo</a>
                 </div>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                     <i class="fa-solid fa-bars"></i>
@@ -2167,169 +2489,71 @@
 
     <main>
         <section class="hero" id="home">
+            <video autoplay muted loop playsinline>
+                <source src="media/zbot-bg.mp4" type="video/mp4">
+            </video>
+
             <div class="container">
-                <div class="hero-slider" data-slider>
-                    <div class="slider-track">
-                        <article class="hero-slide is-active" data-slide>
-                            <div class="slide-intro">
-                                <span class="slide-kicker"><i class="fa-solid fa-robot"></i>智能出海，渤达全球</span>
-                                <h1 class="slide-title">让 <span>Zbot</span> 成为您的全天候智能外贸员</h1>
-                                <p class="slide-description">接入全球 2.4 亿企业买家数据库，结合 AI 智能筛选、自动跟进与多语言模板，让您的外贸团队 7×24 小时在线开发高意向客户。</p>
-                                <div class="hero-ctas">
-                                    <a class="btn-primary" href="#contact">立即体验 Zbot</a>
-                                    <a class="hero-secondary" href="#workflow"><i class="fa-solid fa-circle-play"></i> 查看工作流</a>
-                                </div>
-                                <div class="hero-meta">
-                                    <div>
-                                        <strong data-counter="8500" data-suffix="+">0</strong>
-                                        <span>万级别精准买家线索 | 覆盖 120+ 国家</span>
-                                    </div>
-                                    <div>
-                                        <strong data-counter="92" data-suffix="%">0</strong>
-                                        <span>自动化邮件送达率 · 多轮 AI 优化續写话术</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide-showcase">
-                                <div class="showcase-card">
-                                    <div class="conversation-header">
-                                        <span class="status-dot"></span>
-                                        <span>对话演示 · Zbot 智能理解</span>
-                                    </div>
-                                    <div class="chat-pane">
-                                        <div class="chat-row user">
-                                            <div class="chat-avatar">U</div>
-                                            <div class="chat-bubble">
-                                                <p>我想在印尼找到电缆制造厂，并接触负责采购金属线材的经理。</p>
-                                            </div>
-                                        </div>
-                                        <div class="chat-row bot">
-                                            <div class="chat-avatar">Z</div>
-                                            <div class="chat-bubble">
-                                                <p>我已分析您的目标画像：</p>
-                                                <ul class="chat-list">
-                                                    <li><strong>行业：</strong>电缆制造（NAICS 3359）</li>
-                                                    <li><strong>地区：</strong>印尼雅加达、万隆、泗水</li>
-                                                    <li><strong>关键角色：</strong>采购经理、生产主管、运营总监</li>
-                                                </ul>
-                                                <p>建议行动：</p>
-                                                <ul class="action-list">
-                                                    <li><i class="fa-solid fa-circle-check"></i>使用 LinkedIn 数据库筛选并验证目标联系人</li>
-                                                    <li><i class="fa-solid fa-circle-check"></i>从海关与行业目录提取企业基本信息</li>
-                                                    <li><i class="fa-solid fa-circle-check"></i>预计生成客户画像 2000+，决策人联系方式 6000+</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="insight-summary">
-                                        <span>👇 想进一步落地？</span>
-                                        <div class="chat-cta-group">
-                                            <a class="chat-cta" href="#contact">生成完整客户定位计划</a>
-                                            <a class="chat-cta secondary" href="#contact">下载样例 CSV</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                <span class="slide-kicker"><i class="fa-solid fa-robot"></i>智能出海，渤达全球</span>
+                <h1>AI Leads Global Trade.<br>让 Zbot 智能体为您统筹外贸的每一步。</h1>
 
-                        <article class="hero-slide" data-slide>
-                            <div class="slide-intro">
-                                <span class="slide-kicker"><i class="fa-solid fa-globe"></i> 多语言·多文化沟通</span>
-                                <h1 class="slide-title">一键生成客户画像与母语沟通话术</h1>
-                                <p class="slide-description">AI 自动解读官网、社媒与财报信息，瞬间生成买家画像与策略建议；支持 12 种语言的个性化沟通内容，真正做到“因人而异”。</p>
-                                <div class="hero-ctas">
-                                    <a class="btn-primary" href="#capabilities">查看能力矩阵</a>
-                                    <a class="hero-secondary" href="#stories"><i class="fa-solid fa-film"></i> 客户成功故事</a>
-                                </div>
-                                <div class="hero-meta">
-                                    <div>
-                                        <strong data-counter="12">0</strong>
-                                        <span>官方支持语言 · 自动切换语气风格</span>
-                                    </div>
-                                    <div>
-                                        <strong data-counter="48" data-suffix="h">0</strong>
-                                        <span>AI 复盘与商机预警，随时掌握进展</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide-showcase">
-                                <div class="showcase-card">
-                                    <div class="showcase-header">
-                                        <div class="showcase-badge">买家旅程 360°</div>
-                                        <i class="fa-solid fa-language"></i>
-                                    </div>
-                                    <div class="projection-grid">
-                                        <div class="projection-row">
-                                            <span>自动提炼公司亮点</span>
-                                            <strong>8 秒</strong>
-                                        </div>
-                                        <div class="projection-row">
-                                            <span>AI 推荐对接人群</span>
-                                            <strong>精准度 93%</strong>
-                                        </div>
-                                        <div class="projection-row">
-                                            <span>沟通模板</span>
-                                            <strong>1000+ 场景</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+            </div>
+        </section>
 
-                        <article class="hero-slide" data-slide>
-                            <div class="slide-intro">
-                                <span class="slide-kicker"><i class="fa-solid fa-database"></i> 全球数据合规</span>
-                                <h1 class="slide-title">实时链接 48+ 权威数据源，精准锁定买家</h1>
-                                <p class="slide-description">覆盖海关数据、行业黄页、IPO 招股书与 LinkedIn 信号，AI 智能评分并过滤不可达邮箱，确保每一次触达都更有价值。</p>
-                                <div class="hero-ctas">
-                                    <a class="btn-primary" href="#solutions">探索行业解决方案</a>
-                                    <a class="hero-secondary" href="#data-proof"><i class="fa-solid fa-shield-halved"></i> 数据合规白皮书</a>
-                                </div>
-                                <div class="hero-meta">
-                                    <div>
-                                        <strong data-counter="48" data-suffix="+">0</strong>
-                                        <span>实时同步第三方权威数据源</span>
-                                    </div>
-                                    <div>
-                                        <strong data-counter="180" data-suffix="ms">0</strong>
-                                        <span>邮箱可达与风险评分，快速筛选有效联系人</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="slide-showcase">
-                                <div class="showcase-card">
-                                    <div class="showcase-header">
-                                        <div class="showcase-badge">数据即服务</div>
-                                        <i class="fa-solid fa-chart-line"></i>
-                                    </div>
-                                    <div class="projection-grid">
-                                        <div class="projection-row">
-                                            <span>数据刷新频率</span>
-                                            <strong>5 分钟</strong>
-                                        </div>
-                                        <div class="projection-row">
-                                            <span>合规审计通过率</span>
-                                            <strong>100%</strong>
-                                        </div>
-                                        <div class="projection-row">
-                                            <span>活跃买家 ICP 匹配</span>
-                                            <strong>Top 3%</strong>
-                                        </div>
-                                    </div>
-                    
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="slider-dots" data-slider-dots>
-                        <button class="is-active" aria-label="Slide 1"></button>
-                        <button aria-label="Slide 2"></button>
-                        <button aria-label="Slide 3"></button>
-                    </div>
+        <section class="about-brief" id="about">
+            <div class="container">
+                <div class="about-brief-content">
+                    <span class="about-label"><i class="fa-solid fa-lightbulb"></i> Zbot 智能体系概括</span>
+                    <h2>Zbot 提供AI外贸智能出海资讯服务，能够自主管理外贸流程。</h2>
+                    <p>它不仅执行任务，更能理解目标与策略。</p>
+                    <p>在一个统一的智能架构中，Zbot 通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
+                    <p class="about-emphasis">Zbot，不是外贸工具，而是一个能思考的 AI 助手。</p>
                 </div>
             </div>
         </section>
 
+        <section class="services" id="services">
+            <div class="container">
+                <div class="services-header">
+                    <span class="services-eyebrow"><i class="fa-solid fa-sparkles"></i> Our Service</span>
+                    <h2>Zbot 四大核心服务</h2>
+                </div>
+                <div class="services-grid">
+                    <a class="service-card" href="service-ai-strategy.html">
+                        <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80');"></div>
+                        <div class="service-card__layer"></div>
+                        <div class="service-card__body">
+                            <span class="service-label-en">AI Strategy Consulting</span>
+                            <span class="service-label-zh">AI 分析与策略制定</span>
+                        </div>
+                    </a>
+                    <a class="service-card" href="service-data-intelligence.html">
+                        <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=1400&q=80');"></div>
+                        <div class="service-card__layer"></div>
+                        <div class="service-card__body">
+                            <span class="service-label-en">Data Intelligence & Lead Generation</span>
+                            <span class="service-label-zh">数据开发与AI获客</span>
+                        </div>
+                    </a>
+                    <a class="service-card" href="service-outreach-automation.html">
+                        <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1400&q=80');"></div>
+                        <div class="service-card__layer"></div>
+                        <div class="service-card__body">
+                            <span class="service-label-en">Outreach Automation</span>
+                            <span class="service-label-zh">多渠道触达与客户转化</span>
+                        </div>
+                    </a>
+                    <a class="service-card" href="service-ai-optimization.html">
+                        <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=80');"></div>
+                        <div class="service-card__layer"></div>
+                        <div class="service-card__body">
+                            <span class="service-label-en">AI Optimization & Dashboard</span>
+                            <span class="service-label-zh">智能优化与可视化</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <section class="capabilities" id="capabilities">
             <div class="container">
@@ -2453,15 +2677,15 @@
                 <div class="section-heading">
                     <span class="section-kicker"><i class="fa-solid fa-timeline"></i> Workflow · 从线索到成交</span>
                     <h2>四步打造高转化的外贸客户智能系统</h2>
-                    <p>Zbot 将AI分析、数据聚合与人工验证整合为一体，从目标识别到数据交付全流程自动化。让团队更聚焦于客户沟通，而不是仅仅数据收集。流程灵活可配置，支持分支与自定义触发。</p>
+                    <p>Zbot 将AI分析、数据聚合与人工验证整合为一体，从目标识别到数据交付全流程自动化。让团队更聚焦于客户沟通，而不是仅仅数据收集。</p>
                 </div>
                 <div class="workflow-steps">
                     <article class="workflow-card">
                         <div class="workflow-index">01</div>
                         <div>
                             <div class="card-icon gradient-blue"><i data-lucide="target"></i></div>
-                            <h3>智能客户画像与市场洞察</h3>
-                            <p>让AI理解你的外贸目标。输入目标市场与产品信息，Zbot 结合行业数据库与语义模型，生成高潜客户分布与关键角色建议。自动构建客户分层模型（ICP），识别应优先接触的买家群体与岗位。</p>
+                            <h3>AI Strategy Consulting — 智能客户画像与市场洞察</h3>
+                            <p>让AI理解你的外贸目标。输入目标市场与产品信息，由智能体 BoBo 自动生成高潜客户分布与关键岗位建议。自动构建客户分层模型（ICP），识别应优先接触的买家群体与岗位。</p>
                             <div class="workflow-meta">
                                 <span>自定义 ICP 模型</span>
                                 <span>一键生成客户蓝图</span>
@@ -2472,8 +2696,8 @@
                         <div class="workflow-index">02</div>
                         <div>
                             <div class="card-icon gradient-green"><i class="fa-solid fa-pen-to-square" data-lucide="layers"></i></div>
-                            <h3>多源数据智能聚合</h3>
-                            <p>从企业字段到市场画像，让 Sales 更懂客户。Zbot 的智能分析引擎整合企业注册、行业动态与区域经济数据，为每个目标市场构建公司级行业分布洞察。系统输出不仅包含公司、职位、邮箱、地区等数据，还包括企业规模、所属行业与市场层级，帮助销售团队快速判断潜在客户的真实价值与优先级。</p>
+                            <h3>Zbot System — 多源数据智能聚合与自动化执行</h3>
+                            <p>从企业字段到市场画像，让 Sales 更懂客户。Zbot 的智能分析引擎整合企业注册、行业动态与区域经济数据，为每个目标市场构建公司级行业分布洞察。并由 DataBot、OutreachBot、CRMbot 自动执行触达、跟进与管理。系统输出不仅包含公司、职位、邮箱、地区等数据，还包括企业规模、所属行业与市场层级，帮助销售团队快速判断潜在客户的真实价值与优先级。</p>
                             <div class="workflow-meta">
                                 <span>行业级数据源接入</span>
                                 <span>决策层特征与规模洞察</span>
@@ -2484,8 +2708,8 @@
                         <div class="workflow-index">03</div>
                         <div>
                             <div class="card-icon gradient-violet"><i class="fa-solid fa-share-alt" data-lucide="shield-check"></i></div>
-                            <h3>数据科学验证与人工复核</h3>
-                            <p>确保每一条线索都真实可用。Data Scientist 执行算法去重、置信度检测；CS 团队人工抽检企业与决策人信息。所有数据字段（公司、职位、邮箱、地区）均经双层验证与自动清洗。</p>
+                            <h3>Autonomous Optimization — 数据科学验证与自我优化机制</h3>
+                            <p>确保每一条线索都真实可用。Zbot 通过算法置信度检测与人工抽检，Data Scientists 执行算法去重、置信度检测；CS 团队人工抽检企业与决策人信息。所有数据字段（公司、职位、邮箱、地区）均经双层验证与自动清洗。由 AutomationBot 统筹整个智能体网络，实现外贸获客的持续自我进化。</p>
                             <div class="workflow-meta">
                                 <span>模型置信度校验</span>
                                 <span>人工精准复核</span>
@@ -2496,7 +2720,7 @@
                         <div class="workflow-index">04</div>
                         <div>
                             <div class="card-icon gradient-slate"><i class="fa-solid fa-clipboard-check" data-lucide="file-spreadsheet"></i></div>
-                            <h3>CRM-Ready 数据交付与策略建议</h3>
+                            <h3>AI Dashboard — CRM-Ready 数据交付与策略建议</h3>
                             <p>拿到的不只是数据，而是可行动方案。输出经过验证的客户清单与决策人信息，可直接导入 CRM 或外联系统。附带 AI 生成的跟进策略标签与市场拓展建议，实现从数据到行动的闭环。</p>
                             <div class="workflow-meta">
                                 <span>自动生成行动项</span>
@@ -2595,15 +2819,15 @@
                 <div class="section-heading">
                     <span class="section-kicker" style="background: rgba(255,255,255,0.08);color:#fff;"><i class="fa-solid fa-database"></i> 数据实力</span>
                     <h2 style="color:#ffffff;">48+ 权威数据源实时更新，合规安全一站到位</h2>
-                    <p style="color:rgba(226,236,255,0.76);">海关数据、企查查、Apollo、LinkedIn、Google News、Crunchbase 等数据每日刷新；所有数据均经过合规审计并支持企业私有化部署。</p>
+                    <p style="color:rgba(226,236,255,0.76);">所有数据均经过合规审计并支持企业私有化部署。</p>
                 </div>
                 <div class="data-logos">
-                    <div class="data-card"><span>海关数据</span>全球 78 国舱单</div>
-                    <div class="data-card"><span>Apollo</span> B2B Leads</div>
-                    <div class="data-card"><span>LinkedIn</span> 趋势信号</div>
-                    <div class="data-card"><span>Crunchbase</span> 融资情报</div>
-                    <div class="data-card"><span>企查查</span> 工商信誉</div>
-                    <div class="data-card"><span>Google</span> 新闻动态</div>
+                    <div class="data-card"><span></span>全球 78 国舱单</div>
+                    <div class="data-card"><span></span> B2B Leads</div>
+                    <div class="data-card"><span></span> 趋势信号</div>
+                    <div class="data-card"><span></span> 融资情报</div>
+                    <div class="data-card"><span></span> 工商信誉</div>
+                    <div class="data-card"><span></span> 新闻动态</div>
                 </div>
             </div>
         </section>
@@ -2908,156 +3132,7 @@
         </section>
 
 
-        <section class="pricing" id="pricing">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-gem"></i> ZBot 数据抓取与定价机制说明</span>
-                    <h2>按需求选择最适合的订阅计划</h2>
-                    <p>覆盖从免费试用到企业级定制的所有场景，数据抓取量、功能组件与专家支持均可灵活搭配。</p>
-                </div>
-                <div class="pricing-slider" data-pricing-slider>
-                    <div class="pricing-controls">
-                        <button type="button" class="pricing-arrow" aria-label="上一方案" data-pricing-prev><i class="fa-solid fa-arrow-left"></i></button>
-                        <button type="button" class="pricing-arrow" aria-label="下一方案" data-pricing-next><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                    <div class="pricing-track" data-pricing-track>
-                        <article class="pricing-card">
-                            <div class="plan-head">
-                                <span class="plan-badge">Free Trial</span>
-                                <div class="plan-icon gradient-blue"><i class="fa-solid fa-gift"></i></div>
-                            </div>
-                            <h3 class="plan-title">体验版</h3>
-                            <p class="plan-subtitle">7 天免费体验 ZBot 智能对话</p>
-                            <div class="plan-price">¥0 / 7 天<span>Free for 7 days</span></div>
-                            <div class="plan-section">
-                                <h4>数据量与功能</h4>
-                                <ul class="pricing-list">
-                                    <li>包含 20 条精准数据抓取样本</li>
-                                    <li>访问 ZBot 智能对话核心流程</li>
-                                </ul>
-                            </div>
-                            <div class="plan-section">
-                                <h4>附加功能</h4>
-                                <p>免费体验所有基础功能 / Try core features</p>
-                            </div>
-                            <span class="plan-ideal"><i class="fa-solid fa-user"></i> 个人用户 / Individuals</span>
-                            <a class="plan-action" href="#contact">立即体验</a>
-                        </article>
-
-                        <article class="pricing-card">
-                            <div class="plan-head">
-                                <span class="plan-badge">Starter</span>
-                                <div class="plan-icon gradient-green"><i class="fa-solid fa-seedling"></i></div>
-                            </div>
-                            <h3 class="plan-title">Starter 计划</h3>
-                            <p class="plan-subtitle">适合个人或初创团队的轻量方案</p>
-                            <div class="plan-price">¥1,680 / 年<span>约 ¥140 / 月</span></div>
-                            <div class="plan-section">
-                                <h4>数据量与功能</h4>
-                                <ul class="pricing-list">
-                                    <li>每年抓取 300 条关键决策人联系方式</li>
-                                    <li>每年抓取 50 条公司数据</li>
-                                    <li>访问 ZBot 智能对话有限次数</li>
-                                </ul>
-                            </div>
-                            <div class="plan-section">
-                                <h4>附加功能</h4>
-                                <ul class="pricing-list">
-                                    <li>专属数据抓取方案</li>
-                                    <li>数据科学家验证与清洗</li>
-                                </ul>
-                            </div>
-                            <span class="plan-ideal"><i class="fa-solid fa-users"></i> 个人或初创团队</span>
-                            <a class="plan-action" href="#contact">申请购买</a>
-                        </article>
-
-                        <article class="pricing-card featured">
-                            <div class="plan-head">
-                                <span class="plan-badge">Business</span>
-                                <div class="plan-icon gradient-blue"><i class="fa-solid fa-briefcase"></i></div>
-                            </div>
-                            <h3 class="plan-title">Business 计划</h3>
-                            <p class="plan-subtitle">满足多市场销售团队的扩张需求</p>
-                            <div class="plan-price">¥6,800 / 年<span>约 ¥567 / 月</span></div>
-                            <div class="plan-section">
-                                <h4>数据量与功能</h4>
-                                <ul class="pricing-list">
-                                    <li>每年抓取 1,500 条关键决策人联系方式</li>
-                                    <li>每年抓取 200 条公司数据</li>
-                                    <li>无限次访问 ZBot 智能对话</li>
-                                </ul>
-                            </div>
-                            <div class="plan-section">
-                                <h4>附加功能</h4>
-                                <ul class="pricing-list">
-                                    <li>Starter 全部功能</li>
-                                    <li>1 个 LinkedIn Sales Navigator（4 个月）</li>
-                                    <li>行业关键词分析 + 人工验证</li>
-                                </ul>
-                            </div>
-                            <span class="plan-ideal"><i class="fa-solid fa-building"></i> 中小企业、多市场销售团队</span>
-                            <a class="plan-action" href="#contact">预约顾问</a>
-                        </article>
-
-                        <article class="pricing-card">
-                            <div class="plan-head">
-                                <span class="plan-badge">Pro</span>
-                                <div class="plan-icon gradient-violet"><i class="fa-solid fa-chart-column"></i></div>
-                            </div>
-                            <h3 class="plan-title">Pro 计划</h3>
-                            <p class="plan-subtitle">为大型销售团队提供全方位支持</p>
-                            <div class="plan-price">¥13,800 / 年<span>约 ¥1,150 / 月</span></div>
-                            <div class="plan-section">
-                                <h4>数据量与功能</h4>
-                                <ul class="pricing-list">
-                                    <li>每年抓取 5,000 条关键决策人联系方式</li>
-                                    <li>每年抓取 1,000 条公司数据</li>
-                                    <li>无限次访问 ZBot 智能对话</li>
-                                </ul>
-                            </div>
-                            <div class="plan-section">
-                                <h4>附加功能</h4>
-                                <ul class="pricing-list">
-                                    <li>Business 全部功能</li>
-                                    <li>2 个 LinkedIn Sales Navigator（各 4 个月）</li>
-                                    <li>专属客户成功经理 + 优先交付</li>
-                                </ul>
-                            </div>
-                            <span class="plan-ideal"><i class="fa-solid fa-city"></i> 外贸公司、大型销售团队</span>
-                            <a class="plan-action" href="#contact">联系销售</a>
-                        </article>
-
-                        <article class="pricing-card">
-                            <div class="plan-head">
-                                <span class="plan-badge">Custom</span>
-                                <div class="plan-icon gradient-slate"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                            </div>
-                            <h3 class="plan-title">定制方案</h3>
-                            <p class="plan-subtitle">≥ 6,000 leads，完全定制的企业级方案</p>
-                            <div class="plan-price">按需定价<span>Custom pricing (≥6,000 leads)</span></div>
-                            <div class="plan-section">
-                                <h4>数据量与功能</h4>
-                                <ul class="pricing-list">
-                                    <li>≥6,000 条关键决策人联系方式</li>
-                                    <li>多数据源融合（LinkedIn + 海关 + Apollo + 其它）</li>
-                                </ul>
-                            </div>
-                            <div class="plan-section">
-                                <h4>附加功能</h4>
-                                <ul class="pricing-list">
-                                    <li>完全定制行业、职位、国家、公司规模模型</li>
-                                    <li>数据科学家与算法团队陪跑</li>
-                                    <li>企业级交付 SLA</li>
-                                </ul>
-                            </div>
-                            <span class="plan-ideal"><i class="fa-solid fa-earth-asia"></i> 大型企业、长期拓客项目</span>
-                            <a class="plan-action" href="mailto:hello@zbot.ai">获取定制报价</a>
-                        </article>
-                    </div>
-                </div>
-                <p class="pricing-note">需要更多行业定制与 API 对接？请联系 <a href="mailto:hello@zbot.ai">hello@zbot.ai</a> 获取专属方案。</p>
-            </div>
-        </section>
+        
 
         <section class="faq-section" id="faq">
             <div class="container">
@@ -3099,7 +3174,7 @@
                         <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="新能源" loading="lazy"/>
                         <div class="story-content">
                             <span class="story-tag">新能源</span>
-                            <h3>东欧储能市场买家画像：2025 年增长 3.8 倍的背后</h3>
+                            <h3></h3>
                             <p>解读当地政策、竞争对手动态与渠道策略，附赠 120 家重点买家名单。</p>
                             <a class="story-action" href="#contact">下载报告 <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
@@ -3108,7 +3183,7 @@
                         <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=900&q=80" alt="制造" loading="lazy"/>
                         <div class="story-content">
                             <span class="story-tag">制造业</span>
-                            <h3>德国工业 4.0 项目如何挖掘关键决策人</h3>
+                            <h3>工业 4.0 项目如何挖掘关键决策人</h3>
                             <p>通过 Zbot 的 AI 线索评分识别高潜力买家，邮件模板打开率提升 160%。</p>
                             <a class="story-action" href="#contact">申请案例 <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
@@ -3145,8 +3220,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="brand" style="color:#fff;">
-                        <span class="brand-mark">Z</span>
-                        <span>Zbot 智能AI外贸员</span>
+                        <img src="./media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo brand-logo--footer"/>
                     </div>
                     <h3>智能出海 · 渤达全球</h3>
                     <p>我们帮助中国外贸团队高效触达全球买家，从数据、策略到执行全面自动化。</p>
@@ -3185,7 +3259,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2025 Zbot. All rights reserved. | 智腾中渤科技</span>
+                <span>© 2025 Zbot. All rights reserved. | 智渤科技</span>
                 <span>
                     <a href="#">隐私政策</a> · <a href="#">服务条款</a>
                 </span>
@@ -3198,9 +3272,11 @@
         const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
         const preloader = qs('#preloader');
-        window.addEventListener('load', () => {
-            setTimeout(() => preloader.classList.add('is-hidden'), 400);
-        });
+        if (preloader) {
+            window.addEventListener('load', () => {
+                setTimeout(() => preloader.classList.add('is-hidden'), 400);
+            });
+        }
 
         const navToggle = qs('#navToggle');
         const primaryNav = qs('#primaryNav');
@@ -3216,33 +3292,77 @@
             });
         });
 
+        const dropdown = qs('[data-dropdown]');
+        if (dropdown) {
+            const toggle = qs('.dropdown-toggle', dropdown);
+            const menu = qs('.dropdown-menu', dropdown);
+            const setExpanded = (state) => toggle.setAttribute('aria-expanded', state);
+
+            const closeDropdown = () => {
+                dropdown.classList.remove('is-open');
+                setExpanded('false');
+            };
+
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const willOpen = !dropdown.classList.contains('is-open');
+                if (willOpen) {
+                    dropdown.classList.add('is-open');
+                    setExpanded('true');
+                } else {
+                    closeDropdown();
+                }
+            });
+
+            menu.addEventListener('click', () => {
+                closeDropdown();
+                primaryNav.classList.remove('is-open');
+                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
+                    closeDropdown();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closeDropdown();
+                }
+            });
+        }
+
         const slides = qsa('[data-slide]');
         const dots = qsa('[data-slider-dots] button');
-        let slideIndex = 0;
-        let slideTimer;
 
-        const activateSlide = (index) => {
-            slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
-            dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
-            slideIndex = index;
-        };
+        if (slides.length > 0 && dots.length > 0) {
+            let slideIndex = 0;
+            let slideTimer;
 
-        const autoSlide = () => {
-            slideTimer = setInterval(() => {
-                const next = (slideIndex + 1) % slides.length;
-                activateSlide(next);
-            }, 7200);
-        };
+            const activateSlide = (index) => {
+                slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+                dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+                slideIndex = index;
+            };
 
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideTimer);
-                activateSlide(index);
-                autoSlide();
-            }, { passive: true });
-        });
+            const autoSlide = () => {
+                slideTimer = setInterval(() => {
+                    const next = (slideIndex + 1) % slides.length;
+                    activateSlide(next);
+                }, 7200);
+            };
 
-        autoSlide();
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideTimer);
+                    activateSlide(index);
+                    autoSlide();
+                }, { passive: true });
+            });
+
+            autoSlide();
+        }
 
         const counters = qsa('[data-counter]');
         const counterObserver = new IntersectionObserver((entries) => {

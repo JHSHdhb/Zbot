@@ -1,0 +1,111 @@
+/*
+ * Placeholder stylesheet restored for reference.
+ * 当前页面仍使用各自的内联样式；如需抽离公共样式，可在确认需求后再迁移。
+ */
+
+        :root {
+            --brand-blue: #2e5ccb;
+            --brand-cyan: #00c6ff;
+            --brand-green: #00f9a1;
+            --brand-dark: #0b173a;
+            --brand-mid: #142451;
+            --brand-light: #eff5ff;
+            --gradient-1: linear-gradient(135deg, #0b1d57 0%, #1a3a89 40%, #00b3ff 100%);
+            --gradient-2: linear-gradient(135deg, #0a1f3f 0%, #1c3d7d 50%, #18d1ba 100%);
+            --gradient-3: linear-gradient(135deg, #0c1438 0%, #262164 50%, #6c2cff 100%);
+            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
+            --card-radius: 22px;
+            --container-width: min(1180px, 92vw);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: var(--brand-mid);
+            background: #f3f6ff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        section {
+            position: relative;
+            padding: 110px 0;
+        }
+
+        .container {
+            width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(46, 92, 203, 0.18), rgba(8, 16, 45, 0.92));
+            display: grid;
+            place-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            color: #f1f5ff;
+            overflow: hidden;
+        }
+
+        /* Video background */
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+
+        }
+
+        /* 蓝黑渐变叠层 (可选，增加对比度) */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(6, 19, 46, 0.7) 0%, rgba(9, 38, 82, 0.6) 40%);
+            z-index: 1;
+        }
+
+        /* 内容区 */
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 90px 0 110px;
+            width: min(1260px, 94vw);
+            margin: 0 auto;
+            text-align: center;
+        }
+

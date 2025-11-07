@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Outreach Automation | 多渠道外联自动化服务</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        :root {
+            --brand-blue: #2e5ccb;
+            --brand-cyan: #00c6ff;
+            --brand-green: #00f9a1;
+            --brand-dark: #0b173a;
+            --brand-mid: #142451;
+            --brand-light: #eff5ff;
+            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
+            --card-radius: 22px;
+            --container-width: min(1180px, 92vw);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: var(--brand-mid);
+            background: #f3f6ff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(46, 92, 203, 0.18), rgba(8, 16, 45, 0.92));
+            display: grid;
+            place-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .preloader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.24);
+            border-top-color: rgba(0, 198, 255, 0.9);
+            border-right-color: rgba(0, 249, 161, 0.9);
+            animation: spin 1.1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .top-bar {
+            background: rgba(8, 19, 53, 0.95);
+            color: #d7ecff;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            gap: 24px;
+        }
+
+        .top-highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-highlight i {
+            color: var(--brand-green);
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .top-links a {
+            color: rgba(215, 236, 255, 0.9);
+            transition: color 0.3s ease;
+        }
+
+        .top-links a:hover {
+            color: #ffffff;
+        }
+
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 980;
+            background: rgba(243, 246, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(23, 52, 122, 0.08);
+        }
+
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            position: relative;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 700;
+            color: #142451;
+        }
+
+        .brand-logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-bottom: 6px;
+            color: #1b2c54;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--brand-cyan), var(--brand-green));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.is-active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.is-active {
+            color: var(--brand-blue);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 0 6px;
+            background: none;
+            border: none;
+            font: inherit;
+            color: #1b2c54;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-toggle i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown.is-open .dropdown-toggle,
+        .nav-dropdown:hover .dropdown-toggle {
+            color: var(--brand-blue);
+        }
+
+        .nav-dropdown.is-open .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 14px);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18);
+            padding: 16px 18px;
+            display: grid;
+            gap: 12px;
+            min-width: 230px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 20;
+        }
+
+        .nav-dropdown.is-open .dropdown-menu,
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-menu a {
+            color: #233a6d;
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a.is-active {
+            color: var(--brand-blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-outline,
+        .btn-primary {
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--brand-blue);
+            border: 1px solid rgba(46, 92, 203, 0.4);
+        }
+
+        .btn-outline:hover {
+            border-color: transparent;
+            color: #ffffff;
+            background: linear-gradient(120deg, rgba(0, 198, 255, 0.35), rgba(0, 249, 161, 0.35));
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
+            color: #04112f;
+            box-shadow: 0 16px 28px rgba(0, 198, 255, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 36px rgba(0, 198, 255, 0.4);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            border: 1px solid rgba(46, 92, 203, 0.25);
+            background: #ffffff;
+            color: var(--brand-blue);
+            font-size: 20px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .service-hero {
+            position: relative;
+            padding: 140px 0 110px;
+            color: #f1f5ff;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0b173a 0%, #0c2c65 45%, #1b8ae4 100%);
+        }
+
+        .service-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6, 15, 35, 0.4), rgba(2, 12, 42, 0.75));
+            pointer-events: none;
+        }
+
+        .service-hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 22px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.18);
+            letter-spacing: 0.08em;
+        }
+
+        .service-hero h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 4vw, 3.6rem);
+            line-height: 1.12;
+            font-weight: 800;
+            max-width: 760px;
+        }
+
+        .service-hero p {
+            margin: 0;
+            max-width: 680px;
+            font-size: 1.05rem;
+            color: rgba(226, 238, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            margin-top: 26px;
+        }
+
+        .hero-metric {
+            padding: 20px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(4px);
+            text-align: center;
+        }
+
+        .hero-metric strong {
+            display: block;
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+
+        .hero-metric span {
+            display: block;
+            font-size: 0.9rem;
+            color: rgba(226, 238, 255, 0.82);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .section {
+            padding: 110px 0 90px;
+        }
+
+        .section-header {
+            text-align: center;
+            display: grid;
+            gap: 12px;
+        }
+
+        .section-header span {
+            font-weight: 600;
+            color: var(--brand-blue);
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            color: #0b173a;
+        }
+
+        .section-header p {
+            margin: 0 auto;
+            max-width: 640px;
+            color: rgba(20, 36, 81, 0.75);
+        }
+
+        .channel-grid {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .channel-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 247, 255, 0.92));
+            border-radius: 26px;
+            padding: 30px;
+            box-shadow: 0 22px 50px rgba(18, 62, 150, 0.16);
+            border: 1px solid rgba(46, 92, 203, 0.12);
+            display: grid;
+            gap: 14px;
+        }
+
+        .channel-card h3 {
+            margin: 0;
+            font-size: 1.35rem;
+            color: #0b173a;
+        }
+
+        .channel-card p {
+            margin: 0;
+            color: rgba(20, 36, 81, 0.75);
+        }
+
+        .channel-card ul {
+            display: grid;
+            gap: 10px;
+            color: rgba(20, 36, 81, 0.7);
+            padding-left: 18px;
+        }
+
+        .journey {
+            background: #ffffff;
+        }
+
+        .journey-map {
+            margin-top: 54px;
+            display: grid;
+            gap: 22px;
+        }
+
+        .journey-step {
+            position: relative;
+            padding: 26px 30px;
+            border-radius: 26px;
+            background: rgba(245, 248, 255, 0.92);
+            border: 1px solid rgba(46, 92, 203, 0.12);
+            box-shadow: 0 18px 42px rgba(15, 60, 140, 0.1);
+        }
+
+        .journey-step h3 {
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+            color: #0b173a;
+        }
+
+        .journey-step p {
+            margin: 0;
+            color: rgba(20, 36, 81, 0.72);
+        }
+
+        .journey-step::before {
+            content: attr(data-index);
+            position: absolute;
+            top: -16px;
+            left: 24px;
+            background: linear-gradient(135deg, rgba(11, 51, 120, 0.9), rgba(0, 198, 255, 0.8));
+            color: #fff;
+            border-radius: 14px;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+        }
+
+        .automation-section {
+            padding: 110px 0 100px;
+        }
+
+        .automation-grid {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .automation-card {
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(11, 51, 120, 0.9), rgba(0, 198, 255, 0.85));
+            color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 28px 60px rgba(4, 16, 46, 0.32);
+            display: grid;
+            gap: 14px;
+        }
+
+        .automation-card h3 {
+            margin: 0;
+            font-size: 1.35rem;
+        }
+
+        .automation-card ul {
+            display: grid;
+            gap: 10px;
+            color: rgba(226, 238, 255, 0.92);
+            padding-left: 18px;
+        }
+
+        .cta-band {
+            background: linear-gradient(135deg, rgba(11, 29, 87, 0.92), rgba(0, 198, 255, 0.85));
+            color: #ffffff;
+            padding: 110px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 26, 58, 0.35), rgba(8, 19, 53, 0.85));
+            pointer-events: none;
+        }
+
+        .cta-band .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 18px;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .cta-band p {
+            margin: 0;
+            max-width: 640px;
+            color: rgba(226, 238, 255, 0.92);
+        }
+
+        footer {
+            background: #07112c;
+            color: rgba(222, 236, 255, 0.82);
+            padding: 80px 0 40px;
+        }
+
+        footer .container {
+            display: grid;
+            gap: 60px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 42px;
+        }
+
+        .footer-brand h3 {
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+
+        .footer-brand p {
+            margin: 0;
+            color: rgba(222, 236, 255, 0.75);
+        }
+
+        .socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .socials a {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .socials a:hover {
+            background: rgba(0, 198, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            margin: 0 0 16px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .footer-links ul {
+            display: grid;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: rgba(222, 236, 255, 0.78);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: rgba(222, 236, 255, 0.68);
+        }
+
+        @media (max-width: 960px) {
+            .top-bar .container {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .top-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: rgba(244, 247, 255, 0.98);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px 24px;
+                gap: 18px;
+                border-bottom: 1px solid rgba(23, 52, 122, 0.1);
+                transform: translateY(-18px);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            .nav-links.is-open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-dropdown {
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+                padding: 8px 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                margin-top: -6px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: none;
+                border-radius: 12px;
+                display: none;
+                padding: 12px 16px;
+            }
+
+            .nav-dropdown.is-open .dropdown-menu {
+                display: grid;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .service-hero {
+                padding: 120px 0 100px;
+            }
+
+            .automation-section,
+            .section {
+                padding: 90px 0 80px;
+            }
+
+            footer .container {
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="page-service page-service-outreach">
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-highlight">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
+            </div>
+            <div class="top-links">
+                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
+                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
+                <a href="client-request.html"><i class="fa-solid fa-comment-dots"></i> 提交需求</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-bar">
+                <a class="brand" href="index.html">
+                    <img src="media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo"/>
+                </a>
+                <nav class="nav-links" id="primaryNav">
+                    <a href="index.html">首页</a>
+                    <a href="about-us.html">关于我们</a>
+                    <div class="nav-dropdown" data-dropdown>
+                        <button class="dropdown-toggle" type="button" aria-expanded="true">
+                            核心服务 <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="service-ai-strategy.html">AI Strategy Consulting</a>
+                            <a href="service-data-intelligence.html">Data Intelligence & Lead Generation</a>
+                            <a href="service-outreach-automation.html" class="is-active">Outreach Automation</a>
+                            <a href="service-ai-optimization.html">AI Optimization & Dashboard</a>
+                        </div>
+                    </div>
+                    <a href="client-request.html">客户需求表</a>
+                    <a href="faq.html">常见问题</a>
+                    <a href="blog.html">博客动态</a>
+                    <a href="contact.html">联系我们</a>
+                </nav>
+                <div class="nav-actions">
+                    <a class="btn-outline" href="client-request.html">提交需求</a>
+                    <a class="btn-primary" href="contact.html">预约顾问</a>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="service-hero">
+            <div class="container">
+                <span class="hero-badge"><i class="fa-solid fa-paper-plane"></i> Outreach Automation</span>
+                <h1>多渠道触达与客户转化，AI 自动运行且持续优化</h1>
+                <p>Zbot AI 协同执行邮件、领英、WhatsApp 等社媒外联触达，自动生成个性化文案、控制触达节奏、跟踪客户状态，让团队专注于成交。</p>
+                <div class="hero-actions">
+                    <a class="btn-primary" href="demo.html">观看自动化演示</a>
+                    <a class="btn-outline" href="client-request.html">获取试运营方案</a>
+                </div>
+                <div class="hero-metrics">
+                    <div class="hero-metric">
+                        <strong>56%</strong>
+                        <span>平均回复率提升</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>12+</strong>
+                        <span>多语种内容</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>5x</strong>
+                        <span>并行触达效率</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>24/7</strong>
+                        <span>智能节奏控制</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span>Channels</span>
+                    <h2>全触点协同：邮件 · 领英 · WhatsApp · 脸书</h2>
+                    <p>系统自动选择最优渠道组合、时间窗口与语言风格，每一次触达都围绕买家旅程设计。</p>
+                </div>
+                <div class="channel-grid">
+                    <div class="channel-card">
+                        <h3><i class="fa-solid fa-envelope-open-text"></i> 邮件自动化</h3>
+                        <p>AI 智能邮件触达系统，专为解决邮件无法进入主收件箱的问题而设计</p>
+                        <ul>
+                            <li>AI模拟真人发送：独立IP与发送环境；基于“白名单逻辑”，拒绝传统EDM群发邮件。</li>
+                            <li>内容智能定制：AI根据收件人资料、行业特征及交流语境自动生成差异化内容。</li>
+                            <li>高回复率保障：智能节奏控制与个性化互动，实现安全、稳定且高转化率的投递效果。</li>
+                        </ul>
+                    </div>
+                    <div class="channel-card">
+                        <h3><i class="fa-brands fa-linkedin"></i> 领英 / 社媒触达</h3>
+                        <p>AI 智能领英投递系统，专为解决领英限制第三方登录的问题而设计。</p>
+                        <ul>
+                            <li>AI模拟真人发送：AI模拟真人操作，每个账号每日浏览与触达目标采购经理不超过40位，完全符合平台规则。</li>
+                            <li>内容智能定制：AI根据收件人资料、行业特征及交流语境自动生成差异化内容。</li>
+                            <li>高回复率保障：智能节奏控制与个性化互动，实现安全、稳定且高转化率的投递效果。</li>
+                        </ul>
+                    </div>
+                    <div class="channel-card">
+                        <h3><i class="fa-brands fa-whatsapp"></i> WhatsApp 等社媒跟进</h3>
+                        <p>当客户进入高意向阶段，自动切换至即时聊天渠道，提供多语言脚本、提醒与转人工机制，确保回复及时。</p>
+                        <ul>
+                            <li>多语种消息库 + 本地化表达建议。</li>
+                            <li>自动创建任务提醒销售跟进。</li>
+                            <li>对接客服/销售系统，保持会话一致性。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section journey">
+            <div class="container">
+                <div class="section-header">
+                    <span>Buyer Journey</span>
+                    <h2>客户旅程编排，让每一步触达有迹可循</h2>
+                    <p>Zbot AI 根据买家行为动态切换策略，实现定位、激活、培育、成交的闭环。您不需要学习任何系统，Zbot AI 帮您完成所有触达和跟进。</p>
+                </div>
+            </div>
+            <div class="container journey-map">
+                <div class="journey-step" data-index="STEP 01">
+                    <h3>触达：多渠道并行</h3>
+                    <p>先以邮件建立首次接触，若 48 小时未打开，启动 领英 / 社媒接触，确保触达率。系统会避免同一时间重复打扰。</p>
+                </div>
+                <div class="journey-step" data-index="STEP 02">
+                    <h3>互动：AI 个性化跟进</h3>
+                    <p>根据客户行业、岗位与行为，实时生成后续邮件或消息内容，支持自动回答常见问题，减少人工介入。</p>
+                </div>
+                <div class="journey-step" data-index="STEP 03">
+                    <h3>看板：客户状态实时掌握</h3>
+                    <p>所有互动实时看板报告，客户掌握最新状态与进展，与 Zbot 团队保持同步并决定后续策略。</p>
+                </div>
+                <div class="journey-step" data-index="STEP 04">
+                    <h3>复盘：节奏优化与内容迭代</h3>
+                    <p>Zbot AI 汇总发送时间、回复率、转化率等指标，自动建议调整节奏、内容或渠道权重。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="automation-section">
+            <div class="container">
+                <div class="section-header">
+                    <span>Automation</span>
+                    <h2>自动化“中枢”保障规模化运营</h2>
+                    <p>我们为每个客户搭建专属工作流，既可批量执行，也能保障个性化与合规性。</p>
+                </div>
+                <div class="automation-grid">
+                    <div class="automation-card">
+                        <h3><i class="fa-solid fa-diagram-project"></i> 条件 & 分支引擎</h3>
+                        <ul>
+                            <li>按打开、点击、回复、未读等行为触发不同路径。</li>
+                            <li>支持国家、行业、销售负责人的动态分配。</li>
+                            <li>防撞单机制，避免多位销售重复触达。</li>
+                        </ul>
+                    </div>
+                    <div class="automation-card">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> 节奏控制 & 节流</h3>
+                        <ul>
+                            <li>根据时区与当地节假日自动调整发送时间。</li>
+                            <li>内置速率限制，确保域名与账号健康。</li>
+                            <li>失败自动重试，异常告警推送至团队。</li>
+                        </ul>
+                    </div>
+                    <div class="automation-card">
+                        <h3><i class="fa-solid fa-chart-line"></i> 数据回流与报表</h3>
+                        <ul>
+                            <li>所有互动实时看板报告，客户掌握最新款更新。</li>
+                            <li>AI 分析不同市场/内容的表现，给出优化建议。</li>
+                            <li>每周自动生成运营报告，供团队复盘。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>想在两周内看到外联回响？试试 Zbot 自动化方案</h2>
+                <p>我们将提供试运营任务、文案模板与多渠道工作流，帮助团队快速验证效果。</p>
+                <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+                    <a class="btn-primary" href="client-request.html">申请试运营</a>
+                    <a class="btn-outline" href="contact.html">联系顾问</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand" style="color:#fff;">
+                        <img src="./media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo brand-logo--footer"/>
+                    </div>
+                    <h3>智能出海 · 渤达全球</h3>
+                    <p>我们帮助中国外贸团队高效触达全球买家，从数据、策略到执行全面自动化。</p>
+                    <div class="socials" style="margin-top:18px;">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>产品功能</h4>
+                    <ul>
+                        <li><a href="index.html#capabilities">AI 智能找客</a></li>
+                        <li><a href="index.html#capabilities">自动化触达</a></li>
+                        <li><a href="index.html#workflow">AI 工作流</a></li>
+                        <li><a href="index.html#pricing">定价方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>资源中心</h4>
+                    <ul>
+                        <li><a href="blog.html">行业洞察</a></li>
+                        <li><a href="index.html#stories">客户案例</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                        <li><a href="mailto:partner@zbot.ai">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="mailto:hello@zbot.ai">contact@zbotglobal.com</a></li>
+                        <li><a href="tel:+16173800000">+1 647-3864-5968</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Zbot. All rights reserved. | 智渤科技</span>
+                <span>
+                    <a href="#">隐私政策</a> · <a href="#">服务条款</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const qs = (sel, ctx = document) => ctx.querySelector(sel);
+        const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+        const preloader = qs('#preloader');
+        if (preloader) {
+            window.addEventListener('load', () => {
+                setTimeout(() => preloader.classList.add('is-hidden'), 400);
+            });
+        }
+
+        const navToggle = qs('#navToggle');
+        const primaryNav = qs('#primaryNav');
+        if (navToggle && primaryNav) {
+            navToggle.addEventListener('click', () => {
+                const open = primaryNav.classList.toggle('is-open');
+                navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+            });
+
+            qsa('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    primaryNav.classList.remove('is-open');
+                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                });
+            });
+        }
+
+        const dropdown = qs('[data-dropdown]');
+        if (dropdown) {
+            const toggle = qs('.dropdown-toggle', dropdown);
+            const menu = qs('.dropdown-menu', dropdown);
+            const setExpanded = (state) => toggle.setAttribute('aria-expanded', state);
+
+            const closeDropdown = () => {
+                dropdown.classList.remove('is-open');
+                setExpanded('false');
+            };
+
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const willOpen = !dropdown.classList.contains('is-open');
+                if (willOpen) {
+                    dropdown.classList.add('is-open');
+                    setExpanded('true');
+                } else {
+                    closeDropdown();
+                }
+            });
+
+            menu.addEventListener('click', () => {
+                closeDropdown();
+                if (primaryNav && navToggle) {
+                    primaryNav.classList.remove('is-open');
+                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
+                    closeDropdown();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closeDropdown();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
