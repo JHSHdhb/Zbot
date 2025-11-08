@@ -402,100 +402,319 @@
             color: rgba(20, 36, 81, 0.75);
         }
 
-        .form-section {
-            padding: 0 0 110px;
+        .section-heading {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px;
         }
 
-        .form-card {
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(0, 198, 255, 0.15);
+            color: var(--brand-blue);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.1rem, 3.1vw, 2.9rem);
+            margin: 20px 0 16px;
+            color: var(--brand-dark);
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .section-heading p {
+            margin: 0 auto;
+            color: rgba(23, 48, 115, 0.7);
+            font-size: 17px;
+        }
+
+        .testimonials {
+            background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+            padding: 110px 0 120px;
+        }
+
+        .lead-switch {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+
+        .lead-switch-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 240px;
+            padding: 18px 26px;
+            border-radius: 22px;
+            border: 1px solid rgba(46, 92, 203, 0.18);
+            background: rgba(255, 255, 255, 0.9);
+            color: #132a5c;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+        }
+
+        .lead-switch-card .badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(46, 92, 203, 0.12);
+            color: var(--brand-blue);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .lead-switch-card strong {
+            font-size: 15px;
+            display: block;
+        }
+
+        .lead-switch-card span {
+            display: block;
+            font-size: 13px;
+            color: rgba(16, 40, 92, 0.65);
+        }
+
+        .lead-switch-card.is-active {
+            border-color: transparent;
+            background: linear-gradient(135deg, rgba(0, 198, 255, 0.18), rgba(0, 249, 161, 0.18));
+            box-shadow: 0 18px 40px rgba(0, 198, 255, 0.22);
+            transform: translateY(-4px);
+        }
+
+        .lead-switch-card.is-active .badge {
+            background: linear-gradient(135deg, var(--brand-cyan), var(--brand-green));
+            color: #06203f;
+        }
+
+        .lead-panels {
+            position: relative;
+        }
+
+        .lead-panel {
+            display: none;
             background: #ffffff;
-            border-radius: 30px;
-            box-shadow: 0 32px 60px rgba(15, 60, 140, 0.14);
-            padding: 48px 52px;
-            display: grid;
-            gap: 36px;
-        }
-
-        .form-header {
-            display: grid;
-            gap: 12px;
-        }
-
-        .form-header h2 {
-            margin: 0;
-            font-size: clamp(2rem, 3vw, 2.6rem);
-            color: #0b173a;
-        }
-
-        .form-header p {
-            margin: 0;
-            max-width: 640px;
-            color: rgba(20, 36, 81, 0.75);
-        }
-
-        form {
-            display: grid;
+            border-radius: 26px;
+            border: 1px solid rgba(23, 48, 115, 0.06);
+            box-shadow: 0 28px 64px rgba(9, 32, 84, 0.12);
+            padding: 36px;
             gap: 26px;
+        }
+
+        .lead-panel.is-active {
+            display: grid;
+        }
+
+        .panel-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            margin: 0 0 20px;
+        }
+
+        .form-block {
+            background: rgba(248, 251, 255, 0.9);
+            border: 1px solid rgba(23, 48, 115, 0.06);
+            border-radius: 22px;
+            padding: 22px 24px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-block-title {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            color: #163266;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
+            gap: 16px 22px;
         }
 
-        .form-group {
+        .form-grid.grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .form-grid.grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .form-grid.grid-1 {
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-field label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #142451;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-field label span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            background: rgba(46, 92, 203, 0.12);
+            color: var(--brand-blue);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(23, 48, 115, 0.12);
+            background: #ffffff;
+            font-size: 15px;
+            color: #0f2357;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: rgba(0, 198, 255, 0.45);
+            box-shadow: 0 0 0 4px rgba(0, 198, 255, 0.15);
+            outline: none;
+        }
+
+        .form-textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .select-multi {
+            min-height: 130px;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: rgba(23, 48, 115, 0.55);
+        }
+
+        .file-drop {
+            border: 1px dashed rgba(46, 92, 203, 0.35);
+            border-radius: 16px;
+            background: rgba(46, 92, 203, 0.06);
+            padding: 18px;
+            text-align: center;
             display: grid;
             gap: 10px;
         }
 
-        .form-group label {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: #092047;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            border: 1px solid rgba(20, 36, 81, 0.15);
+        .file-drop-trigger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 18px;
             border-radius: 14px;
-            padding: 14px 16px;
-            font: inherit;
-            color: #142451;
-            background: rgba(255, 255, 255, 0.95);
-            transition: border 0.3s ease, box-shadow 0.3s ease;
+            background: #ffffff;
+            border: 1px solid rgba(46, 92, 203, 0.2);
+            color: var(--brand-blue);
+            font-weight: 600;
+            cursor: pointer;
         }
 
-        .form-group textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: rgba(0, 198, 255, 0.6);
-            box-shadow: 0 0 0 4px rgba(0, 198, 255, 0.18);
+        .file-drop-trigger input {
+            display: none;
         }
 
         .form-actions {
+            margin-top: 12px;
             display: flex;
-            align-items: center;
             flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
             gap: 16px;
         }
 
-        .form-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.9rem;
-            color: rgba(20, 36, 81, 0.7);
+        .form-actions button {
+            padding: 16px 34px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            color: #03102f;
+            cursor: pointer;
+            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
+            box-shadow: 0 18px 38px rgba(0, 198, 255, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-checkbox input {
-            margin-top: 4px;
+        .form-actions button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 40px rgba(0, 198, 255, 0.35);
+        }
+
+        .form-actions .note {
+            font-size: 13px;
+            color: rgba(23, 48, 115, 0.7);
+        }
+
+        @media (max-width: 960px) {
+            .lead-panel {
+                padding: 30px;
+            }
+
+            .form-grid.grid-3,
+            .form-grid.grid-2,
+            .form-grid.grid-1 {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .lead-panel {
+                padding: 24px 18px;
+            }
+
+            .form-block {
+                padding: 18px;
+            }
+
+            .form-grid.grid-3,
+            .form-grid.grid-2,
+            .form-grid.grid-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .form-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
         }
 
         .cta-band {
@@ -787,72 +1006,298 @@
             </div>
         </section>
 
-        <section class="form-section">
+        <section class="testimonials" id="stories">
             <div class="container">
-                <div class="form-card">
-                    <div class="form-header">
-                        <h2>提交客户需求表</h2>
-                        <p>请尽可能详细填写以下信息，方便我们为您匹配合适的智能体组合、执行团队和试用内容。</p>
-                    </div>
-                    <form action="#" method="post">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="company">公司名称</label>
-                                <input id="company" name="company" type="text" placeholder="请输入公司全称" required/>
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-file-circle-check"></i> Lead Research Request</span>
+                    <h2>ZBot 客户需求收集表 / Lead Research Request Form</h2>
+                    <p>选择最符合您需求的方式，我们将基于公司名称、筛选条件或理想客户画像，为您定制高质量潜在客户列表。</p>
+                </div>
+
+                <div class="lead-switch" role="tablist">
+                    <button type="button" class="lead-switch-card is-active" data-panel-trigger="panel-company">
+                        <div class="badge">1</div>
+                        <div>
+                            <strong>根据公司名称查找</strong>
+                            <span>Find company websites &amp; extract leads</span>
+                        </div>
+                    </button>
+                    <button type="button" class="lead-switch-card" data-panel-trigger="panel-custom">
+                        <div class="badge">2</div>
+                        <div>
+                            <strong>自定义筛选条件</strong>
+                            <span>Build your own lead filters</span>
+                        </div>
+                    </button>
+                    <button type="button" class="lead-switch-card" data-panel-trigger="panel-create">
+                        <div class="badge">3</div>
+                        <div>
+                            <strong>帮我创建筛选条件</strong>
+                            <span>Create filters for me</span>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="lead-panels">
+                    <form class="lead-panel is-active" data-panel="panel-company" action="https://formspree.io/f/mkgqalwe" method="POST" enctype="multipart/form-data">
+                        <h3 class="panel-title">Form Panel 1 · 根据公司名称查找</h3>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧍♀️ 基本信息 / Basic Info</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p1-fullName"><span>01</span> 姓名 / Full Name *</label>
+                                    <input class="form-input" id="p1-fullName" name="fullName" type="text" placeholder="请填写负责人姓名" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-email"><span>02</span> 邮箱 / Email *</label>
+                                    <input class="form-input" id="p1-email" name="email" type="email" placeholder="用于接收结果文件" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-phone"><span>03</span> 电话 / Phone *</label>
+                                    <input class="form-input" id="p1-phone" name="phone" type="tel" placeholder="+86 138-0000-0000" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="contact">联系人姓名</label>
-                                <input id="contact" name="contact" type="text" placeholder="中文 / 英文姓名" required/>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🏢 公司与需求范围 / Company &amp; Scope</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p1-companyCount"><span>04</span> 需要查询的公司数量 *</label>
+                                    <input class="form-input" id="p1-companyCount" name="companyCount" type="number" min="1" placeholder="例：50 / 100 / 200" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-productKeywords"><span>05</span> 产品关键词 *</label>
+                                    <input class="form-input" id="p1-productKeywords" name="productKeywords" type="text" placeholder="例：galvanized steel wire, cable armor tape" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-industry"><span>06</span> 行业 *</label>
+                                    <input class="form-input" id="p1-industry" name="industry" type="text" placeholder="例：Cable, Electrical, Construction" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">邮箱</label>
-                                <input id="email" name="email" type="email" placeholder="business@example.com" required/>
+                            <div class="form-grid grid-1">
+                                <div class="form-field full">
+                                    <label for="p1-companyFile"><span>07</span> 上传公司名单 *</label>
+                                    <div class="file-drop">
+                                        <label class="file-drop-trigger" for="p1-companyFile">📎 点击上传 CSV / Excel 文件或拖动到此处</label>
+                                        <input id="p1-companyFile" name="upload" type="file" accept=".csv,.xlsx,.xls,.txt">
+                                        <p class="form-hint">支持格式：CSV、TXT、XLSX</p>
+                                    </div>
+                                </div>
+                                <div class="form-field full">
+                                    <label for="p1-companyList"><span>08</span> 粘贴公司名称（每行一个）</label>
+                                    <textarea class="form-textarea" id="p1-companyList" name="companyList" placeholder="公司名称 1&#10;公司名称 2&#10;公司名称 3"></textarea>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone">联系电话（含区号）</label>
-                                <input id="phone" name="phone" type="tel" placeholder="+86 138-0000-0000"/>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🎯 目标筛选条件 / Targeting Criteria</h4>
+                            <div class="form-grid grid-2">
+                                <div class="form-field">
+                                    <label for="p1-companyKeywords"><span>09</span> 目标企业关键词</label>
+                                    <input class="form-input" id="p1-companyKeywords" name="companyKeywords" type="text" placeholder="例：manufacturer, supplier, wholesaler">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-jobTitles"><span>10</span> 职位 / Job Titles *</label>
+                                    <select class="form-select select-multi" id="p1-jobTitles" name="jobTitles" multiple required>
+                                        <option>procurement</option>
+                                        <option>purchasing</option>
+                                        <option>purchaser</option>
+                                        <option>buyer</option>
+                                        <option>supply chain</option>
+                                        <option>warehouse</option>
+                                        <option>import</option>
+                                        <option>export</option>
+                                        <option>material</option>
+                                        <option>sourcing</option>
+                                        <option>production</option>
+                                        <option>purchase</option>
+                                        <option>buy</option>
+                                        <option>plan</option>
+                                        <option>logistics</option>
+                                    </select>
+                                    <span class="form-hint">🏭 初创建议全部勾选 · 🏢 大型企业建议仅保留采购相关职位</span>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="industry">所属行业</label>
-                                <select id="industry" name="industry" required>
-                                    <option value="">请选择行业</option>
-                                    <option>工业制造</option>
-                                    <option>消费品</option>
-                                    <option>跨境电商</option>
-                                    <option>软件 / SaaS</option>
-                                    <option>能源与化工</option>
-                                    <option>其他</option>
+                            <div class="form-field full">
+                                <label for="p1-regions"><span>11</span> 目标销售地区 *</label>
+                                <select class="form-select select-multi" id="p1-regions" name="regions" multiple required>
+                                    <option>Vietnam</option>
+                                    <option>Indonesia</option>
+                                    <option>Philippines</option>
+                                    <option>Malaysia</option>
+                                    <option>Thailand</option>
+                                    <option>India</option>
+                                    <option>Middle East</option>
+                                    <option>Africa</option>
+                                    <option>Europe</option>
+                                    <option>North America</option>
+                                    <option>South America</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="team">团队规模</label>
-                                <select id="team" name="team">
-                                    <option value="">请选择人数</option>
-                                    <option>1-5 人</option>
-                                    <option>6-15 人</option>
-                                    <option>16-30 人</option>
-                                    <option>30 人以上</option>
-                                </select>
+                                <span class="form-hint">按住 Ctrl / Command 可多选多个地区</span>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="markets">目标市场（可多选，用逗号分隔）</label>
-                            <input id="markets" name="markets" type="text" placeholder="示例：美国、德国、东南亚"/>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧩 高级筛选 / Advanced Filters</h4>
+                            <div class="form-grid grid-2">
+                                <div class="form-field">
+                                    <label for="p1-advancedKeywords"><span>12</span> 公司关键词 (可选)</label>
+                                    <input class="form-input" id="p1-advancedKeywords" name="advancedKeywords" type="text" placeholder="例：cable, wire, metal, power">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-companySize"><span>13</span> 公司规模 (可选)</label>
+                                    <select class="form-select" id="p1-companySize" name="companySize">
+                                        <option value="">不限</option>
+                                        <option>1–50 employees</option>
+                                        <option>51–200</option>
+                                        <option>201–500</option>
+                                        <option>501–1000</option>
+                                        <option>1001–5000</option>
+                                        <option>5000+</option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-avoidTarget"><span>14</span> 避免目标 (可选)</label>
+                                    <textarea class="form-textarea" id="p1-avoidTarget" name="avoidTarget" placeholder="列出你不希望定向的公司类型、行业或现有客户"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p1-existingDomains"><span>15</span> 已存在客户域名 (避免重复)</label>
+                                    <div class="file-drop">
+                                        <textarea class="form-textarea" id="p1-existingDomains" name="existingDomains" placeholder="example.com&#10;yourclient.co"></textarea>
+                                        <label class="file-drop-trigger" for="p1-existingDomainsFile">📁 上传参考文件</label>
+                                        <input id="p1-existingDomainsFile" name="existingDomainsFile" type="file" accept=".csv,.xlsx,.txt">
+                                        <p class="form-hint">每行一个域名，或上传 CSV / Excel 文件</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="challenges">当前外贸拓展中遇到的挑战</label>
-                            <textarea id="challenges" name="challenges" placeholder="例如：数据质量不稳定、线索转化效率低、邮件回复率低、缺少本地化内容支持等"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="goals">希望通过 Zbot 实现的目标</label>
-                            <textarea id="goals" name="goals" placeholder="请描述业务增长目标、希望覆盖的国家、时间周期和预算范围"></textarea>
-                        </div>
+
                         <div class="form-actions">
-                            <button class="btn-primary" type="submit">提交需求表</button>
-                            <div class="form-checkbox">
-                                <input id="nda" name="nda" type="checkbox"/>
-                                <label for="nda">如需签署 NDA，请在此勾选，我们将在首次沟通时提供保密协议。</label>
+                            <span class="note">提交后 24 小时内我们将与您联系，确认需求并提供样例数据。</span>
+                            <button type="submit">🚀 提交需求 / Submit Request</button>
+                        </div>
+                    </form>
+
+                    <form class="lead-panel" data-panel="panel-custom">
+                        <h3 class="panel-title">Form Panel 2 · 自定义筛选条件</h3>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧍 基础信息</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p2-fullName"><span>01</span> 姓名 / Full Name *</label>
+                                    <input class="form-input" id="p2-fullName" name="fullName" type="text" placeholder="请填写负责人姓名" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-email"><span>02</span> 邮箱 / Email *</label>
+                                    <input class="form-input" id="p2-email" name="email" type="email" placeholder="用于接收结果文件" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-phone"><span>03</span> 电话 / Phone *</label>
+                                    <input class="form-input" id="p2-phone" name="phone" type="tel" placeholder="+86 138-0000-0000" required>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧾 你的目标与筛选条件</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p2-hsCode"><span>04</span> 海关编码 / HS Code</label>
+                                    <input class="form-input" id="p2-hsCode" name="hsCode" type="text" placeholder="例：721720">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-productKeywords"><span>05</span> 产品关键词 *</label>
+                                    <input class="form-input" id="p2-productKeywords" name="productKeywords" type="text" placeholder="例：galvanized steel wire, fence" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-industry"><span>06</span> 行业 / Industry *</label>
+                                    <input class="form-input" id="p2-industry" name="industry" type="text" placeholder="例：机械制造、电子产品" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-region"><span>07</span> 目标销售地区 *</label>
+                                    <input class="form-input" id="p2-region" name="targetRegion" type="text" placeholder="例：美国、欧盟、东南亚" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-jobTitle"><span>08</span> 职位 / Job Title *</label>
+                                    <input class="form-input" id="p2-jobTitle" name="jobTitle" type="text" placeholder="例：Purchasing Manager, CEO" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-companySize"><span>09</span> 公司规模 (可选)</label>
+                                    <input class="form-input" id="p2-companySize" name="companySize" type="text" placeholder="例：10-100 employees">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-companyKeywords"><span>10</span> 公司关键词 (可选)</label>
+                                    <input class="form-input" id="p2-companyKeywords" name="companyKeywords" type="text" placeholder="例：importer, distributor">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-avoidTarget"><span>11</span> 避免目标 (可选)</label>
+                                    <textarea class="form-textarea" id="p2-avoidTarget" name="avoidTarget" placeholder="列出不希望定向的公司类型或行业"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p2-leadCount"><span>12</span> 选择 Leads 数量 (最低 5000) *</label>
+                                    <input class="form-input" id="p2-leadCount" name="leadCount" type="number" min="5000" placeholder="例：10000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <span class="note">我们会结合 HS Code、行业及职位条件，为您搭建高精度的数据筛选模型。</span>
+                            <button type="submit">🚀 开始查找 / Build My Filters</button>
+                        </div>
+                    </form>
+
+                    <form class="lead-panel" data-panel="panel-create">
+                        <h3 class="panel-title">Form Panel 3 · 帮我创建筛选条件</h3>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🧍 联系方式</h4>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p3-fullName"><span>01</span> 姓名 / Full Name *</label>
+                                    <input class="form-input" id="p3-fullName" name="fullName" type="text" placeholder="请填写负责人姓名" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-email"><span>02</span> 邮箱 / Email *</label>
+                                    <input class="form-input" id="p3-email" name="email" type="email" placeholder="用于接收结果文件" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-phone"><span>03</span> 电话 / Phone *</label>
+                                    <input class="form-input" id="p3-phone" name="phone" type="tel" placeholder="+86 138-0000-0000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-block">
+                            <h4 class="form-block-title">🎯 描述您的理想客户</h4>
+                            <div class="form-grid grid-1">
+                                <div class="form-field full">
+                                    <label for="p3-ideal"><span>04</span> 描述您的理想客户 *</label>
+                                    <textarea class="form-textarea" id="p3-ideal" name="idealCustomer" placeholder="示例：My ideal prospect is a [JOB TITLE] at a [INDUSTRY] company in [COUNTRY]. Most of my clients are between [10–100 employees]." required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-grid grid-3">
+                                <div class="form-field">
+                                    <label for="p3-budget"><span>05</span> 预算或采购范围</label>
+                                    <input class="form-input" id="p3-budget" name="budget" type="text" placeholder="例：重点关注 5-20 万美元采购项目">
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-challenges"><span>06</span> 当前挑战 (可选)</label>
+                                    <textarea class="form-textarea" id="p3-challenges" name="challenges" placeholder="例：缺少目标市场联系人、需要快速验证邮箱等"></textarea>
+                                </div>
+                                <div class="form-field">
+                                    <label for="p3-leadCount"><span>07</span> 期望 Leads 数量 (最低 5000) *</label>
+                                    <input class="form-input" id="p3-leadCount" name="leadCount" type="number" min="5000" placeholder="例：10000" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <span class="note">提交后我们将与您进行一对一沟通，协助定义筛选条件并提供样例名单。</span>
+                            <button type="submit">🚀 创建我的筛选条件 / Create Filters for Me</button>
                         </div>
                     </form>
                 </div>
@@ -989,6 +1434,19 @@
                 if (event.key === 'Escape') {
                     closeDropdown();
                 }
+            });
+        }
+
+        const leadSwitchCards = qsa('[data-panel-trigger]');
+        const leadPanels = qsa('.lead-panel');
+
+        if (leadSwitchCards.length && leadPanels.length) {
+            leadSwitchCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const target = card.dataset.panelTrigger;
+                    leadSwitchCards.forEach(btn => btn.classList.toggle('is-active', btn === card));
+                    leadPanels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.panel === target));
+                });
             });
         }
     </script>

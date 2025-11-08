@@ -248,6 +248,156 @@
 
         @keyframes panel-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
+        .partners-section {
+            padding: 100px 24px 120px;
+            background: radial-gradient(circle at top right, rgba(0, 198, 255, 0.18), transparent 45%), #050d20;
+            color: #e7f1ff;
+        }
+
+        .partners-grid {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            gap: 36px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: center;
+        }
+
+        .partners-copy h3 {
+            margin: 0 0 16px;
+            font-size: clamp(28px, 4vw, 42px);
+        }
+
+        .partners-copy p {
+            margin: 0 0 18px;
+            color: rgba(231, 241, 255, 0.78);
+        }
+
+        .partner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .partner-tags span {
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 13px;
+            letter-spacing: 0.06em;
+        }
+
+        .partner-network {
+            position: relative;
+            width: min(480px, 85vw);
+            aspect-ratio: 1;
+            margin: 0 auto;
+            border-radius: 28px;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 198, 255, 0.25), transparent 55%), radial-gradient(circle at 70% 70%, rgba(0, 249, 161, 0.2), transparent 55%), rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 80px rgba(4, 10, 30, 0.45);
+            overflow: hidden;
+        }
+
+        .partner-network::before {
+            content: "";
+            position: absolute;
+            inset: 12%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
+            background-size: 18px 18px;
+            opacity: 0.5;
+            filter: blur(0.3px);
+        }
+
+        .partner-node {
+            position: absolute;
+            width: 78px;
+            height: 78px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(7, 16, 38, 0.6);
+            display: grid;
+            place-items: center;
+            color: #f4fbff;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .partner-node i {
+            font-size: 24px;
+        }
+
+        .partner-node.core {
+            width: 110px;
+            height: 110px;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #00c6ff, #00f9a1);
+            color: #051029;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            box-shadow: 0 25px 45px rgba(0, 198, 255, 0.35);
+        }
+
+        .partner-node::after {
+            content: attr(data-label);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 10px);
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.65);
+            white-space: nowrap;
+        }
+
+        .partner-node:hover {
+            transform: translateY(-6px) rotate(-1deg);
+            box-shadow: 0 20px 35px rgba(0, 198, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            animation: node-wobble 0.7s ease-in-out infinite alternate;
+        }
+
+        @keyframes node-wobble {
+            from { transform: translateY(-6px) rotate(-1.5deg); }
+            to { transform: translateY(-2px) rotate(1.5deg); }
+        }
+
+        .partner-node[data-pos="1"] { top: 6%; left: 48%; }
+        .partner-node[data-pos="2"] { top: 20%; left: 12%; }
+        .partner-node[data-pos="3"] { top: 20%; right: 10%; }
+        .partner-node[data-pos="4"] { top: 42%; left: 4%; }
+        .partner-node[data-pos="5"] { top: 42%; right: 2%; }
+        .partner-node[data-pos="6"] { bottom: 28%; left: 12%; }
+        .partner-node[data-pos="7"] { bottom: 24%; right: 12%; }
+        .partner-node[data-pos="8"] { top: 65%; left: 28%; }
+        .partner-node[data-pos="9"] { top: 65%; right: 26%; }
+        .partner-node[data-pos="10"] { top: 8%; left: 72%; }
+        .partner-node[data-pos="11"] { bottom: 12%; left: 50%; transform: translate(-50%, 0); }
+        .partner-node[data-pos="12"] { bottom: 5%; right: 34%; }
+        .partner-node[data-pos="13"] { top: 35%; right: 24%; }
+
+        .partner-node.ai-square {
+            background: linear-gradient(135deg, #ffb347, #ffcc33);
+            color: #0f1a3a;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+
+        .partner-node.dark {
+            background: linear-gradient(135deg, #0c1f3d, #162955);
+        }
+
+        .partner-node.line {
+            background: linear-gradient(135deg, #1c3e87, #24345a);
+        }
+
+        .partner-node figma {
+            font-size: 18px;
+        }
+
         @media (max-width: 920px) {
             .top-bar .container { flex-direction: column; gap: 12px; }
             .top-links { flex-wrap: wrap; justify-content: center; }
@@ -318,8 +468,8 @@
         </video>
         <div class="hero">
             <span class="eyebrow">About Zbot</span>
-            <h1>Zbot 更懂中国企业的全球外贸出海团队</h1>
-            <p>Zbot 以多智能体协作体系与全球数据资产，帮助出海企业快速识别高潜买家、构建可执行的海外营销策略，并通过精细化服务流程交付可衡量的增长成果。</p>
+            <h1>智渤更懂中国企业的全球外贸出海团队</h1>
+            <p>智渤，从数据到成交的 AI 外贸解决方案。</p>
         </div>
     </section>
 
@@ -416,6 +566,36 @@
                         <li>下一阶段增长规划与资源建议</li>
                     </ul>
                 </article>
+            </div>
+        </section>
+
+        <section class="partners-section" id="partners">
+            <div class="partners-grid">
+                <div class="partners-copy">
+                    <h3>合作伙伴 · Partner Ecosystem</h3>
+                    <p>Zbot 与全球顶尖平台、AI 模型与生产力工具深度集成，覆盖客户触达、内容生成、沟通与自动化交付的每一个环节。</p>
+                    <div class="partner-tags">
+                        <span>CRM Ready</span>
+                        <span>AI Model Hub</span>
+                        <span>Productivity Suite</span>
+                    </div>
+                </div>
+                <div class="partner-network">
+                    <div class="partner-node core" data-label="Zbot Alliance">Zbot</div>
+                    <div class="partner-node" data-pos="1" data-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></div>
+                    <div class="partner-node" data-pos="2" data-label="Google / Maps"><i class="fa-brands fa-google"></i></div>
+                    <div class="partner-node" data-pos="3" data-label="Gemini AI"><span>Gemini</span></div>
+                    <div class="partner-node" data-pos="4" data-label="Claude AI"><span>Claude</span></div>
+                    <div class="partner-node" data-pos="5" data-label="ChatGPT"><span>GPT</span></div>
+                    <div class="partner-node" data-pos="6" data-label="Gmail"><i class="fa-regular fa-envelope"></i></div>
+                    <div class="partner-node" data-pos="7" data-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="partner-node" data-pos="8" data-label="Facebook"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="partner-node ai-square" data-pos="9" data-label="Adobe Illustrator">Ai</div>
+                    <div class="partner-node" data-pos="10" data-label="Adobe CC"><i class="fa-solid fa-infinity"></i></div>
+                    <div class="partner-node" data-pos="11" data-label="Photoshop">Ps</div>
+                    <div class="partner-node" data-pos="12" data-label="Microsoft Word"><i class="fa-solid fa-file-word"></i></div>
+                    <div class="partner-node" data-pos="13" data-label="Figma"><i class="fa-brands fa-figma"></i></div>
+                </div>
             </div>
         </section>
     </div>

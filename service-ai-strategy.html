@@ -319,18 +319,30 @@
 
         .service-hero {
             position: relative;
-            padding: 140px 0 110px;
+            padding: 100px 0 110px;
             color: #f1f5ff;
             overflow: hidden;
-            background: linear-gradient(135deg, #081f4c 0%, #102f7d 45%, #00b3ff 100%);
+            background: #050d22;
         }
 
-        .service-hero::after {
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-media::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(8, 16, 52, 0.35), rgba(2, 12, 42, 0.65));
-            pointer-events: none;
+            background: linear-gradient(135deg, rgba(8, 20, 46, 0.75), rgba(0, 102, 204, 0.55));
+            backdrop-filter: blur(2px);
         }
 
         .service-hero .container {
@@ -755,6 +767,9 @@
 
     <main>
         <section class="service-hero">
+            <div class="hero-media">
+                <img src="media/consulting-bg.png" alt="AI strategy consulting background">
+            </div>
             <div class="container">
                 <span class="hero-badge"><i class="fa-solid fa-compass-drafting"></i> Oversea Trade Consulting</span>
                 <h1>从策略到执行的 AI 出海顾问团队，让外贸增长更可预测</h1>
@@ -799,8 +814,8 @@
                     <div class="highlight-card">
                         <h3><i class="fa-solid fa-road-map"></i> 市场进入与增长路线图</h3>
                         <ul>
-                            <li>制定 0-1 / 1-N 不同阶段策略，覆盖获客、转化与复购。</li>
-                            <li>拆解季度 OKR、关键指标与行动清单。</li>
+                            <li>制定不同阶段策略，覆盖获客、转化与复购。</li>
+                            <li>拆解季度关键指标与行动清单。</li>
                             <li>与销售、市场、客服团队协同，建立跨部门对齐机制。</li>
                         </ul>
                     </div>
