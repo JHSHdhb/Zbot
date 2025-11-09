@@ -322,16 +322,26 @@
             text-align: center;
             color: #f1f5ff;
             overflow: hidden;
-            background: radial-gradient(circle at top left, rgba(0, 198, 255, 0.18), transparent 45%),
-                        radial-gradient(circle at bottom right, rgba(0, 249, 161, 0.18), transparent 45%),
-                        var(--brand-dark);
+            background: #040a20;
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .hero::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(10, 36, 82, 0.4), rgba(2, 12, 42, 0.7));
+            background: linear-gradient(135deg, rgba(4, 10, 30, 0.65), rgba(8, 26, 66, 0.65));
             pointer-events: none;
         }
 
@@ -980,6 +990,9 @@
 
     <main>
         <section class="hero">
+            <div class="hero-media">
+                <img src="media/client-bg.png" alt="Zbot client background">
+            </div>
             <div class="container">
                 <span class="hero-label"><i class="fa-solid fa-clipboard-list"></i> Request Form</span>
                 <h1>告诉我们业务需求，Zbot 为您配置专属智能体与执行团队</h1>

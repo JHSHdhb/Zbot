@@ -430,6 +430,36 @@
             color: rgba(20, 36, 81, 0.75);
         }
 
+        .dashboard-section .dashboard-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-copy .section-header {
+            text-align: left;
+            margin: 0;
+        }
+
+        .dashboard-copy .section-header p {
+            text-align: left;
+        }
+
+        .dashboard-visual {
+            border-radius: 30px;
+            padding: 18px;
+            box-shadow: 0 28px 60px rgba(4, 16, 46, 0.18);
+        }
+
+        .dashboard-visual img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+        }
+
         .dashboard-grid {
             margin-top: 52px;
             display: grid;
@@ -463,52 +493,6 @@
             gap: 10px;
             color: rgba(20, 36, 81, 0.7);
             padding-left: 18px;
-        }
-
-        .loop-section {
-            background: #ffffff;
-        }
-
-        .loop-chart {
-            margin-top: 54px;
-            border-radius: 32px;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(11, 51, 120, 0.9), rgba(0, 198, 255, 0.85));
-            color: #ffffff;
-            box-shadow: 0 32px 64px rgba(4, 16, 46, 0.32);
-            display: grid;
-            gap: 24px;
-        }
-
-        .loop-chart h3 {
-            margin: 0;
-            font-size: 1.4rem;
-        }
-
-        .loop-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-        }
-
-        .loop-step {
-            background: rgba(255, 255, 255, 0.14);
-            border-radius: 20px;
-            padding: 18px 20px;
-            display: grid;
-            gap: 10px;
-        }
-
-        .loop-step h4 {
-            margin: 0;
-            font-size: 1.05rem;
-            color: #ffffff;
-        }
-
-        .loop-step p {
-            margin: 0;
-            color: rgba(226, 238, 255, 0.85);
-            font-size: 0.95rem;
         }
 
         .insight-section {
@@ -800,7 +784,7 @@
             <div class="container">
                 <span class="hero-badge"><i class="fa-solid fa-chart-pie"></i> AI Optimization & Dashboard</span>
                 <h1>Zbot 驱动全流程学习，让每一次出海更聪明</h1>
-                <p>Zbot 接入大模型与业务系统，将线索、外联、转化数据实时汇总，自动诊断瓶颈、提出策略建议，并以仪表盘呈现可执行洞察。</p>
+                <p>Zbot 接入大模型与业务系统，将线索、外联、转化数据实时汇总，自动诊断瓶颈、提出策略建议，并以仪表盘呈现KPI成果追踪。</p>
                 <div class="hero-actions">
                     <a class="btn-primary" href="demo.html">查看实时仪表盘演示</a>
                     <a class="btn-outline" href="client-request.html">获取专属指标方案</a>
@@ -815,82 +799,35 @@
                         <p>为策略、市场、销售、运营提供同一数据真相，减少沟通成本。</p>
                     </div>
                     <div class="hero-insight">
-                        <h3>秒级监控与告警</h3>
-                        <p>异常表现即时推送，域名健康、投递率、管道阶段一目了然。</p>
+                        <h3>专家陪伴落地</h3>
+                        <p>配备增长分析师，协助解读数据、制定实验方案，并推动执行。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section dashboard-section">
             <div class="container">
-                <div class="section-header">
-                    <span>Dashboard</span>
-                    <h2>一个仪表盘，掌控外贸增长核心指标</h2>
-                    <p>从线索入库到成交、再到复购与推荐，所有关键指标在同一视图展示，可按市场、团队、自定义维度拆解。</p>
-                </div>
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
-                        <h3><i class="fa-solid fa-funnel-dollar"></i> Pipeline & Conversion</h3>
-                        <p>实时显示线索数、激活率、机会数、成交率等转化漏斗，支持按地区、行业、负责人维度切片。</p>
+                <div class="dashboard-showcase">
+                    <div class="dashboard-copy">
+                        <div class="section-header">
+                            <span>Dashboard</span>
+                            <h2>一个成果追踪表，掌控外贸增长核心指标</h2>
+                            <p>实时显示线索数、激活率、机会数、成交率等转化漏斗，支持按地区、行业、负责人维度切片。</p>
                         <ul>
-                            <li>效果趋势分析：通过图表化数据，追踪每周外联表现变化，辅助优化策略</li>
+                            <li>效果趋势分析</li>
                             <li>自动识别阶段阻塞点并生成建议。</li>
                             <li>与自动触达系统打通，实现收入对齐。</li>
                         </ul>
-                    </div>
-                    <div class="dashboard-card">
-                        <h3><i class="fa-solid fa-comments-dollar"></i> Messaging Performance</h3>
                         <p>分析不同模板、语言、渠道的打开率、回复率、会议预约率，帮助团队持续优化。</p>
                         <ul>
-                            <li>邮件投递监测：每周自动统计发送量、送达率、开启率与回复率</li>
-                            <li>智能线索追踪：系统自动识别“回复”“询盘”等高价值线索并分类展示。</li>
-                            <li>潜在客户可视化：清晰展示所有回复与询盘客户的公司信息与联系方式</li>
-                        </ul>
+                            <li>邮件投递监测</li>
+                            <li>智能线索追踪</li>
+                            <li>潜在客户可视化</li>
+                        </div>
                     </div>
-                    <div class="dashboard-card">
-                        <h3><i class="fa-solid fa-shield"></i> Health & Compliance</h3>
-                        <p>监控域名信誉、发送配额、退订率与投诉率，确保大规模触达仍然安全合规。</p>
-                        <ul>
-                            <li>提前预警可能的投递风险与黑名单。</li>
-                            <li>节奏过快自动降速或暂停。</li>
-                            <li>合规要求变更时推送操作指南。</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section loop-section">
-            <div class="container">
-                <div class="section-header">
-                    <span>Learning Loop</span>
-                    <h2>ZBot 学习闭环</h2>
-                    <p>每一次执行都会反哺模型，形成“数据 → 决策 → 执行 → 反馈”的自我优化循环。</p>
-                </div>
-                <div class="loop-chart">
-                    <h3>AI Feedback Loop</h3>
-                    <div class="loop-grid">
-                        <div class="loop-step">
-                            <h4>1. 数据采集</h4>
-                            <p>实时抓取线索质量、外联行为、客户互动等数据，统一入湖。</p>
-                        </div>
-                        <div class="loop-step">
-                            <h4>2. 模型分析</h4>
-                            <p>ZBot 结合历史表现与行业基准，识别异常与机会点。</p>
-                        </div>
-                        <div class="loop-step">
-                            <h4>3. 策略建议</h4>
-                            <p>自动生成调整建议，如优化节奏、调换模板、扩展新市场。</p>
-                        </div>
-                        <div class="loop-step">
-                            <h4>4. 执行 & 实验</h4>
-                            <p>Zbot 按新策略执行并创建 A/B 实验，验证成效。</p>
-                        </div>
-                        <div class="loop-step">
-                            <h4>5. 结果回写</h4>
-                            <p>成功经验沉淀为 SOP，失败案例用于模型迭代，形成正循环。</p>
-                        </div>
+                    <div class="dashboard-visual">
+                        <img src="media/dashboard.png" alt="Zbot AI Dashboard">
                     </div>
                 </div>
             </div>

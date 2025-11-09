@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-ZlC2C9+jhjQhFMno0RvrRZtGJPD7W82dManIeZDV4SSQdlqzTeWY5AvzkdxlIo0NGdisM8Ih3Uczdlz7YTl5yA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
     <style>
         :root {
             --brand-blue: #2e5ccb;
@@ -496,7 +498,6 @@
             content: "";
             position: absolute;
             inset: 0;
-            background-image: url('media/data-bg.png');
             background-size: cover;
             opacity: 0.15;
             mix-blend-mode: screen;
@@ -615,6 +616,18 @@
         .workflow-body p {
             margin: 0;
             color: rgba(20, 36, 81, 0.75);
+        }
+
+        .data-visual {
+            border-radius: 30px;
+            padding: 20px;
+        }
+
+        .data-visual img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
         }
 
         .cta-band {
@@ -813,7 +826,7 @@
             }
 
             .flow-step__pipe::after {
-                left: 19px;
+                left: px;
             }
 
             .workflow-step {
@@ -836,19 +849,7 @@
         <div class="spinner"></div>
     </div>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-highlight">
-                <i class="fa-solid fa-sparkles"></i>
-                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
-            </div>
-            <div class="top-links">
-                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
-                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
-                <a href="client-request.html"><i class="fa-solid fa-comment-dots"></i> 提交需求</a>
-            </div>
-        </div>
-    </div>
+
 
     <header class="site-header">
         <div class="container">
@@ -893,7 +894,7 @@
             </div>
             <div class="hero-content">
                 <div class="container">
-                    <span class="hero-badge"><i class="fa-solid fa-database"></i> Data Intelligence & Lead Generation</span>
+                    
                     <h1>从全球海关数据到精准买家决策人联系方式，一步直达</h1>
                     <p>整合海关、官网、社媒、行业数据库等多源数据，自动发掘高潜买家、验证决策人信息，并输出可直接导入 CRM 的客户资产。</p>
                     <div class="hero-actions">
@@ -957,12 +958,12 @@
                 </div>
 
                 <div class="flow-visual">
-                    <h3>数据流动示意：Company Names → Zbot 球体 → Verified Leads List.csv</h3>
+                    <h3>数据流动示意：公司名 → 智渤 AI → 关键决策人信息.csv</h3>
                     <div class="flow-steps">
                         <div class="flow-step">
                             <div class="flow-step__node">
                                 Company Names
-                                <span>原始客户名单 / 产品关键词</span>
+                                <span>原始客户名单 / 产品海关编码</span>
                             </div>
                             <div class="flow-step__pipe"><i class="fa-solid fa-arrow-right"></i></div>
                             <div class="flow-step__result">
@@ -992,6 +993,9 @@
                                 <span>CRM-ready · 标签齐全</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="data-visual">
+                        <img src="media/data.png" alt="AI strategy consulting background">
                     </div>
                 </div>
             </div>

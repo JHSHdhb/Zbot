@@ -1195,211 +1195,8 @@
             font-weight: 600;
         }
 
-        /* Workflow */
-        .workflow {
-            background: radial-gradient(circle at 80% 10%, rgba(0, 198, 255, 0.35), transparent 45%), #0b173a;
-            color: #f2f6ff;
-        }
 
-        .workflow .section-heading h2,
-        .workflow .section-heading p {
-            color: #e8f2ff;
-        }
-
-        .workflow-steps {
-            display: grid;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .workflow-card {
-            display: flex;
-            gap: 22px;
-            align-items: flex-start;
-            padding: 24px 28px;
-            border-radius: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(6, 18, 52, 0.65);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 28px 60px rgba(3, 8, 25, 0.6);
-        }
-
-        .workflow-index {
-            width: 48px;
-            height: 48px;
-            border-radius: 20px;
-            background: linear-gradient(160deg, rgba(0, 198, 255, 0.35), rgba(0, 116, 255, 0.45));
-            box-shadow: 0 16px 30px rgba(0, 198, 255, 0.25);
-            display: grid;
-            place-items: center;
-            font-weight: 700;
-            color: #041335;
-            font-variant-numeric: tabular-nums;
-            letter-spacing: 0.04em;
-        }
-
-        .workflow-card h3 {
-            margin: 0 0 10px;
-            font-size: 20px;
-            color: #ffffff;
-        }
-
-        .workflow-card p {
-            margin: 0;
-            color: rgba(219, 234, 255, 0.78);
-        }
-
-        .workflow-meta {
-            margin-top: 18px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .workflow-card .card-icon {
-            width: 52px;
-            height: 52px;
-            margin: 0 0 14px;
-            box-shadow: none;
-        }
-
-        .workflow-meta span {
-            font-size: 13px;
-            padding: 6px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 198, 255, 0.32);
-            color: rgba(223, 242, 255, 0.85);
-        }
-
-        /* Solutions */
-        .solutions {
-            background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
-        }
-
-        .compare-shell {
-            background: #ffffff;
-            border-radius: 28px;
-            border: 1px solid rgba(23, 48, 115, 0.08);
-            box-shadow: 0 26px 60px rgba(9, 35, 94, 0.08);
-            overflow: hidden;
-        }
-
-        .compare-head-row {
-            display: grid;
-            grid-template-columns: 1.4fr repeat(3, 1fr);
-        }
-
-        .compare-head {
-            padding: 28px 24px;
-            font-weight: 700;
-            font-size: 16px;
-            color: #f5f8ff;
-            background: linear-gradient(120deg, #2144c9 0%, #2f6bff 50%, #2e5ccb 100%);
-        }
-
-        .compare-head:first-child {
-            border-top-left-radius: 28px;
-        }
-
-        .compare-head:last-child {
-            border-top-right-radius: 28px;
-        }
-
-        .compare-head.secondary {
-            background: linear-gradient(120deg, rgba(33, 68, 201, 0.85), rgba(21, 35, 89, 0.92));
-        }
-
-        .compare-head.neutral {
-            background: linear-gradient(120deg, rgba(15, 27, 76, 0.95), rgba(12, 22, 58, 0.92));
-        }
-
-        .compare-body {
-            display: grid;
-            grid-template-columns: 1.4fr repeat(3, 1fr);
-        }
-
-        .compare-row {
-            display: contents;
-        }
-
-        .compare-cell {
-            padding: 22px 24px;
-            border-bottom: 1px solid rgba(15, 35, 72, 0.08);
-            font-size: 15px;
-            color: rgba(15, 35, 72, 0.78);
-            background: #ffffff;
-        }
-
-        .compare-cell:first-child {
-            font-weight: 700;
-            color: #122657;
-        }
-
-        .compare-row:nth-child(2n) .compare-cell {
-            background: #f6f9ff;
-        }
-
-        .compare-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 14px;
-            background: rgba(46, 92, 203, 0.12);
-            color: #2144c9;
-        }
-
-        .compare-chip.positive {
-            background: rgba(0, 204, 153, 0.15);
-            color: #019b75;
-        }
-
-        .compare-chip.warning {
-            background: rgba(255, 178, 36, 0.18);
-            color: #c87604;
-        }
-
-        .compare-chip.negative {
-            background: rgba(255, 69, 88, 0.12);
-            color: #c03030;
-        }
-
-        .compare-note {
-            margin-top: 22px;
-            font-size: 13px;
-            color: rgba(23, 48, 115, 0.55);
-            text-align: right;
-        }
-
-        @media (max-width: 920px) {
-            .compare-head-row,
-            .compare-body {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .compare-head-row .compare-head:nth-child(n+3),
-            .compare-body .compare-cell:nth-child(n+3) {
-                display: none;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .compare-head-row,
-            .compare-body {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            .compare-head-row .compare-head:nth-child(n+2),
-            .compare-body .compare-cell:nth-child(n+2) {
-                display: none;
-            }
-
-            .compare-cell:first-child {
-                border-bottom: none;
-            }
-        }
+        
 
         /* Data proof */
         .data-proof {
@@ -1446,30 +1243,7 @@
         }
 
         
-        /* Lead request form */
-        /* FAQ */
-        .faq-section {
-            background: #ffffff;
-        }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        details.faq-item {
-            border-radius: 18px;
-            border: 1px solid rgba(23, 48, 115, 0.08);
-            background: #f9fbff;
-            padding: 20px 24px;
-            transition: border 0.3s ease, background 0.3s ease;
-        }
-
-        details.faq-item[open] {
-            border-color: rgba(0, 198, 255, 0.35);
-            background: rgba(239, 245, 255, 0.92);
-        }
+       
 
         summary {
             font-weight: 700;
@@ -1832,9 +1606,6 @@
                 margin-top: -40px;
             }
 
-            .workflow-card {
-                flex-direction: column;
-            }
 
             .testimonial-card {
                 flex: 1 0 100%;
@@ -2092,66 +1863,7 @@
 
         
 
-        <section class="workflow" id="workflow">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-timeline"></i> Workflow · 从线索到成交</span>
-                    <h2>四步打造高转化的外贸客户智能系统</h2>
-                    <p>Zbot 将AI分析、数据聚合与人工验证整合为一体，从目标识别到数据交付全流程自动化。让团队更聚焦于客户沟通，而不是仅仅数据收集。</p>
-                </div>
-                <div class="workflow-steps">
-                    <article class="workflow-card">
-                        <div class="workflow-index">01</div>
-                        <div>
-                            <div class="card-icon gradient-blue"><i data-lucide="target"></i></div>
-                            <h3>AI Strategy Consulting — 智能客户画像与市场洞察</h3>
-                            <p>让AI理解你的外贸目标。输入目标市场与产品信息，由智能体 BoBo 自动生成高潜客户分布与关键岗位建议。自动构建客户分层模型（ICP），识别应优先接触的买家群体与岗位。</p>
-                            <div class="workflow-meta">
-                                <span>自定义 ICP 模型</span>
-                                <span>一键生成客户蓝图</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="workflow-card">
-                        <div class="workflow-index">02</div>
-                        <div>
-                            <div class="card-icon gradient-green"><i class="fa-solid fa-pen-to-square" data-lucide="layers"></i></div>
-                            <h3>Zbot System — 多源数据智能聚合与自动化执行</h3>
-                            <p>从企业字段到市场画像，让 Sales 更懂客户。Zbot 的智能分析引擎整合企业注册、行业动态与区域经济数据，为每个目标市场构建公司级行业分布洞察。并由 DataBot、OutreachBot、CRMbot 自动执行触达、跟进与管理。系统输出不仅包含公司、职位、邮箱、地区等数据，还包括企业规模、所属行业与市场层级，帮助销售团队快速判断潜在客户的真实价值与优先级。</p>
-                            <div class="workflow-meta">
-                                <span>行业级数据源接入</span>
-                                <span>决策层特征与规模洞察</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="workflow-card">
-                        <div class="workflow-index">03</div>
-                        <div>
-                            <div class="card-icon gradient-violet"><i class="fa-solid fa-share-alt" data-lucide="shield-check"></i></div>
-                            <h3>Autonomous Optimization — 数据科学验证与自我优化机制</h3>
-                            <p>确保每一条线索都真实可用。Zbot 通过算法置信度检测与人工抽检，Data Scientists 执行算法去重、置信度检测；CS 团队人工抽检企业与决策人信息。所有数据字段（公司、职位、邮箱、地区）均经双层验证与自动清洗。由 AutomationBot 统筹整个智能体网络，实现外贸获客的持续自我进化。</p>
-                            <div class="workflow-meta">
-                                <span>模型置信度校验</span>
-                                <span>人工精准复核</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="workflow-card">
-                        <div class="workflow-index">04</div>
-                        <div>
-                            <div class="card-icon gradient-slate"><i class="fa-solid fa-clipboard-check" data-lucide="file-spreadsheet"></i></div>
-                            <h3>AI Dashboard — CRM-Ready 数据交付与策略建议</h3>
-                            <p>拿到的不只是数据，而是可行动方案。输出经过验证的客户清单与决策人信息，可直接导入 CRM 或外联系统。附带 AI 生成的跟进策略标签与市场拓展建议，实现从数据到行动的闭环。</p>
-                            <div class="workflow-meta">
-                                <span>自动生成行动项</span>
-                                <span>自动策略推荐</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
+       
          <section class="metrics">
             <div class="container">
                 <div class="metric-grid">
@@ -2183,57 +1895,7 @@
             </div>
         </section>
 
-        <section class="solutions" id="solutions">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-scale-balanced"></i> 为什么选择 Zbot</span>
-                    <h2>效率、成本、数据覆盖率全面领先</h2>
-                    <p>对比传统人工寻找客户或第三方数据库，Zbot 将 AI 自动化与数据科学结合，提供更快速、更全面、更安全的出海解决方案。</p>
-                </div>
-                <div class="compare-shell">
-                    <div class="compare-head-row">
-                        <div class="compare-head">功能对比</div>
-                        <div class="compare-head">Zbot</div>
-                        <div class="compare-head secondary">传统人工</div>
-                        <div class="compare-head neutral">Apollo 等平台</div>
-                    </div>
-                    <div class="compare-body">
-                        <div class="compare-row">
-                            <div class="compare-cell">自动化程度</div>
-                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-robot"></i> 全自动 AI</span></div>
-                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-xmark"></i> 手动搜集</span></div>
-                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-triangle-exclamation"></i> 部分自动</span></div>
-                        </div>
-                        <div class="compare-row">
-                            <div class="compare-cell">使用成本</div>
-                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-coins"></i> 更亲民</span></div>
-                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-person-digging"></i> 高人工成本</span></div>
-                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-rocket"></i> 订阅费用较高</span></div>
-                        </div>
-                        <div class="compare-row">
-                            <div class="compare-cell">数据覆盖</div>
-                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-globe"></i> 2.4 亿买家 + 海关/行业数据</span></div>
-                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-face-frown"></i> 有限</span></div>
-                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-earth-americas"></i> 偏欧美数据</span></div>
-                        </div>
-                        <div class="compare-row">
-                            <div class="compare-cell">数据输出格式</div>
-                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-file-circle-check"></i> CRM Ready</span></div>
-                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-file-circle-xmark"></i> 格式不统一</span></div>
-                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-code"></i> API 为主</span></div>
-                        </div>
-                        <div class="compare-row">
-                            <div class="compare-cell">查找速度</div>
-                            <div class="compare-cell"><span class="compare-chip positive"><i class="fa-solid fa-bolt"></i> 秒级批量响应</span></div>
-                            <div class="compare-cell"><span class="compare-chip negative"><i class="fa-solid fa-hourglass-half"></i> 天/周级人工检索</span></div>
-                            <div class="compare-cell"><span class="compare-chip warning"><i class="fa-solid fa-cloud"></i> 依赖实时 API</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="compare-note">* 数据覆盖包含 120+ 国家买家情报、LinkedIn/海关等权威数据源，持续自动更新。</div>
-            </div>
-        </section>
-
+        
         <section class="data-proof" id="data-proof">
             <div class="container">
                 <div class="section-heading">
@@ -2252,35 +1914,7 @@
             </div>
         </section>
 
-        
 
-        <section class="faq-section" id="faq">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-circle-question"></i> 常见问题</span>
-                    <h2>关于 Zbot，你可能想了解的答案</h2>
-                    <p>如果以下内容未覆盖您的疑问，欢迎与我们团队联系，我们将提供专属顾问解答。</p>
-                </div>
-                <div class="faq-grid">
-                    <details class="faq-item" open>
-                        <summary>Zbot 的数据是否合规？</summary>
-                        <p>我们与多家权威数据供应商合作，所有数据均经过 GDPR、CCPA 等隐私合规审计，并提供企业级权限与脱敏策略。企业客户可选择在本地或私有云部署。</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>如何与现有 CRM/ERP 系统集成？</summary>
-                        <p>Zbot 提供开放 API 与无代码连接器，已原生集成 Salesforce、HubSpot、Zoho、微软 Dynamics 等主流系统，也支持自定义 Webhook。</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>AI 生成的邮件是否支持人工调整？</summary>
-                        <p>当然。每封邮件都可进行人工润色，系统会学习修改偏好并持续优化生成效果，同时保留最终发送前的确认机制。</p>
-                    </details>
-                    <details class="faq-item">
-                        <summary>Zbot 的部署方式有哪些？</summary>
-                        <p>我们提供 SaaS、公有云独立实例以及企业私有化部署三种模式，可根据安全要求灵活选择。大客户可获得专属数据隔离与 SLA。</p>
-                    </details>
-                </div>
-            </div>
-        </section>
 
         <section class="stories" id="stories-more">
             <div class="container">
@@ -2317,6 +1951,98 @@
                             <a class="story-action" href="#contact">获取手册 <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-area" id="reflections">
+            <div class="testimonial-grid">
+                <div class="testimonial-copy">
+                    <span class="label">客户反馈</span>
+                    <h2>听听客户怎么说</h2>
+                    <p>使用 Zbot 的外贸企业都获得了显著的业绩提升。从人力成本降低到订单量增长，每一个数字都证明着智能化外贸的价值。</p>
+                    <div class="reflections-badges">
+                        <span><i class="fa-solid fa-bolt"></i> 减员增效</span>
+                        <span><i class="fa-solid fa-earth-asia"></i> 全球触达</span>
+                        <span><i class="fa-solid fa-gem"></i> ROI 可视</span>
+                    </div>
+                    <div class="testimonial-nav-buttons">
+                        <button type="button" aria-label="上一条反馈" class="nav-btn" data-testimonial-prev>
+                            <svg fill="none" viewBox="0 0 24 24">
+                                <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button type="button" aria-label="下一条反馈" class="nav-btn" data-testimonial-next>
+                            <svg fill="none" viewBox="0 0 24 24">
+                                <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="testimonial-slider">
+                    <article class="testimonial-card is-active" data-testimonial-card data-index="0">
+                        <div class="testimonial-stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <p class="testimonial-text">“以前要组建十个人的外贸团队，现在用了 Zbot，只需要两个人专注成交。不用再花时间开发客户，Zbot 自动帮我们找到精准买家。”</p>
+                        <div class="testimonial-client">
+                            <div class="avatar">成</div>
+                            <div class="client-details">
+                                <h3>成总</h3>
+                                <p>电缆制造行业 · 外贸负责人</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote-icon">
+                            <svg viewBox="0 0 100 100">
+                                <path d="M20 20c-11 0-20 9-20 20v40h30V50H10c0-11 9-20 20-20V20zm50 0c-11 0-20 9-20 20v40h30V50H60c0-11 9-20 20-20V20z"/>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card" data-testimonial-card data-index="1">
+                        <div class="testimonial-stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <p class="testimonial-text">“Zbot 真的让效率提升太多了。过去每天都在找客户，现在每天都在跟进订单。成本省了一半，业绩反而更好。”</p>
+                        <div class="testimonial-client">
+                            <div class="avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">刘</div>
+                            <div class="client-details">
+                                <h3>刘总</h3>
+                                <p>五金制造行业 · 出口业务总监</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote-icon">
+                            <svg viewBox="0 0 100 100">
+                                <path d="M20 20c-11 0-20 9-20 20v40h30V50H10c0-11 9-20 20-20V20zm50 0c-11 0-20 9-20 20v40h30V50H60c0-11 9-20 20-20V20z"/>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card" data-testimonial-card data-index="2">
+                        <div class="testimonial-stars">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <p class="testimonial-text">“以前招不到合适的会自主开发的外贸员，现在根本不需要那么多人。有了 Zbot，1 个人就能顶十个人的工作量。”</p>
+                        <div class="testimonial-client">
+                            <div class="avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">阮</div>
+                            <div class="client-details">
+                                <h3>阮总</h3>
+                                <p>建材行业 · 企业负责人</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote-icon">
+                            <svg viewBox="0 0 100 100">
+                                <path d="M20 20c-11 0-20 9-20 20v40h30V50H10c0-11 9-20 20-20V20zm50 0c-11 0-20 9-20 20v40h30V50H60c0-11 9-20 20-20V20z"/>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <div class="testimonial-indicators">
+                        <button type="button" class="is-active" data-testimonial-indicator data-index="0"></button>
+                        <button type="button" data-testimonial-indicator data-index="1"></button>
+                        <button type="button" data-testimonial-indicator data-index="2"></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2522,6 +2248,62 @@
                 tabPanels.forEach(panel => panel.classList.toggle('is-active', panel.dataset.tabPanel === target));
             });
         });
+
+        const testimonialCards = qsa('[data-testimonial-card]');
+        const testimonialIndicators = qsa('[data-testimonial-indicator]');
+        const testimonialPrev = qs('[data-testimonial-prev]');
+        const testimonialNext = qs('[data-testimonial-next]');
+
+        if (testimonialCards.length && testimonialIndicators.length && testimonialPrev && testimonialNext) {
+            let testimonialIndex = 0;
+            let testimonialTimer;
+
+            const showTestimonial = (index) => {
+                testimonialCards.forEach(card => card.classList.remove('is-active'));
+                testimonialIndicators.forEach(dot => dot.classList.remove('is-active'));
+                testimonialCards[index].classList.add('is-active');
+                qs(`[data-testimonial-indicator][data-index=\"${index}\"]`).classList.add('is-active');
+                testimonialIndex = index;
+            };
+
+            const autoplayTestimonials = () => {
+                testimonialTimer = setInterval(() => {
+                    const nextIndex = (testimonialIndex + 1) % testimonialCards.length;
+                    showTestimonial(nextIndex);
+                }, 5000);
+            };
+
+            testimonialPrev.addEventListener('click', () => {
+                clearInterval(testimonialTimer);
+                const prevIndex = (testimonialIndex - 1 + testimonialCards.length) % testimonialCards.length;
+                showTestimonial(prevIndex);
+                autoplayTestimonials();
+            });
+
+            testimonialNext.addEventListener('click', () => {
+                clearInterval(testimonialTimer);
+                const nextIndex = (testimonialIndex + 1) % testimonialCards.length;
+                showTestimonial(nextIndex);
+                autoplayTestimonials();
+            });
+
+            testimonialIndicators.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    clearInterval(testimonialTimer);
+                    const idx = parseInt(dot.dataset.index, 10);
+                    showTestimonial(idx);
+                    autoplayTestimonials();
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') testimonialPrev.click();
+                if (e.key === 'ArrowRight') testimonialNext.click();
+            });
+
+            showTestimonial(testimonialIndex);
+            autoplayTestimonials();
+        }
 
 
         const pricingTrack = qs('[data-pricing-track]');
