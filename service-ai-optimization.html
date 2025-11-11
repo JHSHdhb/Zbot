@@ -216,6 +216,7 @@
             padding: 0;
             display: grid;
             gap: 12px;
+            padding-left: 2.50rem; /* 约等于一个 tab */
         }
 
         .dashboard-list li {
@@ -224,6 +225,7 @@
             font-weight: 600;
             color: #0b173a;
             line-height: 1.6;
+            padding-left: 2.50rem; /* 约等于一个 tab */
         }
 
         .dashboard-list li::before {
@@ -236,6 +238,7 @@
             border-radius: 50%;
             background: linear-gradient(135deg, #00c6ff, #2e5ccb);
             box-shadow: 0 8px 16px rgba(14, 74, 180, 0.25);
+            
         }
 
         
@@ -244,7 +247,7 @@
             display: block;
             box-shadow: 0 28px 60px rgba(4, 16, 46, 0.18);
             width: 100%;
-            height: 500px;
+            height: 550px;
             border-radius: 24px;
         }
 
@@ -533,6 +536,7 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
         const qs = (sel, ctx = document) => ctx.querySelector(sel);
         const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -544,74 +548,7 @@
             });
         }
 
-        const navToggle = qs('#navToggle');
-        const primaryNav = qs('#primaryNav');
-        const dropdown = qs('[data-dropdown]');
 
-        if (navToggle && primaryNav) {
-            navToggle.addEventListener('click', () => {
-                const open = primaryNav.classList.toggle('is-open');
-                navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-            });
-
-            document.addEventListener('click', (event) => {
-                if (!primaryNav.contains(event.target) && !navToggle.contains(event.target)) {
-                    primaryNav.classList.remove('is-open');
-                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                }
-            }, true);
-
-            qsa('.nav-links a, .dropdown-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    primaryNav.classList.remove('is-open');
-                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                });
-            });
-        }
-
-        if (dropdown) {
-            const toggle = qs('.dropdown-toggle', dropdown);
-            const menu = qs('.dropdown-menu', dropdown);
-            const supportsHover = window.matchMedia('(hover: hover)').matches;
-
-            const openDropdown = () => {
-                dropdown.classList.add('is-open');
-                toggle.setAttribute('aria-expanded', 'true');
-            };
-
-            const closeDropdown = () => {
-                dropdown.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            };
-
-            if (supportsHover) {
-                dropdown.addEventListener('mouseenter', openDropdown);
-                dropdown.addEventListener('mouseleave', closeDropdown);
-                toggle.addEventListener('focus', openDropdown);
-                dropdown.addEventListener('focusout', (event) => {
-                    if (!dropdown.contains(event.relatedTarget)) {
-                        closeDropdown();
-                    }
-                });
-            }
-
-            toggle.addEventListener('click', (event) => {
-                if (!supportsHover) {
-                    event.preventDefault();
-                    const willOpen = !dropdown.classList.contains('is-open');
-                    dropdown.classList.toggle('is-open', willOpen);
-                    toggle.setAttribute('aria-expanded', willOpen.toString());
-                }
-            });
-
-            menu.addEventListener('click', closeDropdown);
-
-            document.addEventListener('click', (event) => {
-                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
-                    closeDropdown();
-                }
-            });
-        }
     </script>
 </body>
 </html>
