@@ -40,15 +40,36 @@ const setupNav = () => {
         };
 
         if (supportsHover) {
-            dropdown.addEventListener('mouseenter', openDropdown);
-            dropdown.addEventListener('mouseleave', closeDropdown);
-            toggle.addEventListener('focus', openDropdown);
-            dropdown.addEventListener('focusout', (event) => {
-                if (!dropdown.contains(event.relatedTarget)) {
-                    closeDropdown();
-                }
+            let hoverTimer;
+
+            const scheduleClose = () => {
+                clearTimeout(hoverTimer);
+                hoverTimer = setTimeout(closeDropdown, 200); // 200ms 容错
+            };
+            const cancelClose = () => clearTimeout(hoverTimer);
+
+            dropdown.addEventListener('mouseenter', () => {
+                cancelClose();
+                openDropdown();
             });
+
+            dropdown.addEventListener('mouseleave', scheduleClose);
+
+            // 键盘可达性
+            toggle.addEventListener('focus', () => {
+                cancelClose();
+                openDropdown();
+            });
+            dropdown.addEventListener('focusout', (event) => {
+                if (!dropdown.contains(event.relatedTarget)) scheduleClose();
+            });
+
+            // 鼠标滑到菜单时不关闭
+            const menu = dropdown.querySelector('.dropdown-menu');
+            menu.addEventListener('mouseenter', cancelClose);
+            menu.addEventListener('mouseleave', scheduleClose);
         }
+
 
         toggle.addEventListener('click', (event) => {
             if (!supportsHover) {
