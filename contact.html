@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="css/main.css"/>
     <style>
         :root {
             --brand-blue: #2e5ccb;
@@ -86,235 +88,6 @@
             }
         }
 
-        .top-bar {
-            background: rgba(8, 19, 53, 0.95);
-            color: #d7ecff;
-            font-size: 14px;
-            letter-spacing: 0.02em;
-        }
-
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            gap: 24px;
-        }
-
-        .top-highlight {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .top-highlight i {
-            color: var(--brand-green);
-        }
-
-        .top-links {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .top-links a {
-            color: rgba(215, 236, 255, 0.9);
-            transition: color 0.3s ease;
-        }
-
-        .top-links a:hover {
-            color: #ffffff;
-        }
-
-        header.site-header {
-            position: sticky;
-            top: 0;
-            z-index: 980;
-            background: rgba(243, 246, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(23, 52, 122, 0.08);
-        }
-
-        .nav-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 0;
-            position: relative;
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            font-weight: 700;
-            color: #142451;
-        }
-
-        .brand-logo {
-            width: 150px;
-            height: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .nav-links a {
-            position: relative;
-            padding-bottom: 6px;
-            color: #1b2c54;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--brand-cyan), var(--brand-green));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.is-active::after {
-            transform: scaleX(1);
-        }
-
-        .nav-links a:hover,
-        .nav-links a.is-active {
-            color: var(--brand-blue);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0 0 6px;
-            background: none;
-            border: none;
-            font: inherit;
-            color: #1b2c54;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .dropdown-toggle i {
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-dropdown.is-open .dropdown-toggle,
-        .nav-dropdown:hover .dropdown-toggle {
-            color: var(--brand-blue);
-        }
-
-        .nav-dropdown.is-open .dropdown-toggle i {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 14px);
-            left: 50%;
-            transform: translateX(-50%) translateY(8px);
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18);
-            padding: 16px 18px;
-            display: grid;
-            gap: 12px;
-            min-width: 230px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease, transform 0.25s ease;
-            z-index: 20;
-        }
-
-        .nav-dropdown.is-open .dropdown-menu,
-        .nav-dropdown:hover .dropdown-menu {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-menu a {
-            color: #233a6d;
-            font-weight: 500;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-
-        .dropdown-menu a:hover {
-            color: var(--brand-blue);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .btn-outline,
-        .btn-primary {
-            padding: 12px 24px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--brand-blue);
-            border: 1px solid rgba(46, 92, 203, 0.4);
-        }
-
-        .btn-outline:hover {
-            border-color: transparent;
-            color: #ffffff;
-            background: linear-gradient(120deg, rgba(0, 198, 255, 0.35), rgba(0, 249, 161, 0.35));
-        }
-
-        .btn-primary {
-            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
-            color: #04112f;
-            box-shadow: 0 16px 28px rgba(0, 198, 255, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 36px rgba(0, 198, 255, 0.4);
-        }
-
-        .nav-toggle {
-            display: none;
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            border: 1px solid rgba(46, 92, 203, 0.25);
-            background: #ffffff;
-            color: var(--brand-blue);
-            font-size: 20px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
 
         .hero {
             position: relative;
@@ -503,170 +276,6 @@
             color: rgba(20, 36, 81, 0.75);
         }
 
-        footer {
-            background: #07112c;
-            color: rgba(222, 236, 255, 0.82);
-            padding: 80px 0 40px;
-        }
-
-        footer .container {
-            display: grid;
-            gap: 60px;
-        }
-
-        .footer-top {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 42px;
-        }
-
-        .footer-brand h3 {
-            margin: 20px 0 10px;
-            font-size: 1.4rem;
-            color: #ffffff;
-        }
-
-        .footer-brand p {
-            margin: 0;
-            color: rgba(222, 236, 255, 0.75);
-        }
-
-        .socials {
-            display: flex;
-            gap: 12px;
-        }
-
-        .socials a {
-            width: 38px;
-            height: 38px;
-            display: grid;
-            place-items: center;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.08);
-            color: #ffffff;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .socials a:hover {
-            background: rgba(0, 198, 255, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .footer-links h4 {
-            margin: 0 0 16px;
-            font-size: 1rem;
-            color: #ffffff;
-        }
-
-        .footer-links ul {
-            display: grid;
-            gap: 8px;
-        }
-
-        .footer-links a {
-            color: rgba(222, 236, 255, 0.78);
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            font-size: 0.85rem;
-            color: rgba(222, 236, 255, 0.68);
-        }
-
-        @media (max-width: 960px) {
-            .top-bar .container {
-                flex-direction: column;
-                gap: 12px;
-                text-align: center;
-            }
-
-            .top-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 68px;
-                left: 0;
-                right: 0;
-                background: rgba(244, 247, 255, 0.98);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 22px 24px;
-                gap: 18px;
-                border-bottom: 1px solid rgba(23, 52, 122, 0.1);
-                transform: translateY(-18px);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-
-            .nav-links.is-open {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-dropdown {
-                width: 100%;
-            }
-
-            .dropdown-toggle {
-                width: 100%;
-                justify-content: space-between;
-                padding: 8px 0;
-            }
-
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                margin-top: -6px;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: none;
-                border-radius: 12px;
-                display: none;
-                padding: 12px 16px;
-            }
-
-            .nav-dropdown.is-open .dropdown-menu {
-                display: grid;
-            }
-
-            .nav-actions {
-                display: none;
-            }
-
-            .nav-toggle {
-                display: inline-flex;
-            }
-
-            .hero {
-                padding: 120px 0 100px;
-            }
-
-            .office-card {
-                grid-template-rows: 180px auto;
-            }
-
-            footer .container {
-                gap: 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 <body class="page-contact">
@@ -674,53 +283,37 @@
         <div class="spinner"></div>
     </div>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-highlight">
-                <i class="fa-solid fa-sparkles"></i>
-                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
-            </div>
-            <div class="top-links">
-                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
-                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
-                <a href="https://wa.me/16478645968" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp 直连</a>
-            </div>
-        </div>
-    </div>
-
-    <header class="site-header">
-        <div class="container">
-            <div class="nav-bar">
-                <a class="brand" href="index.html">
-                    <img src="media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo"/>
-                </a>
-                <nav class="nav-links" id="primaryNav">
-                    <a href="index.html">首页</a>
-                    <a href="about-us.html">关于我们</a>
-                    <div class="nav-dropdown" data-dropdown>
-                        <button class="dropdown-toggle" type="button" aria-expanded="false">
-                            核心服务 <i class="fa-solid fa-chevron-down"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                            <a href="service-ai-strategy.html">AI Strategy Consulting</a>
-                            <a href="service-data-intelligence.html">Data Intelligence & Lead Generation</a>
-                            <a href="service-outreach-automation.html">Outreach Automation</a>
-                            <a href="service-ai-optimization.html">AI Optimization & Dashboard</a>
-                        </div>
+        <header class="site-header">
+        <div class="nav-bar">
+            <a class="brand" href="index.html">
+                <img src="media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo"/>
+            </a>
+            <nav class="nav-links" id="primaryNav">
+                <a href="index.html">首页</a>
+                <a href="about-us.html">关于我们</a>
+                <div class="nav-dropdown" data-dropdown>
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        核心服务 <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="service-ai-strategy.html">出海分析与策略制定</a>
+                        <a href="service-data-intelligence.html">数据开发与 AI 获客</a>
+                        <a href="service-outreach-automation.html">多渠道触达与客户转化</a>
+                        <a href="service-ai-optimization.html">成果追踪与优化</a>
                     </div>
-                    <a href="client-request.html">客户需求表</a>
-                    <a href="faq.html">常见问题</a>
-                    <a href="blog.html">博客动态</a>
-                    <a href="contact.html" class="is-active">联系我们</a>
-                </nav>
-                <div class="nav-actions">
-                    <a class="btn-outline" href="client-request.html">提交需求</a>
-                    <a class="btn-primary" href="mailto:hello@zbot.ai">发送邮件</a>
                 </div>
-                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <a href="client-request.html">客户需求表</a>
+                <a href="faq.html">常见问题</a>
+                <a href="blog.html">博客动态</a>
+                <a href="contact.html" class="is-active">联系我们</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn-outline" href="client-request.html">客户需求表</a>
+                <a class="btn-primary" href="contact.html">预约 1v1 Demo</a>
             </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -742,7 +335,7 @@
                     <div class="contact-card">
                         <h3><i class="fa-solid fa-envelope-open-text"></i> 邮件咨询</h3>
                         <p>获取演示账号 / 试用方案 / 最新案例，欢迎发送邮件，我们将在 12 小时内回复。</p>
-                        <a href="mailto:hello@zbot.ai">Customer@zbotglobal.com</a>
+                        <a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a>
                     </div>
                     <div class="contact-card">
                         <h3><i class="fa-brands fa-weixin"></i> 微信</h3>
@@ -787,7 +380,6 @@
                         <div class="office-card__body">
                             <h4>洛杉矶本地化团队</h4>
                             <ul>
-                                <li>合作伙伴：外籍顾问、内容创作、客户成功</li>
                                 <li>服务：AI 训练 / 算法优化 / 精准营销</li>
                                 <li>覆盖区域：欧洲、北美</li>
                             </ul>
@@ -826,7 +418,7 @@
                         <img src="./media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo brand-logo--footer"/>
                     </div>
                     <h3>智能出海 · 渤达全球</h3>
-                    <p>我们帮助中国外贸团队高效触达全球买家，从数据、策略到执行全面自动化。</p>
+                    <p>AI 策略共创、全球买家数据、自动化触达与运营优化，一套系统帮您完成从洞察到成交。</p>
                     <div class="socials" style="margin-top:18px;">
                         <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -835,33 +427,38 @@
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>产品功能</h4>
+                    <h4>核心服务</h4>
                     <ul>
-                        <li><a href="index.html#capabilities">AI 智能找客</a></li>
-                        <li><a href="index.html#capabilities">自动化触达</a></li>
-                        <li><a href="index.html#workflow">AI 工作流</a></li>
-                        <li><a href="index.html#pricing">定价方案</a></li>
+                        <li><a href="service-ai-strategy.html">出海分析与策略制定</a></li>
+                        <li><a href="service-data-intelligence.html">数据开发与 AI 获客</a></li>
+                        <li><a href="service-outreach-automation.html">多渠道触达与客户转化</a></li>
+                        <li><a href="service-ai-optimization.html">成果追踪与优化</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>资源中心</h4>
                     <ul>
-                        <li><a href="blog.html">行业洞察</a></li>
-                        <li><a href="index.html#stories">客户案例</a></li>
-                        <li><a href="faq.html">常见问题</a></li>
-                        <li><a href="mailto:partner@zbot.ai">合作伙伴</a></li>
+                        <li><a href="about-us.html#team">服务团队</a></li>
+                        <li><a href="about-us.html#process">服务流程</a></li>
+                        <li><a href="about-us.html#partners">合作伙伴</a></li>
+                        <li><a href="client-request.html">客户需求表</a></li>
+                        <li><a href="about-us.html">关于智渤</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>联系我们</h4>
-                    <ul>
-                        <li><a href="mailto:hello@zbot.ai">contact@zbotglobal.com</a></li>
-                        <li><a href="tel:+16173800000">+1 647-3864-5968</a></li>
-                    </ul>
+                    <div class="footer-contact">
+                        <div class="contact-row"><i class="fa-regular fa-envelope"></i><a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a></div>
+                        <div class="contact-row"><i class="fa fa-phone"></i><a href="tel:+16478645968">海外电话：+1 647-864-5968</a></div>
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><a href="tel:+8617336188628">国内电话：+86 173-3618-8628</a></div>
+                        <img src="media/wechat-qr.png" alt="WeChat QR" class="wechat-qr"/>
+                        <span style="font-size:13px;">扫码添加企业微信 · 预约顾问</span>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2025 Zbot. All rights reserved. | 智渤科技</span>
+                <span>© 2025 Zbot Global. All rights reserved. | 智渤科技</span>
                 <span>
                     <a href="#">隐私政策</a> · <a href="#">服务条款</a>
                 </span>
@@ -882,13 +479,22 @@
 
         const navToggle = qs('#navToggle');
         const primaryNav = qs('#primaryNav');
+        const dropdown = qs('[data-dropdown]');
+
         if (navToggle && primaryNav) {
             navToggle.addEventListener('click', () => {
                 const open = primaryNav.classList.toggle('is-open');
                 navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
             });
 
-            qsa('.nav-links a').forEach(link => {
+            document.addEventListener('click', (event) => {
+                if (!primaryNav.contains(event.target) && !navToggle.contains(event.target)) {
+                    primaryNav.classList.remove('is-open');
+                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            }, true);
+
+            qsa('.nav-links a, .dropdown-menu a').forEach(link => {
                 link.addEventListener('click', () => {
                     primaryNav.classList.remove('is-open');
                     navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
@@ -896,44 +502,45 @@
             });
         }
 
-        const dropdown = qs('[data-dropdown]');
         if (dropdown) {
             const toggle = qs('.dropdown-toggle', dropdown);
             const menu = qs('.dropdown-menu', dropdown);
-            const setExpanded = (state) => toggle.setAttribute('aria-expanded', state);
+            const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+            const openDropdown = () => {
+                dropdown.classList.add('is-open');
+                toggle.setAttribute('aria-expanded', 'true');
+            };
 
             const closeDropdown = () => {
                 dropdown.classList.remove('is-open');
-                setExpanded('false');
+                toggle.setAttribute('aria-expanded', 'false');
             };
 
+            if (supportsHover) {
+                dropdown.addEventListener('mouseenter', openDropdown);
+                dropdown.addEventListener('mouseleave', closeDropdown);
+                toggle.addEventListener('focus', openDropdown);
+                dropdown.addEventListener('focusout', (event) => {
+                    if (!dropdown.contains(event.relatedTarget)) {
+                        closeDropdown();
+                    }
+                });
+            }
+
             toggle.addEventListener('click', (event) => {
-                event.preventDefault();
-                const willOpen = !dropdown.classList.contains('is-open');
-                if (willOpen) {
-                    dropdown.classList.add('is-open');
-                    setExpanded('true');
-                } else {
-                    closeDropdown();
+                if (!supportsHover) {
+                    event.preventDefault();
+                    const willOpen = !dropdown.classList.contains('is-open');
+                    dropdown.classList.toggle('is-open', willOpen);
+                    toggle.setAttribute('aria-expanded', willOpen.toString());
                 }
             });
 
-            menu.addEventListener('click', () => {
-                closeDropdown();
-                if (primaryNav && navToggle) {
-                    primaryNav.classList.remove('is-open');
-                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-                }
-            });
+            menu.addEventListener('click', closeDropdown);
 
             document.addEventListener('click', (event) => {
                 if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
-                    closeDropdown();
-                }
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
                     closeDropdown();
                 }
             });

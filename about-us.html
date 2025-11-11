@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
@@ -27,91 +28,20 @@
 
 
         body {
-            font-family: "Inter", "Noto Sans SC", sans-serif;
-            background: linear-gradient(180deg, #f8fbff 0%, #eef3ff 60%, #ffffff 100%);
-            color: var(--brand-deep);
-            line-height: 1.7;
+            margin: 0;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: var(--brand-mid);
+            background: #f3f6ff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: var(--container-width);
+            margin: 0 auto;
         }
 
         a { color: inherit; text-decoration: none; }
-
-        .top-bar {
-            background: rgba(8, 19, 53, 0.95);
-            color: #d7ecff;
-            font-size: 14px;
-        }
-
-        .top-bar .container {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 24px;
-            gap: 24px;
-        }
-
-        .top-links { display: flex; gap: 18px; }
-        .top-links a { display: inline-flex; align-items: center; gap: 6px; }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 980;
-            background: rgba(244, 247, 255, 0.96);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(23, 52, 122, 0.08);
-        }
-
-        .nav-bar {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 18px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .brand { display: inline-flex; align-items: center; gap: 16px; }
-        .brand-logo { width: 136px; }
-
-        .nav-links { display: flex; align-items: center; gap: 26px; font-weight: 600; font-size: 15px; }
-        .nav-links a { position: relative; padding-bottom: 6px; color: #1b2c54; transition: color 0.3s ease; }
-        .nav-links a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; border-radius: 999px; background: linear-gradient(90deg, var(--brand-cyan), #00f9a1); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
-        .nav-links a:hover::after, .nav-links a.is-active::after { transform: scaleX(1); }
-        .nav-links a:hover, .nav-links a.is-active { color: var(--brand-blue); }
-
-        .nav-dropdown { position: relative; }
-        .dropdown-toggle { display: inline-flex; align-items: center; gap: 6px; padding-bottom: 6px; background: none; border: none; font: inherit; color: #1b2c54; cursor: pointer; transition: color 0.3s ease; }
-        .dropdown-toggle i { font-size: 12px; transition: transform 0.3s ease; }
-        .nav-dropdown:hover .dropdown-toggle, .nav-dropdown.is-open .dropdown-toggle { color: var(--brand-blue); }
-        .nav-dropdown.is-open .dropdown-toggle i { transform: rotate(180deg); }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 6px;
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18);
-            padding: 16px 18px;
-            display: grid;
-            gap: 12px;
-            min-width: 220px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            z-index: 20;
-        }
-        .dropdown-menu a { color: #223b6d; font-size: 14px; font-weight: 500; }
-        .nav-dropdown:hover .dropdown-menu, .nav-dropdown.is-open .dropdown-menu { opacity: 1; pointer-events: auto; }
-
-        .nav-actions { display: flex; align-items: center; gap: 18px; }
-        .btn-outline { color: var(--brand-blue); border: 1px solid rgba(46, 92, 203, 0.35); border-radius: 16px; padding: 10px 18px; }
-        .btn-primary { background: linear-gradient(120deg, var(--brand-cyan), #00f9a1); color: #04112f; padding: 10px 20px; border-radius: 16px; }
-        .nav-toggle { display: none; width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(46, 92, 203, 0.25); background: #ffffff; color: var(--brand-blue); font-size: 20px; align-items: center; justify-content: center; cursor: pointer; }
 
         .about-hero {
             position: relative;
@@ -221,6 +151,29 @@
             color: var(--brand-green);
             margin-top: 24px;
         }
+
+        
+
+        
+        .hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f1f6ff;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+       
 
         .process h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
         .process-subtitle { color: rgba(8, 26, 58, 0.62); margin-bottom: 36px; }
@@ -451,17 +404,170 @@
             100% { transform: translateX(0); }
         }
 
+        .team-excellence {
+            position: relative;
+            padding: 120px 0;
+            background: #2e4179;
+            overflow: hidden;
+        }
+
+        .team-excellence::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(3, 10, 28, 0.4), rgba(7, 19, 58, 0.7));
+            pointer-events: none;
+        }
+
+        .team-inner {
+            position: relative;
+            z-index: 1;
+            width: min(1180px, 92vw);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            align-items: center;
+        }
+
+        .team-media {
+            display: grid;
+            gap: 20px;
+        }
+
+        .team-photo {
+            border-radius: 32px;
+            height: 670px;
+            background: url('media/team-about.png') center/cover no-repeat;
+            box-shadow: 0 35px 80px rgba(3, 10, 28, 0.65);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            
+        }
+
+        
+        .team-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .team-tags span {
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(247, 249, 255, 0.8);
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .team-content {
+            color: #f6f8ff;
+            display: grid;
+            gap: 20px;
+        }
+
+        .team-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .team-content h3 {
+            margin: 0;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.3;
+        }
+
+        .team-content p {
+            margin: 0;
+            line-height: 1.8;
+            color: rgba(247, 249, 255, 0.78);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+        }
+
+        .team-stat {
+            border-radius: 22px;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .team-stat strong {
+            display: block;
+            font-size: 30px;
+            color: #5ad7ff;
+        }
+
+        .team-stat span {
+            font-size: 14px;
+            color: rgba(247, 249, 255, 0.78);
+        }
+
+        .team-highlights {
+            display: grid;
+            gap: 12px;
+        }
+
+        .team-highlights li {
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(247, 249, 255, 0.82);
+        }
+
+        .team-highlights li::before {
+            content: "▹";
+            color: #5ad7ff;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .team-countries {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .team-countries span {
+            padding: 6px 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 13px;
+            letter-spacing: 0.03em;
+        }
+
+        .team-footnote {
+            font-size: 14px;
+            color: rgba(247, 249, 255, 0.72);
+        }
+
+        @media (max-width: 760px) {
+            .team-media {
+                order: 2;
+            }
+        }
+
         @media (max-width: 920px) {
-            .top-bar .container { flex-direction: column; gap: 12px; }
-            .top-links { flex-wrap: wrap; justify-content: center; }
-            .nav-links { position: absolute; top: 68px; left: 0; right: 0; background: rgba(244, 247, 255, 0.98); flex-direction: column; align-items: flex-start; padding: 22px; gap: 18px; border-bottom: 1px solid rgba(23, 52, 122, 0.1); transform: translateY(-30px); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease; }
-            .nav-links.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
-            .nav-dropdown { width: 100%; padding-bottom: 0; margin-bottom: 0; }
-            .dropdown-toggle { width: 100%; justify-content: space-between; padding: 8px 0; }
-            .dropdown-menu { position: static; transform: none; margin-top: -6px; background: rgba(255, 255, 255, 0.92); box-shadow: none; border-radius: 12px; display: none; padding: 12px 16px; }
-            .nav-dropdown.is-open .dropdown-menu { display: grid; }
-            .nav-actions { display: none; }
-            .nav-toggle { display: inline-flex; }
             .process-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
             .partner-row-track { gap: 28px; padding: 14px 18px; }
             .partner-logo span { font-size: 14px; }
@@ -469,20 +575,6 @@
     </style>
 </head>
 <body class="page-about">
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-highlight">
-                <i class="fa-solid fa-sparkles"></i>
-                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
-            </div>
-            <div class="top-links">
-                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
-                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
-                <a href="contact.html"><i class="fa-solid fa-comment-dots"></i> 预约演示</a>
-            </div>
-        </div>
-    </div>
-
     <header class="site-header">
         <div class="nav-bar">
             <a class="brand" href="index.html">
@@ -542,7 +634,7 @@
 
     <div class="page">
 
-        <section class="process">
+        <section class="process" id="process">
             <h3>精细化服务流程管理 | <span style="font-weight:600;color:rgba(8,26,58,0.7)">Service Process</span></h3>
             <p class="process-subtitle">策略咨询 → 市场分析 → 方案定制 → 成果追踪  → 流程优化。</p>
 
@@ -629,6 +721,49 @@
             </div>
         </section>
     </div>
+
+    <section class="team-excellence" id="team">
+        <div class="team-inner">
+            <div class="team-media">
+                <div class="team-photo"></div>
+                
+                <div class="team-tags">
+                    <span>AI 研发</span>
+                    <span>全球市场洞察</span>
+                    <span>海外增长运营</span>
+                    <span>战略顾问网络</span>
+                </div>
+            </div>
+            <div class="team-content">
+                <span class="team-label">服务团队 TEAM</span>
+                <h3>科技企业与外贸专家共建</h3>
+                <p>由多伦多大学人工智能实验室联合研发，并获得多位北美高校教授和行业科学家顾问指导，深度参与技术研究与战略方向制定。团队核心成员来自 Google、LinkedIn、IBM、Samsung、S&amp;P Global 等全球科技公司，并融合资深外贸品牌营销专家与本地化外籍顾问。</p>
+                <div class="team-grid">
+                    <div class="team-stat">
+                        <strong>70%</strong>
+                        <span>研究生及以上学历</span>
+                    </div>
+                    <div class="team-stat">
+                        <strong>30%</strong>
+                        <span>博士研究员（来自北美高校）</span>
+                    </div>
+                    <div class="team-stat">
+                        <strong>70%+</strong>
+                        <span>拥有海外工作经验</span>
+                    </div>
+                </div>
+                <ul class="team-highlights">
+                    <li>获得多位大学教授与行业科学家长期技术、战略支持</li>
+                    <li>北美 70%｜亚洲 30%（深圳为核心枢纽）的全球化协作体系</li>
+                    <li>AI 研发、市场洞察、外贸增长运营三位一体的服务团队</li>
+                </ul>
+                <div class="team-countries">
+                    <span>美国</span><span>加拿大</span><span>英国</span><span>意大利</span><span>西班牙</span><span>俄罗斯</span><span>澳大利亚</span><span>日本</span><span>韩国</span><span>新加坡</span><span>泰国</span><span>马来西亚</span><span>200+国家</span>
+                </div>
+                <p class="team-footnote">我们不仅精通 AI 前沿技术，也深耕全球贸易与品牌出海，用国际视野 + 本地洞察 + 技术驱动帮助企业实现全球增长。</p>
+            </div>
+        </div>
+    </section>
 
     <section class="partners-section" id="partners">
             <div class="partners-inner">
@@ -850,8 +985,66 @@
                         </div>
                     </div>
                 </div>
+        </div>
+    </section>
+
+   
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand" style="color:#fff;">
+                        <img src="./media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo brand-logo--footer"/>
+                    </div>
+                    <h3>智能出海 · 渤达全球</h3>
+                    <p>AI 策略共创、全球买家数据、自动化触达与运营优化，一套系统帮您完成从洞察到成交。</p>
+                    <div class="socials" style="margin-top:18px;">
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>核心服务</h4>
+                    <ul>
+                        <li><a href="service-ai-strategy.html">出海分析与策略制定</a></li>
+                        <li><a href="service-data-intelligence.html">数据开发与 AI 获客</a></li>
+                        <li><a href="service-outreach-automation.html">多渠道触达与客户转化</a></li>
+                        <li><a href="service-ai-optimization.html">成果追踪与优化</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>资源中心</h4>
+                    <ul>
+                        <li><a href="about-us.html#team">服务团队</a></li>
+                        <li><a href="about-us.html#process">服务流程</a></li>
+                        <li><a href="about-us.html#partners">合作伙伴</a></li>
+                        <li><a href="client-request.html">客户需求表</a></li>
+                        <li><a href="about-us.html">关于智渤</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact">
+                        <div class="contact-row"><i class="fa-regular fa-envelope"></i><a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a></div>
+                        <div class="contact-row"><i class="fa fa-phone"></i><a href="tel:+16478645968">海外电话：+1 647-864-5968</a></div>
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><a href="tel:+8617336188628">国内电话：+86 173-3618-8628</a></div>
+                        <img src="media/wechat-qr.png" alt="WeChat QR" class="wechat-qr"/>
+                        <span style="font-size:13px;">扫码添加企业微信 · 预约顾问</span>
+                    </div>
+                </div>
             </div>
-        </section>
+            <div class="footer-bottom">
+                <span>© 2025 Zbot Global. All rights reserved. | 智渤科技</span>
+                <span>
+                    <a href="#">隐私政策</a> · <a href="#">服务条款</a>
+                </span>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const navToggle = document.getElementById('navToggle');

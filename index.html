@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Template Stylesheet -->
     <link href="css/main.css" rel="stylesheet">
+     <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Lucide -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script>
@@ -105,252 +109,7 @@
             }
         }
 
-        .top-bar {
-            background: rgba(8, 19, 53, 0.95);
-            color: #d7ecff;
-            font-size: 14px;
-            letter-spacing: 0.02em;
-        }
-
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            gap: 24px;
-        }
-
-        .top-highlight {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .top-highlight i {
-            color: var(--brand-green);
-        }
-
-        .top-links {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .top-links a {
-            color: rgba(215, 236, 255, 0.9);
-            transition: color 0.3s ease;
-        }
-
-        .top-links a:hover {
-            color: #ffffff;
-        }
-
-        header.site-header {
-            position: sticky;
-            top: 0;
-            z-index: 980;
-            background: rgba(243, 246, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(23, 52, 122, 0.08);
-        }
-
-        .nav-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 18px 0;
-            position: relative;
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            color: #142451;
-            letter-spacing: 0.02em;
-        }
-
-        .brand-logo {
-            display: block;
-            width: 150px;
-            height: auto;
-        }
-
-        .brand-logo--footer {
-            width: 138px;
-        }
-
-        .brand-text {
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.02em;
-            color: inherit;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .nav-links a {
-            position: relative;
-            padding-bottom: 6px;
-            color: #1b2c54;
-            transition: color 0.3s ease;
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0 0 6px;
-            background: none;
-            border: none;
-            font: inherit;
-            color: #1b2c54;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .dropdown-toggle i {
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-dropdown.is-open .dropdown-toggle,
-        .nav-dropdown:hover .dropdown-toggle {
-            color: var(--brand-blue);
-        }
-
-        .nav-dropdown.is-open .dropdown-toggle i {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 14px);
-            left: 50%;
-            transform: translateX(-50%) translateY(8px);
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18);
-            padding: 16px 18px;
-            display: grid;
-            gap: 12px;
-            min-width: 230px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease, transform 0.25s ease;
-            z-index: 20;
-        }
-
-        .nav-dropdown:hover .dropdown-menu,
-        .nav-dropdown.is-open .dropdown-menu {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-menu a {
-            padding: 0;
-            color: #233a6d;
-            font-weight: 500;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-
-        .dropdown-menu a:hover {
-            color: var(--brand-blue);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--brand-cyan), var(--brand-green));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.is-active::after {
-            transform: scaleX(1);
-        }
-
-        .nav-links a:hover,
-        .nav-links a.is-active {
-            color: var(--brand-blue);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .btn-outline,
-        .btn-primary {
-            padding: 12px 24px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--brand-blue);
-            border: 1px solid rgba(46, 92, 203, 0.4);
-        }
-
-        .btn-outline:hover {
-            border-color: transparent;
-            color: #ffffff;
-            background: linear-gradient(120deg, rgba(0, 198, 255, 0.35), rgba(0, 249, 161, 0.35));
-        }
-
-        .btn-primary {
-            background: linear-gradient(120deg, var(--brand-cyan), var(--brand-green));
-            color: #04112f;
-            box-shadow: 0 16px 28px rgba(0, 198, 255, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 36px rgba(0, 198, 255, 0.4);
-        }
-
-        .nav-toggle {
-            display: none;
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            border: 1px solid rgba(46, 92, 203, 0.25);
-            background: #ffffff;
-            color: var(--brand-blue);
-            font-size: 20px;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
+        header
         /* Hero Section */
         .hero {
         position: relative;
@@ -391,6 +150,14 @@
             width: min(1260px, 94vw);
             margin: 0 auto;
             text-align: center;
+        }
+
+        .hero .container h1 {
+            font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+            color: #ffffff;
+        }
+        .hero .container h3 {
+            color: #ffffff;
         }
 
 
@@ -627,6 +394,7 @@
             position: absolute;
             inset: 0;
             backdrop-filter: blur(0px);
+            background: linear-gradient(180deg, rgba(6, 18, 40, 0.05) 0%, rgba(6, 18, 40, 0.4) 100%);
             transition: backdrop-filter 0.35s ease, background 0.35s ease;
         }
 
@@ -1159,6 +927,161 @@
             color: rgba(23, 48, 115, 0.6);
         }
 
+        .testimonial-area {
+            background: #ffffff;
+            padding: 120px 0;
+        }
+
+        .testimonial-area .container {
+            width: min(1180px, 92vw);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .testimonial-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3755ff;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .testimonial-heading h2 {
+            margin: 8px 0 12px;
+            font-size: clamp(32px, 4vw, 48px);
+            color: #0b1d57;
+        }
+
+        .testimonial-heading p {
+            margin: 0;
+            color: rgba(11, 29, 87, 0.62);
+            max-width: 520px;
+            line-height: 1.7;
+        }
+
+        .testimonial-controls {
+            display: inline-flex;
+            gap: 14px;
+        }
+
+        .testimonial-controls button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid rgba(18, 27, 74, 0.12);
+            background: #f5f6ff;
+            color: #3755ff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        .testimonial-controls button:hover {
+            background: #3755ff;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            padding-bottom: 6px;
+        }
+
+        .testimonial-card {
+            background: #f4f6ff;
+            border-radius: 36px;
+            padding: 32px;
+            box-shadow: 0 22px 48px rgba(10, 30, 110, 0.08);
+            display: grid;
+            gap: 10px;
+            min-height: 320px;
+            scroll-snap-align: start;
+        }
+
+        .testimonial-stars {
+            display: inline-flex;
+            gap: 6px;
+        }
+
+        .testimonial-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: #f6c343;
+        }
+
+        .testimonial-text {
+            margin: 0;
+            color: rgba(15, 28, 80, 0.78);
+            line-height: 1.75;
+            font-size: 15px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .testimonial-author-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5c7cfa, #7b5bff);
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .testimonial-author-text h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #0b1d57;
+        }
+
+        .testimonial-author-text span {
+            display: block;
+            font-size: 13px;
+            color: rgba(11, 29, 87, 0.55);
+        }
+
+        .testimonial-quote {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #3755ff;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 16px 30px rgba(55, 85, 255, 0.25);
+        }
+
+        .testimonial-quote svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+        }
+
         /* Section titles */
         .section-heading {
             text-align: center;
@@ -1384,84 +1307,6 @@
             color: rgba(4, 17, 47, 0.75);
         }
 
-        footer {
-            background: #040b1d;
-            color: rgba(226, 236, 255, 0.8);
-            padding: 90px 0 40px;
-        }
-
-        .footer-top {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand h3 {
-            margin: 12px 0 16px;
-            color: #ffffff;
-        }
-
-        .footer-brand p {
-            margin: 0;
-            color: rgba(226, 236, 255, 0.68);
-            font-size: 15px;
-        }
-
-        .footer-links h4 {
-            margin: 0 0 16px;
-            color: #ffffff;
-        }
-
-        .footer-links ul {
-            display: grid;
-            gap: 10px;
-            font-size: 15px;
-        }
-
-        .footer-links a {
-            color: rgba(226, 236, 255, 0.68);
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            padding-top: 26px;
-            border-top: 1px solid rgba(226, 236, 255, 0.12);
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 14px;
-        }
-
-        .footer-bottom a {
-            color: rgba(226, 236, 255, 0.68);
-        }
-
-        .socials {
-            display: flex;
-            gap: 14px;
-        }
-
-        .socials a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid rgba(226, 236, 255, 0.3);
-            display: grid;
-            place-items: center;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .socials a:hover {
-            background: rgba(226, 236, 255, 0.18);
-            color: #ffffff;
-        }
-
         /* Responsive */
         @media (max-width: 1100px) {
             .hero-slide {
@@ -1495,66 +1340,10 @@
         }
 
         @media (max-width: 920px) {
-            header.site-header {
-                top: 0;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 68px;
-                left: 0;
-                right: 0;
-                background: rgba(243, 246, 255, 0.98);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 22px;
-                gap: 18px;
-                border-bottom: 1px solid rgba(23, 52, 122, 0.1);
-                transform: translateY(-30px);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-
-            .nav-dropdown {
-                width: 100%;
-            }
-
-            .dropdown-toggle {
-                width: 100%;
-                justify-content: space-between;
-                padding: 8px 0;
-            }
-
-            .dropdown-menu {
-                position: static;
-                transform: none;
-                margin-top: 12px;
-                box-shadow: none;
-                border-radius: 12px;
-                background: rgba(255, 255, 255, 0.92);
-                opacity: 1;
-                pointer-events: auto;
-                padding: 10px 14px;
-                gap: 10px;
-            }
-
-            .nav-dropdown:not(.is-open) .dropdown-menu {
-                display: none;
-            }
-
-            .nav-links.is-open {
+            header {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
-            }
-
-            .nav-actions {
-                display: none;
-            }
-
-            .nav-toggle {
-                display: inline-flex;
             }
 
             .hero .container {
@@ -1579,21 +1368,14 @@
             .about-brief {
                 padding: 100px 0;
             }
-        }
 
-        
-        @media (max-width: 900px) {
-            .testimonial-card {
-                flex: 1 0 calc(50% - 16px);
+            .testimonial-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
         @media (max-width: 640px) {
-            .top-bar .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
             .slide-kicker {
                 font-size: 13px;
             }
@@ -1612,12 +1394,8 @@
             }
 
 
-            .testimonial-card {
-                flex: 1 0 100%;
-            }
-
-            .footer-top {
-                grid-template-columns: repeat(1, minmax(0, 1fr));
+            .testimonial-cards {
+                grid-template-columns: 1fr;
             }
 
             .about-brief {
@@ -1643,20 +1421,6 @@
         <div class="spinner"></div>
     </div>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-highlight">
-                <i class="fa-solid fa-sparkles"></i>
-                <span>新一代智能AI外贸员 · 更懂中文团队的全球获客方式</span>
-            </div>
-            <div class="top-links">
-                <a href="mailto:hello@zbot.ai"><i class="fa-regular fa-envelope"></i> contact@zbotglobal.com</a>
-                <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
-                <a href="#contact"><i class="fa-solid fa-comment-dots"></i> 预约演示</a>
-            </div>
-            </div>
-    </div>
-
     <header class="site-header">
         <div class="container">
             <div class="nav-bar">
@@ -1671,10 +1435,10 @@
                             核心服务 <i class="fa-solid fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a href="service-ai-strategy.html">AI Strategy Consulting</a>
-                            <a href="service-data-intelligence.html">Data Intelligence & Lead Generation</a>
-                            <a href="service-outreach-automation.html">Outreach Automation</a>
-                            <a href="service-ai-optimization.html">AI Optimization & Dashboard</a>
+                            <a href="service-ai-strategy.html">出海分析与策略制定</a>
+                            <a href="service-data-intelligence.html">数据开发与 AI 获客</a>
+                            <a href="service-outreach-automation.html">多渠道触达与客户转化</a>
+                            <a href="service-ai-optimization.html">成果追踪与优化</a>
                         </div>
                     </div>
                     <a href="client-request.html">客户需求表</a>
@@ -1696,12 +1460,12 @@
     <main>
         <section class="hero" id="home">
             <video autoplay muted loop playsinline>
-                <source src="media/zbot-bg.mp4" type="video/mp4">
+                <source src="media/about-us.mp4" type="video/mp4">
             </video>
 
             <div class="container">
-                <span class="slide-kicker"><i class="fa-solid fa-robot"></i>智能出海，渤达全球</span>
-                <h1>AI Leads Global Trade<br>Zbot - 用 AI 赋能外贸增长</h1>
+                <span class="slide-kicker">智能出海，渤达全球</span>
+                <h1>智渤，用 AI 赋能外贸增长</h1>
                 <h3>智能获客 · 自动化触达 · 高效成交</h3>
             </div>
         </section>
@@ -1709,11 +1473,11 @@
         <section class="experience-showcase" id="about">
             <div class="container">
                 <div class="experience-media">
-                    <div class="experience-media__main" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80');"></div>
+                    <div class="experience-media__main" style="background-image: url('media/home-about.png');"></div>
                 </div>
                 <div class="experience-content">
                     <span class="experience-eyebrow">关于智渤 Zbot</span>
-                    <h2>从策略到执行，Zbot 让外贸创意落地成生意</h2>
+                    <h2>从策略到执行，智渤让外贸创意落地成生意</h2>
                     <p>智渤科技专注于赋能企业出海外贸的专业 AI 咨询，并提供开拓海外市场的专属定制策略。致力于用 AI 和科技代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。</p>
                     <div class="experience-checks">
                         <span class="experience-check"><i class="fa-regular fa-circle-check"></i> AI 驱动获客</span>
@@ -1727,7 +1491,7 @@
                             <div class="experience-call-icon"><i class="fa-solid fa-phone"></i></div>
                             <div>
                                 <small style="display:block; color:rgba(12,28,81,0.6); font-weight:500;">Call Us Now</small>
-                                <a href="tel:+164738645968">+1 647-3864-5968</a>
+                                <a href="tel:+164738645968">+86 173-3618-8628</a>
                             </div>
                         </div>
                     </div>
@@ -1746,40 +1510,133 @@
                         <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80');"></div>
                         <div class="service-card__layer"></div>
                         <div class="service-card__body">
-                            <span class="service-label-en">Oversea Trade Consulting</span>
-                            <span class="service-label-zh">出海分析与策略制定</span>
+                            <span class="service-label-en">出海分析与策略制定</span>
+                            <span class="service-label-zh">Oversea Trade Consulting</span>
                         </div>
                     </a>
                     <a class="service-card" href="service-data-intelligence.html">
                         <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=1400&q=80');"></div>
                         <div class="service-card__layer"></div>
                         <div class="service-card__body">
-                            <span class="service-label-en">Data Intelligence & Lead Generation</span>
-                            <span class="service-label-zh">数据开发与AI获客</span>
+                            <span class="service-label-en">数据开发与AI获客</span>
+                            <span class="service-label-zh">Data Intelligence & Lead Generation</span>
                         </div>
                     </a>
                     <a class="service-card" href="service-outreach-automation.html">
                         <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1400&q=80');"></div>
                         <div class="service-card__layer"></div>
                         <div class="service-card__body">
-                            <span class="service-label-en">Outreach Automation</span>
-                            <span class="service-label-zh">多渠道触达与客户转化</span>
+                            <span class="service-label-en">多渠道触达与客户转化</span>
+                            <span class="service-label-zh">Outreach Automation</span>
                         </div>
                     </a>
                     <a class="service-card" href="service-ai-optimization.html">
                         <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=80');"></div>
                         <div class="service-card__layer"></div>
                         <div class="service-card__body">
-                            <span class="service-label-en">AI Optimization & Dashboard</span>
-                            <span class="service-label-zh">成果追踪与优化</span>
+                            <span class="service-label-en">成果追踪与优化</span>
+                            <span class="service-label-zh">AI Optimization & Dashboard</span>
                         </div>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="metrics">
+        <section class="testimonial-area" id="reflections">
             <div class="container">
+                <div class="testimonial-header">
+                    <div class="testimonial-heading">
+                        <span class="testimonial-label">客户见证</span>
+                        <h2>客户如何评价智渤 Zbot</h2>
+                        <p>我们从策略咨询到 AI 执行，全程陪伴中国外贸团队。来自各行业行业的客户，都在用真实的业绩证明智能外贸的价值。</p>
+                    </div>
+                    <div class="testimonial-controls">
+                        <button type="button" aria-label="上一条评价" data-testimonial-scroll="prev"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button type="button" aria-label="下一条评价" data-testimonial-scroll="next"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="testimonial-cards">
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                        </div>
+                        <p class="testimonial-text">“以前要组建十个人的外贸团队，现在用了 Zbot，只需要两个人专注成交。不用再花时间开发客户，Zbot 自动帮我们找到精准买家。”</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-avatar">成</div>
+                                <div class="testimonial-author-text">
+                                    <h3>成总</h3>
+                                    <span>电缆制造 · 外贸负责人</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-quote" aria-hidden="true">
+                                <svg viewBox="0 0 64 64"><path d="M22 12C12 12 4 20 4 30v24h24V30H20c0-4.4 3.6-8 8-8V12zm26 0c-10 0-18 8-18 18v24h24V30H38c0-4.4 3.6-8 8-8V12z"/></svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                        </div>
+                        <p class="testimonial-text">“Zbot 让我们从‘找客户’变成‘挑客户’。CRM 里的高意向线索源源不断，销售只需要跟进与成交，成本却下降了 60%。”</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">刘</div>
+                                <div class="testimonial-author-text">
+                                    <h3>刘总</h3>
+                                    <span>五金设备 · 出口业务总监</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-quote" aria-hidden="true">
+                                <svg viewBox="0 0 64 64"><path d="M22 12C12 12 4 20 4 30v24h24V30H20c0-4.4 3.6-8 8-8V12zm26 0c-10 0-18 8-18 18v24h24V30H38c0-4.4 3.6-8 8-8V12z"/></svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 .8l3.09 6.26 6.91 1-5 4.9 1.18 6.85L12 16.77 5.82 19.8 7 12.96 2 8.06l6.91-1z"/></svg>
+                        </div>
+                        <p class="testimonial-text">“以前招不到懂数字营销的外贸员，现在有了 Zbot 的 AI 外贸员，1 个人就能顶十个人的开发量，还能实时看到 ROI 与复盘建议。”</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-info">
+                                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">阮</div>
+                                <div class="testimonial-author-text">
+                                    <h3>阮总</h3>
+                                    <span>建材家装 · 企业负责人</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-quote" aria-hidden="true">
+                                <svg viewBox="0 0 64 64"><path d="M22 12C12 12 4 20 4 30v24h24V30H20c0-4.4 3.6-8 8-8V12zm26 0c-10 0-18 8-18 18v24h24V30H38c0-4.4 3.6-8 8-8V12z"/></svg>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="data-proof" id="data-proof">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker" style="background: rgba(255,255,255,0.08);color:#fff;"><i class="fa-solid fa-database"></i> 数据实力</span>
+                    <h2 style="color:#ffffff;">权威数据源实时更新，合规安全一站到位</h2>
+                    
+                </div>
                 <div class="metric-grid">
                     <div class="metric-card">
                         <div class="metric-icon" style="background: rgba(0,198,255,0.15);"><i class="fa-solid fa-users"></i></div>
@@ -1800,13 +1657,13 @@
                         <span>数据覆盖全球重点贸易地区，一次布局全球市场。</span>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-icon" style="background: rgba(255,189,76,0.15);"><i class="fa-solid fa-shield-check"></i></div>
+                        <div class="metric-icon" style="background: rgba(255,189,76,0.15);"><i class="fa-solid  fa-shield-halved"></i></div>
                         <h3 data-counter="99.1" data-decimals="1" data-suffix="%">0</h3>
                         <p>邮箱可达验证准确率</p>
                         <span>结合多源验证与历史互动数据，保障投递成功</span>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-icon" style="background: rgba(255, 76, 121, 0.15);"><i class="fa-solid fa-shield-check"></i></div>
+                        <div class="metric-icon" style="background: rgba(255, 76, 121, 0.15);"><i class="fa-solid fa-circle-check"></i></div>
                         <h3 data-counter="-60" data-decimals="1" data-suffix="%">0</h3>
                         <p>外贸获客人力成本</p>
                         <span>替代传统人工查找与录入，AI自动化触达。</span>
@@ -1815,165 +1672,10 @@
             </div>
         </section>
 
-        <section class="testimonial-area" id="reflections">
-            <div class="testimonial-grid">
-                <div class="testimonial-copy">
-                    <span class="label">客户反馈</span>
-                    <h2>听听客户怎么说</h2>
-                    <p>使用 Zbot 的外贸企业都获得了显著的业绩提升。从人力成本降低到订单量增长，每一个数字都证明着智能化外贸的价值。</p>
-                    <div class="reflections-badges">
-                        <span><i class="fa-solid fa-bolt"></i> 减员增效</span>
-                        <span><i class="fa-solid fa-earth-asia"></i> 全球触达</span>
-                        <span><i class="fa-solid fa-gem"></i> ROI 可视</span>
-                    </div>
-                    <div class="testimonial-nav-buttons">
-                        <button type="button" aria-label="上一条反馈" class="nav-btn" data-testimonial-prev>
-                            <svg fill="none" viewBox="0 0 24 24">
-                                <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        <button type="button" aria-label="下一条反馈" class="nav-btn" data-testimonial-next>
-                            <svg fill="none" viewBox="0 0 24 24">
-                                <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="testimonial-slider">
-                    <article class="testimonial-card is-active" data-testimonial-card data-index="0">
-                        <div class="testimonial-stars">
-                            <span></span><span></span><span></span><span></span><span></span>
-                        </div>
-                        <p class="testimonial-text">“以前要组建十个人的外贸团队，现在用了 Zbot，只需要两个人专注成交。不用再花时间开发客户，Zbot 自动帮我们找到精准买家。”</p>
-                        <div class="testimonial-client">
-                            <div class="avatar">成</div>
-                            <div class="client-details">
-                                <h3>成总</h3>
-                                <p>电缆制造行业 · 外贸负责人</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-icon">
-                            <svg viewBox="0 0 100 100">
-                                <path d="M20 20c-11 0-20 9-20 20v40h30V50H10c0-11 9-20 20-20V20zm50 0c-11 0-20 9-20 20v40h30V50H60c0-11 9-20 20-20V20z"/>
-                            </svg>
-                        </div>
-                    </article>
-
-                    <article class="testimonial-card" data-testimonial-card data-index="1">
-                        <div class="testimonial-stars">
-                            <span></span><span></span><span></span><span></span><span></span>
-                        </div>
-                        <p class="testimonial-text">“Zbot 真的让效率提升太多了。过去每天都在找客户，现在每天都在跟进订单。成本省了一半，业绩反而更好。”</p>
-                        <div class="testimonial-client">
-                            <div class="avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">刘</div>
-                            <div class="client-details">
-                                <h3>刘总</h3>
-                                <p>五金制造行业 · 出口业务总监</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-icon">
-                            <svg viewBox="0 0 100 100">
-                                <path d="M20 20c-11 0-20 9-20 20v40h30V50H10c0-11 9-20 20-20V20zm50 0c-11 0-20 9-20 20v40h30V50H60c0-11 9-20 20-20V20z"/>
-                            </svg>
-                        </div>
-                    </article>
-
-                    <article class="testimonial-card" data-testimonial-card data-index="2">
-                        <div class="testimonial-stars">
-                            <span></span><span></span><span></span><span></span><span></span>
-                        </div>
-                        <p class="testimonial-text">“以前招不到合适的会自主开发的外贸员，现在根本不需要那么多人。有了 Zbot，1 个人就能顶十个人的工作量。”</p>
-                        <div class="testimonial-client">
-                            <div class="avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">阮</div>
-                            <div class="client-details">
-                                <h3>阮总</h3>
-                                <p>建材行业 · 企业负责人</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-icon">
-                            <svg viewBox="0 0 100 100">
-                                <path d="M20 20c-11 0-20 9-20 20v40h30V50H10c0-11 9-20 20-20V20zm50 0c-11 0-20 9-20 20v40h30V50H60c0-11 9-20 20-20V20z"/>
-                            </svg>
-                        </div>
-                    </article>
-
-                    <div class="testimonial-indicators">
-                        <button type="button" class="is-active" data-testimonial-indicator data-index="0"></button>
-                        <button type="button" data-testimonial-indicator data-index="1"></button>
-                        <button type="button" data-testimonial-indicator data-index="2"></button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-       
-        
-
-       
-         
 
         
-        <section class="data-proof" id="data-proof">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker" style="background: rgba(255,255,255,0.08);color:#fff;"><i class="fa-solid fa-database"></i> 数据实力</span>
-                    <h2 style="color:#ffffff;">48+ 权威数据源实时更新，合规安全一站到位</h2>
-                    <p style="color:rgba(226,236,255,0.76);">所有数据均经过合规审计并支持企业私有化部署。</p>
-                </div>
-                <div class="data-logos">
-                    <div class="data-card"><span></span>全球 78 国舱单</div>
-                    <div class="data-card"><span></span> B2B Leads</div>
-                    <div class="data-card"><span></span> 趋势信号</div>
-                    <div class="data-card"><span></span> 融资情报</div>
-                    <div class="data-card"><span></span> 工商信誉</div>
-                    <div class="data-card"><span></span> 新闻动态</div>
-                </div>
-            </div>
-        </section>
 
-
-
-        <section class="stories" id="stories-more">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-newspaper"></i> 最新洞察</span>
-                    <h2>洞察全球市场，提前锁定增长机会</h2>
-                    <p>Zbot 每周为客户提供热门行业洞察、最新营销玩法与案例拆解，帮助团队持续优化出海策略。</p>
-                </div>
-                <div class="story-grid">
-                    <article class="story-card">
-                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="新能源" loading="lazy"/>
-                        <div class="story-content">
-                            <span class="story-tag">新能源</span>
-                            <h3></h3>
-                            <p>解读当地政策、竞争对手动态与渠道策略，附赠 120 家重点买家名单。</p>
-                            <a class="story-action" href="#contact">下载报告 <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="story-card">
-                        <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=900&q=80" alt="制造" loading="lazy"/>
-                        <div class="story-content">
-                            <span class="story-tag">制造业</span>
-                            <h3>工业 4.0 项目如何挖掘关键决策人</h3>
-                            <p>通过 Zbot 的 AI 线索评分识别高潜力买家，邮件模板打开率提升 160%。</p>
-                            <a class="story-action" href="#contact">申请案例 <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="story-card">
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80" alt="跨境电商" loading="lazy"/>
-                        <div class="story-content">
-                            <span class="story-tag">跨境电商</span>
-                            <h3>从 TikTok 到店铺：AI 驱动的网红合作开发手册</h3>
-                            <p>自动匹配网红与类目，智能生成合作邀约与佣金方案，2 周完成 46 场合作。</p>
-                            <a class="story-action" href="#contact">获取手册 <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
+    
         
         <section class="cta-band" id="contact">
             <div class="container">
@@ -1981,7 +1683,7 @@
                     <h2>立即预约专属顾问，让 Zbot 为您带来下一程海外增长</h2>
                     <p>提交需求后，我们将在 24 小时内与您联系，提供定制演示、行业线索样本与试用方案。</p>
                     <div class="hero-ctas" style="justify-content:center;">
-                        <a class="btn-primary" href="mailto:hello@zbot.ai">发送邮件 contact@zbotglobal.com</a>
+                        <a class="btn-primary" href="mailto:hello@zbot.ai">发送邮件 customer@zbotglobal.com</a>
                         <a class="hero-secondary" href="https://wa.me/16478645968"><i class="fa-brands fa-whatsapp"></i> WhatsApp 咨询</a>
                     </div>
                 </div>
@@ -1997,43 +1699,47 @@
                         <img src="./media/zbot-logo-cropped.svg" alt="Zbot Logo" class="brand-logo brand-logo--footer"/>
                     </div>
                     <h3>智能出海 · 渤达全球</h3>
-                    <p>我们帮助中国外贸团队高效触达全球买家，从数据、策略到执行全面自动化。</p>
+                    <p>AI 策略共创、全球买家数据、自动化触达与运营优化，一套系统帮您完成从洞察到成交。</p>
                     <div class="socials" style="margin-top:18px;">
                         <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
                         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
                     </div>
-
                 </div>
                 <div class="footer-links">
-                    <h4>产品功能</h4>
+                    <h4>核心服务</h4>
                     <ul>
-                        <li><a href="#capabilities">AI 智能找客</a></li>
-                        <li><a href="#capabilities">自动化触达</a></li>
-                        <li><a href="#workflow">AI 工作流</a></li>
-                        <li><a href="#pricing">定价方案</a></li>
+                        <li><a href="service-ai-strategy.html">出海分析与策略制定</a></li>
+                        <li><a href="service-data-intelligence.html">数据开发与 AI 获客</a></li>
+                        <li><a href="service-outreach-automation.html">多渠道触达与客户转化</a></li>
+                        <li><a href="service-ai-optimization.html">成果追踪与优化</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>资源中心</h4>
                     <ul>
-                        <li><a href="#stories-more">行业洞察</a></li>
-                        <li><a href="#stories">客户案例</a></li>
-                        <li><a href="#faq">常见问题</a></li>
-                        <li><a href="mailto:partner@zbot.ai">合作伙伴</a></li>
+                        <li><a href="about-us.html#team">服务团队</a></li>
+                        <li><a href="about-us.html#process">服务流程</a></li>
+                        <li><a href="about-us.html#partners">合作伙伴</a></li>
+                        <li><a href="client-request.html">客户需求表</a></li>
+                        <li><a href="about-us.html">关于智渤</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>联系我们</h4>
-                    <ul>
-                        <li><a href="mailto:hello@zbot.ai">contact@zbotglobal.com</a></li>
-                        <li><a href="tel:+8613800000000">+1 6478645968</a></li>
-                    </ul>
+                    <div class="footer-contact">
+                        <div class="contact-row"><i class="fa-regular fa-envelope"></i><a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a></div>
+                        <div class="contact-row"><i class="fa fa-phone"></i><a href="tel:+16478645968">海外电话：+1 647-864-5968</a></div>
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><a href="tel:+8617336188628">国内电话：+86 173-3618-8628</a></div>
+                        <img src="media/wechat-qr.png" alt="WeChat QR" class="wechat-qr"/>
+                        <span style="font-size:13px;">扫码添加企业微信 · 预约顾问</span>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2025 Zbot. All rights reserved. | 智渤科技</span>
+                <span>© 2025 Zbot Global. All rights reserved. | 智渤科技</span>
                 <span>
                     <a href="#">隐私政策</a> · <a href="#">服务条款</a>
                 </span>
@@ -2054,54 +1760,68 @@
 
         const navToggle = qs('#navToggle');
         const primaryNav = qs('#primaryNav');
-        navToggle.addEventListener('click', () => {
-            const open = primaryNav.classList.toggle('is-open');
-            navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-        });
-
-        qsa('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                primaryNav.classList.remove('is-open');
-                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-            });
-        });
-
         const dropdown = qs('[data-dropdown]');
-        if (dropdown) {
-            const toggle = qs('.dropdown-toggle', dropdown);
-            const menu = qs('.dropdown-menu', dropdown);
-            const setExpanded = (state) => toggle.setAttribute('aria-expanded', state);
 
-            const closeDropdown = () => {
-                dropdown.classList.remove('is-open');
-                setExpanded('false');
-            };
-
-            toggle.addEventListener('click', (event) => {
-                event.preventDefault();
-                const willOpen = !dropdown.classList.contains('is-open');
-                if (willOpen) {
-                    dropdown.classList.add('is-open');
-                    setExpanded('true');
-                } else {
-                    closeDropdown();
-                }
-            });
-
-            menu.addEventListener('click', () => {
-                closeDropdown();
-                primaryNav.classList.remove('is-open');
-                navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        if (navToggle && primaryNav) {
+            navToggle.addEventListener('click', () => {
+                const open = primaryNav.classList.toggle('is-open');
+                navToggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
             });
 
             document.addEventListener('click', (event) => {
-                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
-                    closeDropdown();
+                if (!primaryNav.contains(event.target) && !navToggle.contains(event.target)) {
+                    primaryNav.classList.remove('is-open');
+                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            }, true);
+
+            qsa('.nav-links a, .dropdown-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    primaryNav.classList.remove('is-open');
+                    navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                });
+            });
+        }
+
+        if (dropdown) {
+            const toggle = qs('.dropdown-toggle', dropdown);
+            const menu = qs('.dropdown-menu', dropdown);
+            const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+            const openDropdown = () => {
+                dropdown.classList.add('is-open');
+                toggle.setAttribute('aria-expanded', 'true');
+            };
+
+            const closeDropdown = () => {
+                dropdown.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            };
+
+            if (supportsHover) {
+                dropdown.addEventListener('mouseenter', openDropdown);
+                dropdown.addEventListener('mouseleave', closeDropdown);
+                toggle.addEventListener('focus', openDropdown);
+                dropdown.addEventListener('focusout', (event) => {
+                    if (!dropdown.contains(event.relatedTarget)) {
+                        closeDropdown();
+                    }
+                });
+            }
+
+            toggle.addEventListener('click', (event) => {
+                if (!supportsHover) {
+                    event.preventDefault();
+                    const willOpen = !dropdown.classList.contains('is-open');
+                    dropdown.classList.toggle('is-open', willOpen);
+                    toggle.setAttribute('aria-expanded', willOpen.toString());
                 }
             });
 
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
+            menu.addEventListener('click', closeDropdown);
+
+            document.addEventListener('click', (event) => {
+                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
                     closeDropdown();
                 }
             });
@@ -2177,60 +1897,18 @@
             });
         });
 
-        const testimonialCards = qsa('[data-testimonial-card]');
-        const testimonialIndicators = qsa('[data-testimonial-indicator]');
-        const testimonialPrev = qs('[data-testimonial-prev]');
-        const testimonialNext = qs('[data-testimonial-next]');
+        const testimonialRow = qs('.testimonial-cards');
+        const testimonialScrollPrev = qs('[data-testimonial-scroll=\"prev\"]');
+        const testimonialScrollNext = qs('[data-testimonial-scroll=\"next\"]');
 
-        if (testimonialCards.length && testimonialIndicators.length && testimonialPrev && testimonialNext) {
-            let testimonialIndex = 0;
-            let testimonialTimer;
-
-            const showTestimonial = (index) => {
-                testimonialCards.forEach(card => card.classList.remove('is-active'));
-                testimonialIndicators.forEach(dot => dot.classList.remove('is-active'));
-                testimonialCards[index].classList.add('is-active');
-                qs(`[data-testimonial-indicator][data-index=\"${index}\"]`).classList.add('is-active');
-                testimonialIndex = index;
+        if (testimonialRow && testimonialScrollPrev && testimonialScrollNext) {
+            const scrollTestimonials = (direction) => {
+                const amount = testimonialRow.clientWidth * 0.9;
+                testimonialRow.scrollBy({ left: direction * amount, behavior: 'smooth' });
             };
 
-            const autoplayTestimonials = () => {
-                testimonialTimer = setInterval(() => {
-                    const nextIndex = (testimonialIndex + 1) % testimonialCards.length;
-                    showTestimonial(nextIndex);
-                }, 5000);
-            };
-
-            testimonialPrev.addEventListener('click', () => {
-                clearInterval(testimonialTimer);
-                const prevIndex = (testimonialIndex - 1 + testimonialCards.length) % testimonialCards.length;
-                showTestimonial(prevIndex);
-                autoplayTestimonials();
-            });
-
-            testimonialNext.addEventListener('click', () => {
-                clearInterval(testimonialTimer);
-                const nextIndex = (testimonialIndex + 1) % testimonialCards.length;
-                showTestimonial(nextIndex);
-                autoplayTestimonials();
-            });
-
-            testimonialIndicators.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    clearInterval(testimonialTimer);
-                    const idx = parseInt(dot.dataset.index, 10);
-                    showTestimonial(idx);
-                    autoplayTestimonials();
-                });
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') testimonialPrev.click();
-                if (e.key === 'ArrowRight') testimonialNext.click();
-            });
-
-            showTestimonial(testimonialIndex);
-            autoplayTestimonials();
+            testimonialScrollPrev.addEventListener('click', () => scrollTestimonials(-1));
+            testimonialScrollNext.addEventListener('click', () => scrollTestimonials(1));
         }
 
 
