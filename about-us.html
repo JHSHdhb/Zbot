@@ -87,9 +87,26 @@
         .dropdown-toggle i { font-size: 12px; transition: transform 0.3s ease; }
         .nav-dropdown:hover .dropdown-toggle, .nav-dropdown.is-open .dropdown-toggle { color: var(--brand-blue); }
         .nav-dropdown.is-open .dropdown-toggle i { transform: rotate(180deg); }
-        .dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%) translateY(8px); background: #ffffff; border-radius: 18px; box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18); padding: 16px 18px; display: grid; gap: 12px; min-width: 220px; opacity: 0; pointer-events: none; transition: opacity 0.25s ease, transform 0.25s ease; z-index: 20; }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 6px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 18px 38px rgba(15, 60, 140, 0.18);
+            padding: 16px 18px;
+            display: grid;
+            gap: 12px;
+            min-width: 220px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            z-index: 20;
+        }
         .dropdown-menu a { color: #223b6d; font-size: 14px; font-weight: 500; }
-        .nav-dropdown:hover .dropdown-menu, .nav-dropdown.is-open .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown:hover .dropdown-menu, .nav-dropdown.is-open .dropdown-menu { opacity: 1; pointer-events: auto; }
 
         .nav-actions { display: flex; align-items: center; gap: 18px; }
         .btn-outline { color: var(--brand-blue); border: 1px solid rgba(46, 92, 203, 0.35); border-radius: 16px; padding: 10px 18px; }
@@ -137,14 +154,19 @@
         .eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 18px;
+            gap: 8px;
+            padding: 6px 14px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.22);
             font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 14px;
+            letter-spacing: 0.06em;
+            text-transform: none;
+            font-size: 13px;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            align-self: flex-start;
+            max-width: 100%;
         }
 
         .page {
@@ -203,31 +225,47 @@
         .process h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
         .process-subtitle { color: rgba(8, 26, 58, 0.62); margin-bottom: 36px; }
 
-        .process-nav { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
-        .process-arrow { font-size: 20px; color: rgba(8, 26, 58, 0.25); }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 22px;
+            margin-top: 36px;
+        }
+
+        .process-item {
+            display: grid;
+            gap: 14px;
+            align-content: flex-start;
+        }
+
+        @media (min-width: 1100px) {
+            .process-grid {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+        }
 
         .process-step {
-            flex: 1 1 180px;
-            min-width: 170px;
             border: none;
-            cursor: pointer;
+            cursor: default;
             position: relative;
-            padding: 26px 20px 22px;
-            border-radius: 24px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(235, 244, 255, 0.85));
-            box-shadow: 0 12px 28px rgba(23, 72, 170, 0.12);
+            padding: 22px 16px 18px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(235, 244, 255, 0.9));
+            box-shadow: 0 12px 24px rgba(23, 72, 170, 0.12);
             display: grid;
             place-items: center;
             gap: 6px;
+            min-height: 104px;
+            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
         .process-step::after {
             content: attr(data-number);
             position: absolute;
-            top: -38px;
+            top: -30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 54px;
+            font-size: 46px;
             font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(180deg, rgba(113, 171, 255, 0.85), rgba(240, 245, 255, 0.7));
@@ -235,37 +273,78 @@
             color: transparent;
             opacity: 0.85;
         }
-        .process-step span { font-size: 16px; font-weight: 600; color: var(--brand-blue); }
-        .process-step small { font-size: 13px; color: rgba(8, 26, 58, 0.55); font-weight: 600; letter-spacing: 0.04em; }
-        .process-step.is-active { background: linear-gradient(135deg, #0ab6ff, #297bff); box-shadow: 0 20px 46px rgba(15, 96, 255, 0.35); transform: translateY(-6px); }
-        .process-step.is-active span, .process-step.is-active small { color: #ffffff; }
+        .process-step span { font-size: 15px; font-weight: 600; color: var(--brand-blue); }
+        .process-step small { font-size: 12px; color: rgba(8, 26, 58, 0.55); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
 
-        .process-panels { margin-top: 32px; }
-        .process-panel { display: none; background: #ffffff; border-radius: 26px; box-shadow: 0 22px 48px rgba(18, 71, 158, 0.18); padding: 32px 34px; }
-        .process-panel.is-active { display: block; animation: panel-fade 0.3s ease; }
-        .process-panel h4 { margin: 0 0 18px; font-size: 20px; color: var(--brand-blue); }
-        .process-panel ul { margin: 0; padding-left: 18px; color: rgba(8, 26, 58, 0.8); display: grid; gap: 10px; font-size: 15px; }
-
-        @keyframes panel-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-        .partners-section {
-            padding: 100px 24px 120px;
-            background: radial-gradient(circle at top right, rgba(0, 198, 255, 0.18), transparent 45%), #050d20;
-            color: #e7f1ff;
+        .process-panel {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 16px 36px rgba(18, 71, 158, 0.16);
+            padding: 22px 20px;
+            min-height: 180px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        .process-panel h4 { margin: 0 0 12px; font-size: 17px; color: var(--brand-blue); }
+        .process-panel ul {
+            margin: 0;
+            padding-left: 16px;
+            color: rgba(8, 26, 58, 0.78);
+            display: grid;
+            gap: 8px;
+            font-size: 14px;
         }
 
-        .partners-grid {
-            max-width: 1180px;
-            margin: 0 auto;
+        .process-panel li { line-height: 1.45; }
+
+        .process-item:hover .process-step,
+        .process-item:focus-within .process-step {
+            background: linear-gradient(135deg, #0ab6ff, #297bff);
+            box-shadow: 0 20px 46px rgba(15, 96, 255, 0.35);
+            transform: translateY(-6px);
+        }
+        .process-item:hover .process-step span,
+        .process-item:hover .process-step small,
+        .process-item:focus-within .process-step span,
+        .process-item:focus-within .process-step small {
+            color: #ffffff;
+        }
+
+        .process-item:hover .process-panel,
+        .process-item:focus-within .process-panel {
+            background: linear-gradient(135deg, rgba(7, 63, 180, 0.98), rgba(9, 145, 241, 0.95));
+            box-shadow: 0 24px 52px rgba(9, 78, 173, 0.45);
+            transform: translateY(-4px);
+        }
+        .process-item:hover .process-panel h4,
+        .process-item:hover .process-panel li,
+        .process-item:focus-within .process-panel h4,
+        .process-item:focus-within .process-panel li {
+            color: #ffffff;
+        }
+
+        .partners-section {
+            padding: 40px 0 40px;
+            background:
+                linear-gradient(120deg, rgba(13, 25, 53, 0.624)),
+                url('media/client-bg.png') center/cover no-repeat;
+            color: #e7f1ff;
+            overflow: hidden;
+        }
+
+        .partners-inner {
+            width: 100%;
             display: grid;
-            gap: 36px;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            align-items: center;
+            gap: 32px;
         }
 
         .partners-copy h3 {
             margin: 0 0 16px;
             font-size: clamp(28px, 4vw, 42px);
+        }
+
+        .partners-copy {
+            width: min(1180px, 92vw);
+            margin: 0 auto;
         }
 
         .partners-copy p {
@@ -287,115 +366,89 @@
             letter-spacing: 0.06em;
         }
 
-        .partner-network {
-            position: relative;
-            width: min(480px, 85vw);
-            aspect-ratio: 1;
-            margin: 0 auto;
-            border-radius: 28px;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 198, 255, 0.25), transparent 55%), radial-gradient(circle at 70% 70%, rgba(0, 249, 161, 0.2), transparent 55%), rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 80px rgba(4, 10, 30, 0.45);
+        .partner-marquee {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             overflow: hidden;
         }
 
-        .partner-network::before {
-            content: "";
-            position: absolute;
-            inset: 12%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
-            background-size: 18px 18px;
-            opacity: 0.5;
-            filter: blur(0.3px);
+        .partner-row {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(7, 16, 38, 0);
         }
 
-        .partner-node {
-            position: absolute;
-            width: 78px;
-            height: 78px;
-            border-radius: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(7, 16, 38, 0.6);
+        .partner-row::before,
+        .partner-row::after {
+            display: none;
+        }
+
+        .partner-row-track {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding: 18px 32px;
+            animation: marquee-left 22s linear infinite;
+        }
+
+        .partner-row[data-direction="right"] .partner-row-track {
+            animation: marquee-right 26s linear infinite;
+        }
+
+        .partner-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            white-space: nowrap;
+            color: #f0f6ff;
+        }
+
+        .partner-logo i {
+            font-size: 20px;
+            color: #7fbeff;
+        }
+
+        .partner-logo .badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
             display: grid;
             place-items: center;
-            color: #f4fbff;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
+            color: #7fbeff;
+        }
+
+        .partner-logo .text {
+            display: grid;
+            gap: 2px;
+        }
+
+        .partner-logo span {
             font-size: 15px;
-            cursor: pointer;
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
-            backdrop-filter: blur(5px);
+            font-weight: 600;
+            line-height: 1;
         }
 
-        .partner-node i {
-            font-size: 24px;
-        }
-
-        .partner-node.core {
-            width: 110px;
-            height: 110px;
-            border-radius: 30px;
-            background: linear-gradient(145deg, #00c6ff, #00f9a1);
-            color: #051029;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            box-shadow: 0 25px 45px rgba(0, 198, 255, 0.35);
-        }
-
-        .partner-node::after {
-            content: attr(data-label);
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translate(-50%, 10px);
+        .partner-logo small {
             font-size: 12px;
             letter-spacing: 0.05em;
-            color: rgba(255, 255, 255, 0.65);
-            white-space: nowrap;
+            text-transform: uppercase;
+            color: rgba(231, 241, 255, 0.7);
         }
 
-        .partner-node:hover {
-            transform: translateY(-6px) rotate(-1deg);
-            box-shadow: 0 20px 35px rgba(0, 198, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-            animation: node-wobble 0.7s ease-in-out infinite alternate;
+        @keyframes marquee-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
-        @keyframes node-wobble {
-            from { transform: translateY(-6px) rotate(-1.5deg); }
-            to { transform: translateY(-2px) rotate(1.5deg); }
-        }
-
-        .partner-node[data-pos="1"] { top: 6%; left: 48%; }
-        .partner-node[data-pos="2"] { top: 20%; left: 12%; }
-        .partner-node[data-pos="3"] { top: 20%; right: 10%; }
-        .partner-node[data-pos="4"] { top: 42%; left: 4%; }
-        .partner-node[data-pos="5"] { top: 42%; right: 2%; }
-        .partner-node[data-pos="6"] { bottom: 28%; left: 12%; }
-        .partner-node[data-pos="7"] { bottom: 24%; right: 12%; }
-        .partner-node[data-pos="8"] { top: 65%; left: 28%; }
-        .partner-node[data-pos="9"] { top: 65%; right: 26%; }
-        .partner-node[data-pos="10"] { top: 8%; left: 72%; }
-        .partner-node[data-pos="11"] { bottom: 12%; left: 50%; transform: translate(-50%, 0); }
-        .partner-node[data-pos="12"] { bottom: 5%; right: 34%; }
-        .partner-node[data-pos="13"] { top: 35%; right: 24%; }
-
-        .partner-node.ai-square {
-            background: linear-gradient(135deg, #ffb347, #ffcc33);
-            color: #0f1a3a;
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
-        }
-
-        .partner-node.dark {
-            background: linear-gradient(135deg, #0c1f3d, #162955);
-        }
-
-        .partner-node.line {
-            background: linear-gradient(135deg, #1c3e87, #24345a);
-        }
-
-        .partner-node figma {
-            font-size: 18px;
+        @keyframes marquee-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
         }
 
         @media (max-width: 920px) {
@@ -403,13 +456,15 @@
             .top-links { flex-wrap: wrap; justify-content: center; }
             .nav-links { position: absolute; top: 68px; left: 0; right: 0; background: rgba(244, 247, 255, 0.98); flex-direction: column; align-items: flex-start; padding: 22px; gap: 18px; border-bottom: 1px solid rgba(23, 52, 122, 0.1); transform: translateY(-30px); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease; }
             .nav-links.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
-            .nav-dropdown { width: 100%; }
+            .nav-dropdown { width: 100%; padding-bottom: 0; margin-bottom: 0; }
             .dropdown-toggle { width: 100%; justify-content: space-between; padding: 8px 0; }
             .dropdown-menu { position: static; transform: none; margin-top: -6px; background: rgba(255, 255, 255, 0.92); box-shadow: none; border-radius: 12px; display: none; padding: 12px 16px; }
             .nav-dropdown.is-open .dropdown-menu { display: grid; }
             .nav-actions { display: none; }
             .nav-toggle { display: inline-flex; }
-            .process-step { min-width: 140px; }
+            .process-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+            .partner-row-track { gap: 28px; padding: 14px 18px; }
+            .partner-logo span { font-size: 14px; }
         }
     </style>
 </head>
@@ -440,12 +495,12 @@
                     <button class="dropdown-toggle" type="button" aria-expanded="false">
                         核心服务 <i class="fa-solid fa-chevron-down"></i>
                     </button>
-                    <div class="dropdown-menu">
-                        <a href="service-ai-strategy.html">AI Strategy Consulting</a>
-                        <a href="service-data-intelligence.html">Data Intelligence & Lead Generation</a>
-                        <a href="service-outreach-automation.html">Outreach Automation</a>
-                        <a href="service-ai-optimization.html">AI Optimization & Dashboard</a>
-                    </div>
+                        <div class="dropdown-menu">
+                            <a href="service-ai-strategy.html">出海分析与策略制定</a>
+                            <a href="service-data-intelligence.html">数据开发与 AI 获客</a>
+                            <a href="service-outreach-automation.html">多渠道触达与客户转化</a>
+                            <a href="service-ai-optimization.html">成果追踪与优化</a>
+                        </div>
                 </div>
                 <a href="client-request.html">客户需求表</a>
                 <a href="faq.html">常见问题</a>
@@ -467,7 +522,7 @@
             <source src="media/about-us.mp4" type="video/mp4">
         </video>
         <div class="hero">
-            <span class="eyebrow">About Zbot</span>
+            <span class="eyebrow">关于智渤 Zbot</span>
             <h1>智渤更懂中国企业的全球外贸出海团队</h1>
             <p>智渤，从数据到成交的 AI 外贸解决方案。</p>
         </div>
@@ -476,11 +531,11 @@
     <section class="about-brief" id="about">
             <div class="container">
                 <div class="about-brief-content">
-                    <span class="about-label"><i class="fa-solid fa-lightbulb"></i> Zbot 智能体系概括</span>
-                    <h2>Zbot 提供AI外贸智能出海资讯服务，能够自主管理外贸流程。</h2>
-                    <p>它不仅执行任务，更能理解目标与策略。</p>
-                    <p>在一个统一的智能架构中，Zbot 通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
-                    <p class="about-emphasis">Zbot，不是外贸工具，而是一个能思考的 AI 助手。</p>
+                    <span class="about-label"><i class="fa-solid fa-lightbulb"></i> 关于智渤</span>
+                    <h2>智渤科技专注于赋能企业出海外贸的专业 AI 咨询，</h2>
+                    <p>并提供开拓海外市场的专属定制策略。致力于用 AI 和科技代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。</p>
+                    <p>在一个统一的智能架构中，智渤科技通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
+                    <p class="about-emphasis">智渤科技，用能思考的 AI，重构您的出海外贸方式。</p>
                 </div>
             </div>
         </section>
@@ -489,116 +544,314 @@
 
         <section class="process">
             <h3>精细化服务流程管理 | <span style="font-weight:600;color:rgba(8,26,58,0.7)">Service Process</span></h3>
-            <p class="process-subtitle">五大阶段、十二项关键动作，保障项目高质量交付与持续优化。</p>
+            <p class="process-subtitle">策略咨询 → 市场分析 → 方案定制 → 成果追踪  → 流程优化。</p>
 
-            <div class="process-nav" data-process-nav>
-                <button class="process-step is-active" data-number="1" data-process-target="step-1">
-                    <span>签订协议</span>
-                    <small>Kick-off</small>
-                </button>
-                <span class="process-arrow">›</span>
-                <button class="process-step" data-number="2" data-process-target="step-2">
-                    <span>市场分析</span>
-                    <small>Market Insight</small>
-                </button>
-                <span class="process-arrow">›</span>
-                <button class="process-step" data-number="3" data-process-target="step-3">
-                    <span>方案定制</span>
-                    <small>Strategy Design</small>
-                </button>
-                <span class="process-arrow">›</span>
-                <button class="process-step" data-number="4" data-process-target="step-4">
-                    <span>运营优化</span>
-                    <small>Execution</small>
-                </button>
-                <span class="process-arrow">›</span>
-                <button class="process-step" data-number="5" data-process-target="step-5">
-                    <span>项目交付</span>
-                    <small>Delivery</small>
-                </button>
-            </div>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-step" data-number="1">
+                        <span>策略咨询</span>
+                        <small>Consulting</small>
+                    </div>
+                    <article class="process-panel">
+                        <h4>策略咨询 · Consulting</h4>
+                        <ul>
+                            <li>前期出海策略咨询</li>
+                            <li>提供服务方案报价</li>
+                            <li>签署合同</li>
+                            <li>组建专属顾问团队</li>
+                        </ul>
+                    </article>
+                </div>
 
-            <div class="process-panels">
-                <article class="process-panel is-active" id="step-1">
-                    <h4>签订协议 · Kick-off</h4>
-                    <ul>
-                        <li>前期策略咨询与目标确认</li>
-                        <li>提供服务方案与报价明细</li>
-                        <li>签约合同，明确交付节奏</li>
-                    </ul>
-                </article>
+                <div class="process-item">
+                    <div class="process-step" data-number="2">
+                        <span>市场分析</span>
+                        <small>Market Insight</small>
+                    </div>
+                    <article class="process-panel">
+                        <h4>市场分析 · Market Insight</h4>
+                        <ul>
+                            <li>行业分析</li>
+                            <li>输出多区域客户画像</li>
+                            <li>产品分析</li>
+                            <li>分阶段市场进入建议</li>
+                        </ul>
+                    </article>
+                </div>
 
-                <article class="process-panel" id="step-2">
-                    <h4>市场分析 · Market Insight</h4>
-                    <ul>
-                        <li>行业趋势与需求评估</li>
-                        <li>竞争对手全景分析</li>
-                        <li>品牌定位与差异化梳理</li>
-                        <li>官网/内容资产诊断</li>
-                    </ul>
-                </article>
+                <div class="process-item">
+                    <div class="process-step" data-number="3">
+                        <span>方案定制</span>
+                        <small>Strategy Design</small>
+                    </div>
+                    <article class="process-panel">
+                        <h4>方案定制 · Data & Outreach</h4>
+                        <ul>
+                            <li>自动识别目标决策人</li>
+                            <li>目标数据收集与分析</li>
+                            <li>邮件/LinkedIn 自动触达</li>
+                            <li>社媒自动化运营</li>
+                        </ul>
+                    </article>
+                </div>
 
-                <article class="process-panel" id="step-3">
-                    <h4>方案定制 · Strategy Design</h4>
-                    <ul>
-                        <li>海外广告与推广组合设计</li>
-                        <li>品牌站与内容资产规划</li>
-                        <li>多渠道外联与社媒触达策略</li>
-                        <li>小语种与泛俄语区定制营销</li>
-                    </ul>
-                </article>
+                <div class="process-item">
+                    <div class="process-step" data-number="4">
+                        <span>成果追踪</span>
+                        <small>Dashboard</small>
+                    </div>
+                    <article class="process-panel">
+                        <h4>成果追踪 · Dashboard</h4>
+                        <ul>
+                            <li>实时 KPI 面板</li>
+                            <li>触达、询盘成果报告</li>
+                            <li>潜在客户可视化</li>
+                            <li>周/月度复盘与行动建议</li>
+                        </ul>
+                    </article>
+                </div>
 
-                <article class="process-panel" id="step-4">
-                    <h4>运营优化 · Execution &amp; Optimization</h4>
-                    <ul>
-                        <li>项目细化与资源协同编排</li>
-                        <li>月报 / 阶段性数据回顾</li>
-                        <li>定期复盘会议与行动清单</li>
-                        <li>持续优化与实验机制</li>
-                    </ul>
-                </article>
-
-                <article class="process-panel" id="step-5">
-                    <h4>项目交付 · Delivery</h4>
-                    <ul>
-                        <li>阶段性成果汇总与复盘报告</li>
-                        <li>KPI 完成情况与 ROI 评估</li>
-                        <li>下一阶段增长规划与资源建议</li>
-                    </ul>
-                </article>
+                <div class="process-item">
+                    <div class="process-step" data-number="5">
+                        <span>流程优化</span>
+                        <small>Optimization</small>
+                    </div>
+                    <article class="process-panel">
+                        <h4>流程优化 · Optimization</h4>
+                        <ul>
+                            <li>分析成果面板</li>
+                            <li>A/B 测试、转化分析</li>
+                            <li>决策层复盘，优化策略</li>
+                            <li>规划下一阶段目标</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </section>
+    </div>
 
-        <section class="partners-section" id="partners">
-            <div class="partners-grid">
+    <section class="partners-section" id="partners">
+            <div class="partners-inner">
                 <div class="partners-copy">
                     <h3>合作伙伴 · Partner Ecosystem</h3>
-                    <p>Zbot 与全球顶尖平台、AI 模型与生产力工具深度集成，覆盖客户触达、内容生成、沟通与自动化交付的每一个环节。</p>
                     <div class="partner-tags">
                         <span>CRM Ready</span>
                         <span>AI Model Hub</span>
                         <span>Productivity Suite</span>
                     </div>
                 </div>
-                <div class="partner-network">
-                    <div class="partner-node core" data-label="Zbot Alliance">Zbot</div>
-                    <div class="partner-node" data-pos="1" data-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></div>
-                    <div class="partner-node" data-pos="2" data-label="Google / Maps"><i class="fa-brands fa-google"></i></div>
-                    <div class="partner-node" data-pos="3" data-label="Gemini AI"><span>Gemini</span></div>
-                    <div class="partner-node" data-pos="4" data-label="Claude AI"><span>Claude</span></div>
-                    <div class="partner-node" data-pos="5" data-label="ChatGPT"><span>GPT</span></div>
-                    <div class="partner-node" data-pos="6" data-label="Gmail"><i class="fa-regular fa-envelope"></i></div>
-                    <div class="partner-node" data-pos="7" data-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div>
-                    <div class="partner-node" data-pos="8" data-label="Facebook"><i class="fa-brands fa-facebook-f"></i></div>
-                    <div class="partner-node ai-square" data-pos="9" data-label="Adobe Illustrator">Ai</div>
-                    <div class="partner-node" data-pos="10" data-label="Adobe CC"><i class="fa-solid fa-infinity"></i></div>
-                    <div class="partner-node" data-pos="11" data-label="Photoshop">Ps</div>
-                    <div class="partner-node" data-pos="12" data-label="Microsoft Word"><i class="fa-solid fa-file-word"></i></div>
-                    <div class="partner-node" data-pos="13" data-label="Figma"><i class="fa-brands fa-figma"></i></div>
+
+                <div class="partner-marquee">
+                    <div class="partner-row" data-direction="left">
+                        <div class="partner-row-track">
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                <div class="text">
+                                    <span>LinkedIn</span>
+                                    <small>领英</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-google"></i>
+                                <div class="text">
+                                    <span>Google Ads</span>
+                                    <small>谷歌广告</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <div class="text">
+                                    <span>Meta Suite</span>
+                                    <small>脸书社媒</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <div class="text">
+                                    <span>WhatsApp</span>
+                                    <small>对话式营销</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">DP</span>
+                                <div class="text">
+                                    <span>Deepseek</span>
+                                    <small>AI 搜索</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">AT</span>
+                                <div class="text">
+                                    <span>Airtable</span>
+                                    <small>数据汇集</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">C</span>
+                                <div class="text">
+                                    <span>Canva</span>
+                                    <small>可画设计</small>
+                                </div>
+                            </div>
+
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                <div class="text">
+                                    <span>LinkedIn</span>
+                                    <small>领英</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-google"></i>
+                                <div class="text">
+                                    <span>Google Ads</span>
+                                    <small>谷歌广告</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <div class="text">
+                                    <span>Meta Suite</span>
+                                    <small>脸书社媒</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <div class="text">
+                                    <span>WhatsApp</span>
+                                    <small>对话式营销</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">DP</span>
+                                <div class="text">
+                                    <span>Deepseek</span>
+                                    <small>AI 搜索</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">AT</span>
+                                <div class="text">
+                                    <span>Airtable</span>
+                                    <small>数据汇集</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">C</span>
+                                <div class="text">
+                                    <span>Canva</span>
+                                    <small>可画设计</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="partner-row" data-direction="right">
+                        <div class="partner-row-track">
+                            <div class="partner-logo">
+                                <span class="badge">GE</span>
+                                <div class="text">
+                                    <span>Gemini</span>
+                                    <small>谷歌AI</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">CL</span>
+                                <div class="text">
+                                    <span>Claude</span>
+                                    <small>AI 设计</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">GPT</span>
+                                <div class="text">
+                                    <span>ChatGPT</span>
+                                    <small>大模型</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-regular fa-envelope"></i>
+                                <div class="text">
+                                    <span>Gmail</span>
+                                    <small>邮件管理</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-solid fa-database"></i>
+                                <div class="text">
+                                    <span>Excel</span>
+                                    <small>csv支持</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-figma"></i>
+                                <div class="text">
+                                    <span>Figma</span>
+                                    <small>流程设计</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">365</span>
+                                <div class="text">
+                                    <span>Microsoft 365</span>
+                                    <small>微软365</small>
+                                </div>
+                            </div>
+
+                            <div class="partner-logo">
+                                <span class="badge">GE</span>
+                                <div class="text">
+                                    <span>Gemini</span>
+                                    <small>谷歌AI</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">CL</span>
+                                <div class="text">
+                                    <span>Claude</span>
+                                    <small>AI 设计</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">GPT</span>
+                                <div class="text">
+                                    <span>ChatGPT</span>
+                                    <small>大模型</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-regular fa-envelope"></i>
+                                <div class="text">
+                                    <span>Gmail</span>
+                                    <small>邮件管理</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-solid fa-database"></i>
+                                <div class="text">
+                                    <span>Excel</span>
+                                    <small>csv支持</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <i class="fa-brands fa-figma"></i>
+                                <div class="text">
+                                    <span>Figma</span>
+                                    <small>流程设计</small>
+                                </div>
+                            </div>
+                            <div class="partner-logo">
+                                <span class="badge">365</span>
+                                <div class="text">
+                                    <span>Microsoft 365</span>
+                                    <small>微软365</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-    </div>
 
     <script>
         const navToggle = document.getElementById('navToggle');
@@ -627,17 +880,36 @@
         if (dropdown) {
             const toggle = dropdown.querySelector('.dropdown-toggle');
             const menu = dropdown.querySelector('.dropdown-menu');
+            const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+            const openDropdown = () => {
+                dropdown.classList.add('is-open');
+                toggle.setAttribute('aria-expanded', 'true');
+            };
 
             const closeDropdown = () => {
                 dropdown.classList.remove('is-open');
                 toggle.setAttribute('aria-expanded', 'false');
             };
 
+            if (supportsHover) {
+                dropdown.addEventListener('mouseenter', openDropdown);
+                dropdown.addEventListener('mouseleave', closeDropdown);
+                toggle.addEventListener('focus', openDropdown);
+                dropdown.addEventListener('focusout', (event) => {
+                    if (!dropdown.contains(event.relatedTarget)) {
+                        closeDropdown();
+                    }
+                });
+            }
+
             toggle.addEventListener('click', (event) => {
-                event.preventDefault();
-                const willOpen = !dropdown.classList.contains('is-open');
-                dropdown.classList.toggle('is-open', willOpen);
-                toggle.setAttribute('aria-expanded', willOpen.toString());
+                if (!supportsHover) {
+                    event.preventDefault();
+                    const willOpen = !dropdown.classList.contains('is-open');
+                    dropdown.classList.toggle('is-open', willOpen);
+                    toggle.setAttribute('aria-expanded', willOpen.toString());
+                }
             });
 
             menu.addEventListener('click', closeDropdown);
@@ -648,18 +920,6 @@
             });
         }
 
-        (function() {
-            const steps = document.querySelectorAll('[data-process-target]');
-            const panels = document.querySelectorAll('.process-panel');
-
-            steps.forEach(step => {
-                step.addEventListener('click', () => {
-                    const targetId = step.getAttribute('data-process-target');
-                    steps.forEach(btn => btn.classList.toggle('is-active', btn === step));
-                    panels.forEach(panel => panel.classList.toggle('is-active', panel.id === targetId));
-                });
-            });
-        })();
     </script>
 </body>
 </html>

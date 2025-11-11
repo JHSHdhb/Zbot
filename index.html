@@ -406,6 +406,142 @@
        
 
 
+        .experience-showcase {
+            padding: 120px 0;
+            background: #f6f8ff;
+        }
+
+        .experience-showcase .container {
+            width: min(1240px, 94vw);
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .experience-media {
+            flex: 1 1 420px;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .experience-media__main {
+            width: 100%;
+            max-width: 520px;
+            min-height: 420px;
+            height: 100%;
+            border-radius: 36px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 24px 48px rgba(13, 31, 107, 0.16);
+        }
+
+        .experience-content {
+            flex: 1 1 420px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .experience-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4f5dbb;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .experience-content h2 {
+            margin: 0;
+            font-size: clamp(32px, 4vw, 48px);
+            color: #0d1f6b;
+        }
+
+        .experience-content p {
+            margin: 0;
+            color: rgba(13, 31, 107, 0.72);
+            line-height: 1.7;
+        }
+
+        .experience-checks {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px 28px;
+            margin-top: 10px;
+        }
+
+        .experience-check {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #0c1c51;
+        }
+
+        .experience-check i {
+            color: #2155ff;
+            font-size: 18px;
+        }
+
+        .experience-cta {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .experience-primary {
+            background: #2155ff;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: 600;
+            box-shadow: 0 16px 32px rgba(33, 85, 255, 0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .experience-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .experience-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 600;
+            color: #0c1c51;
+        }
+
+        .experience-call-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(33, 85, 255, 0.12);
+            color: #2155ff;
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+        }
+
+        @media (max-width: 960px) {
+            .experience-showcase {
+                padding: 80px 0;
+            }
+
+            .experience-checks {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .metric-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
         .services {
             background: #f3f7ff;
             color: var(--brand-dark);
@@ -963,17 +1099,13 @@
 
         /* Metrics */
         .metrics {
+            background: #123885;
             margin-top: -70px;
-        }
-
-        .metrics .container {
-            display: grid;
-            gap: 26px;
         }
 
         .metric-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 22px;
         }
 
@@ -1060,140 +1192,13 @@
             font-size: 17px;
         }
 
-        /* Capabilities */
-        .capabilities {
-            background: #ffffff;
-        }
+       
 
-        .tab-controls {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 40px;
-        }
+    
 
-        .tab-button {
-            padding: 14px 26px;
-            border-radius: 18px;
-            border: 1px solid rgba(46, 92, 203, 0.25);
-            background: #fff;
-            font-weight: 600;
-            color: var(--brand-mid);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+       
 
-        .tab-button.is-active {
-            border-color: transparent;
-            color: #04112f;
-            background: linear-gradient(120deg, rgba(0, 198, 255, 0.25), rgba(0, 249, 161, 0.25));
-            box-shadow: 0 18px 36px rgba(0, 198, 255, 0.22);
-        }
-
-        .tab-panel {
-            display: none;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .tab-panel.is-active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .tab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-        }
-
-        .card-icon {
-            width: 54px;
-            height: 54px;
-            border-radius: 16px;
-            display: grid;
-            place-items: center;
-            font-size: 22px;
-            font-weight: 600;
-            color: #04112f;
-            margin-bottom: 18px;
-            box-shadow: 0 18px 32px rgba(8, 28, 72, 0.25);
-        }
-
-        .gradient-blue {
-            background: linear-gradient(135deg, rgba(0, 198, 255, 0.85), rgba(0, 123, 255, 0.85));
-        }
-
-        .gradient-green {
-            background: linear-gradient(135deg, rgba(0, 249, 161, 0.85), rgba(0, 198, 255, 0.75));
-        }
-
-        .gradient-violet {
-            background: linear-gradient(135deg, rgba(108, 44, 255, 0.9), rgba(0, 198, 255, 0.7));
-        }
-
-        .gradient-gold {
-            background: linear-gradient(135deg, rgba(255, 189, 76, 0.9), rgba(255, 115, 80, 0.7));
-        }
-
-        .gradient-slate {
-            background: linear-gradient(135deg, rgba(11, 23, 58, 0.9), rgba(46, 92, 203, 0.8));
-            color: #e8f2ff;
-            box-shadow: 0 18px 32px rgba(4, 10, 28, 0.35);
-        }
-
-        .capability-card {
-            padding: 28px;
-            border-radius: var(--card-radius);
-            border: 1px solid rgba(23, 48, 115, 0.08);
-            background: #f8faff;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .capability-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--soft-shadow);
-        }
-
-        .capability-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(130deg, rgba(0, 198, 255, 0.12), transparent);
-            pointer-events: none;
-        }
-
-        .capability-card h3 {
-            margin: 0 0 12px;
-            font-size: 20px;
-            color: var(--brand-blue);
-        }
-
-        .capability-card p {
-            margin: 0 0 16px;
-            color: rgba(23, 48, 115, 0.68);
-            font-size: 15px;
-        }
-
-        .capability-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .pill {
-            padding: 7px 14px;
-            border-radius: 999px;
-            background: rgba(0, 198, 255, 0.18);
-            color: #052460;
-            font-size: 13px;
-            font-weight: 600;
-        }
+       
 
 
         
@@ -1649,7 +1654,7 @@
                 <a href="tel:+16173800000"><i class="fa-solid fa-phone"></i> +1 647-3864-5968</a>
                 <a href="#contact"><i class="fa-solid fa-comment-dots"></i> 预约演示</a>
             </div>
-        </div>
+            </div>
     </div>
 
     <header class="site-header">
@@ -1696,12 +1701,39 @@
 
             <div class="container">
                 <span class="slide-kicker"><i class="fa-solid fa-robot"></i>智能出海，渤达全球</span>
-                <h1>AI Leads Global Trade<br>AI 外贸引擎 Zbot - 让一个人，做出N个人的成果</h1>
-                <h3>自动获客 · 智能跟进 · 高效成交</h3>
+                <h1>AI Leads Global Trade<br>Zbot - 用 AI 赋能外贸增长</h1>
+                <h3>智能获客 · 自动化触达 · 高效成交</h3>
             </div>
         </section>
 
-        
+        <section class="experience-showcase" id="about">
+            <div class="container">
+                <div class="experience-media">
+                    <div class="experience-media__main" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80');"></div>
+                </div>
+                <div class="experience-content">
+                    <span class="experience-eyebrow">关于智渤 Zbot</span>
+                    <h2>从策略到执行，Zbot 让外贸创意落地成生意</h2>
+                    <p>智渤科技专注于赋能企业出海外贸的专业 AI 咨询，并提供开拓海外市场的专属定制策略。致力于用 AI 和科技代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。</p>
+                    <div class="experience-checks">
+                        <span class="experience-check"><i class="fa-regular fa-circle-check"></i> AI 驱动获客</span>
+                        <span class="experience-check"><i class="fa-regular fa-circle-check"></i> 数据精准搜索</span>
+                        <span class="experience-check"><i class="fa-regular fa-circle-check"></i> 自动外贸触达</span>
+                        <span class="experience-check"><i class="fa-regular fa-circle-check"></i> 降本提升效率</span>
+                    </div>
+                    <div class="experience-cta">
+                        <a class="experience-primary" href="about-us.html">了解更多</a>
+                        <div class="experience-call">
+                            <div class="experience-call-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <small style="display:block; color:rgba(12,28,81,0.6); font-weight:500;">Call Us Now</small>
+                                <a href="tel:+164738645968">+1 647-3864-5968</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="services" id="services">
             <div class="container">
@@ -1714,7 +1746,7 @@
                         <div class="service-card__media" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80');"></div>
                         <div class="service-card__layer"></div>
                         <div class="service-card__body">
-                            <span class="service-label-en">AI Strategy Consulting</span>
+                            <span class="service-label-en">Oversea Trade Consulting</span>
                             <span class="service-label-zh">出海分析与策略制定</span>
                         </div>
                     </a>
@@ -1739,151 +1771,33 @@
                         <div class="service-card__layer"></div>
                         <div class="service-card__body">
                             <span class="service-label-en">AI Optimization & Dashboard</span>
-                            <span class="service-label-zh">优化与成果追踪</span>
+                            <span class="service-label-zh">成果追踪与优化</span>
                         </div>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="capabilities" id="capabilities">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-layer-group"></i> 三层能力矩阵</span>
-                    <h2>Zbot 成为团队的外贸情报引擎</h2>
-                    <p>围绕「找对市场・锁定客户・理解机会」三大核心阶段构建智能增长能力。Zbot 以AI分析为核心，结合自有数据资产与模型算法，为团队提供从客户识别、数据验证到市场决策的全链路支持。</p>
-                </div>
-
-                <div class="tab-controls" role="tablist">
-                    <button class="tab-button is-active" data-tab="find" role="tab" aria-selected="true">AI 智能找客</button>
-                    <button class="tab-button" data-tab="talk" role="tab" aria-selected="false">AI 数据聚合、分析与交付</button>
-                    <button class="tab-button" data-tab="insight" role="tab" aria-selected="false">AI 智能复盘</button>
-                </div>
-
-                <div class="tab-panel is-active" data-tab-panel="find" role="tabpanel">
-                    <div class="tab-grid">
-                        <article class="capability-card">
-                            <div class="card-icon gradient-blue"><i class="fa-solid fa-bullseye"></i></div>
-                            <h3>AI 客户画像建模</h3>
-                            <p>Zbot AI 理解你的业务，构建可执行客户蓝图。基于行业语义模型与历史交易样本，Zbot 识别目标买家特征，自动生成 ICP（理想客户画像）模型。支持按行业、规模、地区与行为信号多维分类，为团队提供精准开发方向。</p>
-                            <div class="capability-tags">
-                                <span class="pill">多维聚类</span>
-                                <span class="pill">AI画像建模</span>
-                                <span class="pill">目标客户蓝图</span>
-                            </div>
-                        </article>
-                        <article class="capability-card">
-                            <div class="card-icon gradient-green"><i class="fa-solid fa-globe"></i></div>
-                            <h3>市场与行业洞察引擎</h3>
-                            <p>不仅是客户名单，而是市场情报体系。融合企业信息、行业动态与区域经济数据，生成市场分布图谱、竞争格局与增长潜力分析。帮助销售在决策前就了解“哪里有机会、哪些客户最值得投入”。</p>
-                            <div class="capability-tags">
-                                <span class="pill">48+ 数据源</span>
-                                <span class="pill">行业洞察</span>
-                                <span class="pill">区域市场分析</span>
-                            </div>
-                        </article>
-                        <article class="capability-card">
-                            <div class="card-icon gradient-violet"><i class="fa-solid fa-at"></i></div>
-                            <h3>关键决策人推荐</h3>
-                            <p>AI 自动识别组织架构与角色语义，匹配采购、运营、技术等关键决策人，提供高置信度公司级联系方式（公司官网、Linkedin，地区、规模），帮助团队直达真实买方。</p>
-                            <div class="capability-tags">
-                                <span class="pill">决策层匹配</span>
-                                <span class="pill">触达优化</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="tab-panel" data-tab-panel="talk" role="tabpanel">
-                    <div class="tab-grid">
-                        <article class="capability-card">
-                            <div class="card-icon gradient-green"><i class="fa-solid fa-earth-americas"></i></div>
-                            <h3>多维数据聚合引擎</h3>
-                            <p>整合企业档案、行业信号与地理数据，生成结构化客户决策人情报包括职位、地区，emails，电话，LinkedIn、Facebook、Twitter等数据。一键导出 CRM-ready 数据。</p>
-                            <div class="capability-tags">
-                                <span class="pill">结构化数据</span>
-                                <span class="pill">客户CRM档案</span>
-                            </div>
-                        </article>
-                        <article class="capability-card">
-                            <div class="card-icon gradient-violet"><i class="fa-solid fa-comments"></i></div>
-                            <h3>AI 市场洞察报告</h3>
-                            <p>自动生成行业规模、采购周期与竞争格局分析报告，帮助销售确定优先市场与潜力客户。</p>
-                            <div class="capability-tags">
-                                <span class="pill">市场规模</span>
-                                <span class="pill">采购周期</span>
-                                <span class="pill">竞争分析</span>
-                            </div>
-                        </article>
-                        <article class="capability-card">
-                            <div class="card-icon gradient-blue"><i class="fa-solid fa-sitemap"></i></div>
-                            <h3>数据验证与合规交付</h3>
-                            <p>算法与人工双重校验机制验证邮箱、职位、公司等信息真实性，确保数据合法、安全、可用。</p>
-                            <div class="capability-tags">
-                                <span class="pill">双重校验</span>
-                                <span class="pill">合规交付</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="tab-panel" data-tab-panel="insight" role="tabpanel">
-                    <div class="tab-grid">
-                        <article class="capability-card">
-                            <div class="card-icon gradient-blue"><i class="fa-solid fa-chart-line"></i></div>
-                            <h3>商机复盘与模型优化</h3>
-                            <p>AI 自动分析跟进记录与转化表现，更新 ICP 筛选逻辑，实现持续优化与学习。</p>
-                            <div class="capability-tags">
-                                <span class="pill">模型优化</span>
-                                <span class="pill">转化追踪</span>
-                            </div>
-                        </article>
-                        <article class="capability-card">
-                            <div class="card-icon gradient-green"><i class="fa-solid fa-users"></i></div>
-                            <h3>市场趋势学习与数据回流</h3>
-                            <p>识别不同地区与行业的需求变化，分析趋势信号，为下一阶段市场布局与产品推广提供依据。销售反馈与 CRM 数据自动回流 AI 引擎，形成智能闭环，让每一轮开发都更高效。</p>
-                            <div class="capability-tags">
-                                <span class="pill">趋势洞察</span>
-                                <span class="pill">CRM回流 </span>
-                            </div>
-                        </article>
-                        <article class="capability-card">
-                            <div class="card-icon gradient-slate"><i class="fa-solid fa-shield-halved"></i></div>
-                            <h3>智能外联建议</h3>
-                            <p>自动生成个性化开发信模板，提供最佳联系时机建议，提升外联响应率和转化率。</p>
-                            <div class="capability-tags">
-                                <span class="pill">CRM建议</span>
-                                <span class="pill">提升转化率</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        
-
-       
-         <section class="metrics">
+        <section class="metrics">
             <div class="container">
                 <div class="metric-grid">
                     <div class="metric-card">
                         <div class="metric-icon" style="background: rgba(0,198,255,0.15);"><i class="fa-solid fa-users"></i></div>
                         <h3 data-counter="7" data-decimals="1" data-suffix=" 亿">0</h3>
-                        <p>全球企业买家数据</p>
-                        <span>实时同步并去重，支持智能 ICP 画像匹配</span>
+                        <p>全球数据数据库</p>
+                        <span>实时同步并去重，支持智能客户画像匹配</span>
                     </div>
                     <div class="metric-card">
                         <div class="metric-icon" style="background: rgba(0,249,161,0.15);"><i class="fa-solid fa-square-poll-vertical"></i></div>
-                        <h3 data-counter="68" data-suffix="%">0</h3>
-                        <p>商机 AI 评分更高转化率</p>
-                        <span>AI 排序优先级，提醒最佳跟进窗口</span>
+                        <h3 data-counter="98" data-suffix="%">0</h3>
+                        <p>决策人识别准确率</p>
+                        <span>AI 基于领英 + 公司官网 + 企业信息图谱自动识别</span>
                     </div>
                     <div class="metric-card">
                         <div class="metric-icon" style="background: rgba(108,44,255,0.15);"><i class="fa-solid fa-wave-square"></i></div>
-                        <h3 data-counter="15" data-suffix="x">0</h3>
-                        <p>自动化工作流节省脚本操作</p>
-                        <span>从线索抓取到沟通复盘全链路接入</span>
+                        <h3 data-counter="100" data-suffix="+">0</h3>
+                        <p>全球覆盖国家地区</p>
+                        <span>数据覆盖全球重点贸易地区，一次布局全球市场。</span>
                     </div>
                     <div class="metric-card">
                         <div class="metric-icon" style="background: rgba(255,189,76,0.15);"><i class="fa-solid fa-shield-check"></i></div>
@@ -1891,66 +1805,12 @@
                         <p>邮箱可达验证准确率</p>
                         <span>结合多源验证与历史互动数据，保障投递成功</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        
-        <section class="data-proof" id="data-proof">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker" style="background: rgba(255,255,255,0.08);color:#fff;"><i class="fa-solid fa-database"></i> 数据实力</span>
-                    <h2 style="color:#ffffff;">48+ 权威数据源实时更新，合规安全一站到位</h2>
-                    <p style="color:rgba(226,236,255,0.76);">所有数据均经过合规审计并支持企业私有化部署。</p>
-                </div>
-                <div class="data-logos">
-                    <div class="data-card"><span></span>全球 78 国舱单</div>
-                    <div class="data-card"><span></span> B2B Leads</div>
-                    <div class="data-card"><span></span> 趋势信号</div>
-                    <div class="data-card"><span></span> 融资情报</div>
-                    <div class="data-card"><span></span> 工商信誉</div>
-                    <div class="data-card"><span></span> 新闻动态</div>
-                </div>
-            </div>
-        </section>
-
-
-
-        <section class="stories" id="stories-more">
-            <div class="container">
-                <div class="section-heading">
-                    <span class="section-kicker"><i class="fa-solid fa-newspaper"></i> 最新洞察</span>
-                    <h2>洞察全球市场，提前锁定增长机会</h2>
-                    <p>Zbot 每周为客户提供热门行业洞察、最新营销玩法与案例拆解，帮助团队持续优化出海策略。</p>
-                </div>
-                <div class="story-grid">
-                    <article class="story-card">
-                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="新能源" loading="lazy"/>
-                        <div class="story-content">
-                            <span class="story-tag">新能源</span>
-                            <h3></h3>
-                            <p>解读当地政策、竞争对手动态与渠道策略，附赠 120 家重点买家名单。</p>
-                            <a class="story-action" href="#contact">下载报告 <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="story-card">
-                        <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=900&q=80" alt="制造" loading="lazy"/>
-                        <div class="story-content">
-                            <span class="story-tag">制造业</span>
-                            <h3>工业 4.0 项目如何挖掘关键决策人</h3>
-                            <p>通过 Zbot 的 AI 线索评分识别高潜力买家，邮件模板打开率提升 160%。</p>
-                            <a class="story-action" href="#contact">申请案例 <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    <article class="story-card">
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80" alt="跨境电商" loading="lazy"/>
-                        <div class="story-content">
-                            <span class="story-tag">跨境电商</span>
-                            <h3>从 TikTok 到店铺：AI 驱动的网红合作开发手册</h3>
-                            <p>自动匹配网红与类目，智能生成合作邀约与佣金方案，2 周完成 46 场合作。</p>
-                            <a class="story-action" href="#contact">获取手册 <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: rgba(255, 76, 121, 0.15);"><i class="fa-solid fa-shield-check"></i></div>
+                        <h3 data-counter="-60" data-decimals="1" data-suffix="%">0</h3>
+                        <p>外贸获客人力成本</p>
+                        <span>替代传统人工查找与录入，AI自动化触达。</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2047,6 +1907,74 @@
             </div>
         </section>
 
+
+       
+        
+
+       
+         
+
+        
+        <section class="data-proof" id="data-proof">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker" style="background: rgba(255,255,255,0.08);color:#fff;"><i class="fa-solid fa-database"></i> 数据实力</span>
+                    <h2 style="color:#ffffff;">48+ 权威数据源实时更新，合规安全一站到位</h2>
+                    <p style="color:rgba(226,236,255,0.76);">所有数据均经过合规审计并支持企业私有化部署。</p>
+                </div>
+                <div class="data-logos">
+                    <div class="data-card"><span></span>全球 78 国舱单</div>
+                    <div class="data-card"><span></span> B2B Leads</div>
+                    <div class="data-card"><span></span> 趋势信号</div>
+                    <div class="data-card"><span></span> 融资情报</div>
+                    <div class="data-card"><span></span> 工商信誉</div>
+                    <div class="data-card"><span></span> 新闻动态</div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="stories" id="stories-more">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker"><i class="fa-solid fa-newspaper"></i> 最新洞察</span>
+                    <h2>洞察全球市场，提前锁定增长机会</h2>
+                    <p>Zbot 每周为客户提供热门行业洞察、最新营销玩法与案例拆解，帮助团队持续优化出海策略。</p>
+                </div>
+                <div class="story-grid">
+                    <article class="story-card">
+                        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80" alt="新能源" loading="lazy"/>
+                        <div class="story-content">
+                            <span class="story-tag">新能源</span>
+                            <h3></h3>
+                            <p>解读当地政策、竞争对手动态与渠道策略，附赠 120 家重点买家名单。</p>
+                            <a class="story-action" href="#contact">下载报告 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=900&q=80" alt="制造" loading="lazy"/>
+                        <div class="story-content">
+                            <span class="story-tag">制造业</span>
+                            <h3>工业 4.0 项目如何挖掘关键决策人</h3>
+                            <p>通过 Zbot 的 AI 线索评分识别高潜力买家，邮件模板打开率提升 160%。</p>
+                            <a class="story-action" href="#contact">申请案例 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80" alt="跨境电商" loading="lazy"/>
+                        <div class="story-content">
+                            <span class="story-tag">跨境电商</span>
+                            <h3>从 TikTok 到店铺：AI 驱动的网红合作开发手册</h3>
+                            <p>自动匹配网红与类目，智能生成合作邀约与佣金方案，2 周完成 46 场合作。</p>
+                            <a class="story-action" href="#contact">获取手册 <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        
         <section class="cta-band" id="contact">
             <div class="container">
                 <div class="cta-content">
