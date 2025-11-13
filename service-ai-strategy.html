@@ -10,308 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <style>
-        :root {
-            --brand-blue: #2e5ccb;
-            --brand-cyan: #00c6ff;
-            --brand-green: #00f9a1;
-            --brand-dark: #0b173a;
-            --brand-mid: #142451;
-            --brand-light: #eff5ff;
-            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
-            --card-radius: 22px;
-            --container-width: min(1180px, 92vw);
-        }
 
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
-            color: var(--brand-mid);
-            background: #f3f6ff;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .container {
-            width: var(--container-width);
-            margin: 0 auto;
-        }
-
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(46, 92, 203, 0.18), rgba(8, 16, 45, 0.92));
-            display: grid;
-            place-items: center;
-            z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-
-        .preloader.is-hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .spinner {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            border: 6px solid rgba(255, 255, 255, 0.24);
-            border-top-color: rgba(0, 198, 255, 0.9);
-            border-right-color: rgba(0, 249, 161, 0.9);
-            animation: spin 1.1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-
-        .service-hero {
-            position: relative;
-            padding: 100px 0 110px;
-            color: #f1f5ff;
-            overflow: hidden;
-            background: #050d22;
-        }
-
-        .hero-media {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-
-        .hero-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-media::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(8, 20, 46, 0.75), rgba(0, 102, 204, 0.55));
-            backdrop-filter: blur(2px);
-        }
-
-        .service-hero .container {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            gap: 22px;
-        }
-
-    
-
-        .service-hero h1 {
-            margin: 0;
-            font-size: clamp(2.8rem, 4vw, 3.6rem);
-            line-height: 1.12;
-            font-weight: 800;
-            max-width: 760px;
-        }
-
-        .service-hero p {
-            margin: 0;
-            max-width: 680px;
-            font-size: 1.05rem;
-            color: rgba(226, 238, 255, 0.9);
-            line-height: 1.8;
-        }
-
-        .metrics-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
-            margin-top: 28px;
-        }
-
-        .metric-card {
-            padding: 20px 18px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
-            text-align: center;
-        }
-
-        .metric-card strong {
-            display: block;
-            font-size: 1.4rem;
-            color: #ffffff;
-        }
-
-        .metric-card span {
-            display: block;
-            font-size: 0.9rem;
-            color: rgba(226, 238, 255, 0.82);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-
-        .section {
-            padding: 110px 0 90px;
-        }
-
-        .section-header {
-            text-align: center;
-            display: grid;
-            gap: 12px;
-        }
-
-        .section-header span {
-            font-weight: 600;
-            color: var(--brand-blue);
-            font-size: 14px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .section-header h2 {
-            margin: 0;
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            color: #0b173a;
-        }
-
-        .section-header p {
-            margin: 0 auto;
-            max-width: 640px;
-            color: rgba(20, 36, 81, 0.75);
-        }
-
-        .highlight-grid {
-            margin-top: 48px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-        }
-
-        .highlight-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 247, 255, 0.92));
-            border-radius: 26px;
-            padding: 30px;
-            box-shadow: 0 22px 50px rgba(18, 62, 150, 0.16);
-            border: 1px solid rgba(46, 92, 203, 0.12);
-            display: grid;
-            gap: 14px;
-        }
-
-        .highlight-card h3 {
-            margin: 0;
-            font-size: 1.35rem;
-            color: #0b173a;
-        }
-
-        .highlight-card ul {
-            display: grid;
-            gap: 10px;
-            color: rgba(20, 36, 81, 0.75);
-            padding-left: 18px;
-        }
-
-        .workflow {
-            background: #ffffff;
-        }
-
-        .workflow-steps {
-            margin-top: 54px;
-            display: grid;
-            gap: 24px;
-        }
-
-        .workflow-step {
-            display: grid;
-            grid-template-columns: 72px minmax(0, 1fr);
-            gap: 26px;
-            align-items: start;
-            padding: 26px 30px;
-            border-radius: 26px;
-            background: rgba(245, 248, 255, 0.92);
-            border: 1px solid rgba(46, 92, 203, 0.12);
-            box-shadow: 0 18px 42px rgba(15, 60, 140, 0.12);
-        }
-
-        .workflow-index {
-            width: 60px;
-            height: 60px;
-            border-radius: 18px;
-            display: grid;
-            place-items: center;
-            font-weight: 700;
-            color: #ffffff;
-            background: linear-gradient(135deg, rgba(11, 51, 120, 0.9), rgba(0, 198, 255, 0.8));
-        }
-
-        .workflow-body h3 {
-            margin: 0 0 6px;
-            font-size: 1.25rem;
-            color: #0b173a;
-        }
-
-        .workflow-body p {
-            margin: 0;
-            color: rgba(20, 36, 81, 0.75);
-        }
-
-        .cta-band {
-            background: linear-gradient(135deg, rgba(11, 29, 87, 0.92), rgba(0, 198, 255, 0.85));
-            color: #ffffff;
-            padding: 110px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-band::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(8, 26, 58, 0.35), rgba(8, 19, 53, 0.85));
-            pointer-events: none;
-        }
-
-        .cta-band .container {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            gap: 18px;
-            justify-items: center;
-            text-align: center;
-        }
-
-        .cta-band p {
-            margin: 0;
-            max-width: 640px;
-            color: rgba(226, 238, 255, 0.92);
-        }
-
-        @media (max-width: 960px) {
-            .workflow-step {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body class="page-service page-service-strategy">
     <div class="preloader" id="preloader">
@@ -359,7 +58,7 @@
             </div>
             <div class="container">
                 <h1>从策略到执行的 AI 出海顾问团队，让外贸增长更可预测</h1>
-                <p>由专属顾问提供企业级 AI 外贸顾问服务。获得精细化的理想客户画像（ICP）以及分阶段的市场进入策略。我们以数据驱动决策，以 AI 支持行动，帮助您在全球市场实现规模化增长。</p>
+                <p>我们提供由专属顾问主导的企业级 AI 外贸咨询服务，帮助企业精准识别理想客户画像 ICP，制定分阶段市场进入策略。以数据驱动决策，以 AI 赋能执行，助力企业在全球市场实现持续增长。</p>
                 <div class="metrics-bar">
                     <div class="metric-card">
                         <strong>48+</strong>
@@ -375,7 +74,7 @@
                     </div>
                     <div class="metric-card">
                         <strong>全行业</strong>
-                        <span>制造 · 消费品</span>
+                        <span>外贸出海策略</span>
                     </div>
                 </div>
             </div>
@@ -391,27 +90,21 @@
                 <div class="highlight-grid">
                     <div class="highlight-card">
                         <h3><i class="fa-solid fa-chart-pie"></i> 智能 ICP 与市场细分</h3>
-                        <ul>
-                            <li>结合产品、客户案例与目标国家，自动生成 ICP 画像矩阵。</li>
-                            <li>分析行业趋势、采购周期、决策链角色与痛点。</li>
-                            <li>输出优先级排序与量化市场容量，辅助预算规划。</li>
+                        <ul class="card-list">
+                            <li>结合产品、客户案例与目标国家，自动生成 ICP 画像矩阵</li>
+                            <li>分析行业趋势、采购周期、决策链角色与痛点</li>
+                            <li>输出优先级排序与量化市场容量，辅助预算规划</li>
                         </ul>
                     </div>
                     <div class="highlight-card">
                         <h3><i class="fa-solid fa-map"></i> 市场进入与增长路线图</h3>
-                        <ul>
-                            <li>制定不同阶段策略，覆盖获客、转化与复购。</li>
-                            <li>拆解季度关键指标与行动清单。</li>
-                            <li>与销售、市场、客服团队协同，建立跨部门对齐机制。</li>
+                        <ul class="card-list">
+                            <li>制定不同阶段策略，覆盖获客、转化与复购</li>
+                            <li>拆解季度关键指标与行动清单</li>
+                            <li>与销售、市场、客服团队协同，建立跨部门对齐机制</li>
                         </ul>
                     </div>
-                    <div class="highlight-card">
-                        <h3><i class="fa-solid fa-brain"></i> AI 驱动的持续优化机制</h3>
-                        <ul>
-                            <li>利用 Zbot AI 审视策略执行数据，实时给出迭代建议。</li>
-                            <li>月度/季度复盘，动态调整 ICP、预算与行动节奏。</li>
-                        </ul>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -442,7 +135,7 @@
                         <div class="workflow-index">03</div>
                         <div class="workflow-body">
                             <h3>工作流配置与培训</h3>
-                            <p>搭建客户管理、触达节奏、线索评分等核心模块，提供双语培训与 SOP 文档。</p>
+                            <p>搭建客户管理、触达节奏、线索评分等核心模块，提供双语培训与 SOP 文档</p>
                         </div>
                     </div>
                     <div class="workflow-step">

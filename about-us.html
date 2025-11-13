@@ -10,576 +10,7 @@
     <link rel="stylesheet" href="css/main.css"/>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        :root {
-            --brand-blue: #2e5ccb;
-            --brand-cyan: #00c6ff;
-            --brand-green: #00f9a1;
-            --brand-dark: #0b173a;
-            --brand-mid: #142451;
-            --brand-light: #eff5ff;
-            --gradient-1: linear-gradient(135deg, #0b1d57 0%, #1a3a89 40%, #00b3ff 100%);
-            --gradient-2: linear-gradient(135deg, #0a1f3f 0%, #1c3d7d 50%, #18d1ba 100%);
-            --gradient-3: linear-gradient(135deg, #0c1438 0%, #262164 50%, #6c2cff 100%);
-            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
-            --card-radius: 22px;
-            --container-width: min(1180px, 92vw);
-        }
-
-
-        body {
-            margin: 0;
-            font-family: 'Inter', 'Noto Sans SC', sans-serif;
-            color: var(--brand-mid);
-            background: #f3f6ff;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            width: var(--container-width);
-            margin: 0 auto;
-        }
-
-        a { color: inherit; text-decoration: none; }
-
-        .about-hero {
-            position: relative;
-            height: 90vh;
-            padding: 140px 24px 120px;
-            color: #f1f5ff;
-            overflow: hidden;
-            background: #030a1f;
-            background-image: url('media/hero-bg.png');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .about-hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(6, 19, 46, 0.78) 0%, rgba(9, 38, 82, 0.6) 60%);
-            z-index: 1;
-        }
-
-        .about-hero .hero {
-            max-width: 1180px;
-            margin: 0 auto;
-            display: grid;
-            gap: 18px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-hero h1 { margin: 0; font-size: clamp(32px, 5vw, 52px); font-weight: 800; }
-        .about-hero p { margin: 0; max-width: 720px; font-size: 18px; color: rgba(255, 255, 255, 0.78); }
-
-        @media (max-width: 768px) {
-            .about-hero {
-                height: auto;
-                min-height: 520px;
-                padding: 110px 16px 80px;
-                text-align: center;
-            }
-
-            .about-hero .hero {
-                text-align: center;
-            }
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.22);
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: none;
-            font-size: 13px;
-            width: -webkit-fit-content;
-            width: -moz-fit-content;
-            width: fit-content;
-            align-self: flex-start;
-            max-width: 100%;
-        }
-
-        .page {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 72px 24px 120px;
-            display: grid;
-            gap: 60px;
-        }
-
-         .about-brief {
-            background: #101827;
-            color: rgba(226, 236, 255, 0.88);
-            padding: 120px 0;
-        }
-
-        .about-brief-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-
-        .about-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.82);
-            margin-bottom: 22px;
-        }
-
-        .about-label i {
-            color: var(--brand-green);
-        }
-
-        .about-brief-content h2 {
-            font-size: clamp(2.2rem, 3.4vw, 3rem);
-            line-height: 1.28;
-            margin: 0 0 22px;
-            color: #ffffff;
-        }
-
-        .about-brief-content p {
-            font-size: 17px;
-            line-height: 1.9;
-            margin: 0 0 16px;
-        }
-
-        .about-brief-content .about-emphasis {
-            font-weight: 600;
-            color: var(--brand-green);
-            margin-top: 24px;
-        }
-
-        
-
-        
-        .hero-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 26px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #f1f6ff;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .hero-secondary:hover {
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-       
-
-        .process h3 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
-        .process-subtitle { color: rgba(8, 26, 58, 0.62); margin-bottom: 36px; }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 22px;
-            margin-top: 36px;
-        }
-
-        .process-item {
-            display: grid;
-            gap: 14px;
-            align-content: flex-start;
-        }
-
-        @media (min-width: 1100px) {
-            .process-grid {
-                grid-template-columns: repeat(5, minmax(0, 1fr));
-            }
-        }
-
-        .process-step {
-            border: none;
-            cursor: default;
-            position: relative;
-            padding: 22px 16px 18px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(235, 244, 255, 0.9));
-            box-shadow: 0 12px 24px rgba(23, 72, 170, 0.12);
-            display: grid;
-            place-items: center;
-            gap: 6px;
-            min-height: 104px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-        }
-        .process-step::after {
-            content: attr(data-number);
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 46px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(180deg, rgba(113, 171, 255, 0.85), rgba(240, 245, 255, 0.7));
-            -webkit-background-clip: text;
-            color: transparent;
-            opacity: 0.85;
-        }
-        .process-step span { font-size: 15px; font-weight: 600; color: var(--brand-blue); }
-        .process-step small { font-size: 12px; color: rgba(8, 26, 58, 0.55); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
-
-        .process-panel {
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 16px 36px rgba(18, 71, 158, 0.16);
-            padding: 22px 20px;
-            min-height: 180px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-        }
-        .process-panel h4 { margin: 0 0 12px; font-size: 17px; color: var(--brand-blue); }
-        .process-panel ul {
-            margin: 0;
-            padding-left: 16px;
-            color: rgba(8, 26, 58, 0.78);
-            display: grid;
-            gap: 8px;
-            font-size: 14px;
-        }
-
-        .process-panel li { line-height: 1.45; }
-
-        .process-item:hover .process-step,
-        .process-item:focus-within .process-step {
-            background: linear-gradient(135deg, #0ab6ff, #297bff);
-            box-shadow: 0 20px 46px rgba(15, 96, 255, 0.35);
-            transform: translateY(-6px);
-        }
-        .process-item:hover .process-step span,
-        .process-item:hover .process-step small,
-        .process-item:focus-within .process-step span,
-        .process-item:focus-within .process-step small {
-            color: #ffffff;
-        }
-
-        .process-item:hover .process-panel,
-        .process-item:focus-within .process-panel {
-            background: linear-gradient(135deg, rgba(7, 63, 180, 0.98), rgba(9, 145, 241, 0.95));
-            box-shadow: 0 24px 52px rgba(9, 78, 173, 0.45);
-            transform: translateY(-4px);
-        }
-        .process-item:hover .process-panel h4,
-        .process-item:hover .process-panel li,
-        .process-item:focus-within .process-panel h4,
-        .process-item:focus-within .process-panel li {
-            color: #ffffff;
-        }
-
-        .partners-section {
-            padding: 40px 0 40px;
-            background:
-                linear-gradient(120deg, rgba(13, 25, 53, 0.624)),
-                url('media/client-bg.png') center/cover no-repeat;
-            color: #e7f1ff;
-            overflow: hidden;
-        }
-
-        .partners-inner {
-            width: 100%;
-            display: grid;
-            gap: 32px;
-        }
-
-        .partners-copy h3 {
-            margin: 0 0 16px;
-            font-size: clamp(28px, 4vw, 42px);
-        }
-
-        .partners-copy {
-            width: min(1180px, 92vw);
-            margin: 0 auto;
-        }
-
-        .partners-copy p {
-            margin: 0 0 18px;
-            color: rgba(231, 241, 255, 0.78);
-        }
-
-        .partner-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .partner-tags span {
-            padding: 6px 14px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.12);
-            font-size: 13px;
-            letter-spacing: 0.06em;
-        }
-
-        .partner-marquee {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            overflow: hidden;
-        }
-
-        .partner-row {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(7, 16, 38, 0);
-        }
-
-        .partner-row::before,
-        .partner-row::after {
-            display: none;
-        }
-
-        .partner-row-track {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-            padding: 18px 32px;
-            animation: marquee-left 22s linear infinite;
-        }
-
-        .partner-row[data-direction="right"] .partner-row-track {
-            animation: marquee-right 26s linear infinite;
-        }
-
-        .partner-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            white-space: nowrap;
-            color: #f0f6ff;
-        }
-
-        .partner-logo i {
-            font-size: 20px;
-            color: #7fbeff;
-        }
-
-        .partner-logo .badge {
-            width: 32px;
-            height: 32px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            display: grid;
-            place-items: center;
-            font-size: 13px;
-            font-weight: 700;
-            color: #7fbeff;
-        }
-
-        .partner-logo .text {
-            display: grid;
-            gap: 2px;
-        }
-
-        .partner-logo span {
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1;
-        }
-
-        .partner-logo small {
-            font-size: 12px;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: rgba(231, 241, 255, 0.7);
-        }
-
-        @keyframes marquee-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @keyframes marquee-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        .team-excellence {
-            position: relative;
-            padding: 120px 0;
-            background: #2e4179;
-            overflow: hidden;
-        }
-
-        .team-excellence::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(3, 10, 28, 0.4), rgba(7, 19, 58, 0.7));
-            pointer-events: none;
-        }
-
-        .team-inner {
-            position: relative;
-            z-index: 1;
-            width: min(1180px, 92vw);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 48px;
-            align-items: center;
-        }
-
-        .team-media {
-            display: grid;
-            gap: 20px;
-        }
-
-        .team-photo {
-            border-radius: 32px;
-            height: 670px;
-            background: url('media/team-about.png') center/cover no-repeat;
-            box-shadow: 0 35px 80px rgba(3, 10, 28, 0.65);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-photo::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            
-        }
-
-        
-        .team-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .team-tags span {
-            padding: 8px 14px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(247, 249, 255, 0.8);
-            font-size: 13px;
-            letter-spacing: 0.04em;
-        }
-
-        .team-content {
-            color: #f6f8ff;
-            display: grid;
-            gap: 20px;
-        }
-
-        .team-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 16px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.12);
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            width: fit-content;
-        }
-
-        .team-content h3 {
-            margin: 0;
-            font-size: clamp(30px, 4vw, 44px);
-            line-height: 1.3;
-        }
-
-        .team-content p {
-            margin: 0;
-            line-height: 1.8;
-            color: rgba(247, 249, 255, 0.78);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 20px;
-        }
-
-        .team-stat {
-            border-radius: 22px;
-            padding: 18px 20px;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        .team-stat strong {
-            display: block;
-            font-size: 30px;
-            color: #5ad7ff;
-        }
-
-        .team-stat span {
-            font-size: 14px;
-            color: rgba(247, 249, 255, 0.78);
-        }
-
-        .team-highlights {
-            display: grid;
-            gap: 12px;
-        }
-
-        .team-highlights li {
-            list-style: none;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: rgba(247, 249, 255, 0.82);
-        }
-
-        .team-highlights li::before {
-            content: "▹";
-            color: #5ad7ff;
-            font-size: 16px;
-            line-height: 1;
-        }
-
-        .team-countries {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .team-countries span {
-            padding: 6px 12px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.12);
-            font-size: 13px;
-            letter-spacing: 0.03em;
-        }
-
-        .team-footnote {
-            font-size: 14px;
-            color: rgba(247, 249, 255, 0.72);
-        }
-
-        @media (max-width: 760px) {
-            .team-media {
-                order: 2;
-            }
-        }
-
-        @media (max-width: 920px) {
-            .process-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
-            .partner-row-track { gap: 28px; padding: 14px 18px; }
-            .partner-logo span { font-size: 14px; }
-        }
-    </style>
+    
 </head>
 <body class="page-about">
     <header class="site-header">
@@ -617,9 +48,9 @@
     </header>
 
     <section class="about-hero">
-        <div class="hero">
+        <div class="ahero">
             <span class="eyebrow">关于智渤 Zbot</span>
-            <h1>智渤更懂中国企业的全球外贸出海团队</h1>
+            <h1>智渤，更懂中国企业的全球外贸出海团队</h1>
             <p>智渤，从数据到成交的 AI 外贸解决方案。</p>
         </div>
     </section>
@@ -628,8 +59,8 @@
             <div class="container">
                 <div class="about-brief-content">
                     <span class="about-label"><i class="fa-solid fa-lightbulb"></i> 关于智渤</span>
-                    <h2>智渤科技专注于赋能企业出海外贸的专业 AI 咨询，</h2>
-                    <p>并提供开拓海外市场的专属定制策略。致力于用 AI 和科技代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。</p>
+                    <h2>智渤科技：专注于赋能企业出海外贸的专业 AI 咨询，</h2>
+                    <p>为您提供开拓海外市场的专属定制策略。我们致力于用 AI 和科技代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。</p>
                     <p>在一个统一的智能架构中，智渤科技通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
                     <p class="about-emphasis">智渤科技，用能思考的 AI，重构您的出海外贸方式。</p>
                 </div>
@@ -640,7 +71,7 @@
 
         <section class="process" id="process">
             <h3>精细化服务流程管理 | <span style="font-weight:600;color:rgba(8,26,58,0.7)">Service Process</span></h3>
-            <p class="process-subtitle">策略咨询 → 市场分析 → 方案定制 → 成果追踪  → 流程优化。</p>
+            <p class="process-subtitle">策略咨询 → 市场分析 → 方案定制 → 成果追踪  → 流程优化</p>
 
             <div class="process-grid">
                 <div class="process-item">
@@ -649,7 +80,6 @@
                         <small>Consulting</small>
                     </div>
                     <article class="process-panel">
-                        <h4>策略咨询 · Consulting</h4>
                         <ul>
                             <li>前期出海策略咨询</li>
                             <li>提供服务方案报价</li>
@@ -665,7 +95,6 @@
                         <small>Market Insight</small>
                     </div>
                     <article class="process-panel">
-                        <h4>市场分析 · Market Insight</h4>
                         <ul>
                             <li>行业分析</li>
                             <li>输出多区域客户画像</li>
@@ -681,7 +110,6 @@
                         <small>Strategy Design</small>
                     </div>
                     <article class="process-panel">
-                        <h4>方案定制 · Data & Outreach</h4>
                         <ul>
                             <li>自动识别目标决策人</li>
                             <li>目标数据收集与分析</li>
@@ -697,7 +125,6 @@
                         <small>Dashboard</small>
                     </div>
                     <article class="process-panel">
-                        <h4>成果追踪 · Dashboard</h4>
                         <ul>
                             <li>实时 KPI 面板</li>
                             <li>触达、询盘成果报告</li>
@@ -713,7 +140,6 @@
                         <small>Optimization</small>
                     </div>
                     <article class="process-panel">
-                        <h4>流程优化 · Optimization</h4>
                         <ul>
                             <li>分析成果面板</li>
                             <li>A/B 测试、转化分析</li>
@@ -741,7 +167,7 @@
             <div class="team-content">
                 <span class="team-label">服务团队 TEAM</span>
                 <h3>科技企业与外贸专家共建</h3>
-                <p>由多伦多大学人工智能实验室联合研发，并获得多位北美高校教授和行业科学家顾问指导，深度参与技术研究与战略方向制定。团队核心成员来自 Google、LinkedIn、IBM、Samsung、S&amp;P Global 等全球科技公司，并融合资深外贸品牌营销专家与本地化外籍顾问。</p>
+                <p>核心技术由多伦多大学人工智能实验室联合研发，并获得多位北美高校教授和行业科学家顾问指导，深度参与技术研究与战略方向制定。团队核心成员来自 Google、LinkedIn、IBM、Samsung、S&amp;P Global 等全球科技公司，并融合资深外贸品牌营销专家与外籍顾问。</p>
                 <div class="team-grid">
                     <div class="team-stat">
                         <strong>70%</strong>
@@ -757,14 +183,13 @@
                     </div>
                 </div>
                 <ul class="team-highlights">
-                    <li>获得多位大学教授与行业科学家长期技术、战略支持</li>
                     <li>北美 70%｜亚洲 30%（深圳为核心枢纽）的全球化协作体系</li>
                     <li>AI 研发、市场洞察、外贸增长运营三位一体的服务团队</li>
                 </ul>
+                <p class="team-footnote">我们不仅精通 AI 前沿技术，也深耕全球贸易与品牌出海，用国际视野 + 本地洞察 + 技术驱动帮助企业实现全球增长。海外B端C端数据覆盖超过200个国家。</p>
                 <div class="team-countries">
                     <span>美国</span><span>加拿大</span><span>英国</span><span>意大利</span><span>西班牙</span><span>俄罗斯</span><span>澳大利亚</span><span>日本</span><span>韩国</span><span>新加坡</span><span>泰国</span><span>马来西亚</span><span>200+国家</span>
                 </div>
-                <p class="team-footnote">我们不仅精通 AI 前沿技术，也深耕全球贸易与品牌出海，用国际视野 + 本地洞察 + 技术驱动帮助企业实现全球增长。</p>
             </div>
         </div>
     </section>
