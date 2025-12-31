@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Zbot | AI Agent 外贸智能体 · 按效果付费 · 智能出海</title>
+    <meta name="description" content="Zbot是新一代AI Agent外贸智能体，按效果付费，精准目标客户加好友才收费，让外贸企业零风险使用AI获客">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            /* 极光色系 - Aurora Colors */
+            --aurora-cyan: #00D4AA;
+            --aurora-blue: #00B8D4;
+            --aurora-purple: #7C4DFF;
+            --aurora-pink: #E040FB;
+            --aurora-green: #00E5A0;
+            
+            --gradient-start: #00D4AA;
+            --gradient-mid: #00B8D4;
+            --gradient-end: #7C4DFF;
+            
+            --text-primary: #1A1A2E;
+            --text-secondary: #4A5568;
+            --bg-light: #FAFFFE;
+            --bg-section: #F5FFFD;
+            --white: #FFFFFF;
+            --nav-height: 80px;
+            --shadow-soft: 0 4px 40px rgba(0, 212, 170, 0.12);
+            --shadow-card: 0 8px 40px rgba(0, 184, 212, 0.15);
+            --shadow-hover: 0 15px 60px rgba(124, 77, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 极光渐变背景 */
+        .aurora-bg {
+            background: 
+                radial-gradient(ellipse at 0% 0%, rgba(0, 212, 170, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 0%, rgba(0, 184, 212, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(124, 77, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 0% 100%, rgba(224, 64, 251, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(0, 229, 160, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #FAFFFE 0%, #F0FFFE 50%, #F5F0FF 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Gradient Text - Aurora Style */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--aurora-cyan) 0%, var(--aurora-blue) 50%, var(--aurora-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-alt {
+            background: linear-gradient(135deg, var(--aurora-purple) 0%, var(--aurora-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 24px;
+        }
+
+        .nav-bar {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(40px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 36px;
+            width: auto;
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-outline {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple)) border-box;
+            color: var(--aurora-cyan);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue), var(--aurora-purple));
+            color: white;
+        }
+
+        .btn-primary {
+            padding: 10px 24px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue), var(--aurora-purple));
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--nav-height);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 极光动画效果 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 150%;
+            background: 
+                radial-gradient(ellipse at center, rgba(0, 212, 170, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(124, 77, 255, 0.15) 0%, transparent 50%);
+            animation: auroraFloat 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse at center, rgba(0, 184, 212, 0.12) 0%, transparent 60%);
+            animation: auroraFloat2 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes auroraFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(-30px, 30px) rotate(5deg) scale(1.05); }
+            66% { transform: translate(20px, -20px) rotate(-3deg) scale(0.98); }
+        }
+
+        @keyframes auroraFloat2 {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(50px, -30px) scale(1.1); opacity: 0.8; }
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        /* Hero Brand */
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .hero-brand .brand-name {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -1px;
+        }
+
+        .hero-brand .brand-divider {
+            width: 2px;
+            height: 32px;
+            background: linear-gradient(180deg, var(--aurora-cyan), var(--aurora-purple));
+            border-radius: 2px;
+        }
+
+        .hero-brand .brand-slogan {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5vw, 72px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-top: 80px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 20px !important;
+            opacity: 0.85;
+        }
+
+        .hero-desc {
+            font-size: clamp(16px, 1.8vw, 18px);
+            font-weight: 400;
+            color: #374151;
+            margin-bottom: 36px !important;
+            line-height: 1.9;
+        }
+
+        .hero-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-lg {
+            padding: 16px 32px !important;
+            font-size: 17px !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-lg i {
+            font-size: 18px;
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 24px;
+            margin-top: 30px;
+            animation: heroFloat 6s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ===== 核心卖点区块：按效果付费 ===== */
+        .pay-for-results {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pay-for-results::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, 
+                rgba(0, 212, 170, 0.05) 0%, 
+                rgba(124, 77, 255, 0.08) 50%,
+                rgba(0, 184, 212, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .results-header h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .results-header p {
+            font-size: 18px;
+            color: #374151;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .results-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 48px 36px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 40px rgba(0, 212, 170, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--aurora-cyan), var(--aurora-blue), var(--aurora-purple));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .result-card:hover::before {
+            opacity: 1;
+        }
+
+        .result-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(124, 77, 255, 0.15);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .result-card .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(124, 77, 255, 0.15));
+            border-radius: 20px;
+            font-size: 36px;
+        }
+
+        .result-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .result-card p {
+            font-size: 15px;
+            color: #4B5563;
+            line-height: 1.8;
+        }
+
+        .result-card.highlight {
+            background: linear-gradient(135deg, 
+                rgba(0, 212, 170, 0.1) 0%, 
+                rgba(124, 77, 255, 0.1) 100%);
+            border-color: rgba(0, 212, 170, 0.4);
+        }
+
+        .result-card.highlight::before {
+            opacity: 1;
+        }
+
+        /* 承诺保障区块 */
+        .guarantee-banner {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue), var(--aurora-purple));
+            border-radius: 24px;
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .guarantee-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .guarantee-banner h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .guarantee-banner p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .guarantee-icons {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 32px;
+            position: relative;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .guarantee-item i {
+            font-size: 24px;
+        }
+
+        /* ===== AI Agent 智能体区块 ===== */
+        .ai-agent-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .agent-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .agent-header .tag {
+            display: inline-block;
+            padding: 8px 24px;
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.15), rgba(224, 64, 251, 0.15));
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--aurora-purple);
+            margin-bottom: 20px;
+        }
+
+        .agent-header h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .agent-header p {
+            font-size: 17px;
+            color: #4B5563;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .agent-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .agent-card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 40px rgba(0, 184, 212, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at center, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(124, 77, 255, 0.12);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .agent-card .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+            border-radius: 12px;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .agent-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-primary);
+        }
+
+        .agent-card h3 i {
+            color: var(--aurora-cyan);
+        }
+
+        .agent-card p {
+            font-size: 15px;
+            color: #4B5563;
+            line-height: 1.8;
+        }
+
+        .agent-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .agent-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #4B5563;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .agent-card ul li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue));
+            border-radius: 50%;
+            color: white;
+            font-size: 12px;
+        }
+
+        /* Feature Cards Grid */
+        .features {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 17px;
+            color: #4B5563;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: all 0.5s ease;
+        }
+
+        .feature-card:nth-child(2),
+        .feature-card:nth-child(4) {
+            margin-top: 60px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px 24px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            background: var(--text-primary);
+            aspect-ratio: 16/9;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--aurora-cyan) 0%, var(--aurora-blue) 50%, var(--aurora-purple) 100%);
+            color: white;
+        }
+
+        .play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .play-btn i {
+            font-size: 32px;
+            color: var(--aurora-cyan);
+            margin-left: 4px;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Custom Model Section */
+        .custom-model {
+            padding: 120px 0;
+        }
+
+        .model-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 24px;
+            padding: 0;
+            display: flex;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .model-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .model-card:hover::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 26px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 1;
+        }
+
+        .model-card-content {
+            flex: 1;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .model-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .model-card p {
+            font-size: 14px;
+            color: #4B5563;
+            line-height: 1.7;
+        }
+
+        .model-card-image {
+            width: 140px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .model-card-image img {
+            max-height: 80%;
+            object-fit: contain;
+        }
+
+        /* Channel Section */
+        .channels {
+            padding: 120px 0;
+            background: linear-gradient(180deg, 
+                rgba(0, 212, 170, 0.03) 0%, 
+                rgba(124, 77, 255, 0.05) 50%,
+                rgba(0, 184, 212, 0.03) 100%);
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .channel-card {
+            background: linear-gradient(180deg, #FFF 0%, #FAFFFE 50%, #F5F0FF 100%);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border: 2px solid white;
+            box-shadow: 8px 8px 40px rgba(0, 212, 170, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .channel-card:hover {
+            border-color: rgba(124, 77, 255, 0.3);
+            box-shadow: none;
+            box-shadow: inset 10px 10px 50px 3px rgba(0, 212, 170, 0.06),
+                        inset -10px -10px 50px 3px rgba(124, 77, 255, 0.06);
+        }
+
+        .channel-card:hover .channel-icon {
+            transform: scale(1.2) translate(-10px, -10px);
+        }
+
+        .channel-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .channel-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .channel-content p {
+            font-size: 14px;
+            color: #4B5563;
+            line-height: 1.7;
+        }
+
+        /* VS Section */
+        .comparison {
+            padding: 120px 0;
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .comparison-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .comparison-header .old {
+            text-align: right;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        .comparison-header .vs {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .comparison-header .new {
+            text-align: left;
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: linear-gradient(180deg, 
+                rgba(0, 212, 170, 0.05) 0%, 
+                rgba(124, 77, 255, 0.08) 50%,
+                rgba(0, 184, 212, 0.05) 100%);
+        }
+
+        .about-header {
+            margin-bottom: 60px;
+        }
+
+        .about-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .about-header .en {
+            font-weight: 300;
+            font-size: 36px;
+        }
+
+        .about-intro {
+            font-size: 16px;
+            line-height: 2;
+            color: #374151;
+            max-width: 900px;
+            margin-bottom: 60px;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .about-card:hover::before {
+            opacity: 1;
+        }
+
+        .about-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .about-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+        }
+
+        .about-card .en {
+            font-weight: 300;
+            font-size: 16px;
+        }
+
+        .about-card p {
+            font-size: 15px;
+            color: #4B5563;
+            line-height: 1.8;
+            margin-top: 16px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 120px 0;
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stats-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .stats-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: #4B5563;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: linear-gradient(180deg, #FFF 0%, #FAFFFE 50%, #F5F0FF 100%);
+            border-radius: 24px;
+            padding: 32px;
+            border: 2px solid white;
+            box-shadow: 8px 8px 40px rgba(0, 212, 170, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(124, 77, 255, 0.3);
+            box-shadow: inset 10px 10px 50px 3px rgba(0, 212, 170, 0.06),
+                        inset -10px -10px 50px 3px rgba(124, 77, 255, 0.06);
+        }
+
+        .stat-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #374151;
+        }
+
+        .stat-card h3 img {
+            width: 28px;
+            height: 28px;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .stat-unit {
+            font-size: 28px;
+            color: var(--aurora-cyan);
+        }
+
+        .stats-footer {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .stats-footer h4 {
+            font-size: 20px;
+            font-weight: 400;
+            color: #4B5563;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            padding: 120px 0;
+            background: linear-gradient(180deg, 
+                rgba(0, 212, 170, 0.03) 0%, 
+                rgba(124, 77, 255, 0.05) 50%,
+                rgba(0, 184, 212, 0.03) 100%);
+        }
+
+        .roadmap-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .roadmap-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+            padding: 40px 0;
+        }
+
+        .roadmap-step {
+            flex: 1;
+            text-align: center;
+            padding: 32px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.4s ease;
+        }
+
+        .roadmap-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .roadmap-step .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue), var(--aurora-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .roadmap-step h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .roadmap-step p {
+            color: #4B5563;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Footer / CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, var(--text-primary) 0%, #2D1B4E 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 170, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(124, 77, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .footer-cta .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            flex: 1;
+            color: white;
+        }
+
+        .footer-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-content p {
+            font-size: 18px;
+            line-height: 2;
+            opacity: 0.85;
+        }
+
+        .footer-content .highlight-list {
+            margin-top: 24px;
+        }
+
+        .footer-content .highlight-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .footer-content .highlight-list li i {
+            color: var(--aurora-cyan);
+        }
+
+        .footer-form {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 48px;
+            min-width: 400px;
+            backdrop-filter: blur(20px);
+        }
+
+        .footer-form .form-logo {
+            height: 40px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            font-size: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-row input {
+            flex: 1;
+        }
+
+        .form-row .btn-code {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-blue), var(--aurora-purple));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            box-shadow: 0 8px 30px rgba(0, 212, 170, 0.4);
+        }
+
+        .form-agreement {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .form-agreement a {
+            color: var(--aurora-cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-card:nth-child(2),
+            .feature-card:nth-child(4) {
+                margin-top: 0;
+            }
+
+            .model-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .channel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .comparison-header .old {
+                text-align: center;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-cta .container {
+                flex-direction: column;
+            }
+
+            .footer-form {
+                min-width: 100%;
+            }
+
+            .results-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-features {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-steps {
+                flex-direction: column;
+            }
+
+            .guarantee-icons {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Emoji Icons */
+        .emoji-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body class="aurora-bg">
+    <!-- Header -->
+    <header>
+        <div class="nav-bar">
+            <a class="brand" href="#home">
+                <img src="media/zbot-logo-cropped.svg" alt="Zbot" class="brand-logo">
+            </a>
+            <nav class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#ai-agent">AI智能体</a>
+                <a href="#pricing">按效果付费</a>
+                <a href="#products">核心产品</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="btn-outline" href="#contact">免费试用</a>
+                <a class="btn-primary" href="#contact">预约Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+               
+                <h1>
+                    <span class="gradient-text">AI Agent</span> 外贸智能体
+                </h1>
+                <p class="hero-subtitle"> 精准获客 · 效果付费</p>
+                <p class="hero-desc">
+                    非传统SaaS工具，而是能<strong>自主找客户，发开发信</strong><br>
+                    自主跟进<strong>的AI外贸员</strong>
+                </p>
+                <div class="hero-cta">
+                    <a class="btn-primary btn-lg" href="#contact">
+                        <i class="fa-solid fa-rocket"></i>
+                        立即体验
+                    </a>
+                    <a class="btn-outline btn-lg" href="#ai-agent">
+                        <i class="fa-solid fa-play-circle"></i>
+                        了解更多
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img class="hero-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Agent">
+            </div>
+        </div>
+    </section>
+
+    <!-- 按效果付费区块 -->
+    <section class="pay-for-results" id="pricing">
+        <div class="container fade-in">
+            <div class="results-header">
+                <h2><span class="gradient-text">效果付费</span> </h2>
+                <p>保证效果，我们才收取费用<br>让外贸企业更安心使用AI</p>
+            </div>
+            <div class="results-cards">
+                <div class="result-card">
+                    <div class="icon">🎯</div>
+                    <h3>精准定位</h3>
+                    <p>AI智能分析您的产品和目标市场，精准锁定最有价值的潜在客户企业及其关键决策人</p>
+                </div>
+                <div class="result-card highlight">
+                    <div class="icon">💰</div>
+                    <h3 class="gradient-text">按效果付费</h3>
+                    <p>只有当精准目标客户的工作人员成功添加您为好友时，才收取相应费用，<strong>无效果不收费</strong></p>
+                </div>
+                <div class="result-card">
+                    <div class="icon">🛡️</div>
+                    <h3>保障</h3>
+                    <p>不用担心AI工具"不好用"的风险，我们用效果说话，让您的每一分投入都看得见回报</p>
+                </div>
+            </div>
+            <div class="guarantee-banner">
+                <h3><i class="fa-solid fa-shield-check"></i> 我们的承诺</h3>
+                <p>Zbot不同于传统SaaS按月收费模式，我们与您的成功深度绑定<br>只有真正为您带来精准客户，我们才获得收益</p>
+                <div class="guarantee-icons">
+                    <div class="guarantee-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>精准客户加好友才收费</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>无效触达不收取任何费用</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>透明可追踪的效果报告</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Agent 智能体区块 -->
+    <section class="ai-agent-section" id="ai-agent">
+        <div class="container fade-in">
+            <div class="agent-header">
+                <div class="tag"><i class="fa-solid fa-microchip"></i> AI Agent Technology</div>
+                <h2>什么是 <span class="gradient-text">AI Agent</span> 外贸智能体？</h2>
+                <p>不是简单的自动化工具，而是能够自主思考、规划、执行的新一代AI智能体<br>像一位24小时在线的资深外贸专家，主动为您开拓全球市场</p>
+            </div>
+            <div class="agent-features">
+                <div class="agent-card">
+                    <div class="number">01</div>
+                    <h3><i class="fa-solid fa-brain"></i> 自主思考决策</h3>
+                    <p>不同于传统工具需要人工设定每一步，AI Agent能够理解您的业务目标，自主分析市场情况，制定最优获客策略</p>
+                    <ul>
+                        <li>深度理解产品特性和目标市场</li>
+                        <li>智能分析客户画像和采购意向</li>
+                        <li>自动调整策略优化获客效果</li>
+                    </ul>
+                </div>
+                <div class="agent-card">
+                    <div class="number">02</div>
+                    <h3><i class="fa-solid fa-robot"></i> 自主执行任务</h3>
+                    <p>AI Agent可以独立完成从客户发现、背景调研、内容生成到精准触达的全流程，无需人工干预</p>
+                    <ul>
+                        <li>7×24小时不间断工作</li>
+                        <li>多语种、多时区智能适配</li>
+                        <li>个性化内容自动生成</li>
+                    </ul>
+                </div>
+                <div class="agent-card">
+                    <div class="number">03</div>
+                    <h3><i class="fa-solid fa-arrows-rotate"></i> 持续学习进化</h3>
+                    <p>每一次交互都在学习，每一个反馈都在优化，AI Agent会越来越懂您的业务，效果持续提升</p>
+                    <ul>
+                        <li>根据反馈自动优化策略</li>
+                        <li>积累行业专属知识库</li>
+                        <li>模型能力持续迭代升级</li>
+                    </ul>
+                </div>
+                <div class="agent-card">
+                    <div class="number">04</div>
+                    <h3><i class="fa-solid fa-handshake"></i> 效果付费绑定</h3>
+                    <p>我们的AI Agent与您的成功深度绑定，只有带来真实的精准客户，我们才收取费用</p>
+                    <ul>
+                        <li>按加好友效果计费</li>
+                        <li>实时数据透明可查</li>
+                        <li>零风险、高回报</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="features" id="products">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2><span class="gradient-text">核心能力</span></h2>
+                <p>AI Agent 驱动的全链路外贸获客解决方案</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="定制化模型">
+                    <div class="feature-card-overlay">
+                        <h3>出海分析与策略制定</h3>
+                        <p>Oversea Trade <br>Consulting</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="全获客渠道">
+                    <div class="feature-card-overlay">
+                        <h3>AI智能获客</h3>
+                        <p>AI Inteligence<br>& Lead Generation</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="自动化营销">
+                    <div class="feature-card-overlay">
+                        <h3>AI多渠道触达</h3>
+                        <p>AI Outreach<br>Automation</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=600&q=80" alt="持续学习进化">
+                    <div class="feature-card-overlay">
+                        <h3>成果追踪与优化</h3>
+                        <p>AI Optimization<br> & Dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container fade-in">
+            <div class="video-wrapper">
+                <div class="video-placeholder">
+                    <div class="play-btn">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Model Section -->
+    <section class="custom-model">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2><span class="gradient-text">定制化</span>企业模型</h2>
+            </div>
+            <div class="model-cards">
+                <div class="model-card">
+                    <div class="model-card-content">
+                        <h3>找客户模型定制</h3>
+                        <p>深度分析您的产品、典型客户，生成对应的找客户模型。</p>
+                    </div>
+                    <div class="model-card-image">
+                        <div class="emoji-icon">🤖</div>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <div class="model-card-content">
+                        <h3>客户画像定制</h3>
+                        <p>根据您的判定持续迭代优化系统对客户画像的理解。</p>
+                    </div>
+                    <div class="model-card-image">
+                        <div class="emoji-icon">👤</div>
+                    </div>
+                </div>
+                <div class="model-card">
+                    <div class="model-card-content">
+                        <h3>营销内容定制</h3>
+                        <p>根据产品信息、公司信息、目标企业信息个性化生成营销内容。</p>
+                    </div>
+                    <div class="model-card-image">
+                        <div class="emoji-icon">💡</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Channel Section -->
+    <section class="channels">
+        <div class="container fade-in">
+            <div class="section-header">
+                <h2><span class="gradient-text">全渠道</span>获客</h2>
+            </div>
+            <div class="channel-grid">
+                <div class="channel-card">
+                    <div class="emoji-icon" style="font-size: 64px;">🎯</div>
+                    <div class="channel-content">
+                        <h3>基于画像精准获取</h3>
+                        <p>分析所在行业、产品应用场景，精筛制造商、经销商、品牌商、零售商、批发商、服务商。</p>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="emoji-icon" style="font-size: 64px;">📊</div>
+                    <div class="channel-content">
+                        <h3>关键联系人数据</h3>
+                        <p>定制化选择目标职位，海外60多家付费数据库链接，获取非公开关键联系人数据。</p>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="emoji-icon" style="font-size: 64px;">🌐</div>
+                    <div class="channel-content">
+                        <h3>全面渠道海量信息</h3>
+                        <p>搜索引擎、海关数据、社交媒体、地图搜索、展会数据、算法筛选，每日新增数据。</p>
+                    </div>
+                </div>
+                <div class="channel-card">
+                    <div class="emoji-icon" style="font-size: 64px;">📈</div>
+                    <div class="channel-content">
+                        <h3>持续迭代越来越准</h3>
+                        <p>模型根据算法和人工反馈持续优化和升级迭代，持续拓宽渠道、越来越准。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="container fade-in">
+            <div class="comparison-header">
+                <h2 class="old">传统人工营销</h2>
+                <span class="vs gradient-text">VS</span>
+                <h2 class="new"><span class="gradient-text">Zbot</span> AI Agent</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container fade-in">
+            <div class="about-header">
+                <h1>关于我们 <span class="en gradient-text">About Us</span></h1>
+            </div>
+            <p class="about-intro">
+                智渤科技专注于赋能企业出海外贸的专业 AI 咨询，并提供开拓海外市场的专属定制策略。致力于用 AI Agent 智能体代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。产品以 <strong>AI Agent 智能体</strong>为核心，通过构建全链路营销自动化"执行-反馈-迭代"机制，持续积累数据，打造持续进化的企业专属AI。我们采用<strong>按效果付费</strong>的创新模式，精准客户加好友才收费，让企业零风险使用AI。
+            </p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <h2>技术团队 <span class="en gradient-text">Technical Team</span></h2>
+                    <p>核心技术由多伦多大学人工智能实验室联合研发，并获得多位北美高校教授和行业科学家顾问指导，深度参与技术研究与战略方向制定。团队核心成员来自 Google、LinkedIn、IBM、Samsung、S&P Global 等全球科技公司，并融合资深外贸品牌营销专家与外籍顾问。</p>
+                </div>
+                <div class="about-card">
+                    <h2>服务团队 <span class="en gradient-text">Service Team</span></h2>
+                    <p>我们不仅精通 AI 前沿技术，也深耕全球贸易与品牌出海，用国际视野 + 本地洞察 + 技术驱动帮助企业实现全球增长。海外B端C端数据覆盖超过200个国家。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container fade-in">
+            <div class="stats-header">
+                <h2><span class="gradient-text">Zbot</span> 效果</h2>
+            </div>
+            <p class="stats-subtitle">无限进化 从现在开始</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>🔄 无限进化</h3>
+                    <div class="stat-number">
+                        <span class="gradient-text">∞</span>
+                        <span class="stat-unit">+</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>🚀 获客效率提升</h3>
+                    <div class="stat-number">
+                        <span class="gradient-text">10</span>
+                        <span class="stat-unit">x</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>📈 营销企业转化率</h3>
+                    <div class="stat-number">
+                        <span class="gradient-text">8</span>
+                        <span class="stat-unit">%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <h3>👥 新招聘员工</h3>
+                    <div class="stat-number">
+                        <span class="gradient-text">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-footer">
+                <h4>使用越多，效果越是进化</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap">
+        <div class="container fade-in">
+            <div class="roadmap-header">
+                <h1>服务流程 <span class="gradient-text" style="font-weight: 300;">Process</span></h1>
+            </div>
+            <div class="roadmap-steps">
+                <div class="roadmap-step">
+                    <div class="step-number">1</div>
+                    <h3>需求咨询</h3>
+                    <p>建立专属对接团队<br>深入业务分析</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="step-number">2</div>
+                    <h3>市场分析</h3>
+                    <p>精准多元客户画像<br>产品分析</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="step-number">3</div>
+                    <h3>方案定制</h3>
+                    <p>自定拆解目标客群<br>AI Agent 智能部署</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="step-number">4</div>
+                    <h3>成果追踪</h3>
+                    <p>实时 KPI 监控<br>按效果付费结算</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="step-number">5</div>
+                    <h3>流程优化</h3>
+                    <p>分析调整策略<br>完美迭代</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <footer class="footer-cta" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h1>立即体验 <span class="gradient-text">AI Agent</span></h1>
+                <p>
+                    专业顾问实时为您提供一对一VIP服务
+                </p>
+                <ul class="highlight-list" style="list-style: none; padding: 0;">
+                    <li><i class="fa-solid fa-circle-check"></i> 7亿+ 全球数据数据库</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 98% 决策人识别准确率</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 100+ 全球覆盖国家地区</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 按效果付费，精准客户加好友才收费</li>
+                    <li><i class="fa-solid fa-circle-check"></i> AI Agent 智能体，真正的自主获客</li>
+                </ul>
+            </div>
+            <div class="footer-form">
+                <img src="media/zbot-logo-sm.svg" alt="Zbot" class="form-logo">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="请输入完整的公司/单位名称" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="请输入手机号" required>
+                    </div>
+                    <div class="form-group form-row">
+                        <input type="text" placeholder="输入验证码">
+                        <button type="button" class="btn-code">获取验证码</button>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-submit">立即开通 · 按效果付费</button>
+                    </div>
+                    <div class="form-agreement">
+                        <input type="checkbox" checked>
+                        <span>我同意 <a href="#">服务协议</a> 和 <a href="#">隐私政策</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.background = 'transparent';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
