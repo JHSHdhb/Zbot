@@ -106,6 +106,7 @@
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(40px);
             box-shadow: var(--shadow-soft);
+            flex-wrap: nowrap;
         }
 
         .brand {
@@ -184,6 +185,100 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(124, 77, 255, 0.4);
+        }
+
+        /* Social modal */
+        .social-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 1500;
+        }
+
+        .social-modal.active {
+            display: flex;
+        }
+
+        .social-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.15);
+            max-width: 420px;
+            width: 100%;
+            padding: 28px;
+            position: relative;
+            text-align: center;
+        }
+
+        .social-card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .social-card p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .social-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.15), rgba(124, 77, 255, 0.1));
+            color: var(--aurora-cyan);
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .social-qr {
+            width: 220px;
+            height: 220px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        .wechat-id {
+            font-weight: 700;
+            margin-top: 8px;
+            color: var(--text-primary);
+        }
+
+        .social-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-actions .btn-outline {
+            padding: 8px 16px;
+        }
+
+        .social-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        body.modal-open {
+            overflow: hidden;
         }
 
         /* Hero Section */
@@ -1418,8 +1513,24 @@
                 grid-template-columns: 1fr;
             }
 
+            .nav-bar {
+                padding: 8px 16px;
+                height: auto;
+                gap: 12px;
+                flex-wrap: nowrap;
+            }
+
             .nav-actions {
-                display: none;
+                display: flex;
+                width: auto;
+                justify-content: flex-end;
+                flex-shrink: 0;
+            }
+
+            .btn-outline,
+            .btn-primary {
+                padding: 10px 16px;
+                font-size: 14px;
             }
         }
 
@@ -1458,8 +1569,7 @@
                 <a href="#contact">联系我们</a>
             </nav>
             <div class="nav-actions">
-                <a class="btn-outline" href="#contact">免费试用</a>
-                <a class="btn-primary" href="#contact">预约Demo</a>
+                <a class="btn-primary" href="#contact" data-open-social>预约Demo</a>
             </div>
         </div>
     </header>
@@ -1490,51 +1600,6 @@
             </div>
             <div class="hero-visual">
                 <img class="hero-image" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Agent">
-            </div>
-        </div>
-    </section>
-
-    <!-- 按效果付费区块 -->
-    <section class="pay-for-results" id="pricing">
-        <div class="container fade-in">
-            <div class="results-header">
-                <h2><span class="gradient-text">效果付费</span> </h2>
-                <p>保证效果，我们才收取费用<br>让外贸企业更安心使用AI</p>
-            </div>
-            <div class="results-cards">
-                <div class="result-card">
-                    <div class="icon">🎯</div>
-                    <h3>精准定位</h3>
-                    <p>AI智能分析您的产品和目标市场，精准锁定最有价值的潜在客户企业及其关键决策人</p>
-                </div>
-                <div class="result-card highlight">
-                    <div class="icon">💰</div>
-                    <h3 class="gradient-text">按效果付费</h3>
-                    <p>只有当精准目标客户的工作人员成功添加您为好友时，才收取相应费用，<strong>无效果不收费</strong></p>
-                </div>
-                <div class="result-card">
-                    <div class="icon">🛡️</div>
-                    <h3>保障</h3>
-                    <p>不用担心AI工具"不好用"的风险，我们用效果说话，让您的每一分投入都看得见回报</p>
-                </div>
-            </div>
-            <div class="guarantee-banner">
-                <h3><i class="fa-solid fa-shield-check"></i> 我们的承诺</h3>
-                <p>Zbot不同于传统SaaS按月收费模式，我们与您的成功深度绑定<br>只有真正为您带来精准客户，我们才获得收益</p>
-                <div class="guarantee-icons">
-                    <div class="guarantee-item">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>精准客户加好友才收费</span>
-                    </div>
-                    <div class="guarantee-item">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>无效触达不收取任何费用</span>
-                    </div>
-                    <div class="guarantee-item">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>透明可追踪的效果报告</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1592,6 +1657,53 @@
         </div>
     </section>
 
+    <!-- 按效果付费区块 -->
+    <section class="pay-for-results" id="pricing">
+        <div class="container fade-in">
+            <div class="results-header">
+                <h2><span class="gradient-text">服务保障</span> </h2>
+                <p>让外贸企业更安心使用AI</p>
+            </div>
+            <div class="results-cards">
+                <div class="result-card">
+                    <div class="icon">🎯</div>
+                    <h3>精准定位</h3>
+                    <p>AI智能分析您的产品和目标市场，精准锁定最有价值的潜在客户企业及其关键决策人，我们提供准确率保障</p>
+                </div>
+                <div class="result-card highlight">
+                    <div class="icon">💰</div>
+                    <h3 class="gradient-text">按效果付费</h3>
+                    <p>触达部分采用按建联效果计费的方式</p>
+                </div>
+                <div class="result-card">
+                    <div class="icon">🛡️</div>
+                    <h3>保障</h3>
+                    <p>不同于传统SAAS模式，我们的客户经理和外贸运营专员将全程参与客户档案建立，AI模型调校，策略复盘</p>
+                </div>
+            </div>
+            <div class="guarantee-banner">
+                <h3><i class="fa-solid fa-shield-check"></i> 我们的承诺</h3>
+                <p>Zbot不同于传统SaaS按月收费模式，我们与您的成功深度绑定<br>只有真正为您带来精准客户，我们才获得收益</p>
+                <div class="guarantee-icons">
+                    <div class="guarantee-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>精准客户加好友才收费</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>专属客户经理服务</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>透明可追踪的效果报告</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
     <!-- Feature Cards -->
     <section class="features" id="products">
         <div class="container fade-in">
@@ -1645,93 +1757,8 @@
         </div>
     </section>
 
-    <!-- Custom Model Section -->
-    <section class="custom-model">
-        <div class="container fade-in">
-            <div class="section-header">
-                <h2><span class="gradient-text">定制化</span>企业模型</h2>
-            </div>
-            <div class="model-cards">
-                <div class="model-card">
-                    <div class="model-card-content">
-                        <h3>找客户模型定制</h3>
-                        <p>深度分析您的产品、典型客户，生成对应的找客户模型。</p>
-                    </div>
-                    <div class="model-card-image">
-                        <div class="emoji-icon">🤖</div>
-                    </div>
-                </div>
-                <div class="model-card">
-                    <div class="model-card-content">
-                        <h3>客户画像定制</h3>
-                        <p>根据您的判定持续迭代优化系统对客户画像的理解。</p>
-                    </div>
-                    <div class="model-card-image">
-                        <div class="emoji-icon">👤</div>
-                    </div>
-                </div>
-                <div class="model-card">
-                    <div class="model-card-content">
-                        <h3>营销内容定制</h3>
-                        <p>根据产品信息、公司信息、目标企业信息个性化生成营销内容。</p>
-                    </div>
-                    <div class="model-card-image">
-                        <div class="emoji-icon">💡</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Channel Section -->
-    <section class="channels">
-        <div class="container fade-in">
-            <div class="section-header">
-                <h2><span class="gradient-text">全渠道</span>获客</h2>
-            </div>
-            <div class="channel-grid">
-                <div class="channel-card">
-                    <div class="emoji-icon" style="font-size: 64px;">🎯</div>
-                    <div class="channel-content">
-                        <h3>基于画像精准获取</h3>
-                        <p>分析所在行业、产品应用场景，精筛制造商、经销商、品牌商、零售商、批发商、服务商。</p>
-                    </div>
-                </div>
-                <div class="channel-card">
-                    <div class="emoji-icon" style="font-size: 64px;">📊</div>
-                    <div class="channel-content">
-                        <h3>关键联系人数据</h3>
-                        <p>定制化选择目标职位，海外60多家付费数据库链接，获取非公开关键联系人数据。</p>
-                    </div>
-                </div>
-                <div class="channel-card">
-                    <div class="emoji-icon" style="font-size: 64px;">🌐</div>
-                    <div class="channel-content">
-                        <h3>全面渠道海量信息</h3>
-                        <p>搜索引擎、海关数据、社交媒体、地图搜索、展会数据、算法筛选，每日新增数据。</p>
-                    </div>
-                </div>
-                <div class="channel-card">
-                    <div class="emoji-icon" style="font-size: 64px;">📈</div>
-                    <div class="channel-content">
-                        <h3>持续迭代越来越准</h3>
-                        <p>模型根据算法和人工反馈持续优化和升级迭代，持续拓宽渠道、越来越准。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section class="comparison">
-        <div class="container fade-in">
-            <div class="comparison-header">
-                <h2 class="old">传统人工营销</h2>
-                <span class="vs gradient-text">VS</span>
-                <h2 class="new"><span class="gradient-text">Zbot</span> AI Agent</h2>
-            </div>
-        </div>
-    </section>
+    
+    
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -1755,48 +1782,7 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container fade-in">
-            <div class="stats-header">
-                <h2><span class="gradient-text">Zbot</span> 效果</h2>
-            </div>
-            <p class="stats-subtitle">无限进化 从现在开始</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>🔄 无限进化</h3>
-                    <div class="stat-number">
-                        <span class="gradient-text">∞</span>
-                        <span class="stat-unit">+</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <h3>🚀 获客效率提升</h3>
-                    <div class="stat-number">
-                        <span class="gradient-text">10</span>
-                        <span class="stat-unit">x</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <h3>📈 营销企业转化率</h3>
-                    <div class="stat-number">
-                        <span class="gradient-text">8</span>
-                        <span class="stat-unit">%</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <h3>👥 新招聘员工</h3>
-                    <div class="stat-number">
-                        <span class="gradient-text">0</span>
-                    </div>
-                </div>
-            </div>
-            <div class="stats-footer">
-                <h4>使用越多，效果越是进化</h4>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Roadmap Section -->
     <section class="roadmap">
         <div class="container fade-in">
@@ -1832,6 +1818,24 @@
             </div>
         </div>
     </section>
+
+    <div class="social-modal" id="socialModal" role="dialog" aria-modal="true" aria-labelledby="socialModalTitle" aria-hidden="true">
+        <div class="social-card">
+            <button class="social-close" type="button" data-close-social aria-label="关闭弹窗">×</button>
+            <div class="social-badge">
+                <i class="fa-brands fa-weixin"></i>
+                微信咨询
+            </div>
+            <h3 id="socialModalTitle">预约 Demo · 添加企业微信</h3>
+            <p>扫码添加企业顾问微信，备注“公司 + 职位”，1 对 1 预约演示。</p>
+            <img src="media/wechat-qr.png" alt="微信二维码" class="social-qr">
+            <div class="wechat-id">微信号：327803155</div>
+            <div class="social-actions">
+                <a class="btn-outline" href="weixin://">打开微信</a>
+                <button class="btn-primary" type="button" data-close-social>关闭</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer CTA -->
     <footer class="footer-cta" id="contact">
@@ -1894,7 +1898,7 @@
         });
 
         // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]:not([data-open-social])').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1905,6 +1909,49 @@
                     });
                 }
             });
+        });
+
+        // Social modal
+        const socialModal = document.getElementById('socialModal');
+        const socialTriggers = document.querySelectorAll('[data-open-social]');
+        const socialClosers = document.querySelectorAll('[data-close-social]');
+
+        const openSocialModal = () => {
+            if (!socialModal) return;
+            socialModal.classList.add('active');
+            socialModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('modal-open');
+        };
+
+        const closeSocialModal = () => {
+            if (!socialModal) return;
+            socialModal.classList.remove('active');
+            socialModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+        };
+
+        socialTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                openSocialModal();
+            });
+        });
+
+        socialClosers.forEach(closer => {
+            closer.addEventListener('click', closeSocialModal);
+        });
+
+        socialModal?.addEventListener('click', (e) => {
+            if (e.target === socialModal) {
+                closeSocialModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && socialModal?.classList.contains('active')) {
+                closeSocialModal();
+            }
         });
 
         // Header scroll effect

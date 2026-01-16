@@ -97,3 +97,76 @@ const setupNav = () => {
 };
 
 document.addEventListener('DOMContentLoaded', setupNav);
+
+const setupWeChatQrModal = () => {
+    const modalId = 'wechatQrModal';
+    if (document.getElementById(modalId)) return;
+
+    const modal = document.createElement('div');
+    modal.id = modalId;
+    modal.className = 'wechat-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'wechatQrModalTitle');
+    modal.setAttribute('aria-hidden', 'true');
+
+    modal.innerHTML = `
+        <div class="wechat-modal__backdrop" data-wechat-qr-close></div>
+        <div class="wechat-modal__panel" role="document">
+            <button type="button" class="wechat-modal__close" aria-label="关闭" data-wechat-qr-close>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="wechat-modal__content">
+                <div class="wechat-modal__header">
+                    <i class="fa-brands fa-weixin wechat-modal__icon" aria-hidden="true"></i>
+                    <h2 class="wechat-modal__title" id="wechatQrModalTitle">微信</h2>
+                </div>
+                <p class="wechat-modal__desc">添加企业顾问微信，备注“公司+职位”，即可加入行业交流群，获取实时动态。</p>
+                <img src="media/wechat-qr.png" alt="企业微信二维码" class="wechat-modal__qr" loading="lazy" decoding="async"/>
+                <p class="wechat-modal__cta">扫码添加企业微信</p>
+            </div>
+        </div>
+    `.trim();
+
+    document.body.appendChild(modal);
+
+    let lastFocused = null;
+
+    const openModal = () => {
+        if (modal.classList.contains('is-open')) return;
+        lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('is-modal-open');
+        modal.querySelector('.wechat-modal__close')?.focus?.();
+    };
+
+    const closeModal = () => {
+        if (!modal.classList.contains('is-open')) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('is-modal-open');
+        lastFocused?.focus?.();
+    };
+
+    document.addEventListener('click', (event) => {
+        const trigger = event.target.closest('.wechat-qr-trigger');
+        if (!trigger) return;
+        event.preventDefault();
+        openModal();
+    });
+
+    modal.addEventListener('click', (event) => {
+        const closeTarget = event.target.closest('[data-wechat-qr-close]');
+        if (!closeTarget) return;
+        event.preventDefault();
+        closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        closeModal();
+    });
+};
+
+document.addEventListener('DOMContentLoaded', setupWeChatQrModal);
