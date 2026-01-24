@@ -122,7 +122,7 @@ const setupWeChatQrModal = () => {
                     <h2 class="wechat-modal__title" id="wechatQrModalTitle">微信</h2>
                 </div>
                 <p class="wechat-modal__desc">添加企业顾问微信，备注“公司+职位”，即可加入行业交流群，获取实时动态。</p>
-                <img src="media/wechat-qr.png" alt="企业微信二维码" class="wechat-modal__qr" loading="lazy" decoding="async"/>
+	                <img src="media/wechat.jpg" alt="企业微信二维码" class="wechat-modal__qr" loading="lazy" decoding="async"/>
                 <p class="wechat-modal__cta">扫码添加企业微信</p>
             </div>
         </div>
