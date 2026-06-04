@@ -40,6 +40,25 @@
     "allowedWording": "May link as a public founder reference. Do not state employer history unless public content is verified during implementation."
   },
   {
+    "id": "founder-team-public-career-employers",
+    "claim": "Founder team public career profiles show IBM, Samsung, and S&P Global related work experience",
+    "source": "user-approved public LinkedIn references",
+    "requiredSources": [
+      "https://www.linkedin.com/in/nian-sherry-liu-07a7a5138/",
+      "https://www.linkedin.com/in/yusong-lin/"
+    ],
+    "sourceType": "user-approved public profile claim",
+    "allowedPages": [
+      "about-us.html",
+      "about-zbot-global.html"
+    ],
+    "allowedSnippets": [
+      "创始团队成员的公开职业资料显示，曾有 IBM、Samsung、S&P Global 等企业相关工作经历。",
+      "创始团队成员的公开职业资料显示，曾有 IBM、Samsung、S&amp;P Global 等企业相关工作经历。"
+    ],
+    "allowedWording": "May state this exact employer-history sentence as approved by the user. Do not add employer logos, partnership wording, authorization wording, or product-performance claims."
+  },
+  {
     "id": "public-research-scholar-profile",
     "claim": "Public research reference: Google Scholar profile",
     "source": "https://scholar.google.com/citations?hl=zh-CN&user=auhnI1MAAAAJ",
