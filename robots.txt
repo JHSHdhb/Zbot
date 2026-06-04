@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /demo.html
+Disallow: /zbot-landing.html
+Disallow: /zbot-linkedin-landing.html
 
-Sitemap: https://zbotglobal.com/sitemap.xml
+Sitemap: https://www.zbotglobal.com/sitemap.xml

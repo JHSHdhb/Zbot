@@ -3,12 +3,12 @@
     "contact": "Contact Us"
   },
   "hero": {
-    "badge": "Limited Offer: 30-70% Off LinkedIn Official Premium",
-    "title": "LinkedIn Official Premium<br><span class=\"text-aurora-300\">Only 30-70%</span>, Activate Now",
+    "badge": "Limited Offer: LinkedIn membership consultation",
+    "title": "LinkedIn membership options<br><span class=\"text-aurora-300\">Reviewed by need</span>",
     "subtitle": "Sales Navigator · Premium · Recruiter Lite",
-    "description": "Official Channel · Safe & Compliant · Save 50-70%",
+    "description": "Platform policy review · Compliance assessment · Cost comparison",
     "cta": "Contact Us Now",
-    "feature1": "Official Activation",
+    "feature1": "Policy Review",
     "feature2": "No Password Required",
     "feature3": "Save 50-70% Yearly",
     "priceCompareTitle": "Sales Navigator Core: Official vs Zbot Price",
@@ -22,7 +22,7 @@
     "zbotPriceUnit": "/month",
     "savePercent": "Save 70%",
     "saveAmount": "$840+/year",
-    "officialActivation": "Official",
+    "officialActivation": "Policy Review",
     "samePermissions": "Same Features",
     "priceDisclaimer": "* Prices vary with exchange rate, contact for exact quote",
     "ctaButton": "Get Discount Quote",
@@ -43,18 +43,18 @@
   },
   "solution": {
     "title": "How Zbot Saves You Money & Stays Compliant?",
-    "subtitle": "30-70% Off · Official Channel · 100% Safe",
+    "subtitle": "Option review · Platform policy review · Compliance assessment",
     "card1Badge": "Core Advantage",
-    "card1Title": "Official Membership at 30-70% Off",
+    "card1Title": "LinkedIn membership consultation",
     "card1Item1": "Sales Navigator Core from <strong class=\"text-aurora-700\">$50/month</strong> (Official $180+)",
     "card1Item2": "Business Premium <strong class=\"text-aurora-700\">$139/year</strong> (Official $800-1100)",
     "card1Item3": "Recruiter Lite <strong class=\"text-aurora-700\">$555/year</strong> (Official $1600-2200)",
-    "card1Item4": "Official activation, identical features",
-    "card2Title": "100% Official Channel, Absolutely Safe",
-    "card2Item1": "Activated through LinkedIn authorized channels",
+    "card1Item4": "Options are explained under platform rules; no third-party outcome is promised",
+    "card2Title": "Platform policy review and compliance assessment",
+    "card2Item1": "Available options are explained under current LinkedIn rules",
     "card2Item2": "No account password required",
     "card2Item3": "Verifiable in LinkedIn backend",
-    "card2Item4": "Zero risk of account suspension",
+    "card2Item4": "No account, platform, or third-party review outcome is promised",
     "card3Title": "Enterprise & Team Support",
     "card3Item1": "Teams of 10, 50, 100+ can all activate",
     "card3Item2": "Unified management, controlled costs",
@@ -97,7 +97,7 @@
     "forever": "Permanent Badge",
     "hotTag": "Most Popular",
     "priceNote": "<strong>Sales Navigator Core pricing:</strong> Prices vary with USD exchange rate",
-    "officialNote": "<strong>Official activation:</strong> All links from LinkedIn.com"
+    "officialNote": "<strong>Platform rules:</strong> Current public LinkedIn.com rules apply"
   },
   "tips": {
     "title": "LinkedIn Account Protection Guide",
@@ -107,17 +107,17 @@
     "notice2": "Use browser operations",
     "notice3": "Don't click links directly",
     "notice4": "Prioritize mutual connections",
-    "stepsTitle": "Activation Steps (Official Safe Process)",
+    "stepsTitle": "Operation Steps (Platform Policy Process)",
     "step1": "Prepare VPN environment in advance",
     "step2": "Copy activation link and paste to address bar",
     "step3": "Log in to LinkedIn to complete activation",
     "proTip": "<strong class=\"text-gray-900\">Pro tip:</strong> LinkedIn has frequency limits on \"adding friends/sending invitations\". Keep your device and login location consistent, reduce frequent switching, gradually increase invitation volume, and maintain \"progressive\" growth for better safety."
   },
   "trust": {
-    "official": "Official Activation",
-    "officialDesc": "Through LinkedIn official channels<br>Verifiable in your dashboard",
-    "secure": "Safe & Reliable",
-    "secureDesc": "Zero account ban risk",
+    "official": "Policy Review",
+    "officialDesc": "Options explained under<br>public platform rules",
+    "secure": "Compliance Assessment",
+    "secureDesc": "No platform review outcome promised",
     "global": "Global Service",
     "globalDesc": "Top choice for export businesses<br>Support for all countries"
   },
@@ -127,7 +127,7 @@
     "subtitle": "Sales Navigator · Premium · Recruiter Lite",
     "description": "1-minute consultation, get your exclusive quote",
     "benefit1": "Save $1000s Yearly",
-    "benefit2": "Official Channel",
+    "benefit2": "Policy Review",
     "benefit3": "Same-Day Activation",
     "button": "Get Discounted Price Now",
     "note": "1-on-1 consultation · Free quote · No pressure"
@@ -144,6 +144,6 @@
     "scanNote": "Sales Navigator from 30% off · Save $840+/year",
     "feature1": "1-on-1 Support",
     "feature2": "Same-Day Activation",
-    "feature3": "Official Channel"
+    "feature3": "Policy Review"
   }
 }

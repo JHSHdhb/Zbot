@@ -3,12 +3,12 @@
     "contact": "联系我们"
   },
   "hero": {
-    "badge": "限时优惠：3-7折激活 LinkedIn 官方会员",
-    "title": "LinkedIn 官方会员<br><span class=\"text-aurora-300\">只需 3-7折</span>，立即激活",
+    "badge": "限时优惠：LinkedIn 会员方案咨询",
+    "title": "LinkedIn 会员方案<br><span class=\"text-aurora-300\">按需评估</span>，合规咨询",
     "subtitle": "Sales Navigator · Premium · Recruiter Lite",
-    "description": "官方通道 · 安全合规 · 成本直降 50-70%",
+    "description": "平台规则说明 · 合规评估 · 成本方案对比",
     "cta": "立即微信咨询",
-    "feature1": "官方激活",
+    "feature1": "规则说明",
     "feature2": "无需密码",
     "feature3": "年省 50-70%",
     "priceCompareTitle": "Sales Navigator Core 官方价 vs Zbot 价",
@@ -22,7 +22,7 @@
     "zbotPriceUnit": "/月起",
     "savePercent": "省 70%",
     "saveAmount": "年省 ¥6,000+",
-    "officialActivation": "官方激活",
+    "officialActivation": "规则说明",
     "samePermissions": "同样权限",
     "priceDisclaimer": "* 价格随汇率浮动，以实际报价为准",
     "ctaButton": "立即咨询优惠价格",
@@ -43,18 +43,18 @@
   },
   "solution": {
     "title": "Zbot 如何帮你省钱又合规？",
-    "subtitle": "3-7折激活 · 官方通道 · 安全可靠",
+    "subtitle": "方案评估 · 平台规则说明 · 合规交付",
     "card1Badge": "核心优势",
-    "card1Title": "3-7折激活官方会员",
+    "card1Title": "LinkedIn 会员方案咨询",
     "card1Item1": "Sales Navigator Core 低至 <strong class=\"text-aurora-700\">¥360/月起</strong>（官方 ¥1300+）",
     "card1Item2": "Business Premium <strong class=\"text-aurora-700\">¥1000/年</strong>（官方 ¥6000-8000）",
     "card1Item3": "Recruiter Lite <strong class=\"text-aurora-700\">¥4000/年</strong>（官方 ¥12000-16000）",
-    "card1Item4": "官方激活，权限完全一致",
-    "card2Title": "100% 官方通道，绝对安全",
-    "card2Item1": "通过 LinkedIn 官方授权渠道激活",
+    "card1Item4": "按平台规则说明方案，不承诺平台外结果",
+    "card2Title": "平台规则说明与合规评估",
+    "card2Item1": "按 LinkedIn 当前规则说明可选方案",
     "card2Item2": "无需提供账号密码",
     "card2Item3": "可在 LinkedIn 后台验证",
-    "card2Item4": "不存在封号风险",
+    "card2Item4": "不承诺账号、平台或第三方审核结果",
     "card3Title": "支持企业与团队批量",
     "card3Item1": "10人、50人、100人团队都可激活",
     "card3Item2": "统一管理，成本可控",
@@ -97,7 +97,7 @@
     "forever": "永久蓝标",
     "hotTag": "最热门",
     "priceNote": "<strong>Sales Navigator Core 价格说明：</strong>价格随美元汇率浮动",
-    "officialNote": "<strong>官方激活：</strong>所有链接均来自 LinkedIn.com"
+    "officialNote": "<strong>平台规则：</strong>以 LinkedIn.com 当前公开规则为准"
   },
   "tips": {
     "title": "LinkedIn 账号防封号攻略",
@@ -107,17 +107,17 @@
     "notice2": "使用浏览器操作",
     "notice3": "不要直接点链接",
     "notice4": "优先添加共同好友",
-    "stepsTitle": "激活步骤（官方安全流程）",
+    "stepsTitle": "操作步骤（平台规则流程）",
     "step1": "提前准备科学上网环境",
     "step2": "复制激活链接粘贴到地址栏",
     "step3": "登录 LinkedIn 完成激活",
     "proTip": "<strong class=\"text-gray-900\">小贴士：</strong>LinkedIn 官方对\"加好友/发送邀请\"有频率限制，建议保持常用设备与常用登录地点一致，减少频繁切换，逐步增加邀请量，保持\"循序渐进\"的增长会更安全。"
   },
   "trust": {
-    "official": "官方激活",
-    "officialDesc": "通过 LinkedIn 官方渠道<br>可在后台验证",
-    "secure": "安全可靠",
-    "secureDesc": "无封号风险",
+    "official": "规则说明",
+    "officialDesc": "按平台公开规则<br>说明可选方案",
+    "secure": "合规评估",
+    "secureDesc": "不承诺平台审核结果",
     "global": "服务全球",
     "globalDesc": "外贸企业首选<br>支持所有国家地区"
   },
@@ -127,7 +127,7 @@
     "subtitle": "Sales Navigator · Premium · Recruiter Lite",
     "description": "1 分钟微信咨询，获取专属优惠报价",
     "benefit1": "年省数千元",
-    "benefit2": "官方通道",
+    "benefit2": "规则说明",
     "benefit3": "当天激活",
     "button": "立即获取优惠价格",
     "note": "微信 1 对 1 咨询 · 免费报价 · 无推销压力"
@@ -144,6 +144,6 @@
     "scanNote": "Sales Navigator 低至 3折起 · 年省 $840+",
     "feature1": "1对1咨询",
     "feature2": "当天激活",
-    "feature3": "官方通道"
+    "feature3": "规则说明"
   }
 }

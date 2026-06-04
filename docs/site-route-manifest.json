@@ -20,6 +20,56 @@
     "status": "compatibility"
   },
   {
+    "path": "about-zbot-global.html",
+    "canonicalUrl": "https://www.zbotglobal.com/about-zbot-global.html",
+    "title": "About Zbot Global",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "about",
+    "compatibilityTarget": null,
+    "status": "public"
+  },
+  {
+    "path": "zbot-global-brand-clarification.html",
+    "canonicalUrl": "https://www.zbotglobal.com/zbot-global-brand-clarification.html",
+    "title": "Zbot Global Brand Clarification",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "brand-clarification",
+    "compatibilityTarget": null,
+    "status": "public"
+  },
+  {
+    "path": "legal-entity.html",
+    "canonicalUrl": "https://www.zbotglobal.com/legal-entity.html",
+    "title": "Zbot Global Legal Entity",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "legal-entity",
+    "compatibilityTarget": null,
+    "status": "public"
+  },
+  {
+    "path": "service-scope.html",
+    "canonicalUrl": "https://www.zbotglobal.com/service-scope.html",
+    "title": "Zbot Global Service Scope",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "service-scope",
+    "compatibilityTarget": null,
+    "status": "public"
+  },
+  {
+    "path": "what-we-do-not-do.html",
+    "canonicalUrl": "https://www.zbotglobal.com/what-we-do-not-do.html",
+    "title": "What Zbot Global Does Not Do",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "service-boundary",
+    "compatibilityTarget": null,
+    "status": "public"
+  },
+  {
     "path": "faq.html",
     "canonicalUrl": "https://www.zbotglobal.com/faq.html",
     "title": "Zbot FAQ",
@@ -54,7 +104,7 @@
     "canonicalUrl": "https://www.zbotglobal.com/blog.html",
     "title": "Zbot Blog",
     "includeInSitemap": true,
-    "includeInLlms": true,
+    "includeInLlms": false,
     "pageType": "blog-index",
     "compatibilityTarget": "insights.html",
     "status": "compatibility"

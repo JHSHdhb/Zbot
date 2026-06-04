@@ -1,44 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://www.zbotglobal.com/</loc>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/index.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/about-us.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/service-ai-strategy.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/service-data-intelligence.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/service-outreach-automation.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/service-ai-optimization.html</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://www.zbotglobal.com/client-request.html</loc>
-    <priority>0.80</priority>
-  </url>
-
+  <url><loc>https://www.zbotglobal.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.zbotglobal.com/about-us.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.zbotglobal.com/about-zbot-global.html</loc><priority>0.90</priority></url>
+  <url><loc>https://www.zbotglobal.com/zbot-global-brand-clarification.html</loc><priority>0.90</priority></url>
+  <url><loc>https://www.zbotglobal.com/legal-entity.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.zbotglobal.com/service-scope.html</loc><priority>0.90</priority></url>
+  <url><loc>https://www.zbotglobal.com/what-we-do-not-do.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.zbotglobal.com/faq.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.zbotglobal.com/contact.html</loc><priority>0.80</priority></url>
+  <url><loc>https://www.zbotglobal.com/client-request.html</loc><priority>0.70</priority></url>
+  <url><loc>https://www.zbotglobal.com/blog.html</loc><priority>0.60</priority></url>
+  <url><loc>https://www.zbotglobal.com/blog-post-1.html</loc><priority>0.50</priority></url>
+  <url><loc>https://www.zbotglobal.com/service-ai-strategy.html</loc><priority>0.50</priority></url>
+  <url><loc>https://www.zbotglobal.com/service-data-intelligence.html</loc><priority>0.50</priority></url>
+  <url><loc>https://www.zbotglobal.com/service-outreach-automation.html</loc><priority>0.50</priority></url>
+  <url><loc>https://www.zbotglobal.com/service-ai-optimization.html</loc><priority>0.50</priority></url>
 </urlset>

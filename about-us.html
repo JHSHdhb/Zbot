@@ -1,459 +1,194 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>About Zbot | 精细化服务流程管理</title>
-    <link rel="icon" type="image/svg+xml" href="media/zbot-logo-sm.svg">
-    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="About Zbot Global: Zbot Global 是 AI 驱动的 B2B 出海咨询与增长服务商，法律主体为 Shenzhen Zbot Global Technology Co., Ltd. / 深圳智博出海科技有限公司。"/>
+    <title>About Zbot Global | 关于 Zbot Global</title>
+    <link rel="canonical" href="https://www.zbotglobal.com/about-us.html"/>
+    <link rel="icon" type="image/svg+xml" href="media/zbot-logo-sm.svg"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    
+    <script src="js/main.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.zbotglobal.com/#organization",
+          "name": "Zbot Global",
+          "legalName": "Shenzhen Zbot Global Technology Co., Ltd.",
+          "alternateName": "深圳智博出海科技有限公司",
+          "url": "https://www.zbotglobal.com/",
+          "email": "customer@zbotglobal.com",
+          "telephone": ["+1-647-864-5968", "+86-173-3618-8628"],
+          "sameAs": [
+            "https://www.linkedin.com/company/zbottechnology/posts/?feedView=all",
+            "https://www.linkedin.com/in/nian-sherry-liu-07a7a5138/",
+            "https://www.linkedin.com/in/yusong-lin/",
+            "https://scholar.google.com/citations?hl=zh-CN&user=auhnI1MAAAAJ",
+            "https://www.jmir.org/2023/1/e46084/"
+          ]
+        },
+        {
+          "@type": "AboutPage",
+          "@id": "https://www.zbotglobal.com/about-us.html#webpage",
+          "url": "https://www.zbotglobal.com/about-us.html",
+          "name": "About Zbot Global",
+          "description": "Zbot Global 的公司身份、法律主体、服务范围、公开资料入口和证据策略。",
+          "about": {"@id": "https://www.zbotglobal.com/#organization"},
+          "dateModified": "2026-06-04"
+        }
+      ]
+    }
+    </script>
 </head>
-<body class="page-about">
+<body>
+    <div class="preloader" id="preloader"><div class="spinner"></div></div>
     <header class="site-header">
         <div class="nav-bar">
-            <a class="brand" href="index.html">
-                <img src="media/zbot-logo-sm.svg" alt="Zbot Logo" class="brand-logo"/>
-            </a>
+            <a class="brand" href="index.html"><img src="media/zbot-logo-sm.svg" alt="Zbot Global Logo" class="brand-logo"/></a>
             <nav class="nav-links" id="primaryNav">
                 <a href="index.html">首页</a>
-                <a href="about-us.html" class="is-active">关于我们</a>
+                <a href="about-zbot-global.html" class="is-active">关于我们</a>
                 <div class="nav-dropdown" data-dropdown>
-                    <button class="dropdown-toggle" type="button" aria-expanded="false">
-                        核心服务 <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                        <div class="dropdown-menu">
-                            <a href="service-ai-strategy.html">出海分析与策略制定</a>
-                            <a href="service-data-intelligence.html">数据开发与 AI 获客</a>
-                            <a href="service-outreach-automation.html">多渠道触达与客户转化</a>
-                            <a href="service-ai-optimization.html">成果追踪与优化</a>
-                        </div>
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">核心服务 <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a href="service-scope.html#geo-ready">GEO-ready 数字基建</a>
+                        <a href="service-scope.html#lead-generation">AI 市场调研与获客</a>
+                        <a href="service-scope.html#content-visibility">GEO 内容可见度</a>
+                        <a href="service-scope.html#ads-growth">AI 定向投流放大</a>
+                    </div>
                 </div>
-                <a href="client-request.html">客户需求表</a>
-                <a href="blog.html">博客动态</a>
+                <a href="zbot-global-brand-clarification.html">品牌澄清</a>
                 <a href="faq.html">常见问题</a>
                 <a href="contact.html">联系我们</a>
             </nav>
             <div class="nav-actions">
-                <a class="btn-outline" href="client-request.html">客户需求表</a>
-                <a class="btn-primary" href="contact.html">预约 1v1 Demo</a>
+                <a class="btn-outline" href="client-request.html">提交需求</a>
+                <a class="btn-primary" href="contact.html">预约咨询</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
         </div>
     </header>
 
-    <section class="about-hero">
-        <div class="ahero">
-            <span class="eyebrow">关于智博 Zbot</span>
-            <h1>智博，更懂中国企业的全球外贸出海团队</h1>
-            <p>智博，从数据到成交的 AI 外贸解决方案。</p>
-        </div>
-    </section>
-
-    <section class="about-brief" id="about">
+    <main>
+        <section class="other-hero">
+            <div class="other-hero-media"><img src="media/about-hero.png" alt="Zbot Global consulting workspace"/></div>
             <div class="container">
-                <div class="about-brief-content">
-                    <span class="about-label"><i class="fa-solid fa-lightbulb"></i> 关于智博</span>
-                    <h2>智博出海：专注于赋能企业出海外贸的专业 AI 咨询，</h2>
-                    <p>为您提供开拓海外市场的专属定制策略。我们致力于用 AI 和科技代替传统人力，降本增效，帮助企业在全球竞争中持续提升获客效率与客户转化能力。</p>
-                    <p>在一个统一的智能架构中，智博出海通过多个智能体协同工作——从市场洞察、数据采集、客户触达到关系维护与持续优化，让外贸团队实现从「自动化」到「智能化」的跨越。</p>
-                    <p class="about-emphasis">智博出海，用能思考的 AI，重构您的出海外贸方式。</p>
+                <span class="other-hero-label"><i class="fa-solid fa-building"></i> About Zbot Global</span>
+                <h1>Zbot Global 是什么类型的公司</h1>
+                <p>Zbot Global 是 AI 驱动的 B2B 出海咨询与增长服务商，帮助中国制造企业建立海外市场研究、数字基建、内容可见度、主动获客和投放放大的系统。</p>
+            </div>
+        </section>
+
+        <section class="trust-section is-white">
+            <div class="container">
+                <div class="trust-grid two">
+                    <article class="trust-card">
+                        <h2>公司身份</h2>
+                        <p><strong>English positioning:</strong> AI-powered B2B Global Trade Consulting &amp; Growth Service.</p>
+                        <p><strong>中文定位：</strong>AI 驱动的 B2B 出海咨询与增长服务商。</p>
+                        <p>Zbot Global 服务中国制造企业、B2B 出海团队和需要建立海外获客系统的公司。我们的工作重点是咨询、内容、数据整理、触达策略、网站与增长执行支持。</p>
+                    </article>
+                    <article class="trust-card">
+                        <h2>法律主体与联系方式</h2>
+                        <ul class="trust-list">
+                            <li>Legal entity: Shenzhen Zbot Global Technology Co., Ltd.</li>
+                            <li>中文主体：深圳智博出海科技有限公司</li>
+                            <li>Email: <a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a></li>
+                            <li>Phone / WhatsApp: <a href="tel:+16478645968">+1 647-864-5968</a></li>
+                            <li>China phone: <a href="tel:+8617336188628">+86 173-3618-8628</a></li>
+                            <li>WeChat: zbotglobal</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="trust-note">This page was last updated on 2026-06-04. 这页用于给客户、搜索引擎和 AI crawler 提供清晰的公司身份说明。</div>
+            </div>
+        </section>
+
+        <section class="trust-section is-soft">
+            <div class="container">
+                <div class="section-header">
+                    <span>Public References</span>
+                    <h2>公开资料入口</h2>
+                    <p>以下链接仅作为公开资料入口。官网不会把未授权客户、雇主、合作方或内部指标写成强背书。</p>
+                </div>
+                <div class="trust-grid two">
+                    <article class="trust-card">
+                        <h3>Founder public LinkedIn</h3>
+                        <div class="evidence-links">
+                            <a href="https://www.linkedin.com/in/nian-sherry-liu-07a7a5138/" target="_blank" rel="noopener noreferrer">Nian Sherry Liu public LinkedIn</a>
+                            <a href="https://www.linkedin.com/in/yusong-lin/" target="_blank" rel="noopener noreferrer">Yusong Lin public LinkedIn</a>
+                        </div>
+                    </article>
+                    <article class="trust-card">
+                        <h3>公开研究参考</h3>
+                        <div class="evidence-links">
+                            <a href="https://scholar.google.com/citations?hl=zh-CN&user=auhnI1MAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar public research profile</a>
+                            <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=B-b0_4gAAAAJ&sortby=pubdate&citation_for_view=B-b0_4gAAAAJ:p2g8aNsByqUC" target="_blank" rel="noopener noreferrer">Google Scholar public research citation</a>
+                            <a href="https://www.jmir.org/2023/1/e46084/" target="_blank" rel="noopener noreferrer">JMIR public research article</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-    <div class="page">
-
-        <section class="process" id="process">
-            <h3>精细化服务流程管理 | <span style="font-weight:600;color:rgba(8,26,58,0.7)">Service Process</span></h3>
-            <p class="process-subtitle">策略咨询 → 市场分析 → 方案定制 → 成果追踪  → 流程优化</p>
-
-            <div class="process-grid">
-                <div class="process-item">
-                    <div class="process-step" data-number="1">
-                        <span>策略咨询</span>
-                        <small>Consulting</small>
-                    </div>
-                    <article class="process-panel">
-                        <ul>
-                            <li>前期出海策略咨询</li>
-                            <li>提供服务方案报价</li>
-                            <li>签署合同</li>
-                            <li>组建专属顾问团队</li>
-                        </ul>
-                    </article>
+        <section class="trust-section is-white">
+            <div class="container">
+                <div class="section-header">
+                    <span>How We Work</span>
+                    <h2>我们如何交付</h2>
+                    <p>每个项目以客户确认的业务目标和边界为基础，优先形成可复盘的材料，而不是使用不可核验的营销承诺。</p>
                 </div>
-
-                <div class="process-item">
-                    <div class="process-step" data-number="2">
-                        <span>市场分析</span>
-                        <small>Market Insight</small>
-                    </div>
-                    <article class="process-panel">
-                        <ul>
-                            <li>行业分析</li>
-                            <li>输出多区域客户画像</li>
-                            <li>产品分析</li>
-                            <li>分阶段市场进入建议</li>
-                        </ul>
+                <div class="trust-grid">
+                    <article class="trust-card">
+                        <h3>1. 澄清业务和目标市场</h3>
+                        <p>明确产品、目标国家、目标客户角色、已有网站和团队配置。</p>
                     </article>
-                </div>
-
-                <div class="process-item">
-                    <div class="process-step" data-number="3">
-                        <span>方案定制</span>
-                        <small>Strategy Design</small>
-                    </div>
-                    <article class="process-panel">
-                        <ul>
-                            <li>自动识别目标决策人</li>
-                            <li>目标数据收集与分析</li>
-                            <li>邮件/LinkedIn 自动触达</li>
-                            <li>社媒自动化运营</li>
-                        </ul>
+                    <article class="trust-card">
+                        <h3>2. 建立可读的基础资料</h3>
+                        <p>梳理官网、服务页、FAQ、About、案例和结构化数据，让客户和 AI 系统读得懂。</p>
                     </article>
-                </div>
-
-                <div class="process-item">
-                    <div class="process-step" data-number="4">
-                        <span>成果追踪</span>
-                        <small>Dashboard</small>
-                    </div>
-                    <article class="process-panel">
-                        <ul>
-                            <li>实时 KPI 面板</li>
-                            <li>触达、询盘成果报告</li>
-                            <li>潜在客户可视化</li>
-                            <li>周/月度复盘与行动建议</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <div class="process-item">
-                    <div class="process-step" data-number="5">
-                        <span>流程优化</span>
-                        <small>Optimization</small>
-                    </div>
-                    <article class="process-panel">
-                        <ul>
-                            <li>分析成果面板</li>
-                            <li>A/B 测试、转化分析</li>
-                            <li>决策层复盘，优化策略</li>
-                            <li>规划下一阶段目标</li>
-                        </ul>
+                    <article class="trust-card">
+                        <h3>3. 形成获客和内容系统</h3>
+                        <p>输出 ICP、目标账户、触达素材、内容矩阵和投放建议，并按周复盘。</p>
                     </article>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
-    <section class="team-excellence" id="team">
-        <div class="team-inner">
-            <div class="team-media">
-                <div class="team-photo"></div>
-                
-                <div class="team-tags">
-                    <span>AI 研发</span>
-                    <span>全球市场洞察</span>
-                    <span>海外增长运营</span>
-                    <span>战略顾问网络</span>
-                </div>
-            </div>
-            <div class="team-content">
-                <span class="team-label">服务团队 TEAM</span>
-                <h3>科技企业与外贸专家共建</h3>
-                <p>核心技术由多伦多大学人工智能实验室联合研发，并获得多位北美高校教授和行业科学家顾问指导，深度参与技术研究与战略方向制定。团队核心成员来自 Google、LinkedIn、IBM、Samsung、S&amp;P Global 等全球科技公司，并融合资深外贸品牌营销专家与外籍顾问。</p>
-                <div class="team-grid">
-                    <div class="team-stat">
-                        <strong>70%</strong>
-                        <span>研究生及以上学历</span>
-                    </div>
-                    <div class="team-stat">
-                        <strong>30%</strong>
-                        <span>博士研究员（来自北美高校）</span>
-                    </div>
-                    <div class="team-stat">
-                        <strong>70%+</strong>
-                        <span>拥有海外工作经验</span>
-                    </div>
-                </div>
-                <ul class="team-highlights">
-                    <li>北美 70%｜亚洲 30%（深圳为核心枢纽）的全球化协作体系</li>
-                    <li>AI 研发、市场洞察、外贸增长运营三位一体的服务团队</li>
-                </ul>
-                <p class="team-footnote">我们不仅精通 AI 前沿技术，也深耕全球贸易与品牌出海，用国际视野 + 本地洞察 + 技术驱动帮助企业实现全球增长。海外B端C端数据覆盖超过200个国家。</p>
-                <div class="team-countries">
-                    <span>美国</span><span>加拿大</span><span>英国</span><span>意大利</span><span>西班牙</span><span>俄罗斯</span><span>澳大利亚</span><span>日本</span><span>韩国</span><span>新加坡</span><span>泰国</span><span>马来西亚</span><span>200+国家</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="partners-section" id="partners">
-            <div class="partners-inner">
-                <div class="partners-copy">
-                    <h3>合作伙伴 · Partner Ecosystem</h3>
-                    <div class="partner-tags">
-                        <span>CRM Ready</span>
-                        <span>AI Model Hub</span>
-                        <span>Productivity Suite</span>
-                    </div>
-                </div>
-
-                <div class="partner-marquee">
-                    <div class="partner-row" data-direction="left">
-                        <div class="partner-row-track">
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                                <div class="text">
-                                    <span>LinkedIn</span>
-                                    <small>领英</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-google"></i>
-                                <div class="text">
-                                    <span>Google Ads</span>
-                                    <small>谷歌广告</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-facebook-f"></i>
-                                <div class="text">
-                                    <span>Meta Suite</span>
-                                    <small>脸书社媒</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <div class="text">
-                                    <span>WhatsApp</span>
-                                    <small>对话式营销</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">DP</span>
-                                <div class="text">
-                                    <span>Deepseek</span>
-                                    <small>AI 搜索</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">AT</span>
-                                <div class="text">
-                                    <span>Airtable</span>
-                                    <small>数据汇集</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">C</span>
-                                <div class="text">
-                                    <span>Canva</span>
-                                    <small>可画设计</small>
-                                </div>
-                            </div>
-
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                                <div class="text">
-                                    <span>LinkedIn</span>
-                                    <small>领英</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-google"></i>
-                                <div class="text">
-                                    <span>Google Ads</span>
-                                    <small>谷歌广告</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-facebook-f"></i>
-                                <div class="text">
-                                    <span>Meta Suite</span>
-                                    <small>脸书社媒</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                <div class="text">
-                                    <span>WhatsApp</span>
-                                    <small>对话式营销</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">DP</span>
-                                <div class="text">
-                                    <span>Deepseek</span>
-                                    <small>AI 搜索</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">AT</span>
-                                <div class="text">
-                                    <span>Airtable</span>
-                                    <small>数据汇集</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">C</span>
-                                <div class="text">
-                                    <span>Canva</span>
-                                    <small>可画设计</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="partner-row" data-direction="right">
-                        <div class="partner-row-track">
-                            <div class="partner-logo">
-                                <span class="badge">GE</span>
-                                <div class="text">
-                                    <span>Gemini</span>
-                                    <small>谷歌AI</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">CL</span>
-                                <div class="text">
-                                    <span>Claude</span>
-                                    <small>AI 设计</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">GPT</span>
-                                <div class="text">
-                                    <span>ChatGPT</span>
-                                    <small>大模型</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-regular fa-envelope"></i>
-                                <div class="text">
-                                    <span>Gmail</span>
-                                    <small>邮件管理</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-solid fa-database"></i>
-                                <div class="text">
-                                    <span>Excel</span>
-                                    <small>csv支持</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-figma"></i>
-                                <div class="text">
-                                    <span>Figma</span>
-                                    <small>流程设计</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">365</span>
-                                <div class="text">
-                                    <span>Microsoft 365</span>
-                                    <small>微软365</small>
-                                </div>
-                            </div>
-
-                            <div class="partner-logo">
-                                <span class="badge">GE</span>
-                                <div class="text">
-                                    <span>Gemini</span>
-                                    <small>谷歌AI</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">CL</span>
-                                <div class="text">
-                                    <span>Claude</span>
-                                    <small>AI 设计</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">GPT</span>
-                                <div class="text">
-                                    <span>ChatGPT</span>
-                                    <small>大模型</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-regular fa-envelope"></i>
-                                <div class="text">
-                                    <span>Gmail</span>
-                                    <small>邮件管理</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-solid fa-database"></i>
-                                <div class="text">
-                                    <span>Excel</span>
-                                    <small>csv支持</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <i class="fa-brands fa-figma"></i>
-                                <div class="text">
-                                    <span>Figma</span>
-                                    <small>流程设计</small>
-                                </div>
-                            </div>
-                            <div class="partner-logo">
-                                <span class="badge">365</span>
-                                <div class="text">
-                                    <span>Microsoft 365</span>
-                                    <small>微软365</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </section>
-
-   
-
-    <footer>
+    <footer id="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <div class="brand" style="color:#fff;">
-                        <img src="./media/zbot-logo-sm.svg" alt="Zbot Logo" class="brand-logo brand-logo--footer"/>
-                    </div>
-                    <h3>智能出海 · 博达全球</h3>
-                    <p>AI 策略共创、全球买家数据、自动化触达与运营优化，一套系统帮您完成从洞察到成交。</p>
-                    <div class="socials" style="margin-top:18px;">
-                        <a href="https://www.linkedin.com/company/zbottechnology/posts/?feedView=all" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
+                    <div class="brand" style="color:#fff;"><img src="./media/zbot-logo-sm.svg" alt="Zbot Global Logo" class="brand-logo brand-logo--footer"/></div>
+                    <h3>AI 驱动的 B2B 出海咨询与增长服务商</h3>
+                    <p>Zbot Global 帮助中国制造企业建立可解释、可交付、可复盘的海外获客系统。</p>
+                    <div class="socials" style="margin-top:18px;"><a href="https://www.linkedin.com/company/zbottechnology/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Zbot Global LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></div>
                 </div>
                 <div class="footer-links">
                     <h4>核心服务</h4>
                     <ul>
-                        <li><a href="service-ai-strategy.html">出海分析与策略制定</a></li>
-                        <li><a href="service-data-intelligence.html">数据开发与 AI 获客</a></li>
-                        <li><a href="service-outreach-automation.html">多渠道触达与客户转化</a></li>
-                        <li><a href="service-ai-optimization.html">成果追踪与优化</a></li>
+                        <li><a href="service-scope.html#geo-ready">GEO-ready 外贸数字基建</a></li>
+                        <li><a href="service-scope.html#lead-generation">AI 市场调研与主动获客</a></li>
+                        <li><a href="service-scope.html#content-visibility">GEO 内容可见度</a></li>
+                        <li><a href="service-scope.html#ads-growth">AI 定向投流与放大</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>资源中心</h4>
+                    <h4>信任中心</h4>
                     <ul>
-                        <li><a href="about-us.html#team">服务团队</a></li>
-                        <li><a href="about-us.html#process">服务流程</a></li>
-                        <li><a href="about-us.html#partners">合作伙伴</a></li>
-                        <li><a href="client-request.html">客户需求表</a></li>
-                        <li><a href="about-us.html">关于智博</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="about-zbot-global.html">About Zbot Global</a></li>
+                        <li><a href="zbot-global-brand-clarification.html">品牌澄清</a></li>
+                        <li><a href="legal-entity.html">法律主体</a></li>
+                        <li><a href="what-we-do-not-do.html">我们不做什么</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -462,21 +197,17 @@
                         <div class="contact-row"><i class="fa-regular fa-envelope"></i><a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a></div>
                         <div class="contact-row"><i class="fa fa-phone"></i><a href="tel:+16478645968">海外电话：+1 647-864-5968</a></div>
                         <div class="contact-row"><i class="fa-solid fa-phone"></i><a href="tel:+8617336188628">国内电话：+86 173-3618-8628</a></div>
-                        <div class="contact-row"><i class="fa-brands fa-weixin"></i><span>微信号：327803155</span></div>
-                        <img src="media/wechat.jpg" alt="WeChat QR" class="wechat-qr"/>
+                        <div class="contact-row"><i class="fa-brands fa-weixin"></i><span>微信号：zbotglobal</span></div>
+                        <img src="media/wechat.jpg" alt="Zbot Global WeChat QR code" class="wechat-qr"/>
                         <button type="button" class="wechat-qr-trigger" style="font-size:13px;">扫码添加企业微信 · 预约顾问</button>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <span>© 2025 Shenzhen Zbot Global Technology Co., Ltd. All rights reserved. | 深圳智博出海科技有限公司</span>
-                <span>
-                    <a href="#">隐私政策</a> · <a href="#">服务条款</a>
-                </span>
+                <span><a href="legal-entity.html">法律主体</a> · <a href="service-scope.html">服务范围</a></span>
             </div>
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
