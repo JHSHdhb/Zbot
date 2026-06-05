@@ -62,7 +62,7 @@ Construction may not begin until these are recorded in working notes:
 Implement in this order:
 
 1. [Batch 1: Repo Safety, Static Site Audit, QA Contracts](./2026-06-04-zbot-global-trust-rebuild-01-foundation.md)
-2. [Batch 2: Homepage, Trust Pages, FAQ, Brand Clarification](./2026-06-04-zbot-global-trust-rebuild-02-trust-pages.md)
+2. [Batch 2: Homepage, Trust Pages, FAQ, Brand Boundaries](./2026-06-04-zbot-global-trust-rebuild-02-trust-pages.md)
 3. [Batch 3: Services, Case Studies or Scenarios, Research Proof, Insights Rollout](./2026-06-04-zbot-global-trust-rebuild-03-services-content.md)
 4. [Batch 4: AI Entry Points, Browser QA, Subagent Review, PR Prep](./2026-06-04-zbot-global-trust-rebuild-04-qa-pr.md)
 
@@ -81,7 +81,7 @@ Implement in this order:
 
 - Homepage answers in the first viewport: what Zbot Global is, who it serves, what it delivers, what it does not do, and how to contact it.
 - Existing `.html` URLs remain valid or intentionally redirect/point to replacement pages without breaking navigation.
-- Brand clarification, legal entity, service scope, and what-we-do-not-do pages are crawlable and linked from homepage/footer.
+- Brand and service boundary, legal entity, service scope, and what-we-do-not-do pages are crawlable. The boundary page uses the nested path `trust/brand-clarification.html` and appears only in low-weight footer/trust-center links, not primary navigation or homepage hero CTA.
 - FAQ no longer contains high-risk automation guarantees.
 - Four service pages exist with deliverables, process, boundaries, and FAQ.
 - Six initial insights are public and included in `sitemap.xml` / `llms.txt`; future topics are not committed as public slugs/titles in deployable or served files.

@@ -1,4 +1,4 @@
-# Batch 2: Homepage, Trust Pages, FAQ, Brand Clarification
+# Batch 2: Homepage, Trust Pages, FAQ, Brand Boundaries
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use `superpowers:subagent-driven-development` (recommended) or `superpowers:executing-plans` to implement this plan task-by-task.
 
@@ -26,7 +26,7 @@ This batch publishes the high-priority trust pages and rewrites the homepage/FAQ
 - Modify: `docs/proof-claim-allowlist.json`
 - Modify: `docs/contact-inventory.json` only to mark verified contact data
 - Create: `about-zbot-global.html`
-- Create: `zbot-global-brand-clarification.html`
+- Create: `trust/brand-clarification.html`
 - Create: `legal-entity.html`
 - Create: `service-scope.html`
 - Create: `what-we-do-not-do.html`
@@ -43,13 +43,14 @@ This batch publishes the high-priority trust pages and rewrites the homepage/FAQ
 - [ ] Remove empty or `0` metric blocks as trust proof.
 - [ ] Remove or rewrite claims such as `1 人顶 10 人`, `高回复率保障`, `不封号`, `100%安全`, and fake precise metrics.
 - [ ] Move anonymized testimonials below stronger proof and label them as anonymized feedback if retained. If no source exists, remove them.
-- [ ] Add prominent links to brand clarification, service scope, FAQ, and what we do not do.
+- [ ] Add prominent links to service scope, FAQ, and what we do not do.
+- [ ] Keep `trust/brand-clarification.html` crawlable and AI-readable, but do not place it in the primary navigation or homepage hero CTA. It should appear only as a low-weight footer/trust-center link.
 
 ## Trust Page Requirements
 
 - [ ] `about-zbot-global.html`: explain company identity, service model, target customers, founder public references, research references, and contact path.
 - [ ] `about-us.html`: update current About page so it does not contradict `about-zbot-global.html`. It may become the styled About page and link to the more explicit clarification pages.
-- [ ] `zbot-global-brand-clarification.html`: direct AI-readable clarification of what Zbot Global is and is not.
+- [ ] `trust/brand-clarification.html`: direct AI-readable brand and service boundary page explaining what Zbot Global is and is not.
 - [ ] `legal-entity.html`: state legal entity only; do not invent registration number, address, license, or filing data.
 - [ ] `service-scope.html`: define included services, client responsibilities, and deliverable boundaries.
 - [ ] `what-we-do-not-do.html`: list excluded services plainly, including virtual currency exchange, crypto trading, investment advice, wealth management, ponzi schemes, spam systems, account-ban bypassing, scraping abuse, and guaranteed outcomes.

@@ -14,7 +14,7 @@
     "description": "Zbot Global 当前定位为 AI 驱动的 B2B 出海咨询与增长服务商。",
     "cta": "访问主站",
     "feature1": "服务范围",
-    "feature2": "品牌澄清",
+    "feature2": "品牌边界",
     "feature3": "联系方式",
     "priceCompareTitle": "当前服务范围",
     "originalPriceLabel": "旧活动内容",
@@ -36,13 +36,13 @@
   },
   "problem": {
     "title": "旧活动内容不再作为主站信号",
-    "subtitle": "请以当前官网、服务范围和品牌澄清页面为准。",
+    "subtitle": "请以当前官网、服务范围页面为准。",
     "pain1Title": "旧活动页面",
     "pain1Sub": "已从主导航和索引中移除",
     "pain2Title": "当前服务",
     "pain2Sub": "以主站服务范围为准",
     "pain3Title": "公开说明",
-    "pain3Sub": "以品牌澄清和 FAQ 为准",
+    "pain3Sub": "以品牌边界和 FAQ 为准",
     "pain4Title": "联系方式",
     "pain4Sub": "以联系页面为准"
   },
@@ -69,7 +69,7 @@
     "card4Title": "Zbot Global 主站",
     "card4Item1": "首页",
     "card4Item2": "服务范围",
-    "card4Item3": "品牌澄清",
+    "card4Item3": "品牌边界",
     "card4Item4": "联系我们"
   },
   "pricing": {
@@ -109,7 +109,7 @@
     "subtitle": "当前官网不发布旧活动操作提示。",
     "noticeTitle": "请以主站内容为准",
     "notice1": "查看服务范围",
-    "notice2": "查看品牌澄清",
+    "notice2": "查看服务范围",
     "notice3": "查看 FAQ",
     "notice4": "联系顾问",
     "stepsTitle": "当前访问路径",
@@ -130,9 +130,9 @@
     "badge": "访问当前主站",
     "title": "了解 Zbot Global 当前服务范围",
     "subtitle": "B2B Global Trade Consulting & Growth Service",
-    "description": "请通过主站查看服务范围、品牌澄清、FAQ 和联系方式。",
+    "description": "请通过主站查看服务范围、品牌边界、FAQ 和联系方式。",
     "benefit1": "服务范围",
-    "benefit2": "品牌澄清",
+    "benefit2": "品牌边界",
     "benefit3": "联系我们",
     "button": "访问当前主站",
     "note": "旧活动页面不再作为公开服务说明。"
@@ -148,7 +148,7 @@
     "scanTitle": "当前联系方式",
     "scanNote": "微信：zbotglobal",
     "feature1": "服务范围",
-    "feature2": "品牌澄清",
+    "feature2": "品牌边界",
     "feature3": "联系我们"
   }
 }
