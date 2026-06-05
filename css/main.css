@@ -3,11 +3,17 @@
             box-sizing: border-box;
         }
 
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             margin: 0;
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
             color: var(--brand-mid);
-            background: #f3f6ff;
+            background: #f2f6ff;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -214,21 +220,23 @@
 .btn-outline {
     color: var(--nav-link-active);
     border: 1px solid rgba(25, 48, 100, 0.35);
-    border-radius: 16px;
+    border-radius: 999px;
     padding: 10px 18px;
     font-weight: 600;
-    transition: background 0.2s ease, color 0.2s ease;
+    background: rgba(255, 255, 255, 0.68);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-outline:hover {
-    background: rgba(62, 76, 110, 0.473);
+    background: #eaf1ff;
+    border-color: rgba(46, 92, 203, 0.42);
 }
 
 .btn-primary {
     background: linear-gradient(120deg, #00c6ff, #00f9a1);
     color: #04112f;
     padding: 10px 20px;
-    border-radius: 16px;
+    border-radius: 999px;
     font-weight: 600;
     box-shadow: 0 16px 28px rgba(0, 198, 255, 0.35);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -602,33 +610,71 @@ html.is-modal-open body {
 
 /* Trust rebuild pages */
 .trust-hero {
-    min-height: 640px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 680px;
     display: grid;
     align-items: center;
-    padding: 120px 0 96px;
-    background: linear-gradient(135deg, rgba(4, 10, 30, 0.9), rgba(10, 38, 92, 0.88)), url('../media/hero-bg.png') center/cover no-repeat;
+    padding: 142px 0 108px;
+    background:
+        linear-gradient(90deg, rgba(3, 10, 32, 0.9) 0%, rgba(8, 30, 78, 0.78) 52%, rgba(4, 12, 34, 0.58) 100%),
+        linear-gradient(180deg, rgba(4, 10, 32, 0.02) 0%, rgba(4, 10, 32, 0.42) 100%),
+        url('../media/hero-bg.png') center/cover no-repeat;
     color: #f1f5ff;
 }
 
+.home-trust-hero {
+    min-height: min(760px, calc(100dvh - 84px));
+}
+
+.trust-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 160px;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(242, 246, 255, 0), #ffffff);
+    pointer-events: none;
+}
+
 .trust-hero .container {
+    position: relative;
+    z-index: 1;
     display: grid;
     gap: 24px;
-    max-width: 980px;
+    max-width: 1020px;
 }
 
 .trust-kicker {
     display: inline-flex;
     width: fit-content;
+    max-width: 100%;
     align-items: center;
     gap: 10px;
     padding: 10px 16px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
     color: rgba(241, 245, 255, 0.92);
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.08em;
+    line-height: 1.45;
     text-transform: uppercase;
+}
+
+.trust-kicker__text {
+    min-width: 0;
+}
+
+.trust-kicker__line {
+    display: inline;
+}
+
+.trust-kicker__line + .trust-kicker__line::before {
+    content: " ";
 }
 
 .trust-hero h1 {
@@ -638,6 +684,16 @@ html.is-modal-open body {
     font-size: clamp(2.55rem, 5vw, 4.6rem);
     line-height: 1.08;
     font-weight: 800;
+    text-shadow: 0 20px 55px rgba(0, 8, 28, 0.58);
+    overflow-wrap: break-word;
+}
+
+.trust-hero h1 span {
+    display: block;
+}
+
+.mobile-line-break {
+    display: none;
 }
 
 .trust-hero p {
@@ -646,6 +702,7 @@ html.is-modal-open body {
     color: rgba(226, 238, 255, 0.88);
     font-size: clamp(1rem, 1.8vw, 1.25rem);
     line-height: 1.8;
+    overflow-wrap: break-word;
 }
 
 .trust-actions {
@@ -661,11 +718,11 @@ html.is-modal-open body {
 }
 
 .trust-section.is-white {
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
 }
 
 .trust-section.is-soft {
-    background: #f3f6ff;
+    background: linear-gradient(180deg, #eef5ff 0%, #f7faff 100%);
 }
 
 .trust-grid {
@@ -682,11 +739,45 @@ html.is-modal-open body {
 .trust-card {
     border: 1px solid rgba(46, 92, 203, 0.12);
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 18px 42px rgba(18, 62, 150, 0.11);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 251, 255, 0.98) 100%);
+    box-shadow: 0 18px 42px rgba(18, 62, 150, 0.1);
     padding: 28px;
     display: grid;
     gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.trust-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(46, 92, 203, 0.22);
+    box-shadow: 0 24px 52px rgba(18, 62, 150, 0.14);
+}
+
+.trust-card--feature {
+    min-height: 224px;
+    align-content: start;
+}
+
+.trust-card--feature::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    background: linear-gradient(90deg, #00c6ff, #00f9a1);
+}
+
+.trust-card__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1d55d5, #15c3c7);
+    box-shadow: 0 14px 28px rgba(31, 85, 200, 0.22);
+    font-size: 20px;
 }
 
 .trust-card h3,
@@ -699,6 +790,7 @@ html.is-modal-open body {
 .trust-card p {
     margin: 0;
     color: rgba(20, 36, 81, 0.76);
+    overflow-wrap: anywhere;
 }
 
 .trust-card strong {
@@ -750,6 +842,46 @@ html.is-modal-open body {
     color: #1b3d8f;
     font-size: 14px;
     font-weight: 700;
+    max-width: 100%;
+    white-space: normal;
+}
+
+.trust-hero .trust-meta span,
+.trust-hero .trust-meta a {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(245, 249, 255, 0.94);
+    backdrop-filter: blur(12px);
+}
+
+.trust-hero .btn-outline {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.34);
+}
+
+.trust-hero .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.58);
+}
+
+.trust-section .experience-showcase {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1fr);
+    gap: 62px;
+    align-items: center;
+}
+
+.trust-section .experience-showcase .experience-media,
+.trust-section .experience-showcase .experience-content {
+    min-width: 0;
+}
+
+.trust-section .experience-showcase .experience-media__main {
+    max-width: none;
+    min-height: 470px;
+    border-radius: 28px;
+    box-shadow: 0 28px 64px rgba(13, 31, 107, 0.18);
 }
 
 .evidence-links {
@@ -807,7 +939,51 @@ html.is-modal-open body {
 @media (max-width: 720px) {
     .trust-hero {
         min-height: auto;
-        padding: 96px 0 72px;
+        padding: 104px 0 76px;
+    }
+
+    .trust-hero .container {
+        gap: 18px;
+    }
+
+    .trust-kicker {
+        width: 100%;
+        align-items: flex-start;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        padding: 9px 13px;
+    }
+
+    .trust-kicker__line {
+        display: block;
+    }
+
+    .trust-kicker__line + .trust-kicker__line::before {
+        content: "";
+    }
+
+    .trust-hero h1 {
+        font-size: clamp(2rem, 9.2vw, 2.6rem);
+        line-height: 1.12;
+    }
+
+    .mobile-line-break {
+        display: block;
+    }
+
+    .trust-hero p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .trust-meta {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .trust-meta span,
+    .trust-meta a {
+        width: fit-content;
     }
 
     .trust-section {
@@ -825,6 +1001,25 @@ html.is-modal-open body {
 
     .trust-table th {
         border-bottom: 0;
+    }
+}
+
+@media (max-width: 960px) {
+    .trust-section .experience-showcase {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .trust-section .experience-showcase .experience-media__main {
+        min-height: 340px;
+    }
+}
+
+@media (max-width: 720px) {
+    .section-header h2 {
+        font-size: clamp(1.8rem, 7.6vw, 2.25rem);
+        line-height: 1.28;
+        overflow-wrap: anywhere;
     }
 }
 
@@ -1250,6 +1445,7 @@ html.is-modal-open body {
             overflow: hidden;
             text-decoration: none;
             display: block;
+            border: 1px solid rgba(255, 255, 255, 0.54);
             box-shadow: 0 22px 48px rgba(9, 24, 62, 0.28);
             transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
@@ -1275,19 +1471,21 @@ html.is-modal-open body {
             content: "";
             position: absolute;
             inset: 0;
+            background: linear-gradient(180deg, rgba(4, 10, 32, 0.04) 0%, rgba(4, 10, 32, 0.2) 38%, rgba(3, 9, 30, 0.82) 100%);
+            pointer-events: none;
         }
 
         .service-card__layer {
             position: absolute;
             inset: 0;
             backdrop-filter: blur(0px);
-            background: linear-gradient(180deg, rgba(6, 18, 40, 0.05) 0%, rgba(6, 18, 40, 0.4) 100%);
+            background: linear-gradient(180deg, rgba(6, 18, 40, 0) 0%, rgba(6, 18, 40, 0.24) 100%);
             transition: backdrop-filter 0.35s ease, background 0.35s ease;
         }
 
         .service-card:hover .service-card__layer {
             backdrop-filter: blur(2px);
-            background: linear-gradient(180deg, rgba(6, 18, 40, 0.05) 0%, rgba(6, 18, 40, 0.4) 100%);
+            background: linear-gradient(180deg, rgba(6, 18, 40, 0.02) 0%, rgba(6, 18, 40, 0.36) 100%);
         }
 
         .service-card__body {
@@ -1299,12 +1497,14 @@ html.is-modal-open body {
             display: grid;
             gap: 8px;
             color: #ffffff;
+            z-index: 2;
         }
 
         .service-label-en {
-            font-size: 1.2rem;
+            font-size: 1.24rem;
             font-weight: 700;
             letter-spacing: 0.01em;
+            line-height: 1.35;
         }
 
         .service-label-zh {
@@ -2385,6 +2585,7 @@ html.is-modal-open body {
             margin: 0;
             font-size: clamp(2rem, 3vw, 2.8rem);
             color: #0b173a;
+            overflow-wrap: anywhere;
         }
 
         .section-header p {
@@ -3378,6 +3579,3 @@ html.is-modal-open body {
                 align-items: stretch;
             }
         }
-
-
-
