@@ -1,32 +1,516 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="robots" content="noindex, follow"/>
-    <meta name="description" content="Zbot Global 旧博客文章入口已迁移到新的 Insights 内容体系。"/>
-    <meta property="og:title" content="Zbot Global Article Moved"/>
-    <meta property="og:description" content="旧文章入口保留用于兼容访问，请前往新的 Insights 页面。"/>
-    <title>Zbot Global Article Moved</title>
-    <link rel="canonical" href="https://www.zbotglobal.com/insights.html"/>
-    <link rel="icon" type="image/svg+xml" href="media/zbot-logo-sm.svg"/>
+    <meta name="description" content="Why B2B export companies need GEO, structured company knowledge, and agent-assisted outreach to become understandable in AI-generated buyer research."/>
+    <meta property="og:title" content="From Search Traffic to AI-Generated Demand | Zbot Global Insights"/>
+    <meta property="og:description" content="A GEO and agent outreach article for export companies building clearer digital trust signals and overseas buyer conversations."/>
+    <title>From Search Traffic to AI-Generated Demand | Zbot Insights</title>
+    <link rel="canonical" href="https://www.zbotglobal.com/blog-post-1.html"/>
+    <link rel="icon" type="image/svg+xml" href="media/zbot-logo-sm.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKB4Imkb9zOe+6B1p2VbW5rN3kS2+M9v+8V4O3o1iI8nL6L6A0D2qK5bS7I7v6bW+6bZp+0RA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <script src="js/main.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "From Search Traffic to AI-Generated Demand: Why Export Companies Need GEO and Agent Outreach",
+      "description": "Why B2B export companies need GEO, structured company knowledge, and agent-assisted outreach to become understandable in AI-generated buyer research.",
+      "datePublished": "2026-05-11",
+      "dateModified": "2026-06-05",
+      "author": {"@type": "Organization", "name": "Zbot Global"},
+      "publisher": {"@type": "Organization", "name": "Zbot Global", "legalName": "Shenzhen Zbot Global Technology Co., Ltd."},
+      "mainEntityOfPage": "https://www.zbotglobal.com/blog-post-1.html"
+    }
+    </script>
+    <style>
+        :root {
+            --brand-blue: #2e5ccb;
+            --brand-cyan: #00c6ff;
+            --brand-green: #00f9a1;
+            --brand-dark: #0b173a;
+            --brand-mid: #142451;
+            --brand-light: #eff5ff;
+            --soft-shadow: 0 18px 45px rgba(16, 36, 94, 0.12);
+            --card-radius: 22px;
+            --container-width: min(1180px, 92vw);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: var(--brand-mid);
+            background: #f3f6ff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        .container {
+            width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        /* ── Article Hero ── */
+        .article-hero {
+            background: linear-gradient(135deg, #0b173a 0%, #1a3a8f 55%, #0e4a8a 100%);
+            padding: 72px 0 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(0, 198, 255, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .article-hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 820px;
+        }
+
+        .article-breadcrumb {
+            background: #0b173a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .breadcrumb-trail {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            list-style: none;
+            padding: 13px 0;
+            margin: 0;
+            flex-wrap: nowrap;
+            overflow: hidden;
+        }
+
+        .breadcrumb-trail li {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            min-width: 0;
+        }
+
+        .breadcrumb-trail li:last-child {
+            overflow: hidden;
+        }
+
+        .breadcrumb-trail li + li::before {
+            content: "›";
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 18px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .breadcrumb-trail a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: rgba(180, 205, 255, 0.55);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-trail a:hover { color: var(--brand-cyan); }
+
+        .breadcrumb-trail a i { font-size: 13px; }
+
+        .breadcrumb-trail .bc-current {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.88);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(0, 198, 255, 0.18);
+            border: 1px solid rgba(0, 198, 255, 0.35);
+            color: #00c6ff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 22px;
+        }
+
+        .article-hero h1 {
+            margin: 0 0 24px;
+            font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+            color: #ffffff;
+            line-height: 1.25;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: rgba(200, 220, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ── Article Layout ── */
+        .article-layout {
+            padding: 72px 0 100px;
+        }
+
+        .article-layout .container {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* ── Article Body ── */
+        .article-body {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 22px 56px rgba(15, 40, 120, 0.09);
+            padding: 52px 56px 56px;
+        }
+
+        .article-body p {
+            margin: 0 0 1.4em;
+            color: rgba(20, 36, 81, 0.82);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-body h2 {
+            margin: 2.2em 0 0.7em;
+            font-size: 1.5rem;
+            color: var(--brand-dark);
+            font-weight: 700;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8eeff;
+        }
+
+        .article-body h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .article-body .article-intro {
+            font-size: 1.12rem;
+            color: rgba(20, 36, 81, 0.9);
+            line-height: 1.75;
+            font-weight: 500;
+            margin-bottom: 2em;
+        }
+
+        .article-body blockquote {
+            margin: 1.8em 0;
+            padding: 20px 28px;
+            background: var(--brand-light);
+            border-left: 4px solid var(--brand-blue);
+            border-radius: 0 12px 12px 0;
+            color: var(--brand-dark);
+            font-style: italic;
+            font-size: 1.08rem;
+            line-height: 1.7;
+        }
+
+        .article-body .checklist {
+            margin: 1.2em 0 1.8em;
+            display: grid;
+            gap: 10px;
+        }
+
+        .article-body .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(20, 36, 81, 0.82);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .article-body .checklist li::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            margin-top: 9px;
+            flex-shrink: 0;
+        }
+
+        .article-body .numbered-list {
+            margin: 1.2em 0 1.8em;
+            counter-reset: nl;
+            display: grid;
+            gap: 12px;
+        }
+
+        .article-body .numbered-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            color: rgba(20, 36, 81, 0.82);
+            font-size: 1rem;
+            line-height: 1.65;
+            counter-increment: nl;
+        }
+
+        .article-body .numbered-list li::before {
+            content: counter(nl);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .article-body .highlight-box {
+            background: linear-gradient(135deg, #eff5ff, #e6f3ff);
+            border: 1px solid #c8dafe;
+            border-radius: 16px;
+            padding: 26px 30px;
+            margin: 2em 0;
+        }
+
+        .article-body .highlight-box h3 {
+            margin: 0 0 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            font-size: 13px;
+        }
+
+        .article-body .highlight-box ul {
+            display: grid;
+            gap: 10px;
+        }
+
+        .article-body .highlight-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: rgba(20, 36, 81, 0.85);
+            font-size: 0.97rem;
+            line-height: 1.6;
+        }
+
+        .article-body .highlight-box li i {
+            color: var(--brand-blue);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .article-closing {
+            margin-top: 2.5em;
+            padding-top: 2em;
+            border-top: 2px solid #e8eeff;
+        }
+
+        .article-closing p {
+            font-size: 1.08rem;
+            font-style: italic;
+            color: var(--brand-mid) !important;
+        }
+
+        /* ── Sidebar ── */
+        .article-sidebar {
+            position: sticky;
+            top: 100px;
+            display: grid;
+            gap: 24px;
+        }
+
+        .sidebar-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 14px 36px rgba(15, 40, 120, 0.08);
+            padding: 28px 26px;
+        }
+
+        .sidebar-card h4 {
+            margin: 0 0 18px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brand-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .toc-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .toc-list li a {
+            font-size: 14px;
+            color: rgba(20, 36, 81, 0.65);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        .toc-list li a::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--brand-blue);
+            margin-top: 7px;
+            flex-shrink: 0;
+            opacity: 0.5;
+        }
+
+        .toc-list li a:hover { color: var(--brand-blue); }
+
+        .sidebar-cta {
+            background: linear-gradient(135deg, #0b173a, #1a3a8f);
+            border-radius: 20px;
+            padding: 28px 26px;
+            color: #fff;
+        }
+
+        .sidebar-cta h4 {
+            margin: 0 0 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .sidebar-cta p {
+            margin: 0 0 20px;
+            font-size: 14px;
+            color: rgba(200, 220, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .sidebar-cta .btn-primary {
+            display: block;
+            text-align: center;
+            padding: 11px 20px;
+            background: var(--brand-cyan);
+            color: #0b173a;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 100px;
+            transition: opacity 0.2s;
+        }
+
+        .sidebar-cta .btn-primary:hover { opacity: 0.88; }
+
+        /* ── CTA Band ── */
+        .cta-band {
+            background: linear-gradient(135deg, rgba(11, 29, 87, 0.92), rgba(0, 198, 255, 0.85));
+            color: #ffffff;
+            padding: 110px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 26, 58, 0.35), rgba(8, 19, 53, 0.85));
+            pointer-events: none;
+        }
+
+        .cta-band .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 18px;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .cta-band p {
+            margin: 0;
+            max-width: 640px;
+            color: rgba(226, 238, 255, 0.92);
+        }
+
+        @media (max-width: 900px) {
+            .article-layout .container {
+                grid-template-columns: 1fr;
+            }
+
+            .article-sidebar {
+                position: static;
+            }
+
+            .article-body {
+                padding: 36px 28px 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .article-body {
+                padding: 28px 20px 32px;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="page-blog">
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <header class="site-header">
         <div class="nav-bar">
-            <a class="brand" href="index.html" aria-label="Zbot Global home">
+            <a class="brand" href="index.html">
                 <img src="media/zbot-logo-sm.svg" alt="Zbot Global Logo" class="brand-logo"/>
             </a>
             <nav class="nav-links" id="primaryNav">
                 <a href="index.html">首页</a>
                 <a href="about-zbot-global.html">关于我们</a>
-                <a href="service-scope.html">服务范围</a>
+                <div class="nav-dropdown" data-dropdown>
+                    <button class="dropdown-toggle" type="button" aria-expanded="false">
+                        核心服务 <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="service-geo-ready-b2b-infrastructure.html">GEO-ready 数字基建</a>
+                        <a href="service-ai-market-research-lead-generation.html">AI 市场调研与获客</a>
+                        <a href="service-geo-ai-knowledge-content-visibility.html">GEO 内容可见度</a>
+                        <a href="service-ai-ads-growth-amplification.html">AI 定向投流放大</a>
+                    </div>
+                </div>
                 <a href="insights.html" class="is-active">Insights</a>
                 <a href="faq.html">常见问题</a>
                 <a href="contact.html">联系我们</a>
@@ -35,31 +519,251 @@
                 <a class="btn-outline" href="client-request.html">提交需求</a>
                 <a class="btn-primary" href="contact.html">预约咨询</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </header>
-    <main class="retired-page">
-        <section class="trust-section is-white">
+
+    <main>
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
             <div class="container">
-                <article class="trust-card">
-                    <span class="trust-kicker">Compatibility Page</span>
-                    <h1>旧文章入口已迁移</h1>
-                    <p>这个旧文章 URL 仅保留用于兼容访问。为避免旧内容和当前服务边界混淆，Zbot Global 已将公开内容整理到新的 Insights 页面。</p>
-                    <div class="trust-actions">
-                        <a class="btn-primary" href="insights.html">查看 Insights</a>
-                        <a class="btn-outline" href="service-scope.html">查看服务范围</a>
+                <ol class="breadcrumb-trail">
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><span class="bc-current">From Search Traffic to AI-Generated Demand</span></li>
+                </ol>
+            </div>
+        </nav>
+        <section class="article-hero">
+            <div class="container">
+                <div class="article-category">GEO &amp; AI Outreach</div>
+                <h1>From Search Traffic to AI-Generated Demand: Why Export Companies Need GEO and Agent Outreach</h1>
+                <div class="article-meta">
+                    <span><i class="fa-regular fa-calendar"></i> May 11, 2026</span>
+                    <span><i class="fa-regular fa-user"></i> Zbot Team</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-layout">
+            <div class="container">
+                <article class="article-body">
+                    <p class="article-intro">For many export companies, the old growth formula is becoming less reliable.</p>
+
+                    <p>A buyer no longer needs to search ten supplier websites, compare every product page manually, and wait for a sales representative to explain the market. Increasingly, buyers ask AI systems for supplier recommendations, product comparisons, sourcing risks, certification requirements, and country-specific market advice.</p>
+
+                    <p>This shift creates a new question for B2B companies:</p>
+
+                    <blockquote>When an overseas buyer asks an AI system about your category, does your company appear as a credible answer?</blockquote>
+
+                    <p>That is the business problem behind GEO, or Generative Engine Optimization.</p>
+
+                    <h2 id="what-geo-means">What GEO Means for B2B Export Companies</h2>
+
+                    <p>GEO is the practice of structuring your company's public information so AI-powered search and answer engines can understand, retrieve, and reference it correctly.</p>
+
+                    <p>It is not just SEO with a new name.</p>
+
+                    <p>Traditional SEO focuses on ranking webpages in search results. GEO focuses on whether your company, products, use cases, certifications, and market positioning are clear enough to be included in AI-generated answers.</p>
+
+                    <p>For an export manufacturer, this means your digital presence should answer questions such as:</p>
+
+                    <ul class="checklist">
+                        <li>What does this company manufacture?</li>
+                        <li>Which industries and buyer types does it serve?</li>
+                        <li>What product specifications, standards, and use cases are clearly documented?</li>
+                        <li>What makes the company credible as a supplier?</li>
+                        <li>What proof exists outside the company's own homepage?</li>
+                        <li>Can a buyer understand the company's capabilities without speaking to sales first?</li>
+                    </ul>
+
+                    <p>If the answer is unclear, AI systems may summarize competitors instead.</p>
+
+                    <h2 id="company-knowledge-system">Why GEO Requires a Company Knowledge System</h2>
+
+                    <p>A common problem in export marketing is fragmentation.</p>
+
+                    <p>The website says one thing. Sales decks say another. Product brochures are outdated. Social content is too general. Salespeople explain the company differently in every market.</p>
+
+                    <p>This creates weak signals for buyers and AI systems.</p>
+
+                    <p>Zbot's GEO product is designed around a different principle: before producing more content, a company needs a structured knowledge base.</p>
+
+                    <div class="highlight-box">
+                        <h3>That knowledge base should organize:</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Company positioning</li>
+                            <li><i class="fa-solid fa-check"></i> Product categories and technical specifications</li>
+                            <li><i class="fa-solid fa-check"></i> Buyer personas and sourcing scenarios</li>
+                            <li><i class="fa-solid fa-check"></i> Certifications, standards, and trust signals</li>
+                            <li><i class="fa-solid fa-check"></i> Case studies and application examples</li>
+                            <li><i class="fa-solid fa-check"></i> Competitor comparison logic</li>
+                            <li><i class="fa-solid fa-check"></i> Common buyer questions</li>
+                            <li><i class="fa-solid fa-check"></i> Approved claims and restricted wording</li>
+                        </ul>
+                    </div>
+
+                    <p>Once this foundation is clear, the company can produce website articles, product explainers, FAQ pages, LinkedIn articles, and sales enablement content with one consistent factual source.</p>
+
+                    <p>This is important because GEO is not about publishing random AI content. It is about making the company understandable, verifiable, and reusable across the buyer journey.</p>
+
+                    <h2 id="agent-outreach">Where Zbot Agent Outreach Fits In</h2>
+
+                    <p>Content visibility is only one side of overseas growth. The other side is targeted relationship building.</p>
+
+                    <p>Zbot agent outreach helps export teams move from passive waiting to structured market development.</p>
+
+                    <p>Instead of depending only on trade shows, referrals, or broad advertising, agent outreach can support a more systematic workflow:</p>
+
+                    <ul class="checklist">
+                        <li>Identify companies that match the ideal customer profile</li>
+                        <li>Enrich buyer and decision-maker context from public information</li>
+                        <li>Segment prospects by country, industry, company size, product fit, and buying signals</li>
+                        <li>Prepare personalized outreach angles based on the buyer's likely sourcing problem</li>
+                        <li>Track engagement and feedback for continuous improvement</li>
+                        <li>Help sales teams focus on qualified conversations instead of manual research</li>
+                    </ul>
+
+                    <p>This does not replace human sales judgment. It gives sales teams better context before they start a conversation.</p>
+
+                    <p>For export companies, this distinction matters. International B2B sales still depends on trust, timing, responsiveness, and technical credibility. The role of AI agents is to reduce repetitive research work, improve targeting, and help teams act with more discipline.</p>
+
+                    <h2 id="geo-outreach-loop">The GEO + Outreach Loop</h2>
+
+                    <p>The strongest growth system connects GEO and outreach together.</p>
+
+                    <p>GEO makes the company easier to understand and cite. Agent outreach brings that positioning into targeted buyer conversations. Buyer responses then reveal which questions, objections, and proof points should be added back into the knowledge base.</p>
+
+                    <p>A practical loop looks like this:</p>
+
+                    <ol class="numbered-list">
+                        <li>Build the company knowledge base.</li>
+                        <li>Audit website and public content for GEO readiness.</li>
+                        <li>Publish structured content around buyer questions.</li>
+                        <li>Use agent outreach to identify and engage relevant overseas prospects.</li>
+                        <li>Track objections, replies, and conversion signals.</li>
+                        <li>Update the knowledge base and content strategy.</li>
+                        <li>Repeat by market, product line, and buyer segment.</li>
+                    </ol>
+
+                    <p>This creates a compounding advantage. The company's public information becomes clearer. Sales conversations become more relevant. Content becomes more grounded in real buyer questions. AI systems get stronger signals about what the company does and why it is credible.</p>
+
+                    <h2 id="what-to-fix-first">What Export Teams Should Fix First</h2>
+
+                    <p>Before investing in more campaigns, export companies should check four practical areas:</p>
+
+                    <div class="highlight-box">
+                        <h3>Four Areas to Audit</h3>
+                        <ul>
+                            <li><i class="fa-solid fa-magnifying-glass"></i> <strong>Clarity:</strong> Can a buyer understand your product, market, and value within two minutes?</li>
+                            <li><i class="fa-solid fa-shield-halved"></i> <strong>Evidence:</strong> Do you show certifications, use cases, case studies, and measurable capabilities?</li>
+                            <li><i class="fa-solid fa-layer-group"></i> <strong>Structure:</strong> Are your pages written with clear headings, FAQs, and direct answers?</li>
+                            <li><i class="fa-solid fa-rotate"></i> <strong>Consistency:</strong> Do your website, sales materials, and public profiles tell the same story?</li>
+                        </ul>
+                    </div>
+
+                    <p>If these basics are weak, more traffic will not solve the problem. The company will simply bring more buyers into an unclear journey.</p>
+
+                    <h2 id="better-buyer-understanding">The Real Goal: Better Buyer Understanding</h2>
+
+                    <p>The future of B2B export growth is not only about getting more impressions. It is about being understood earlier in the sourcing process.</p>
+
+                    <p>GEO helps companies become visible in AI-assisted discovery. Zbot agent outreach helps sales teams turn that visibility into targeted conversations. Together, they create a more modern growth system for export businesses that need to compete globally with limited time, limited headcount, and rising buyer expectations.</p>
+
+                    <p>The companies that win will not be the ones publishing the most content.</p>
+
+                    <p>They will be the ones with the clearest knowledge base, the strongest proof, and the most disciplined way to connect with the right buyers.</p>
+
+                    <div class="article-closing">
+                        <p>What part of your overseas growth system is weakest today: visibility, trust, targeting, or follow-up?</p>
                     </div>
                 </article>
+
+                <aside class="article-sidebar">
+                    <div class="sidebar-card">
+                        <h4>In This Article</h4>
+                        <ul class="toc-list">
+                            <li><a href="#what-geo-means">What GEO Means for B2B Export Companies</a></li>
+                            <li><a href="#company-knowledge-system">Why GEO Requires a Company Knowledge System</a></li>
+                            <li><a href="#agent-outreach">Where Zbot Agent Outreach Fits In</a></li>
+                            <li><a href="#geo-outreach-loop">The GEO + Outreach Loop</a></li>
+                            <li><a href="#what-to-fix-first">What Export Teams Should Fix First</a></li>
+                            <li><a href="#better-buyer-understanding">The Real Goal: Better Buyer Understanding</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-cta">
+                        <h4>Ready to build your GEO system?</h4>
+                        <p>Talk to a Zbot advisor about your overseas growth strategy.</p>
+                        <a class="btn-primary" href="client-request.html">Submit a Project Request</a>
+                    </div>
+
+                </aside>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Build a clearer GEO-ready overseas growth system</h2>
+                <p>Zbot Global helps B2B export teams clarify positioning, website structure, market research, outreach workflow, content visibility, and review rhythm.</p>
+                <div class="hero-cta">
+                    <a class="btn-primary" href="client-request.html">提交业务需求</a>
+                    <a class="btn-outline" href="contact.html">联系我们</a>
+                </div>
             </div>
         </section>
     </main>
-    <footer id="footer">
+
+    <footer>
         <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand" style="color:#fff;">
+                        <img src="./media/zbot-logo-sm.svg" alt="Zbot Global Logo" class="brand-logo brand-logo--footer"/>
+                    </div>
+                    <h3>AI 驱动的 B2B 出海咨询与增长服务商</h3>
+                    <p>Zbot Global 帮助中国制造企业建立可解释、可交付、可复盘的海外获客系统。</p>
+                    <div class="socials" style="margin-top:18px;">
+                        <a href="https://www.linkedin.com/company/zbottechnology/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Zbot Global LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>核心服务</h4>
+                    <ul>
+                        <li><a href="service-geo-ready-b2b-infrastructure.html">GEO-ready 外贸数字基建</a></li>
+                        <li><a href="service-ai-market-research-lead-generation.html">AI 市场调研与主动获客</a></li>
+                        <li><a href="service-geo-ai-knowledge-content-visibility.html">GEO 内容可见度</a></li>
+                        <li><a href="service-ai-ads-growth-amplification.html">AI 定向投流与放大</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>信任中心</h4>
+                    <ul>
+                        <li><a href="about-zbot-global.html">About Zbot Global</a></li>
+                        <li><a href="trust/brand-clarification.html">品牌边界</a></li>
+                        <li><a href="legal-entity.html">法律主体</a></li>
+                        <li><a href="what-we-do-not-do.html">我们不做什么</a></li>
+                        <li><a href="faq.html">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系我们</h4>
+                    <div class="footer-contact">
+                        <div class="contact-row"><i class="fa-regular fa-envelope"></i><a href="mailto:customer@zbotglobal.com">customer@zbotglobal.com</a></div>
+                        <div class="contact-row"><i class="fa fa-phone"></i><a href="tel:+16478645968">海外电话：+1 647-864-5968</a></div>
+                        <div class="contact-row"><i class="fa-solid fa-phone"></i><a href="tel:+8617336188628">国内电话：+86 173-3618-8628</a></div>
+                        <div class="contact-row"><i class="fa-brands fa-weixin"></i><span>微信号：zbotglobal</span></div>
+                        <img src="media/wechat.jpg" alt="Zbot Global WeChat QR code" class="wechat-qr"/>
+                        <button type="button" class="wechat-qr-trigger" style="font-size:13px;">扫码添加企业微信 · 预约顾问</button>
+                    </div>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <span>© 2025 Shenzhen Zbot Global Technology Co., Ltd. All rights reserved. | 深圳智博出海科技有限公司</span>
-                <span><a href="insights.html">Insights</a> · <a href="service-scope.html">服务范围</a> · <a href="contact.html">联系我们</a></span>
+                <span><a href="legal-entity.html">法律主体</a> · <a href="service-scope.html">服务范围</a></span>
             </div>
         </div>
     </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>

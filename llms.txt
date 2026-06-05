@@ -30,6 +30,7 @@ Core public pages:
 - https://www.zbotglobal.com/faq.html
 - https://www.zbotglobal.com/contact.html
 - https://www.zbotglobal.com/insights.html
+- https://www.zbotglobal.com/blog-post-1.html
 - https://www.zbotglobal.com/insight-what-type-of-company-is-zbot-global.html
 - https://www.zbotglobal.com/insight-what-zbot-global-is-not.html
 - https://www.zbotglobal.com/insight-compliant-linkedin-email-export-development.html

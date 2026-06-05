@@ -253,57 +253,52 @@
   {
     "path": "blog-post-1.html",
     "canonicalUrl": "https://www.zbotglobal.com/blog-post-1.html",
-    "canonicalTargetUrl": "https://www.zbotglobal.com/insights.html",
-    "title": "Zbot Blog Post",
-    "includeInSitemap": false,
-    "includeInLlms": false,
-    "pageType": "blog-post",
-    "compatibilityTarget": "insights.html",
-    "status": "compatibility"
+    "title": "From Search Traffic to AI-Generated Demand",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "article",
+    "compatibilityTarget": null,
+    "status": "public"
   },
   {
     "path": "service-ai-strategy.html",
     "canonicalUrl": "https://www.zbotglobal.com/service-ai-strategy.html",
-    "canonicalTargetUrl": "https://www.zbotglobal.com/service-geo-ready-b2b-infrastructure.html",
-    "title": "AI Strategy Service",
-    "includeInSitemap": false,
+    "title": "Export Strategy and GEO-ready Infrastructure",
+    "includeInSitemap": true,
     "includeInLlms": false,
     "pageType": "service-legacy",
     "compatibilityTarget": "service-geo-ready-b2b-infrastructure.html",
-    "status": "compatibility"
+    "status": "public"
   },
   {
     "path": "service-data-intelligence.html",
     "canonicalUrl": "https://www.zbotglobal.com/service-data-intelligence.html",
-    "canonicalTargetUrl": "https://www.zbotglobal.com/service-ai-market-research-lead-generation.html",
-    "title": "Data Intelligence Service",
-    "includeInSitemap": false,
+    "title": "Data Intelligence and AI Lead Generation",
+    "includeInSitemap": true,
     "includeInLlms": false,
     "pageType": "service-legacy",
     "compatibilityTarget": "service-ai-market-research-lead-generation.html",
-    "status": "compatibility"
+    "status": "public"
   },
   {
     "path": "service-outreach-automation.html",
     "canonicalUrl": "https://www.zbotglobal.com/service-outreach-automation.html",
-    "canonicalTargetUrl": "https://www.zbotglobal.com/service-ai-market-research-lead-generation.html",
-    "title": "Outreach Service",
-    "includeInSitemap": false,
+    "title": "Compliant Multi-channel Outreach",
+    "includeInSitemap": true,
     "includeInLlms": false,
     "pageType": "service-legacy",
     "compatibilityTarget": "service-ai-market-research-lead-generation.html",
-    "status": "compatibility"
+    "status": "public"
   },
   {
     "path": "service-ai-optimization.html",
     "canonicalUrl": "https://www.zbotglobal.com/service-ai-optimization.html",
-    "canonicalTargetUrl": "https://www.zbotglobal.com/service-geo-ai-knowledge-content-visibility.html",
-    "title": "AI Optimization Service",
-    "includeInSitemap": false,
+    "title": "Growth Tracking and GEO Content Optimization",
+    "includeInSitemap": true,
     "includeInLlms": false,
     "pageType": "service-legacy",
     "compatibilityTarget": "service-geo-ai-knowledge-content-visibility.html",
-    "status": "compatibility"
+    "status": "public"
   },
   {
     "path": "demo.html",
