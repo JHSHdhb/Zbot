@@ -8,6 +8,7 @@ const args = new Set(process.argv.slice(2));
 const publishDate = process.env.PUBLISH_DATE || new Date().toISOString().slice(0, 10);
 const shouldPublishNext = args.has("--publish-next");
 const shouldRegenerate = args.has("--regenerate");
+const allowedArgs = new Set(["--publish-next", "--regenerate"]);
 const boundaryRiskPatterns = [
   /不封号/i,
   /100%\s*安全/i,
@@ -19,22 +20,38 @@ const boundaryRiskPatterns = [
   /高触达/i,
   /百万数据(?:上传)?/i,
   /1\s*人\s*顶\s*10\s*人/i,
-  /虚拟币交易/i,
+  /虚拟币/i,
   /自动炒币/i,
-  /投资理财/i,
+  /投资(?:理财|收益|项目|建议|回报)?/i,
   /自动交易/i,
   /资金盘/i,
+  /返利项目/i,
+  /刷量/i,
+  /外挂/i,
+  /规避(?:审核|规则|平台规则)?/i,
+  /绕过(?:审核|规则|平台规则)?/i,
+  /平台规避/i,
+  /交易(?:工具|平台|服务|项目)?/i,
+  /固定(?:成交|回复率|询盘|转化率|结果|答案|效果)/i,
+  /承诺收益/i,
   /稳赚/i,
   /保收益/i,
-  /account-ban bypass/i,
-  /guaranteed results/i,
-  /crypto trading/i,
+  /account[-\s]?ban bypass/i,
+  /guarantee(?:d|s)?/i,
+  /fixed\s+(?:deal|deals|reply|replies|outcome|outcomes|result|results|ranking|rankings)/i,
+  /crypto(?:\s+trading)?/i,
+  /trading/i,
   /investment advice/i,
-  /automated trading/i
+  /investment/i,
+  /automated trading/i,
+  /platform[-\s]?bypass/i,
+  /review\s+bypass/i,
+  /traffic\s+manipulation/i
 ];
 
-if ((!shouldPublishNext && !shouldRegenerate) || (shouldPublishNext && shouldRegenerate)) {
-  console.error("Usage: node .github/scripts/publish-scheduled-blog.mjs --publish-next [--force] | --regenerate");
+const unknownArgs = [...args].filter((arg) => !allowedArgs.has(arg));
+if (unknownArgs.length || (!shouldPublishNext && !shouldRegenerate) || (shouldPublishNext && shouldRegenerate)) {
+  console.error("Usage: node .github/scripts/publish-scheduled-blog.mjs --publish-next | --regenerate");
   process.exit(1);
 }
 
@@ -47,7 +64,7 @@ const state = normalizeState(readJson(statePath, {
 }), publishDate);
 
 let nextPost = null;
-if (shouldPublishNext && state.lastPublishedAt === publishDate && !args.has("--force")) {
+if (shouldPublishNext && state.lastPublishedAt === publishDate) {
   console.log(`No-op: one scheduled blog was already published on ${publishDate}.`);
   process.exit(0);
 }
@@ -202,6 +219,7 @@ ${articleHtml}
 </html>
 `;
 
+  assertBoundaryCompliance(html, post.fileName);
   fs.writeFileSync(path.join(root, post.fileName), html);
 }
 
@@ -470,6 +488,47 @@ function inline(value) {
 
 function boundaryAttr(value) {
   return boundaryRiskPatterns.some((pattern) => pattern.test(String(value))) ? ' data-risk-context="boundary"' : "";
+}
+
+function assertBoundaryCompliance(html, fileName) {
+  const findings = [];
+  for (const pattern of boundaryRiskPatterns) {
+    const globalPattern = new RegExp(pattern.source, pattern.flags.includes("i") ? "gi" : "g");
+    for (const match of html.matchAll(globalPattern)) {
+      if (!isInsideHtmlBoundary(html, match.index ?? 0)) {
+        findings.push(`${fileName}: risky copy "${match[0]}" is outside data-risk-context="boundary"`);
+      }
+    }
+  }
+  if (findings.length) {
+    throw new Error(`Generated blog boundary audit failed:\n${findings.map((finding) => `- ${finding}`).join("\n")}`);
+  }
+}
+
+function isInsideHtmlBoundary(text, index) {
+  const stack = [];
+  const tagPattern = /<\/?([a-z][a-z0-9-]*)\b[^>]*>/gi;
+  let match;
+  while ((match = tagPattern.exec(text)) && match.index < index) {
+    const tag = match[1].toLowerCase();
+    const source = match[0];
+    if (source.startsWith("</")) {
+      for (let i = stack.length - 1; i >= 0; i -= 1) {
+        const current = stack.pop();
+        if (current?.tag === tag) break;
+      }
+      continue;
+    }
+    const selfClosing = /\/>$/.test(source) || isVoidTag(tag);
+    const inheritedBoundary = stack.some((item) => item.boundary);
+    const boundary = inheritedBoundary || /\sdata-risk-context=["']boundary["']/i.test(source);
+    if (!selfClosing) stack.push({ tag, boundary });
+  }
+  return stack.some((item) => item.boundary);
+}
+
+function isVoidTag(tag) {
+  return new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]).has(tag);
 }
 
 function extractEnglishTitle(markdown) {

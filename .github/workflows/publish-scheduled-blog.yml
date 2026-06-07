@@ -4,15 +4,6 @@ on:
   schedule:
     - cron: "0 13 * * *"
   workflow_dispatch:
-    inputs:
-      force:
-        description: "Publish even if a post was already published today"
-        required: false
-        default: "false"
-        type: choice
-        options:
-          - "false"
-          - "true"
 
 permissions:
   contents: write
@@ -36,14 +27,7 @@ jobs:
           node-version: "20"
 
       - name: Publish next scheduled blog post
-        env:
-          FORCE_PUBLISH: ${{ github.event_name == 'workflow_dispatch' && inputs.force == 'true' && '1' || '0' }}
-        run: |
-          args="--publish-next"
-          if [ "$FORCE_PUBLISH" = "1" ]; then
-            args="$args --force"
-          fi
-          PUBLISH_DATE="$(date -u +%F)" node .github/scripts/publish-scheduled-blog.mjs $args
+        run: PUBLISH_DATE="$(date -u +%F)" node .github/scripts/publish-scheduled-blog.mjs --publish-next
 
       - name: Commit changes
         run: |
