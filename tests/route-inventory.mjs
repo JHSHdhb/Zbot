@@ -13,6 +13,12 @@ const expectedSitemapUrls = new Set(manifest.filter((route) => route.includeInSi
 const expectedLlmsUrls = new Set(manifest.filter((route) => route.includeInLlms).map((route) => route.canonicalUrl));
 const sitemapUrls = new Set([...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/gi)].map((match) => match[1]));
 const llmsUrls = new Set([...llms.matchAll(/https:\/\/www\.zbotglobal\.com\/[^\s)]+/gi)].map((match) => match[0]));
+const sitemapBlocksByUrl = new Map(
+  [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/gi)].map((match) => {
+    const loc = match[1].match(/<loc>\s*([^<]+?)\s*<\/loc>/i)?.[1];
+    return [loc, match[1]];
+  }).filter(([loc]) => loc)
+);
 
 for (const file of fs.readdirSync(root).filter((entry) => entry.endsWith(".html"))) {
   if (!manifestPaths.has(file)) findings.push(`${file}: root HTML file is missing from docs/site-route-manifest.json`);
@@ -52,6 +58,10 @@ for (const route of manifest) {
   }
   if (route.includeInSitemap && !sitemap.includes(route.canonicalUrl)) {
     findings.push(`${route.path}: includeInSitemap=true but sitemap.xml lacks ${route.canonicalUrl}`);
+  }
+  if (route.includeInSitemap) {
+    const lastmod = sitemapBlocksByUrl.get(route.canonicalUrl)?.match(/<lastmod>\s*(\d{4}-\d{2}-\d{2})\s*<\/lastmod>/i)?.[1];
+    if (!lastmod) findings.push(`${route.path}: sitemap.xml entry lacks YYYY-MM-DD lastmod`);
   }
   if (!route.includeInSitemap && sitemap.includes(route.canonicalUrl)) {
     findings.push(`${route.path}: includeInSitemap=false but sitemap.xml includes ${route.canonicalUrl}`);

@@ -700,7 +700,7 @@ html.is-modal-open body {
     background:
         linear-gradient(90deg, rgba(3, 10, 32, 0.9) 0%, rgba(8, 30, 78, 0.78) 52%, rgba(4, 12, 34, 0.58) 100%),
         linear-gradient(180deg, rgba(4, 10, 32, 0.02) 0%, rgba(4, 10, 32, 0.42) 100%),
-        url('../media/hero-bg.png') center/cover no-repeat;
+        url('../media/hero-bg.webp') center/cover no-repeat;
     color: #f1f5ff;
 }
 
@@ -1160,7 +1160,7 @@ html.is-modal-open body {
             color: #f1f5ff;
             overflow: hidden;
             background: #030a1f;
-            background-image: url('../media/hero-bg.png');
+            background-image: url('../media/hero-bg.webp');
             background-size: cover;
             background-position: center;
             padding-top: 15vh;
@@ -1229,7 +1229,7 @@ html.is-modal-open body {
             color: #f1f5ff;
             overflow: hidden;
             background: #030a1f;
-            background-image: url('../media/hero-bg.png');
+            background-image: url('../media/hero-bg.webp');
             background-size: cover;
             background-position: center;
         }
@@ -2237,7 +2237,7 @@ html.is-modal-open body {
             padding: 40px 0 40px;
             background:
                 linear-gradient(120deg, rgba(13, 25, 53, 0.624)),
-                url('../media/client-bg.png') center/cover no-repeat;
+                url('../media/client-bg.webp') center/cover no-repeat;
             color: #e7f1ff;
             overflow: hidden;
         }
@@ -2397,7 +2397,7 @@ html.is-modal-open body {
         .team-photo {
             border-radius: 32px;
             height: 670px;
-            background: url('../media/team-about.png') center/cover no-repeat;
+            background: url('../media/team-about.webp') center/cover no-repeat;
             box-shadow: 0 35px 80px rgba(3, 10, 28, 0.65);
             position: relative;
             overflow: hidden;

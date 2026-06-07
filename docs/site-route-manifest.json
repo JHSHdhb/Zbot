@@ -172,7 +172,7 @@
   {
     "path": "blog.html",
     "canonicalUrl": "https://www.zbotglobal.com/blog.html",
-    "title": "Zbot Global Blog",
+    "title": "Zbot Global 博客 | GEO与B2B出海增长",
     "includeInSitemap": true,
     "includeInLlms": true,
     "pageType": "blog-index",
@@ -182,7 +182,7 @@
   {
     "path": "insights.html",
     "canonicalUrl": "https://www.zbotglobal.com/insights.html",
-    "title": "Zbot Global Insights",
+    "title": "Zbot Global Insights | GEO与AI搜索可信度",
     "includeInSitemap": true,
     "includeInLlms": true,
     "pageType": "insights",
@@ -263,6 +263,16 @@
     "path": "blog-post-2.html",
     "canonicalUrl": "https://www.zbotglobal.com/blog-post-2.html",
     "title": "Why B2B Export Companies Need a GEO-ready Website and AI-readable Knowledge Base",
+    "includeInSitemap": true,
+    "includeInLlms": true,
+    "pageType": "article",
+    "compatibilityTarget": null,
+    "status": "public"
+  },
+  {
+    "path": "blog-why-ai-search-misunderstands-b2b-export-growth-companies.html",
+    "canonicalUrl": "https://www.zbotglobal.com/blog-why-ai-search-misunderstands-b2b-export-growth-companies.html",
+    "title": "AI 搜索为什么误解 B2B 外贸增长公司 | Zbot Global",
     "includeInSitemap": true,
     "includeInLlms": true,
     "pageType": "article",
