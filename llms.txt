@@ -33,6 +33,7 @@ Core public pages:
 - https://www.zbotglobal.com/insights.html
 - https://www.zbotglobal.com/blog-post-1.html
 - https://www.zbotglobal.com/blog-post-2.html
+- https://www.zbotglobal.com/blog-from-customs-data-to-contactable-decision-makers.html
 - https://www.zbotglobal.com/blog-what-is-a-geo-ready-b2b-export-website.html
 - https://www.zbotglobal.com/blog-why-ai-search-misunderstands-b2b-export-growth-companies.html
 - https://www.zbotglobal.com/insight-what-type-of-company-is-zbot-global.html
